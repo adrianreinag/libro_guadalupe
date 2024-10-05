@@ -38,6 +38,8 @@ export class Laudes extends Mayores {
       "Se hace la señal de la cruz sobre los labios mientras se dice:",
     verso: "Señor, ábreme los labios.",
     respuesta: "Y mi boca proclamará tu alabanza.",
+    gloria:
+      "Gloria al Padre, y al Hijo, y al Espíritu Santo. Como era en el principio, ahora y siempre, por los siglos de los siglos. Amén.",
   };
 
   invitatorio = {
@@ -130,6 +132,20 @@ export class Visperas extends Mayores {
     respuesta: "Señor, date prisa en socorrerme.",
     gloria:
       "Gloria al Padre, y al Hijo, y al Espíritu Santo. Como era en el principio, ahora y siempre, por los siglos de los siglos. Amén.",
+  };
+
+  invitatorio = {
+    titulo: "Salmo 94: Invitación a la alabanza divina",
+    antifona: "",
+    estrofas: [
+      "Venid, aclamemos al Señor,\ndemos vítores a la Roca que nos salva;\nentremos a su presencia dándole gracias,\naclamándolo con cantos.",
+      "Porque el Señor es un Dios grande,\nsoberano de todos los dioses:\ntiene en su mano las simas de la tierra,\nson suyas las cumbres de los montes;\nsuyo es el mar, porque él lo hizo,\nla tierra firme que modelaron sus manos.",
+      "Entrad, postrémonos por tierra,\nbendiciendo al Señor, creador nuestro.\nPorque él es nuestro Dios,\ny nosotros su pueblo,\nel rebaño que él guía.",
+      "Ojalá escuchéis hoy su voz:\n«No endurezcáis el corazón como en Meribá,\ncomo el día de Masá en el desierto;\ncuando vuestros padres me pusieron a prueba\ny me tentaron, aunque habían visto mis obras.",
+      'Durante cuarenta años\naquella generación me asqueó, y dije:\n"Es un pueblo de corazón extraviado,\nque no reconoce mi camino;\npor eso he jurado en mi cólera\nque no entrarán en mi descanso."',
+      "Gloria al Padre, y al Hijo, y al Espíritu Santo.\nComo era en el principio, ahora y siempre,\npor los siglos de los siglos. Amén.",
+    ],
+    comentario: "Se repite la antífona.",
   };
 
   canticoEvangelico = {

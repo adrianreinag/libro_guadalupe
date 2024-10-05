@@ -78,7 +78,7 @@ const liturgia = getLiturgia(tipoLiturgia, dia);
         <h2 class="titulo-seccion mb-6">Invitatorio</h2>
         <h3 class="titulo-salmos mb-4">{liturgia.invitatorio.titulo}</h3>
         <p class="parrafo mb-6"><span class="red">Ant. </span>{liturgia.invitatorio.antifona}</p>
-        {liturgia.invitatorio.estrofas.map((estrofa, index) => (
+        {liturgia.invitatorio.estrofas.map((estrofa: string, index: number) => (
           <div class="ps-4">
             <p class="parrafo mb-6">{estrofa}</p>
             {index === liturgia.invitatorio.estrofas.length - 1 ? null : <p class="comentario-izquierda mb-6">{liturgia.invitatorio.comentario}</p>}
