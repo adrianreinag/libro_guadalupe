@@ -22,8 +22,8 @@ export default defineConfig({
       includeAssets: ['favicon.svg'],
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Astro PWA',
-        short_name: 'Astro PWA',
+        name: 'Libro del peregrino',
+        short_name: 'Guadalupe',
         theme_color: '#ffffff',
         icons: [
           {
