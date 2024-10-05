@@ -4,6 +4,5 @@
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "allowImportingTsExtensions": true,
-    "types": ["vite-plugin-pwa/client"]
   }
 }
