@@ -49,7 +49,7 @@ const rosario = RosarioDia.fromJSON(rosarioData, dia);
             <div>
               <h3 class="titulo-salmos">{detalle.nombre}</h3>
               <p class="parrafo">{detalle.lectura}</p>
-              <img src={detalle.imagen} alt={detalle.nombre} class="mb-6"/> {/* Mostrar la imagen */}
+              {/* <img src={detalle.imagen} alt={detalle.nombre} class="mb-6"/> Mostrar la imagen */}
               <p class="parrafo">{RosarioDia.PadreNuestro}</p>
               {[...Array(10)].map(() => (
                 <p class="parrafo">{RosarioDia.AveMaria}</p>
