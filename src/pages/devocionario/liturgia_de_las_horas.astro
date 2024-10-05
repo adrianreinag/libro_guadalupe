@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Liturgia de las horas">
+  <h1>Selecciona la Liturgia</h1>
+  <form id="liturgiaForm">
+    <label for="tipoLiturgia">Tipo de liturgia:</label>
+    <select id="tipoLiturgia" name="tipoLiturgia">
+      <option value="laudes">Laudes</option>
+      <option value="visperas">Vísperas</option>
+    </select>
+
+    <label for="dia">Día:</label>
+    <select id="dia" name="dia">
+      <option value="viernes">Viernes</option>
+      <option value="sabado">Sábado</option>
+      <option value="domingo">Domingo</option>
+    </select>
+
+    <button type="submit">Cargar Liturgia</button>
+  </form>
+
+  <script>
+    document.getElementById('liturgiaForm')?.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita el envío normal del formulario
+
+      const tipoLiturgiaSelect = document.getElementById('tipoLiturgia') as HTMLSelectElement;
+      const diaSelect = document.getElementById('dia') as HTMLSelectElement;
+
+      if (tipoLiturgiaSelect && diaSelect) {
+        const tipoLiturgia = tipoLiturgiaSelect.value;
+        const dia = diaSelect.value;
+
+        // Redirigir a la ruta dinámica correspondiente
+        window.location.href = `/devocionario/liturgia_de_las_horas/${tipoLiturgia}/${dia}`;
+      }
+    });
+  </script>
+</BaseLayout>

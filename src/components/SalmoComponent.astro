@@ -1,0 +1,26 @@
+---
+// LecturaComponent.astro
+interface Props {
+  title: string;
+  cita: string;
+  antifona: string;
+  texto: string; // Recibe un string con <br>
+}
+
+const { title, cita, antifona, texto } = Astro.props;
+
+const parrafos = texto.split('<br><br>');
+
+
+
+---
+
+<div class="mb-10">
+  <h2 class="text-xl font-semibold mb-3">{title}</h2>
+  <p class="text-red-700 text-end mb-5 text-sm">{cita}</p>
+  <p class="text-gray-700 mb-7"><span class="text-red-700">Ant. </span>{antifona}</p>
+
+  {parrafos.map((parrafo) => (
+    <p class="text-gray-700 leading-7 mb-5">{parrafo}</p>
+  ))}
+</div>

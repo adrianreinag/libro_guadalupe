@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import mayoresData from '../../../../data/mayores.json';
+import { Laudes, Visperas } from '../../../../classes/mayores.ts';
+import HeaderComponent from '../../../../components/HeaderComponent.astro';
+
+// Definir la estructura del tipo para los parámetros
+interface Path {
+  params: {
+    tipoLiturgia: string;
+    dia: string;
+  };
+}
+
+// Definir las rutas dinámicas que quieres generar
+export async function getStaticPaths(): Promise<Path[]> {
+  const tipos = ['laudes', 'visperas'];
+  const dias = ['viernes', 'sabado', 'domingo'];
+  
+  const paths: Path[] = []; // Especificar el tipo de 'paths'
+
+  tipos.forEach(tipo => {
+    dias.forEach(dia => {
+      paths.push({
+        params: {
+          tipoLiturgia: tipo,
+          dia: dia,
+        }
+      });
+    });
+  });
+
+  return paths;
+}
+
+// Ahora puedes usar los parámetros en tu componente
+const { tipoLiturgia, dia } = Astro.params;
+
+// Validar el tipo y el día
+if (!tipoLiturgia || !dia || !['laudes', 'visperas'].includes(tipoLiturgia) || !['viernes', 'sabado', 'domingo'].includes(dia)) {
+  throw new Error('Tipo de liturgia o día no válido.');
+}
+
+// Obtener la liturgia según el tipo
+const getLiturgia = (tipo: string, diaSeleccionado: string) => {
+  if (tipo === 'laudes') {
+    return Laudes.fromJSON(mayoresData, diaSeleccionado);
+  } else if (tipo === 'visperas') {
+    return Visperas.fromJSON(mayoresData, diaSeleccionado);
+  }
+  throw new Error('Tipo de liturgia no válido.');
+};
+
+const liturgia = getLiturgia(tipoLiturgia, dia);
+---
+
+<BaseLayout title="Liturgia de las horas">
+  <HeaderComponent title={tipoLiturgia === 'laudes' ? 'Laudes' : 'Vísperas'}/>
+  <div class="p-6 pt-24">
+    <h1 class="titulo-dia mb-12">{liturgia.tituloDia}</h1>
+    <h2 class="titulo-seccion mb-6">Invocación inicial</h2>
+    <p class="comentario-centrado mb-6">{liturgia.invocacionInicial.comentario}</p>
+    <p class="parrafo mb-2"><span class="red">V. </span>{liturgia.invocacionInicial.verso}</p>
+    {tipoLiturgia === 'visperas' &&
+      <div>
+        <p class="parrafo mb-6"><span class="red">R. </span>{liturgia.invocacionInicial.respuesta}</p>
+        <p class="parrafo mb-10">{liturgia.invocacionInicial.gloria}</p>
+      </div>
+    }
+    {
+      tipoLiturgia === 'laudes' &&
+      <div>
+        <p class="parrafo mb-10"><span class="red">R. </span>{liturgia.invocacionInicial.respuesta}</p>
+      </div>
+    }
+    {tipoLiturgia === 'laudes' &&
+      <div>    
+        <h2 class="titulo-seccion mb-6">Invitatorio</h2>
+        <h3 class="titulo-salmos mb-4">{liturgia.invitatorio.titulo}</h3>
+        <p class="parrafo mb-6"><span class="red">Ant. </span>{liturgia.invitatorio.antifona}</p>
+        {liturgia.invitatorio.estrofas.map((estrofa, index) => (
+          <div class="ps-4">
+            <p class="parrafo mb-6">{estrofa}</p>
+            {index === liturgia.invitatorio.estrofas.length - 1 ? null : <p class="comentario-izquierda mb-6">{liturgia.invitatorio.comentario}</p>}
+          </div>
+        ))}
+        <p class="parrafo mb-10"><span class="red">Ant. </span>{liturgia.invitatorio.antifona}</p>
+      </div>
+    }
+    <h2 class="titulo-seccion mb-6">Himno</h2>
+    <p class="parrafo mb-10">{liturgia.himno}</p>
+    <h2 class="titulo-seccion mb-6">Salmodia</h2>
+    {Object.entries(liturgia.salmodia).map(([key, salmo]) => (
+      <div class="mb-6">
+        <h3 class="titulo-salmos mb-4">{salmo.cita}</h3>
+        <p class="parrafo mb-6"><span class="red">Ant. </span>{salmo.antifona}</p>
+        {salmo.estrofas.map(estrofa => (
+          <p class="parrafo mb-6 ps-4">{estrofa}</p>
+        ))}
+        <p class="parrafo mb-10"><span class="red">Ant. </span>{salmo.antifona}</p>
+      </div>
+    ))}
+    <h2 class="titulo-seccion mt-4 mb-6">Lectura breve</h2>
+    <p class="comentario-derecha mb-4">{liturgia.lecturaBreve.cita}</p>
+    <p class="parrafo mb-10">{liturgia.lecturaBreve.texto}</p>
+    <h2 class="titulo-seccion mb-6">Responsorio</h2>
+    {liturgia.responsorio.v.map((versiculo, index) => (
+      <div class={index === liturgia.responsorio.v.length - 1 ? "mb-10" : "mb-6"}>
+        <p class="parrafo mb-2"><span class="red">V. </span>{versiculo}</p>
+        {liturgia.responsorio.r[index] && (
+          <p class="parrafo"><span class="red">R. </span>{liturgia.responsorio.r[index]}</p>
+        )}
+      </div>
+    ))}
+    
+    <h2 class="titulo-seccion mt-7 mb-6">Cántico evangélico</h2>
+    <p class="comentario-centrado mb-6">{liturgia.canticoEvangelico.comentario}</p>
+    <p class="parrafo mb-6"><span class="red">Ant. </span>{liturgia.canticoEvangelico.antifona}</p>
+    {liturgia.canticoEvangelico.estrofas.map((estrofa, index) => (
+      <div class="ps-4">
+        <p class="parrafo mb-6">{estrofa}</p>
+      </div>
+    ))}
+    <p class="parrafo mb-10"><span class="red">Ant. </span>{liturgia.canticoEvangelico.antifona}</p>
+    <h2 class="titulo-seccion mb-6">Preces</h2>
+    <p class="parrafo mb-6">{liturgia.peticiones.introduccion}</p>
+    <p class="parrafo cursiva mb-6 ps-4">{liturgia.peticiones.respuesta}</p>
+    {liturgia.peticiones.peticiones.map(peticion => (
+      <div class="mb-6">
+        <p class="parrafo mb-2">{peticion.intencion}</p>
+        <p class="parrafo cursiva">{peticion.respuesta}</p>
+      </div>
+    ))}
+    <p class="comentario-centrado mb-10">{liturgia.peticiones.comentario}</p>
+    <h2 class="titulo-seccion mb-6">Oración dominical</h2>
+    <p class="parrafo mb-6">{liturgia.oracionDominical.introduccion}</p>
+    <p class="parrafo mb-10">{liturgia.oracionDominical.texto}</p>
+    <h2 class="titulo-seccion mb-6">Oración conclusiva</h2>
+    <p class="parrafo mb-10">{liturgia.oracionConclusiva}</p>
+    <h2 class="titulo-seccion mb-6">Conclusión</h2>
+    <p class="comentario-centrado mb-6">{liturgia.conclusion.comentario1}</p>
+    <p class="parrafo mb-2"><span class="red">V. </span>{liturgia.conclusion.v1}</p>
+    <p class="parrafo mb-6"><span class="red">R. </span>{liturgia.conclusion.r1}</p>
+    <p class="comentario-centrado mb-6">{liturgia.conclusion.comentario2}</p>
+    <p class="parrafo mb-2"><span class="red">V. </span>{liturgia.conclusion.v2}</p>
+    <p class="parrafo mb-6"><span class="red">R. </span>{liturgia.conclusion.r2}</p>
+    <p class="parrafo mb-2"><span class="red">V. </span>{liturgia.conclusion.v3}</p>
+    <p class="parrafo mb-6"><span class="red">R. </span>{liturgia.conclusion.r3}</p>
+    <p class="comentario-centrado mb-6">{liturgia.conclusion.comentario3}</p>
+    <p class="parrafo mb-2"><span class="red">V. </span>{liturgia.conclusion.v4}</p>
+    <p class="parrafo mb-6"><span class="red">R. </span>{liturgia.conclusion.r4}</p>
+
+  </div>
+</BaseLayout>
+<style>
+  .titulo-dia {
+    font-weight: 200;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+  }
+  
+  .titulo-seccion {
+      font-size: 1.25rem;
+      font-weight: 700;
+  }
+
+  .comentario-centrado {
+    font-weight: 300;
+    font-size: 0.85rem;
+    line-height: 1rem;
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    color: rgb(220 38 38);
+  }
+
+  .comentario-izquierda {
+    font-weight: 300;
+    font-size: 0.85rem;
+    line-height: 1rem;
+    text-align: start;
+    padding-right: 2rem;
+    color: rgb(220 38 38);
+  }
+
+  .comentario-derecha {
+    font-weight: 300;
+    font-size: 0.85rem;
+    line-height: 1rem;
+    text-align: end;
+    padding-left: 2rem;
+    color: rgb(220 38 38);
+  }
+
+  .parrafo {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .red {
+    color: rgb(220 38 38);
+  }
+
+  .titulo-salmos {
+    font-size: 1.05rem;
+    text-align: center;
+    color: rgb(220 38 38);
+  }
+
+  .cursiva {
+    font-style: italic;
+  }
+
+</style>
