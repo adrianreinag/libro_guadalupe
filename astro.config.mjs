@@ -6,9 +6,6 @@ import AstroPWA from '@vite-pwa/astro'
 export default defineConfig({
   vite: {
     logLevel: 'info',
-    define: {
-      __DATE__: `'${new Date().toISOString()}'`,
-    },
     server: {
       fs: {
         // Allow serving files from hoisted root node_modules
