@@ -1,8 +1,10 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "verbatimModuleSyntax": true,
     "jsx": "preserve",
-    "jsxImportSource": "solid-js",
     "allowImportingTsExtensions": true,
+    "strict": true, // Asegúrate de que el modo estricto esté activado
+    "skipLibCheck": true // Esto puede ayudar a evitar problemas de tipos en las bibliotecas
   }
 }
