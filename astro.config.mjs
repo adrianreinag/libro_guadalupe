@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import AstroPWA from '@vite-pwa/astro'
+import AstroPWA from '@vite-pwa/astro';
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,7 +16,7 @@ export default defineConfig({
   integrations: [
     tailwind(),
     AstroPWA({
-      mode: 'development',
+      mode: 'production',  // Cambiar a producción para pruebas en dispositivos
       base: '/',
       scope: '/',
       includeAssets: ['favicon.svg'],
@@ -25,6 +25,9 @@ export default defineConfig({
         name: 'Libro del peregrino',
         short_name: 'Guadalupe',
         theme_color: '#ffffff',
+        background_color: '#ffffff', // Añadir color de fondo
+        display: 'standalone', // Importante para la instalación
+        orientation: 'portrait', // Opcional, ajustar según necesidad
         icons: [
           {
             src: 'pwa-192x192.png',
@@ -45,8 +48,21 @@ export default defineConfig({
         ],
       },
       workbox: {
-        navigateFallback: '/',
-        globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}'],
+        navigateFallback: '/index.html', // Asegúrate de tener un index.html
+        globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,jpg,jpeg}'], // Añadir otros tipos de archivos si es necesario
+        runtimeCaching: [
+          {
+            urlPattern: /^https?:.*\.(?:png|jpg|jpeg|svg|gif|css|js)$/, // Cachear archivos estáticos
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'static-resources',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 días
+              },
+            },
+          },
+        ],
       },
       devOptions: {
         enabled: true,
@@ -57,4 +73,4 @@ export default defineConfig({
       }
     }),
   ],
-})
+});
