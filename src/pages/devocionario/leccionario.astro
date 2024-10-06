@@ -1,70 +1,71 @@
 ---
-// TabBar.astro
-const tabs = [
-  { name: 'Lecturas', icon: '📚' },
-  { name: 'Cantos', icon: '🎵' },
-  { name: 'Oraciones', icon: '🙏' }
-];
+// index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const { activeTab = 'Lecturas' } = Astro.props;
+const tabs = ['Lecturas', 'Cantos', 'Oraciones'];
+const activeTab = Astro.url.searchParams.get('tab') || 'Lecturas';
 ---
 
-<div class="tab-container">
-  <div class="tab-content">
-    {activeTab === 'Lecturas' && <h2>Contenido de Lecturas</h2>}
-    {activeTab === 'Cantos' && <h2>Contenido de Cantos</h2>}
-    {activeTab === 'Oraciones' && <h2>Contenido de Oraciones</h2>}
-  </div>
-  <nav class="tabbar">
-    {tabs.map((tab) => (
-      <a
-        href={`/${tab.name.toLowerCase()}`}
-        class={`tab-item ${activeTab === tab.name ? 'active' : ''}`}
-      >
-        <span class="tab-icon">{tab.icon}</span>
-        <span class="tab-name">{tab.name}</span>
-      </a>
-    ))}
-  </nav>
-</div>
-
-<style>
-  .tab-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-
-  .tab-content {
-    flex-grow: 1;
-    padding: 20px;
-  }
-
-  .tabbar {
-    display: flex;
-    justify-content: space-around;
-    background-color: #f0f0f0;
-    padding: 10px 0;
-  }
-
-  .tab-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #333;
-  }
-
-  .tab-item.active {
-    color: #007bff;
-  }
-
-  .tab-icon {
-    font-size: 24px;
-  }
-
-  .tab-name {
-    font-size: 12px;
-    margin-top: 5px;
-  }
-</style>
+<BaseLayout title="Leccionario">
+    <div class="tab-container">
+        <nav class="tabbar">
+            {tabs.map((tab) => (
+                <a
+                    href={`?tab=${tab}`}
+                    class={`tab-item ${activeTab === tab ? 'active' : ''}`}
+                >
+                    {tab}
+                </a>
+            ))}
+        </nav>
+        <div class="tab-content">
+            {activeTab === 'Lecturas' && (
+                <>
+                    <h1>Lecturas del día</h1>
+                    <p>Aquí irían las lecturas...</p>
+                </>
+            )}
+            {activeTab === 'Cantos' && <h1>Cantos</h1>}
+            {activeTab === 'Oraciones' && <h1>Oraciones</h1>}
+          </div>
+        </div>
+  </BaseLayout>
+        
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .tab-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .tabbar {
+            display: flex;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+        .tab-item {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+        .tab-item.active {
+            color: #1a73e8;
+            border-bottom: 2px solid #1a73e8;
+        }
+        .tab-content {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #202124;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            color: #5f6368;
+        }
+    </style>
