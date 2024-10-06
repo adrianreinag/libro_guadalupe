@@ -3,6 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Peregrinación a Guadalupe">
-    <!-- boton a la pagina devocionario/liturgia_de_las_horas -->
-    <a href="/devocionario/liturgia_de_las_horas" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Liturgia de las Horas</a>
+    <!-- botones a la pagina devocionario y ubicaciones -->
+    <div class="flex justify-center">
+        <a href="/devocionario" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Devocionario</a>
+        <a href="/ubicaciones" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ubicaciones</a>
+    </div>
 </BaseLayout>
