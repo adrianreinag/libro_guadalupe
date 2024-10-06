@@ -1,383 +1,70 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+// TabBar.astro
+const tabs = [
+  { name: 'Lecturas', icon: '📚' },
+  { name: 'Cantos', icon: '🎵' },
+  { name: 'Oraciones', icon: '🙏' }
+];
 
-import HeaderComponent from "../../components/HeaderComponent.astro";
-import LecturaComponent from "../../components/LecturaComponent.astro";
-import SalmoComponent from "../../components/SalmoComponent.astro";
-
-const today = new Date();
-const initialDayOfWeek = today.getDay(); // 0 (domingo) a 6 (sábado)
-
-// Clase para definir una lectura
-class Lectura {
-  descripcion: string;
-  cita: string;
-  texto: string;
-
-  constructor(descripcion: string, cita: string, texto: string) {
-    this.descripcion = descripcion;
-    this.cita = cita;
-    this.texto = texto;
-  }
-}
-
-// Clase para definir un salmo
-class Salmo {
-  cita: string;
-  antifona: string;
-  texto: string;
-
-  constructor(cita: string, antifona: string, texto: string) {
-    this.cita = cita;
-    this.antifona = antifona;
-    this.texto = texto;
-  }
-}
-
-// Interfaz para las lecturas del día
-interface Lecturas {
-  primeraLectura: Lectura;
-  salmo: Salmo;
-  segundaLectura?: Lectura;
-  evangelio: Lectura;
-}
-
-// Función para obtener las lecturas del día
-function getLecturasDelDia(day: number): Lecturas {
-  switch (day) {
-    case 5:
-      return {
-        primeraLectura: new Lectura(
-            "Lucas es el único que está conmigo.",
-            "2Tm 4,9-17a",
-            "Querido hermano:<br>Demas me ha abandonado, enamorado de este mundo presente, y se marchó a Tesalónica; Crescente, a Galacia; Tito, a Dalmacia; Lucas es el único que está conmigo. Toma a Marcos y tráelo contigo, pues me es útil para el ministerio. A Tíquico lo envié a Éfeso.<br>El manto que dejé en Tróade, en casa de Carpo, tráelo cuando vengas, y también los libros, sobre todo los pergaminos.<br>Alejandro, el herrero, se ha portado muy mal conmigo; el Señor le dará el pago conforme a sus obras. Guárdate de él también tú, porque se opuso vehementemente a nuestras palabras.<br>En mi primera defensa, nadie estuvo a mi lado, sino que todos me abandonaron. ¡No les sea tenido en cuenta!<br>Mas el Señor estuvo a mi lado y me dio fuerzas para que, a través de mí, se proclamara plenamente el mensaje y lo oyeran todas las naciones."
-          ),
-          salmo: new Salmo(
-            "Sal 144,10-11.12-13ab.17-18",
-            "Tus santos, Señor, proclaman la gloria de tu reinado.",
-            "Que todas tus criaturas te den gracias, Señor,<br>que te bendigan tus fieles.<br>Que proclamen la gloria de tu reinado,<br>que hablen de tus hazañas.<br><br>Explicando tus hazañas a los hombres,<br>la gloria y majestad de tu reinado.<br>Tu reinado es un reinado perpetuo,<br>tu gobierno va de edad en edad.<br><br>El Señor es justo en todos sus caminos,<br>es bondadoso en todas sus acciones.<br>Cerca está el Señor de los que lo invocan,<br>de los que lo invocan sinceramente.<br>"
-          ),
-          evangelio: new Lectura(
-            "La mies es abundante y los obreros pocos.",
-            "Lc 10,1-9",
-            'En aquel tiempo, designó el Señor otros setenta y dos, y los mandó delante de él, de dos en dos, a todos los pueblos y lugares adonde pensaba ir él. Y les decía:<br>«La mies es abundante y los obreros pocos; rogad, pues, al dueño de la mies que envíe obreros a su mies.<br>¡Poneos en camino! Mirad que os envío como corderos en medio de lobos. No llevéis bolsa, ni alforja, ni sandalias; y no saludéis a nadie por el camino.<br>Cuando entréis en una casa, decid primero: "Paz a esta casa". Y si allí hay gente de paz, descansará sobre ellos vuestra paz; si no, volverá a vosotros.<br>Quedaos en la misma casa, comiendo y bebiendo de lo que tengan: porque el obrero merece su salario. No andéis cambiando de casa en casa.<br>Si entráis en una ciudad y os reciben, comed lo que os pongan, curad a los enfermos que haya en ella, y decidles: "El reino de Dios ha llegado a vosotros"».'
-          ),
-        };
-      case 6:
-        return {
-          primeraLectura: new Lectura(
-            "Primera Lectura del sábado",
-            "Cita del sábado",
-            "Texto de la primera lectura del sábado"
-          ),
-          salmo: new Salmo(
-            "Cita del salmo del sábado",
-            "Salmo del sábado",
-            "Texto del salmo del sábado"
-          ),
-          evangelio: new Lectura(
-            "Evangelio del sábado",
-            "Cita del evangelio del sábado",
-            "Texto del evangelio del sábado"
-          ),
-        };
-      case 0:
-        return {
-          primeraLectura: new Lectura(
-            "Primera Lectura del domingo",
-            "Cita del domingo",
-            "Texto de la primera lectura del domingo"
-          ),
-          salmo: new Salmo(
-            "Cita del salmo del domingo",
-            "Salmo del domingo",
-            "Texto del salmo del domingo"
-          ),
-          segundaLectura: new Lectura(
-            "Segunda lectura del domingo",
-            "Cita de la segunda lectura del domingo",
-            "Texto de la segunda lectura del domingo"
-          ),
-          evangelio: new Lectura(
-            "Evangelio del domingo",
-            "Cita del evangelio del domingo",
-            "Texto del evangelio del domingo"
-          ),
-        };
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-      return getLecturasDelDia(5); // Lunes, martes o miércoles
-    default:
-      return getLecturasDelDia(0); // Jueves
-  }
-}
-
-const initialLecturas = getLecturasDelDia(initialDayOfWeek);
+const { activeTab = 'Lecturas' } = Astro.props;
 ---
 
-<BaseLayout title="Lecturas del día">
-  <HeaderComponent title="Lecturas 22" />
-
-  <div
-    id="dialog"
-    class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden flex items-center justify-center"
-  >
-    <div class="bg-white p-8 rounded-lg shadow-xl">
-      <h2 class="text-xl font-bold mb-4">Selecciona un día</h2>
-      <button
-        id="btn-viernes"
-        class="block w-full text-left px-4 py-2 hover:bg-gray-100 mb-2"
-        >Viernes</button
-      >
-      <button
-        id="btn-sabado"
-        class="block w-full text-left px-4 py-2 hover:bg-gray-100 mb-2"
-        >Sábado</button
-      >
-      <button
-        id="btn-domingo"
-        class="block w-full text-left px-4 py-2 hover:bg-gray-100 mb-2"
-        >Domingo</button
-      >
-      <button
-        id="btn-cerrar"
-        class="mt-4 bg-accent text-black font-bold py-2 px-4 rounded"
-        >Cerrar</button
-      >
-    </div>
+<div class="tab-container">
+  <div class="tab-content">
+    {activeTab === 'Lecturas' && <h2>Contenido de Lecturas</h2>}
+    {activeTab === 'Cantos' && <h2>Contenido de Cantos</h2>}
+    {activeTab === 'Oraciones' && <h2>Contenido de Oraciones</h2>}
   </div>
+  <nav class="tabbar">
+    {tabs.map((tab) => (
+      <a
+        href={`/${tab.name.toLowerCase()}`}
+        class={`tab-item ${activeTab === tab.name ? 'active' : ''}`}
+      >
+        <span class="tab-icon">{tab.icon}</span>
+        <span class="tab-name">{tab.name}</span>
+      </a>
+    ))}
+  </nav>
+</div>
 
-  <div id="lecturas-container" class="space-y-4 p-6 pt-28 pb-20">
-    <LecturaComponent
-      title="Primera Lectura"
-      description={initialLecturas.primeraLectura.descripcion}
-      cita={initialLecturas.primeraLectura.cita}
-      texto={initialLecturas.primeraLectura.texto}
-    />
-    <SalmoComponent
-      title="Salmo"
-      cita={initialLecturas.salmo.cita}
-      antifona={initialLecturas.salmo.antifona}
-      texto={initialLecturas.salmo.texto}
-    />
-
-    
-
-    <div>
-      <h2 class="text-xl font-semibold">Salmo</h2>
-      <p class="text-gray-500">{initialLecturas.salmo.cita}</p>
-      <p id="salmo" class="text-gray-700">{initialLecturas.salmo.texto}</p>
-    </div>
-
-    {
-      initialLecturas.segundaLectura && (
-        <div>
-          <h2 class="text-xl font-semibold">Segunda Lectura</h2>
-          <p class="text-gray-500">{initialLecturas.segundaLectura.cita}</p>
-          <p id="segunda-lectura" class="text-gray-700">
-            {initialLecturas.segundaLectura.texto}
-          </p>
-        </div>
-      )
-    }
-
-    <div>
-      <h2 class="text-xl font-semibold">Evangelio</h2>
-      <p class="text-gray-500">{initialLecturas.evangelio.cita}</p>
-      <p id="evangelio" class="text-gray-700">
-        {initialLecturas.evangelio.texto}
-      </p>
-    </div>
-  </div>
-</BaseLayout>
-
-<script>
-  class Lectura {
-    descripcion: string;
-    cita: string;
-    texto: string;
-
-    constructor(descripcion: string, cita: string, texto: string) {
-      this.descripcion = descripcion;
-      this.cita = cita;
-      this.texto = texto;
-    }
+<style>
+  .tab-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
   }
 
-  class Salmo {
-    cita: string;
-    antifona: string;
-    texto: string;
-
-    constructor(cita: string, antifona: string ,texto: string) {
-      this.cita = cita;
-      this.antifona = antifona;
-      this.texto = texto;
-    }
+  .tab-content {
+    flex-grow: 1;
+    padding: 20px;
   }
 
-  function getLecturasDelDia(day: number) {
-    switch (day) {
-      case 5:
-        return {
-          primeraLectura: new Lectura(
-            "Lucas es el único que está conmigo.",
-            "2Tm 4,9-17a",
-            "Querido hermano:<br>Demas me ha abandonado, enamorado de este mundo presente, y se marchó a Tesalónica; Crescente, a Galacia; Tito, a Dalmacia; Lucas es el único que está conmigo. Toma a Marcos y tráelo contigo, pues me es útil para el ministerio. A Tíquico lo envié a Éfeso.<br>El manto que dejé en Tróade, en casa de Carpo, tráelo cuando vengas, y también los libros, sobre todo los pergaminos.<br>Alejandro, el herrero, se ha portado muy mal conmigo; el Señor le dará el pago conforme a sus obras. Guárdate de él también tú, porque se opuso vehementemente a nuestras palabras.<br>En mi primera defensa, nadie estuvo a mi lado, sino que todos me abandonaron. ¡No les sea tenido en cuenta!<br>Mas el Señor estuvo a mi lado y me dio fuerzas para que, a través de mí, se proclamara plenamente el mensaje y lo oyeran todas las naciones."
-          ),
-          salmo: new Salmo(
-            "Sal 144,10-11.12-13ab.17-18",
-            "Tus santos, Señor, proclaman la gloria de tu reinado.",
-            "Que todas tus criaturas te den gracias, Señor,<br>que te bendigan tus fieles.<br>Que proclamen la gloria de tu reinado,<br>que hablen de tus hazañas. R.<br>Explicando tus hazañas a los hombres,<br>la gloria y majestad de tu reinado.<br>Tu reinado es un reinado perpetuo,<br>tu gobierno va de edad en edad. R.<br>El Señor es justo en todos sus caminos,<br>es bondadoso en todas sus acciones.<br>Cerca está el Señor de los que lo invocan,<br>de los que lo invocan sinceramente. R."
-          ),
-          evangelio: new Lectura(
-            "La mies es abundante y los obreros pocos.",
-            "Lc 10,1-9",
-            'En aquel tiempo, designó el Señor otros setenta y dos, y los mandó delante de él, de dos en dos, a todos los pueblos y lugares adonde pensaba ir él. Y les decía:<br>«La mies es abundante y los obreros pocos; rogad, pues, al dueño de la mies que envíe obreros a su mies.<br>¡Poneos en camino! Mirad que os envío como corderos en medio de lobos. No llevéis bolsa, ni alforja, ni sandalias; y no saludéis a nadie por el camino.<br>Cuando entréis en una casa, decid primero: "Paz a esta casa". Y si allí hay gente de paz, descansará sobre ellos vuestra paz; si no, volverá a vosotros.<br>Quedaos en la misma casa, comiendo y bebiendo de lo que tengan: porque el obrero merece su salario. No andéis cambiando de casa en casa.<br>Si entráis en una ciudad y os reciben, comed lo que os pongan, curad a los enfermos que haya en ella, y decidles: "El reino de Dios ha llegado a vosotros"».'
-          ),
-        };
-      case 6:
-        return {
-          primeraLectura: new Lectura(
-            "Primera Lectura del sábado",
-            "Cita del sábado",
-            "Texto de la primera lectura del sábado"
-          ),
-          salmo: new Salmo(
-            "Cita del salmo del sábado",
-            "Salmo del sábado",
-            "Texto del salmo del sábado"
-          ),
-          evangelio: new Lectura(
-            "Evangelio del sábado",
-            "Cita del evangelio del sábado",
-            "Texto del evangelio del sábado"
-          ),
-        };
-      case 0:
-        return {
-          primeraLectura: new Lectura(
-            "Primera Lectura del domingo",
-            "Cita del domingo",
-            "Texto de la primera lectura del domingo"
-          ),
-          salmo: new Salmo(
-            "Cita del salmo del domingo",
-            "Salmo del domingo",
-            "Texto del salmo del domingo"
-          ),
-          segundaLectura: new Lectura(
-            "Segunda lectura del domingo",
-            "Cita de la segunda lectura del domingo",
-            "Texto de la segunda lectura del domingo"
-          ),
-          evangelio: new Lectura(
-            "Evangelio del domingo",
-            "Cita del evangelio del domingo",
-            "Texto del evangelio del domingo"
-          ),
-        };
-      case 1:
-      case 2:
-      case 3:
-      case 4:
-        return getLecturasDelDia(5); // Lunes, martes o miércoles
-      default:
-        return getLecturasDelDia(0); // Jueves
-    }
+  .tabbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f0f0f0;
+    padding: 10px 0;
   }
 
-  function updateLecturas(day: number) {
-    const lecturas = getLecturasDelDia(day);
-    const primeraLecturaEl = document.getElementById("primera-lectura");
-    const salmoEl = document.getElementById("salmo");
-    const evangelioEl = document.getElementById("evangelio");
-    const segundaLecturaEl = document.getElementById("segunda-lectura");
-
-    if (primeraLecturaEl) {
-      primeraLecturaEl.textContent = lecturas.primeraLectura.texto;
-      const primeraCitaEl = primeraLecturaEl.nextElementSibling;
-      if (primeraCitaEl)
-        primeraCitaEl.textContent = lecturas.primeraLectura.cita;
-    }
-
-    if (salmoEl) {
-      salmoEl.textContent = lecturas.salmo.texto;
-      const salmoCitaEl = salmoEl.nextElementSibling;
-      if (salmoCitaEl) salmoCitaEl.textContent = lecturas.salmo.cita;
-    }
-
-    if (evangelioEl) {
-      evangelioEl.textContent = lecturas.evangelio.texto;
-      const evangelioCitaEl = evangelioEl.nextElementSibling;
-      if (evangelioCitaEl)
-        evangelioCitaEl.textContent = lecturas.evangelio.cita;
-    }
-
-    if (segundaLecturaEl && lecturas.segundaLectura) {
-      segundaLecturaEl.textContent = lecturas.segundaLectura.texto;
-      const segundaCitaEl = segundaLecturaEl.nextElementSibling;
-      if (segundaCitaEl)
-        segundaCitaEl.textContent = lecturas.segundaLectura.cita;
-    }
+  .tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
   }
 
-  // Obtener referencias a los elementos del DOM
-  const menuButton = document.getElementById("menu-button");
-  const dialog = document.getElementById("dialog");
-  const btnCerrar = document.getElementById("btn-cerrar");
-  const btnViernes = document.getElementById("btn-viernes");
-  const btnSabado = document.getElementById("btn-sabado");
-  const btnDomingo = document.getElementById("btn-domingo");
-
-  // Función para abrir el diálogo
-  function openDialog() {
-    dialog?.classList.remove("hidden");
+  .tab-item.active {
+    color: #007bff;
   }
 
-  // Función para cerrar el diálogo
-  function closeDialog() {
-    dialog?.classList.add("hidden");
+  .tab-icon {
+    font-size: 24px;
   }
 
-  // Asignar eventos
-  if (menuButton) {
-    menuButton.onclick = openDialog;
+  .tab-name {
+    font-size: 12px;
+    margin-top: 5px;
   }
-
-  if (btnCerrar) {
-    btnCerrar.onclick = closeDialog;
-  }
-
-  if (btnViernes) {
-    btnViernes.onclick = () => {
-      updateLecturas(5);
-      closeDialog();
-    };
-  }
-
-  if (btnSabado) {
-    btnSabado.onclick = () => {
-      updateLecturas(6);
-      closeDialog();
-    };
-  }
-
-  if (btnDomingo) {
-    btnDomingo.onclick = () => {
-      updateLecturas(0);
-      closeDialog();
-    };
-  }
-
-  // Cerrar el diálogo si se hace clic fuera de él
-  if (dialog) {
-    dialog.onclick = (event) => {
-      if (event.target === dialog) {
-        closeDialog();
-      }
-    };
-  }
-</script>
+</style>
