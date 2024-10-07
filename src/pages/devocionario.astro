@@ -3,9 +3,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Devocionario">
-  <div class="flex justify-center">
-    <a href="/devocionario/liturgia_de_las_horas/laudes/viernes" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Laudes</a>
-    <a href="/devocionario/eucaristia/viernes" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Eucaristía</a>
-    <a href="/devocionario/rosario/viernes" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Rosario</a>
+  <div class="buttons">
+    <a href="/devocionario/liturgia_de_las_horas/laudes/viernes" class="button">Laudes</a>
+    <a href="/devocionario/eucaristia/viernes" class="button">Eucaristía</a>
+    <a href="/devocionario/rosario/viernes" class="button">Rosario</a>
 </div>
 </BaseLayout>
+
+<style>
+  .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+  }
+
+  .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+  }
+</style>

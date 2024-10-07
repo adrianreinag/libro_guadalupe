@@ -5,6 +5,7 @@ import HeaderComponent from '../../../components/HeaderComponent.astro';
 
 import leccionarioData from '../../../data/leccionario.json';
 import { Leccionario } from '../../../classes/leccionario.ts';
+import BodyLayout from '../../../layouts/BodyLayout.astro';
 
 // Definir la estructura del tipo para los parámetros
 interface Path {
@@ -42,58 +43,63 @@ const lecturas = getLecturas(dia);
 
 <BaseLayout title="Eucaristía">
   <HeaderComponent title="Eucaristía"/>
-  <h1 class="titulo-dia pt-24 mb-12">XXVI semana del tiempo ordinario - {dia}</h1>
-  <div class="tab-container">
-    <nav class="tabbar">
-      <button class="tab-item active selected" data-tab="lecturas">Lecturas</button>
-      <button class="tab-item" data-tab="cantos">Cantos</button>
-      <button class="tab-item" data-tab="oraciones">Oraciones</button>
-    </nav>
-    <div class="tab-content">
-        <div id="lecturas" class="tab-pane active">
-          <h2 class="titulo-seccion mb-6">Primera lectura</h2>
-          <p class="comentario-derecha mb-6">{lecturas.primeraLectura.cita}</p>
-          <h3 class="titulo-salmos mb-4">{lecturas.primeraLectura.titulo}</h3>
-          <p class="parrafo mb-10">{lecturas.primeraLectura.texto}</p>
-      
-          {lecturas.salmo && (
-            <h2 class="titulo-seccion mb-6">Salmo responsorial</h2>
-            <h3 class="titulo-salmos mb-4">Salmo {lecturas.salmo.titulo}</h3>
-            <p class="parrafo mb-6"><span class="red">Ant. </span>{lecturas.salmo.antifona}</p>
-            <div>
-              {lecturas.salmo.versos.map((verso: string, index: any) => (
-                <div class="ps-4">
-                  <p class={`parrafo ${index === lecturas.salmo.versos.length - 1 ? 'mb-10' : 'mb-6'}`}>
-                    {verso}
-                  </p>
+  <BodyLayout>
+    <h1 class="titulo-dia">XXVI semana del tiempo ordinario - {dia}</h1>
+    <div>
+      <nav class="tabbar">
+        <button class="tab-item active selected" data-tab="lecturas">Lecturas</button>
+        <button class="tab-item" data-tab="cantos">Cantos</button>
+        <button class="tab-item" data-tab="oraciones">Oraciones</button>
+      </nav>
+      <div class="tab-content">
+          <div id="lecturas" class="tab-pane active">
+            <h2 class="titulo-seccion">Primera lectura</h2>
+            <p class="comentario-derecha">{lecturas.primeraLectura.cita}</p>
+            <h3 class="titulo-salmos">{lecturas.primeraLectura.titulo}</h3>
+            <p class="parrafo">{lecturas.primeraLectura.texto}</p>
+        
+            {lecturas.salmo && (
+              <>
+                <h2 class="titulo-seccion">Salmo responsorial</h2>
+                <h3 class="titulo-salmos">Salmo {lecturas.salmo.titulo}</h3>
+                <p class="parrafo"><span class="red">Ant. </span>{lecturas.salmo.antifona}</p>
+                <div>
+                  {lecturas.salmo.versos.map((verso: string, index: any) => (
+                    <div class="verso-contenedor">
+                      <p class={`parrafo ${index === lecturas.salmo.versos.length - 1 ? 'ultimo-verso' : ''}`}>
+                        {verso}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          )}
-      
-          {lecturas.segundaLectura && (
-            <h2 class="titulo-seccion mb-6">Segunda lectura</h2>
-            <p class="comentario-derecha mb-6">{lecturas.segundaLectura.cita}</p>
-            <h3 class="titulo-salmos mb-4">{lecturas.segundaLectura.titulo}</h3>
-            <p class="parrafo mb-10">{lecturas.segundaLectura.texto}</p>
-          )}
-      
-          <h2 class="titulo-seccion mb-6">Evangelio</h2>
-          <p class="comentario-derecha mb-6">{lecturas.evangelio.cita}</p>
-          <h3 class="titulo-salmos mb-4">{lecturas.evangelio.titulo}</h3>
-          <p class="parrafo mb-10">{lecturas.evangelio.texto}</p>
-        </div>
-        </div>
-        <div id="cantos" class="tab-pane">
-            <h1>Cantos</h1>
-            <p>Contenido de la sección de cantos...</p>
-        </div>
-        <div id="oraciones" class="tab-pane">
-            <h1>Oraciones</h1>
-            <p>Contenido de la sección de oraciones...</p>
-        </div>
+              </>
+            )}
+        
+            {lecturas.segundaLectura && (
+              <>
+                <h2 class="titulo-seccion">Segunda lectura</h2>
+                <p class="comentario-derecha">{lecturas.segundaLectura.cita}</p>
+                <h3 class="titulo-salmos">{lecturas.segundaLectura.titulo}</h3>
+                <p class="parrafo">{lecturas.segundaLectura.texto}</p>
+              </>
+            )}
+        
+            <h2 class="titulo-seccion">Evangelio</h2>
+            <p class="comentario-derecha">{lecturas.evangelio.cita}</p>
+            <h3 class="titulo-salmos">{lecturas.evangelio.titulo}</h3>
+            <p class="parrafo">{lecturas.evangelio.texto}</p>
+          </div>
+      </div>
+      <div id="cantos" class="tab-pane">
+          <h1>Cantos</h1>
+          <p>Contenido de la sección de cantos...</p>
+      </div>
+      <div id="oraciones" class="tab-pane">
+          <h1>Oraciones</h1>
+          <p>Contenido de la sección de oraciones...</p>
+      </div>
     </div>
-</div>
+  </BodyLayout>
 </BaseLayout>
 
 <script>
@@ -106,13 +112,11 @@ const lecturas = getLecturas(dia);
               const targetTab = tab.getAttribute('data-tab');
               if (targetTab) {
                   tabs.forEach(t => {
-                      t.classList.remove('active');
-                      t.classList.remove('selected'); // Remover clase de fondo
+                      t.classList.remove('active', 'selected');
                   });
                   tabPanes.forEach(pane => pane.classList.remove('active'));
 
-                  tab.classList.add('active');
-                  tab.classList.add('selected'); // Añadir clase para el fondo
+                  tab.classList.add('active', 'selected');
                   const targetPane = document.getElementById(targetTab);
                   if (targetPane) {
                       targetPane.classList.add('active');
@@ -122,104 +126,3 @@ const lecturas = getLecturas(dia);
       });
   });
 </script>
-        
-<style>
-  .tab-container {
-      max-width: 800px;
-      margin: 0 auto;
-  }
-  .tabbar {
-      display: flex;
-      margin: 20px;
-      margin-top: 0px;
-  }
-  .tab-item {
-      flex: 1; /* Asegura que cada tab ocupe el mismo espacio */
-      padding: 10px;
-      margin: 0 5px;
-      background: none;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      color: #333;
-      text-align: center;
-      transition: background 0.3s;
-      border-radius: 15px;
-  }
-  .tab-item.selected {
-      background-color: #f7e9e9;
-      color: #dc2626;
-      border-radius: 15px;
-  }
-  .tab-content {
-      padding: 20px;
-  }
-  .tab-pane {
-      display: none;
-  }
-  .tab-pane.active {
-      display: block;
-  }
-  
-  .titulo-dia {
-    font-weight: 200;
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    text-align: center;
-  }
-  
-  .titulo-seccion {
-      font-size: 1.25rem;
-      font-weight: 700;
-  }
-
-  .comentario-centrado {
-    font-weight: 300;
-    font-size: 0.85rem;
-    line-height: 1rem;
-    text-align: center;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    color: #dc2626;
-  }
-
-  .comentario-izquierda {
-    font-weight: 300;
-    font-size: 0.85rem;
-    line-height: 1rem;
-    text-align: start;
-    padding-right: 2rem;
-    color: rgb(220 38 38);
-  }
-
-  .comentario-derecha {
-    font-weight: 300;
-    font-size: 0.85rem;
-    line-height: 1rem;
-    text-align: end;
-    padding-left: 2rem;
-    color: rgb(220 38 38);
-  }
-
-  .parrafo {
-    font-size: 1rem;
-    font-weight: 300;
-  }
-
-  .red {
-    color: rgb(220 38 38);
-  }
-
-  .titulo-salmos {
-    font-size: 1.05rem;
-    text-align: center;
-    color: rgb(220 38 38);
-  }
-
-  .cursiva {
-    font-style: italic;
-  }
-
-</style>

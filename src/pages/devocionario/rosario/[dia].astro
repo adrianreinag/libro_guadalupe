@@ -4,6 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import rosarioData from '../../../data/rosario.json';
 import { RosarioDia } from '../../../classes/rosario.ts';
 import HeaderComponent from '../../../components/HeaderComponent.astro';
+import BodyLayout from '../../../layouts/BodyLayout.astro';
 
 // Definir la estructura del tipo para los parámetros
 interface Path {
@@ -32,107 +33,45 @@ const rosario = RosarioDia.fromJSON(rosarioData, dia);
 
 <BaseLayout title="Rosario">
   <HeaderComponent title="Rosario" />
-  <div class="p-6 pt-24">
-    <h1 class="titulo-dia">Rosario - {dia}</h1>
-    <p class="parrafo">{RosarioDia.ExplicacionRosario}</p>
+  <BodyLayout>
+    <div>
+      <h1 class="titulo-dia">Rosario - {dia}</h1>
+      <p class="parrafo">{RosarioDia.ExplicacionRosario}</p>
 
-    <h2 class="titulo-seccion">Inicio</h2>
-    <p class="parrafo">{RosarioDia.Inicio}</p>
+      <h2 class="titulo-seccion">Inicio</h2>
+      <p class="parrafo">{RosarioDia.Inicio}</p>
 
-    <h2 class="titulo-seccion">Acto de Contrición</h2>
-    <p class="parrafo">{RosarioDia.ActoContriccion}</p>
+      <h2 class="titulo-seccion">Acto de Contrición</h2>
+      <p class="parrafo">{RosarioDia.ActoContriccion}</p>
 
-      {rosario.misterios.map(misterio => (
-        <div>
-          <h2 class="titulo-seccion">{misterio.titulo}</h2>
-          {misterio.misterios.map(detalle => (
-            <div>
-              <h3 class="titulo-salmos">{detalle.nombre}</h3>
-              <p class="parrafo">{detalle.lectura}</p>
-              {/* <img src={detalle.imagen} alt={detalle.nombre} class="mb-6"/> Mostrar la imagen */}
-              <p class="parrafo">{RosarioDia.PadreNuestro}</p>
-              {[...Array(10)].map(() => (
-                <p class="parrafo">{RosarioDia.AveMaria}</p>
-              ))}
-              <p class="parrafo">{RosarioDia.Gloria}</p>
-              <p class="parrafo">{RosarioDia.Comentario2}</p>
-              <p class="parrafo">{RosarioDia.OhJesusMio}</p>
-            </div>
-          ))}
-        </div>
-      ))}
-        <h2 class="titulo-seccion">Letanías</h2>
-        <!-- {RosarioDia.Letanias.map(letania => (
-          <p class="parrafo">{letania}</p>
-        ))} -->
+        {rosario.misterios.map(misterio => (
+          <div>
+            <h2 class="titulo-seccion">{misterio.titulo}</h2>
+            {misterio.misterios.map(detalle => (
+              <div>
+                <h3 class="titulo-salmos">{detalle.nombre}</h3>
+                <p class="parrafo">{detalle.lectura}</p>
+                {/* <img src={detalle.imagen} alt={detalle.nombre}/> Mostrar la imagen */}
+                <p class="parrafo">{RosarioDia.PadreNuestro}</p>
+                {[...Array(10)].map(() => (
+                  <p class="parrafo">{RosarioDia.AveMaria}</p>
+                ))}
+                <p class="parrafo">{RosarioDia.Gloria}</p>
+                <p class="parrafo">{RosarioDia.Comentario2}</p>
+                <p class="parrafo">{RosarioDia.OhJesusMio}</p>
+              </div>
+            ))}
+          </div>
+        ))}
+          <h2 class="titulo-seccion">Letanías</h2>
+          <!-- {RosarioDia.Letanias.map(letania => (
+            <p class="parrafo">{letania}</p>
+          ))} -->
 
 
-    <h2 class="titulo-seccion">Conclusión</h2>
-    <p class="parrafo">{RosarioDia.MadreDeGracia}</p>
+      <h2 class="titulo-seccion">Conclusión</h2>
+      <p class="parrafo">{RosarioDia.MadreDeGracia}</p>
 
-  </div>
+    </div>
+  </BodyLayout>
 </BaseLayout>
-
-<style>
-    .titulo-dia {
-      font-weight: 200;
-      font-size: 1.875rem;
-      line-height: 2.25rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      text-align: center;
-    }
-    
-    .titulo-seccion {
-        font-size: 1.25rem;
-        font-weight: 700;
-    }
-  
-    .comentario-centrado {
-      font-weight: 300;
-      font-size: 0.85rem;
-      line-height: 1rem;
-      text-align: center;
-      padding-left: 2rem;
-      padding-right: 2rem;
-      color: rgb(220 38 38);
-    }
-  
-    .comentario-izquierda {
-      font-weight: 300;
-      font-size: 0.85rem;
-      line-height: 1rem;
-      text-align: start;
-      padding-right: 2rem;
-      color: rgb(220 38 38);
-    }
-  
-    .comentario-derecha {
-      font-weight: 300;
-      font-size: 0.85rem;
-      line-height: 1rem;
-      text-align: end;
-      padding-left: 2rem;
-      color: rgb(220 38 38);
-    }
-  
-    .parrafo {
-      font-size: 1rem;
-      font-weight: 300;
-    }
-  
-    .red {
-      color: rgb(220 38 38);
-    }
-  
-    .titulo-salmos {
-      font-size: 1.05rem;
-      text-align: center;
-      color: rgb(220 38 38);
-    }
-  
-    .cursiva {
-      font-style: italic;
-    }
-  
-  </style>

@@ -4,8 +4,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Peregrinación a Guadalupe">
     <!-- botones a la pagina devocionario y ubicaciones -->
-    <div class="flex justify-center">
-        <a href="/devocionario" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Devocionario</a>
-        <a href="/ubicaciones" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ubicaciones</a>
+    <div class="buttons">
+        <a href="/devocionario" class="button">Devocionario</a>
+        <a href="/ubicaciones" class="button">Ubicaciones</a>
     </div>
 </BaseLayout>
+
+<style>
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+</style>

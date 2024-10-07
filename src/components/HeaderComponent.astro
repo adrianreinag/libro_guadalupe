@@ -6,8 +6,9 @@ interface Props {
 
 const { title } = Astro.props;
 ---
-<header class="header h-20">
-    <button
+
+<header class="header">
+  <button
     class="back-button"
     aria-label="Go back"
     onclick="window.history.back()"
@@ -26,7 +27,7 @@ const { title } = Astro.props;
       <path d="M15 18l-6-6 6-6"></path>
     </svg>
   </button>
-  <h1 class="title">{title}</h1>
+  <h1 class="header-title">{title}</h1>
   <button class="calendar-button" aria-label="Open calendar" id="menu-button">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -57,6 +58,7 @@ const { title } = Astro.props;
     width: 100%;
     position: fixed;
     z-index: 1000;
+    height: 64px;
   }
 
   .back-button,
@@ -67,7 +69,7 @@ const { title } = Astro.props;
     padding: 0.5rem;
   }
 
-  .title {
+  .header-title {
     font-size: 1.5rem;
     font-weight: bold;
     margin: 0;
