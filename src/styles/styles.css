@@ -108,6 +108,10 @@
   margin-bottom: 0.3rem;
 }
 
+.separador {
+  margin-top: 3rem;
+}
+
 .peticion {
   margin-bottom: 1.2rem;
   margin-top: 1.2rem;
@@ -137,7 +141,6 @@
 }
 
 .subtitulo-canto {
-  font-size: 1.1rem;
   font-weight: 500;
   margin-top: 0rem;
   margin-bottom: 0.5rem;
@@ -145,4 +148,10 @@
 
 .pre {
   white-space: pre;
+}
+
+.lista {
+  margin-left: 2rem;
+  list-style-type: disc;
+  padding-left: 0.5rem;
 }

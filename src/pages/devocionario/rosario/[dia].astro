@@ -27,52 +27,126 @@ if (!['viernes', 'sabado', 'domingo'].includes(dia)) {
   throw new Error('Día no válido.');
 }
 
-// Obtener los misterios del Rosario según el día seleccionado
-const rosario = RosarioDia.fromJSON(rosarioData, dia);
+// Instancia de RosarioDia para el día seleccionado
+const rosarioDia = RosarioDia.fromJSON(rosarioData, dia);
 
-console.log(rosario);
+// Lista de misterios
+const ordinales = ['Primer misterio', 'Segundo misterio', 'Tercer misterio', 'Cuarto misterio', 'Quinto misterio'];
 ---
 
 <BaseLayout title="Rosario">
-  <HeaderComponent title="Rosario" />
+  <HeaderComponent title="Rosario"/>
   <BodyLayout>
-    <div>
-      <!-- <h1 class="titulo-dia">{RosarioDia.}</h1> -->
-
-      <h2 class="titulo-seccion">Inicio</h2>
-      <p class="parrafo">{RosarioDia.Inicio}</p>
-
-      <h2 class="titulo-seccion">Acto de Contrición</h2>
-      <p class="parrafo">{RosarioDia.ActoContriccion}</p>
-
-        {rosario.misterios.map(misterio => (
-          <div>
-            <h2 class="titulo-seccion">{misterio.titulo}</h2>
-            {misterio.misterios.map(detalle => (
-              <div>
-                <h3 class="titulo-salmos">{detalle.nombre}</h3>
-                <p class="parrafo">{detalle.lectura}</p>
-                {/* <img src={detalle.imagen} alt={detalle.nombre}/> Mostrar la imagen */}
-                <p class="parrafo">{RosarioDia.PadreNuestro}</p>
-                {[...Array(10)].map(() => (
-                  <p class="parrafo">{RosarioDia.AveMaria}</p>
-                ))}
-                <p class="parrafo">{RosarioDia.Gloria}</p>
-                <p class="parrafo">{RosarioDia.Comentario2}</p>
-                <p class="parrafo">{RosarioDia.OhJesusMio}</p>
-              </div>
-            ))}
-          </div>
-        ))}
-          <h2 class="titulo-seccion">Letanías</h2>
-          <!-- {RosarioDia.Letanias.map(letania => (
-            <p class="parrafo">{letania}</p>
-          ))} -->
-
-
-      <h2 class="titulo-seccion">Conclusión</h2>
-      <p class="parrafo">{RosarioDia.MadreDeGracia}</p>
-
-    </div>
-  </BodyLayout>
+    
+  <h1 class="titulo-dia">{rosarioDia.titulo}</h1>
+  <h2 class="titulo-seccion">Inicio</h2>
+  <p class="parrafo">Por la señal de la Santa Cruz, de nuestros enemigos líbranos, Señor, Dios nuestro. En el nombre del Padre, y del Hijo, y del Espíritu Santo. Amén.</p>
+  <h2 class="titulo-seccion">Acto de contrición</h2>
+  <p class="parrafo">Señor mío Jesucristo, Dios y Hombre verdadero, Creador, Padre y Redentor mío; por ser Vos quien sois, bondad infinita, y porque os amo sobre todas las cosas, me pesa de todo corazón de haberos ofendido; también me pesa porque podéis castigarme con las penas del infierno. Ayudado de vuestra divina gracia, propongo firmemente nunca más pecar, confesarme y cumplir la penitencia que me fuere impuesta. Amén.</p>
+  <!-- Recorremos los ordinales y mostramos los misterios -->
+  {ordinales.map((ordinal, index) => (
+    <>
+      <h2 class="titulo-canto">{ordinal}</h2>
+      <p class="subtitulo-canto">{rosarioDia.misterios[index].nombre}</p>
+      <img src={rosarioDia.misterios[index].imagen} alt={rosarioDia.misterios[index].nombre} class="imagen-misterio"/>
+      <p set:html={rosarioDia.misterios[index].lectura} class="parrafo cursiva"></p>
+      <p class="comentario-centrado">En cada misterio se rezan: un Padre Nuestro, diez Avemarías y un Gloria.</p>
+      <ul>
+        <li class="parrafo lista">Padre Nuestro...</li>
+        <li class="parrafo lista">Dios te salve, María... (x10)</li>
+        <li class="parrafo lista">Gloria...</li>
+      </ul>
+      <p class="comentario-centrado">Al finalizar cada misterio se puede añadir alguna jaculatoria, como por ejemplo:</p>
+      <p class="parrafo seguido"><span class="red">V. </span> Ave María purísima,</p>
+      <p class="parrafo seguido"><span class="red">R. </span> Sin pecado concebida.</p>
+      <p class="parrafo">María, Madre de gracia, Madre de misericordia, en la vida y en la muerte, ampáranos Señora nuestra. Amén.</p>
+      <p class="parrafo">Oh Jesús mío, perdona nuestros pecados, líbranos del fuego del infierno, lleva a todas las almas al cielo, especialmente a las más necesitadas de tu misericordia. Amén.</p>
+    </>
+  ))}
+  <h2 class="titulo-seccion">Por las intenciones del Papa</h2>
+  <ul>
+    <li class="parrafo lista">Padre Nuestro...</li>
+    <li class="parrafo lista">Dios te salve, María...</li>
+    <li class="parrafo lista">Gloria...</li>
+  </ul>
+  <h2 class="titulo-seccion">Letanías de la Virgen</h2>
+  <p class="parrafo">Señor, ten piedad.</p>
+  <p class="parrafo">Cristo, ten piedad.</p>
+  <p class="parrafo">Señor, ten piedad.</p>
+  <p class="parrafo">Cristo, óyenos.</p>
+  <p class="parrafo">Cristo, escúchanos.</p>
+  <p class="comentario-centrado">Respondemos "Ten misericordia de nosotros" después de cada invocación.</p>
+  <p class="parrafo seguido">Dios Padre celestial,</p>
+  <p class="parrafo cursiva seguido indentado">Ten misericordia de nosotros.</p>
+  <p class="parrafo">Dios Hijo, Redentor del mundo,</p>
+  <p class="parrafo">Dios Espíritu Santo,</p>
+  <p class="parrafo">Santísima Trinidad, un solo Dios,</p>
+  <p class="comentario-centrado">Respondemos "Ruega por nosotros" después de cada invocación.</p>
+  <p class="parrafo seguido">Santa María,</p>
+  <p class="parrafo cursiva seguido indentado">Ruega por nosotros.</p>
+  <p class="parrafo">Santa Madre de Dios,</p>
+  <p class="parrafo">Santa Virgen de las Vírgenes,</p>
+  <p class="parrafo">Madre de Cristo,</p>
+  <p class="parrafo">Madre de la Iglesia,</p>
+  <p class="parrafo">Madre de la misericordia,</p>
+  <p class="parrafo">Madre de la divina gracia,</p>
+  <p class="parrafo">Madre de la esperanza,</p>
+  <p class="parrafo">Madre purísima,</p>
+  <p class="parrafo">Madre castísima,</p>
+  <p class="parrafo">Madre siempre virgen,</p>
+  <p class="parrafo">Madre inmaculada,</p>
+  <p class="parrafo">Madre amable,</p>
+  <p class="parrafo">Madre admirable,</p>
+  <p class="parrafo">Madre del buen consejo,</p>
+  <p class="parrafo">Madre del Creador,</p>
+  <p class="parrafo">Madre del Salvador,</p>
+  <p class="parrafo">Virgen prudentísima,</p>
+  <p class="parrafo">Virgen digna de veneración,</p>
+  <p class="parrafo">Virgen digna de alabanza,</p>
+  <p class="parrafo">Virgen poderosa,</p>
+  <p class="parrafo">Virgen clemente,</p>
+  <p class="parrafo">Virgen fiel,</p>
+  <p class="parrafo">Espejo de justicia,</p>
+  <p class="parrafo">Trono de la sabiduría,</p>
+  <p class="parrafo">Causa de nuestra alegría,</p>
+  <p class="parrafo">Vaso espiritual,</p>
+  <p class="parrafo">Vaso digno de honor,</p>
+  <p class="parrafo">Vaso de insigne devoción,</p>
+  <p class="parrafo">Rosa mística,</p>
+  <p class="parrafo">Torre de David,</p>
+  <p class="parrafo">Torre de marfil,</p>
+  <p class="parrafo">Casa de oro,</p>
+  <p class="parrafo">Arca de la Alianza,</p>
+  <p class="parrafo">Puerta del cielo,</p>
+  <p class="parrafo">Estrella de la mañana,</p>
+  <p class="parrafo">Salud de los enfermos,</p>
+  <p class="parrafo">Refugio de los pecadores,</p>
+  <p class="parrafo">Consuelo de los migrantes,</p>
+  <p class="parrafo">Consoladora de los afligidos,</p>
+  <p class="parrafo">Auxilio de los cristianos,</p>
+  <p class="parrafo">Reina de los Ángeles,</p>
+  <p class="parrafo">Reina de los Patriarcas,</p>
+  <p class="parrafo">Reina de los Profetas,</p>
+  <p class="parrafo">Reina de los Apóstoles,</p>
+  <p class="parrafo">Reina de los Mártires,</p>
+  <p class="parrafo">Reina de los Confesores,</p>
+  <p class="parrafo">Reina de las Vírgenes,</p>
+  <p class="parrafo">Reina de todos los Santos,</p>
+  <p class="parrafo">Reina concebida sin pecado original,</p>
+  <p class="parrafo">Reina asunta a los Cielos,</p>
+  <p class="parrafo">Reina del Santísimo Rosario,</p>
+  <p class="parrafo">Reina de la familia,</p>
+  <p class="parrafo">Reina de la paz.</p>
+  <p class="parrafo separador seguido">Cordero de Dios, que quitas el pecado del mundo,</p>
+  <p class="parrafo cursiva seguido indentado">Perdónanos, Señor.</p>
+  <p class="parrafo seguido" style="margin-top: 1.5rem;">Cordero de Dios, que quitas el pecado del mundo,</p>
+  <p class="parrafo cursiva seguido indentado">Escúchanos, Señor.</p>
+  <p class="parrafo seguido" style="margin-top: 1.5rem;">Cordero de Dios, que quitas el pecado del mundo,</p>
+  <p class="parrafo cursiva seguido indentado">Ten misericordia de nosotros.</p>
+  <p class="parrafo separador"><span class="red">V. </span>Ruega por nosotros, Santa Madre de Dios.</p>
+  <p class="parrafo"><span class="red">R. </span>Para que seamos dignos de las promesas de Cristo.</p>
+  <h2 class="titulo-seccion">Oración</h2>
+  <p class="parrafo">Te rogamos nos concedas, Señor Dios nuestro, gozar de continua salud de alma y cuerpo, y por la gloriosa intercesión de la bienaventurada siempre Virgen María, vernos libres de las tristezas de la vida presente y disfrutar de las alegrías eternas. Por Cristo nuestro Señor.<br><br>Amén</p>
+  
+</BodyLayout>
 </BaseLayout>

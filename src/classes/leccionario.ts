@@ -6,7 +6,7 @@ interface Lectura {
 }
 
 interface Salmo {
-    titulo: string;
+    cita: string;
     antifona: string;
     versos: string[];
 }
