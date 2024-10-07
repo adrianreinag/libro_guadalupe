@@ -1,0 +1,18 @@
+---
+// Props: String titulo, lista de string letra y lista de string acordes
+
+// CantoComponent.astro
+interface Props {
+  titulo: string;
+  subtitulo?: string | null; // Hacer subtitulo y letra opcionales
+  letra?: string | null;
+}
+
+const { titulo, subtitulo, letra } = Astro.props;
+---
+
+<div>    
+    <h2 class="titulo-canto">{titulo}</h2>
+    <h3 class="subtitulo-canto">{subtitulo}</h3>
+    <p set:html={letra} class="parrafo"></p>
+</div>

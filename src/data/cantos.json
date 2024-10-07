@@ -1,0 +1,77 @@
+{
+    "viernes": {
+      "entrada": {
+        "titulo": "Dios está aquí",
+        "letra": "Dios está aquí tan cierto como el aire que respiro..."
+      },
+      "aleluya": {
+        "titulo": "Aleluya",
+        "letra": "Aleluya, aleluya..."
+      },
+      "ofertorio": {
+        "titulo": "Pan y vino",
+        "letra": "Recibe oh Dios eterno..."
+      },
+      "comunion": [
+        {
+          "titulo": "Cuerpo de Cristo",
+          "letra": "Cuerpo de Cristo, Cuerpo de Cristo..."
+        },
+        {
+          "titulo": "Canto de comunión 2",
+          "letra": "Letra del canto 2..."
+        }
+      ],
+      "virgen": {
+        "titulo": "Santa María",
+        "letra": "Santa María, madre de Dios..."
+      }
+    },
+    "sabado": {
+      "entrada": {
+        "titulo": "Dios está aquí",
+        "letra": "Dios está aquí tan cierto como el aire que respiro..."
+      },
+      "aleluya": {
+        "titulo": "Aleluya",
+        "letra": "Aleluya, aleluya..."
+      },
+      "ofertorio": {
+        "titulo": "Pan y vino",
+        "letra": "Recibe oh Dios eterno..."
+      },
+      "comunion": [],
+      "virgen": {
+        "titulo": "Santa María",
+        "letra": "Santa María, madre de Dios..."
+      }
+    },
+    "domingo": {
+      "entrada": {
+        "titulo": "Dios está aquí",
+        "letra": "Dios está aquí tan cierto como el aire que respiro..."
+      },
+      "aleluya": {
+        "titulo": "Aleluya",
+        "letra": "Aleluya, aleluya..."
+      },
+      "ofertorio": {
+        "titulo": "Pan y vino",
+        "letra": "Recibe oh Dios eterno..."
+      },
+      "comunion": [
+        {
+          "titulo": "Canto de comunión 1",
+          "letra": "Letra del canto 1..."
+        },
+        {
+          "titulo": "Canto de comunión 2",
+          "letra": "Letra del canto 2..."
+        }
+      ],
+      "virgen": {
+        "titulo": "Santa María",
+        "letra": "Santa María, madre de Dios..."
+      }
+    }
+  }

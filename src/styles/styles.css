@@ -22,10 +22,11 @@
   border-radius: 15px;
 }
 .tab-content {
-  margin: 0px 4px;
+  margin: 0px;
 }
 .tab-pane {
   display: none;
+  margin: 0px 4px;
 }
 .tab-pane.active {
   display: block;
@@ -45,6 +46,13 @@
   font-weight: 700;
   margin-top: 2rem;
   margin-bottom: 1rem;
+}
+
+.subtitulo-seccion {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0rem;
+  margin-bottom: 1.5rem;
 }
 
 .comentario-centrado {
@@ -119,4 +127,22 @@
 
 .cursiva {
   font-style: italic;
+}
+
+.titulo-canto {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0rem;
+}
+
+.subtitulo-canto {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 0rem;
+  margin-bottom: 0.5rem;
+}
+
+.pre {
+  white-space: pre;
 }

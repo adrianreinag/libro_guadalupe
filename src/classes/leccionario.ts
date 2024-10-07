@@ -14,6 +14,7 @@ interface Salmo {
 // Clase Leccionario
 export class Leccionario {
     constructor(
+        public dia: string,
         public primeraLectura: Lectura,
         public salmo: Salmo,
         public segundaLectura: Lectura | null,
@@ -22,10 +23,11 @@ export class Leccionario {
 
   static fromJSON(json: any, dia: string): Leccionario {
     const datos = json[dia];
+    const tituloDia = datos.dia;
     const primeraLectura = datos.primeraLectura;
     const salmo = datos.salmo;
     const segundaLectura = datos.segundaLectura;
     const evangelio = datos.evangelio;
-    return new Leccionario(primeraLectura, salmo, segundaLectura, evangelio);
+    return new Leccionario(tituloDia, primeraLectura, salmo, segundaLectura, evangelio);
   }
 }

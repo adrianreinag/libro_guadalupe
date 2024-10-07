@@ -29,14 +29,15 @@ if (!['viernes', 'sabado', 'domingo'].includes(dia)) {
 
 // Obtener los misterios del Rosario según el día seleccionado
 const rosario = RosarioDia.fromJSON(rosarioData, dia);
+
+console.log(rosario);
 ---
 
 <BaseLayout title="Rosario">
   <HeaderComponent title="Rosario" />
   <BodyLayout>
     <div>
-      <h1 class="titulo-dia">Rosario - {dia}</h1>
-      <p class="parrafo">{RosarioDia.ExplicacionRosario}</p>
+      <!-- <h1 class="titulo-dia">{RosarioDia.}</h1> -->
 
       <h2 class="titulo-seccion">Inicio</h2>
       <p class="parrafo">{RosarioDia.Inicio}</p>

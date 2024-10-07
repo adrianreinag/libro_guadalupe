@@ -4,47 +4,41 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import HeaderComponent from '../../../components/HeaderComponent.astro';
 
 import leccionarioData from '../../../data/leccionario.json';
+import cantosData from '../../../data/cantos.json';
 import { Leccionario } from '../../../classes/leccionario.ts';
+import { Cantos } from '../../../classes/cantos.ts';
 import BodyLayout from '../../../layouts/BodyLayout.astro';
+import CantoComponent from '../../../components/CantoComponent.astro';
 
-// Definir la estructura del tipo para los parámetros
 interface Path {
   params: {
     dia: string;
   };
 }
 
-// Definir las rutas dinámicas que quieres generar
 export async function getStaticPaths(): Promise<Path[]> {
   const dias = ['viernes', 'sabado', 'domingo'];
-
-  const paths: Path[] = dias.map(dia => ({
-    params: { dia }
-  }));
-
-  return paths;
+  return dias.map(dia => ({ params: { dia } }));
 }
 
-// Obtener el parámetro de la ruta actual
 const { dia } = Astro.params;
 
-// Validar el tipo y el día
 if (!['viernes', 'sabado', 'domingo'].includes(dia)) {
-  throw new Error('Día no válido.');
+  return Astro.redirect('/404'); // Redirigir a 404 si el día no es válido
 }
 
-// Obtener las lecturas del Leccionario según el día seleccionado
-const getLecturas = (diaSeleccionado: string) => {
-  return Leccionario.fromJSON(leccionarioData, diaSeleccionado);
-};
+const getLecturas = (diaSeleccionado: string) => Leccionario.fromJSON(leccionarioData, diaSeleccionado);
+const getCantos = (diaSeleccionado: string) => Cantos.fromJSON(cantosData, diaSeleccionado);
 
 const lecturas = getLecturas(dia);
+const cantos = getCantos(dia);
+
 ---
 
 <BaseLayout title="Eucaristía">
   <HeaderComponent title="Eucaristía"/>
   <BodyLayout>
-    <h1 class="titulo-dia">XXVI semana del tiempo ordinario - {dia}</h1>
+    <h1 class="titulo-dia">{lecturas.dia}</h1>
     <div>
       <nav class="tabbar">
         <button class="tab-item active selected" data-tab="lecturas">Lecturas</button>
@@ -89,12 +83,53 @@ const lecturas = getLecturas(dia);
           </div>
       </div>
       <div id="cantos" class="tab-pane">
-          <h1>Cantos</h1>
-          <p>Contenido de la sección de cantos...</p>
+        {cantos ? (
+          <>
+            {cantos.entrada && (
+              <CantoComponent titulo="Entrada" subtitulo={cantos.entrada.titulo} letra={cantos.entrada.letra} />
+            )}
+            {cantos.aleluya && (
+              <CantoComponent titulo="Aleluya" subtitulo={cantos.aleluya.titulo} letra={cantos.aleluya.letra} />
+            )}
+            {cantos.ofertorio && (
+              <CantoComponent titulo="Ofertorio" subtitulo={cantos.ofertorio.titulo} letra={cantos.ofertorio.letra} />
+            )}
+  
+            {cantos.comunion && cantos.comunion.length > 0 && ( // Solo renderizar si hay cantos de comunión
+              <>
+                <h2 class="titulo-canto">Comunión</h2>
+                {cantos.comunion.map((canto, index) => (
+                  <div>
+                    <h3 class="subtitulo-canto">{canto.titulo}</h3>
+                    <p set:html={canto.letra} class="parrafo"></p>
+                  </div>
+                ))}
+              </>
+            )}
+  
+             {cantos.virgen && (
+               <CantoComponent titulo="Canto a la Virgen" subtitulo={cantos.virgen.titulo} letra={cantos.virgen.letra} />
+             )}
+  
+  
+          </>
+        ) : (
+          <p>No se encontraron cantos para este día.</p>
+        )}
       </div>
       <div id="oraciones" class="tab-pane">
-          <h1>Oraciones</h1>
-          <p>Contenido de la sección de oraciones...</p>
+          <h1 class="titulo-seccion">Oración preparatoria</h1>
+          <p class="comentario-centrado">Puedes hacer esta oración antes de empezar la eucaristía.</p>
+          <p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, justo nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc. Nullam nec nunc nec nunc.</p>
+          <h1 class="titulo-seccion">Después de la comunión</h1>
+          <p class="comentario-centrado">Puedes hacer esta oración después de comulgar.</p>
+          <p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, justo nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc. Nullam nec nunc nec nunc.</p>
+          <h1 class="titulo-seccion">Comunión espiritual</h1>
+          <p class="comentario-centrado">Puedes hacer esta oración si no puedes comulgar.</p>
+          <p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, justo nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc. Nullam nec nunc nec nunc.</p>
+          <h1 class="titulo-seccion">Oración final</h1>
+          <p class="comentario-centrado">Puedes hacer esta oración al finalizar la eucaristía.</p>
+          <p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, justo nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc. Nullam nec nunc nec nunc.</p>
       </div>
     </div>
   </BodyLayout>
