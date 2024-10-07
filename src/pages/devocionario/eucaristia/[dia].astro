@@ -56,7 +56,7 @@ const lecturas = getLecturas(dia);
             <h2 class="titulo-seccion">Primera lectura</h2>
             <p class="comentario-derecha">{lecturas.primeraLectura.cita}</p>
             <h3 class="titulo-salmos">{lecturas.primeraLectura.titulo}</h3>
-            <p class="parrafo">{lecturas.primeraLectura.texto}</p>
+            <p set:html={lecturas.primeraLectura.texto} class="parrafo"></p>
         
             {lecturas.salmo && (
               <>
@@ -66,9 +66,7 @@ const lecturas = getLecturas(dia);
                 <div>
                   {lecturas.salmo.versos.map((verso: string, index: any) => (
                     <div class="verso-contenedor">
-                      <p class={`parrafo ${index === lecturas.salmo.versos.length - 1 ? 'ultimo-verso' : ''}`}>
-                        {verso}
-                      </p>
+                      <p set:html={verso} class="parrafo"></p>
                     </div>
                   ))}
                 </div>
@@ -80,14 +78,14 @@ const lecturas = getLecturas(dia);
                 <h2 class="titulo-seccion">Segunda lectura</h2>
                 <p class="comentario-derecha">{lecturas.segundaLectura.cita}</p>
                 <h3 class="titulo-salmos">{lecturas.segundaLectura.titulo}</h3>
-                <p class="parrafo">{lecturas.segundaLectura.texto}</p>
+                <p set:html={lecturas.segundaLectura.texto} class="parrafo"></p>
               </>
             )}
         
             <h2 class="titulo-seccion">Evangelio</h2>
             <p class="comentario-derecha">{lecturas.evangelio.cita}</p>
             <h3 class="titulo-salmos">{lecturas.evangelio.titulo}</h3>
-            <p class="parrafo">{lecturas.evangelio.texto}</p>
+            <p set:html={lecturas.evangelio.texto} class="parrafo"></p>
           </div>
       </div>
       <div id="cantos" class="tab-pane">

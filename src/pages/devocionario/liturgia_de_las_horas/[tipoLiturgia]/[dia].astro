@@ -81,7 +81,7 @@ const liturgia = getLiturgia(tipoLiturgia, dia);
         <p class="parrafo antifona"><span class="red">Ant. </span>{liturgia.invitatorio.antifona}</p>
         {liturgia.invitatorio.estrofas.map((estrofa: string, index: number) => (
           <div class="indentado">
-            <p class="parrafo">{estrofa}</p>
+            <p set:html={estrofa} class="parrafo"></p>
             {index === liturgia.invitatorio.estrofas.length - 1 ? null : <p class="comentario-izquierda">{liturgia.invitatorio.comentario}</p>}
           </div>
         ))}
@@ -96,14 +96,14 @@ const liturgia = getLiturgia(tipoLiturgia, dia);
         <h3 class="titulo-salmos">{salmo.cita}</h3>
         <p class="parrafo antifona"><span class="red">Ant. </span>{salmo.antifona}</p>
         {salmo.estrofas.map(estrofa => (
-          <p class="parrafo indentado">{estrofa}</p>
+          <p set:html={estrofa} class="parrafo indentado"></p>
         ))}
         <p class="parrafo antifona"><span class="red">Ant. </span>{salmo.antifona}</p>
       </div>
     ))}
     <h2 class="titulo-seccion">Lectura breve</h2>
     <p class="comentario-derecha">{liturgia.lecturaBreve.cita}</p>
-    <p class="parrafo">{liturgia.lecturaBreve.texto}</p>
+    <p set:html={liturgia.lecturaBreve.texto} class="parrafo"></p>
     <h2 class="titulo-seccion">Responsorio</h2>
     {liturgia.responsorio.v.map((versiculo, index) => (
       <div>
@@ -119,7 +119,7 @@ const liturgia = getLiturgia(tipoLiturgia, dia);
     <p class="parrafo antifona"><span class="red">Ant. </span>{liturgia.canticoEvangelico.antifona}</p>
     {liturgia.canticoEvangelico.estrofas.map((estrofa, index) => (
       <div class="indentado">
-        <p class="parrafo">{estrofa}</p>
+        <p set:html={estrofa} class="parrafo"></p>
       </div>
     ))}
     <p class="parrafo antifona"><span class="red">Ant. </span>{liturgia.canticoEvangelico.antifona}</p>
