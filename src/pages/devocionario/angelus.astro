@@ -1,10 +1,25 @@
-<html lang="es">
-  <head>
-    <title>Laudes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <h1>Laudes</h1>
-    <p>Aquí va el texto completo de la oración de Laudes.</p>
-  </body>
-</html>
+---
+// Importaciones y configuración
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderComponent from '../../components/HeaderComponent.astro';
+import BodyLayout from '../../layouts/BodyLayout.astro';
+---
+
+<BaseLayout title="Ángelus">
+  <HeaderComponent title="Ángelus"/>
+  <BodyLayout>
+    <p class="parrafo seguido"><span class="red">V. </span>El Ángel del Señor anunció a María.</p>
+    <p class="parrafo seguido"><span class="red">R. </span>Y concibió por obra del Espíritu Santo.</p>
+    <p class="parrafo"> Dios te salve, María...</p>
+    <p class="parrafo seguido"><span class="red">V. </span>He aquí la esclava del Señor.</p>
+    <p class="parrafo seguido"><span class="red">R. </span>Hágase en mí según tu palabra.</p>
+    <p class="parrafo"> Dios te salve, María...</p>
+    <p class="parrafo seguido"><span class="red">V. </span>Y el Verbo de Dios se hizo carne.</p>
+    <p class="parrafo seguido"><span class="red">R. </span>Y habitó entre nosotros.</p>
+    <p class="parrafo"> Dios te salve, María...</p>
+    <p class="parrafo seguido"><span class="red">V. </span>Ruega por nosotros, Santa Madre de Dios.</p>
+    <p class="parrafo seguido"><span class="red">R. </span>Para que seamos dignos de alcanzar las promesas de nuestro Señor Jesucristo.</p>
+    <h2 class="titulo-seccion">Oración</h2>
+    <p class="parrafo">Oh Padre, Infunde en nuestra alma tu gracia. Tú, que en la anunciación del Ángel nos has revelado la encarnación de tu Hijo, por su pasión y su cruz condúcenos a la gloria de la resurrección. Por Cristo, Nuestro Señor.<br><br>Amén.</p>
+  </BodyLayout>
+</BaseLayout>
