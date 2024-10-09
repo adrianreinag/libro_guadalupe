@@ -6,10 +6,15 @@
     "resolveJsonModule": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
-    "types": ["vite/client"] // Incluye esto para que reconozca "virtual" módulos
+    "types": [
+      "vite/client"
+    ],
+    "jsxImportSource": "react"
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

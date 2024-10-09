@@ -1,213 +1,65 @@
 ---
-import { Image } from 'astro:assets';
-import sanpelagio from '/src/assets/san_pelagio.png';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CieloComponent from "../components/CieloComponent.astro";
+import SueloComponent from "../components/SueloComponent.astro";
+import TextOverlayComponent from "../components/TextOverlayComponent.astro";
 ---
 
 <BaseLayout title="Guadalupe XXIX">
-    <header>
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="24" 
-          height="24" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          stroke-width="2" 
-          stroke-linecap="round" 
-          stroke-linejoin="round" 
-          class="menu-icon" 
-          id="menu-toggle"
-        >
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-        <Image
-          src={sanpelagio}
-          alt="San Pelagio Logo"
-          width={40}
-          height={40}
-          class="logo"
-        />
-    </header>
-    
-    <nav id="drawer" class="drawer">
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Devocionario</a></li>
-            <li><a href="#">Ubicaciones</a></li>
-            <li><a href="#">Cancionero</a></li>
-        </ul>
-    </nav>
+  <div class="scroll-container">
+    <section class="section">
+      <CieloComponent />
+      <div class="content">
+        <TextOverlayComponent title="Guadalupe XXIX" subtitle="Mira a la Estrella, invoca a María" />
+      </div>
+    </section>
+    <section class="section">
+      <SueloComponent />
+      <div class="content">
+        <h2>Sección 2</h2>
+        <p>Contenido de la segunda sección.</p>
+      </div>
+    </section>
+  </div>
 
-    <main>
-        <div class="image-container">
-            <Image
-            src="/guadalupe.png"
-            alt="Virgen de Guadalupe"
-            width={256}
-            height={256}
-            class="guadalupe-image"
-            />
-        </div>
-        
-        <h1>GUADALUPE XXIX</h1>
-        <p>De la mano de María al corazón de Cristo</p>
-        
-        <a href="#more-info" class="scroll-down">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron-down">
-                <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-        </a>
-    </main>
+  <script>
+    // Función para ajustar la altura visible en dispositivos móviles
+    function setVH() {
+      var vh = window.innerHeight * 0.01;
+      // crear variable de texto con el valor de vh seguido de 'px'
+      var vhpx = `${vh}px`;
+      document.documentElement.style.setProperty('--vh', vhpx);
+    }
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const menuToggle = document.querySelector(".menu-icon");
-        const drawer = document.querySelector(".drawer");
-
-        if (menuToggle && drawer) {
-            menuToggle.addEventListener("click", () => {
-            drawer.classList.toggle("open");
-            });
-        }
-        });
-    </script>
+    // Ejecutar al cargar y al cambiar el tamaño de la ventana
+    setVH();
+    window.addEventListener('resize', setVH);
+  </script>
 </BaseLayout>
 
 <style>
-    :root {
-        --background-color: #FFF8ED;
-        --text-color: #4A321E;
-    }
-
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+  .scroll-container {
+    height: calc(var(--vh) * 100); /* Ajuste dinámico de altura */
+    overflow-y: scroll; /* Permite el scroll vertical */
+    scroll-snap-type: y mandatory; /* Snap vertical obligatorio */
   }
 
-  .container {
-    min-height: 100vh;
-    background-color: var(--background-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .section {
+    height: calc(var(--vh) * 100); /* Ajuste dinámico de altura */
+    position: relative; /* Permite posicionar los elementos dentro de esta sección */
+    scroll-snap-align: start; /* Alinea el inicio de cada sección */
   }
 
-  header {
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .menu-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: var(--text-color);
-    cursor: pointer;
-  }
-
-  .logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-  }
-
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 1rem;
-    text-align: center;
-  }
-
-  .image-container {
-    width: 16rem;
-    height: 16rem;
-    margin-bottom: 2rem;
+  /* Estilos para el contenido de las secciones */
+  .content {
     position: relative;
-  }
-
-  .guadalupe-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  h1 {
-    font-size: 2.25rem;
-    font-weight: bold;
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 1.125rem;
-    color: var(--text-color);
-    margin-bottom: 2rem;
-  }
-
-  .scroll-down {
-    margin-top: 2rem;
-  }
-
-  .chevron-down {
-    width: 2rem;
-    height: 2rem;
-    color: var(--text-color);
-    animation: bounce 1s infinite;
-  }
-
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(-25%);
-      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-    }
-    50% {
-      transform: translateY(0);
-      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    }
-  }
-
-  /* Drawer Styles */
-  .drawer {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    padding: 2rem;
-    transition: left 0.3s ease;
-    z-index: 1000;
-  }
-
-  .drawer.open {
-    left: 0;
-  }
-
-  .drawer ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .drawer ul li {
-    margin-bottom: 1rem;
-  }
-
-  .drawer ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.25rem;
-  }
-
-  .drawer ul li a:hover {
-    text-decoration: underline;
+    z-index: 1; /* Asegura que el contenido se muestre por encima del fondo */
+    display: flex; /* Permite centrar el contenido */
+    flex-direction: column; /* Alinea el contenido en columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    height: 100%; /* Ocupa toda la altura de la sección */
+    color: red; /* Color del texto */
+    text-align: center; /* Centra el texto */
   }
 </style>

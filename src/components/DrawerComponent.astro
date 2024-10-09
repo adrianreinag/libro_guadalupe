@@ -1,0 +1,73 @@
+---
+// Importa los iconos de redes sociales
+import Instagram from "../icons/Instagram.astro";
+import Facebook from "../icons/Facebook.astro";
+import YouTube from "../icons/YouTube.astro";
+---
+
+<input type="checkbox" id="drawer-toggle" name="drawer-toggle" />
+<label for="drawer-toggle" id="drawer-toggle-label"></label>
+<nav id="drawer">
+  <ul>
+    <!-- Parte superior del menú -->
+    <div class="menu-items">
+      <li><a href="#">Carta del Obispo</a></li>
+      <li><a href="#">¿Quién es San Pelagio?</a></li>
+      <li><a href="#">Cancionero</a></li>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!-- Parte inferior del menú -->
+    <div class="bottom-section">
+      <li><a href="#">La Delegación de Juventud</a></li>
+
+      <!-- Iconos de redes sociales -->
+      <div class="social-icons">
+        <Instagram
+          url="https://www.instagram.com/delejuventud/"
+          size="26px"
+          color="#FFFFFF"
+        />
+        <Facebook
+          url="https://www.facebook.com/delejuventud"
+          size="26px"
+          color="#FFFFFF"
+        />
+        <YouTube
+          url="https://www.youtube.com/@CORDOBAESPERA"
+          size="32px"
+          color="#FFFFFF"
+        />
+      </div>
+    </div>
+  </ul>
+</nav>
+
+
+<style>
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      /* adds animation for all transitions */
+      -webkit-transition: 0.25s ease-in-out;
+      -moz-transition: 0.25s ease-in-out;
+      -o-transition: 0.25s ease-in-out;
+      transition: 0.25s ease-in-out;
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: none;
+    }
+  
+    /* Makes sure that everything is 100% height */
+  
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+    }
+  </style>
+  
+  

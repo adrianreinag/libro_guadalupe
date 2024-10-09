@@ -1,7 +1,7 @@
+/* Estilos para la Tab Bar */
 .tabbar {
   display: flex;
-  margin: 50px 0px 50px 0px;
-  /* padding: 0 20px; */
+  margin: 50px 0;
   gap: 15px;
 }
 .tab-item {
@@ -22,16 +22,154 @@
   border-radius: 15px;
 }
 .tab-content {
-  margin: 0px;
+  margin: 0;
 }
 .tab-pane {
   display: none;
-  margin: 0px 4px;
+  margin: 0 4px;
 }
 .tab-pane.active {
   display: block;
 }
 
+/* Estilos para el Drawer */
+#drawer-toggle {
+  position: absolute;
+  opacity: 0;
+}
+
+#drawer-toggle-label {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  left: 0px;
+  height: 50px;
+  width: 50px;
+  display: block;
+  position: fixed;
+  background: rgba(255, 255, 255, 0);
+  z-index: 1;
+}
+
+/* Añade nuestro icono de menú "hamburguesa" */
+#drawer-toggle-label:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 24px;
+  background: #ffffff; /* TODO: cambiar color */
+  left: 13px;
+  top: 18px;
+  box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff; /* TODO: cambiar color */
+}
+
+/* Estilos del menú lateral */
+#drawer {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100%;
+  width: 300px;
+  background: #2f2f2f; /* TODO: cambiar color */
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 20px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Estilos cuando el menú está abierto */
+#drawer-toggle:checked ~ #drawer-toggle-label {
+  height: 100%;
+  width: calc(100% - 300px);
+  background: rgba(255, 255, 255, 0);
+}
+
+#drawer-toggle:checked ~ #drawer-toggle-label,
+#drawer-toggle:checked ~ header {
+  left: 300px;
+}
+
+#drawer-toggle:checked ~ #drawer {
+  left: 0px;
+}
+
+#drawer-toggle:checked ~ #page-content {
+  margin-left: 300px;
+}
+
+/* Estilos de los elementos del menú */
+#drawer ul {
+  list-style-type: none; /* Sin viñetas */
+  padding: 0; /* Sin padding */
+  margin: 0; /* Sin margen */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Para que el contenedor ocupe toda la altura */
+}
+
+#drawer li a {
+  text-decoration: none; /* Sin subrayado */
+  color: #ffffff; /* Color del texto */
+  font-size: 16px; /* Tamaño de la fuente */
+  display: block; /* Hacer que ocupe toda la línea */
+  padding: 20px 0; /* Espaciado vertical */
+  transition: color 0.3s; /* Transición suave para el color */
+  text-align: center; /* Centrar textos */
+}
+
+/* Efecto hover para enlaces */
+#drawer li a:hover {
+  color: #007bff; /* Color al pasar el ratón */
+}
+
+/* Estilo de los iconos sociales */
+.social-icons {
+  display: flex;
+  justify-content: space-between; /* Distribuye los iconos con espacio entre ellos */
+  align-items: center; /* Alinea los iconos en el centro verticalmente */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 600px; /* Opción para limitar el ancho si lo prefieres */
+  margin: 0 auto; /* Centra el contenedor en la página */
+  padding: 0 50px;
+  margin-top: 10px;
+}
+
+.social-icons svg {
+  display: block;
+  margin: 0 auto; /* Padding en los lados */
+}
+
+.spacer {
+  flex-grow: 1; /* El elemento crece para ocupar el espacio restante */
+}
+
+/* Responsive MQ para el Drawer */
+@media all and (max-width: 350px) {
+  #drawer-toggle:checked ~ #drawer-toggle-label {
+    height: 100%;
+    width: 50px;
+  }
+
+  #drawer-toggle:checked ~ #drawer-toggle-label,
+  #drawer-toggle:checked ~ header {
+    left: calc(100% - 50px);
+  }
+
+  #drawer-toggle:checked ~ #drawer {
+    width: calc(100% - 50px);
+    padding: 20px;
+  }
+
+  #drawer-toggle:checked ~ #page-content {
+    margin-left: calc(100% - 50px);
+  }
+}
+
+/* Estilos para títulos y subtítulos */
 .titulo-dia {
   font-weight: 200;
   font-size: 1.875rem;
@@ -51,10 +189,11 @@
 .subtitulo-seccion {
   font-size: 1rem;
   font-weight: 600;
-  margin-top: 0rem;
+  margin-top: 0;
   margin-bottom: 1.5rem;
 }
 
+/* Estilos para comentarios */
 .comentario-centrado {
   font-weight: 300;
   font-size: 0.85rem;
@@ -72,7 +211,7 @@
   line-height: 1rem;
   text-align: start;
   padding-right: 2rem;
-  color: rgb(220 38 38);
+  color: rgb(220, 38, 38);
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -83,9 +222,10 @@
   line-height: 1rem;
   text-align: end;
   padding-left: 2rem;
-  color: rgb(220 38 38);
+  color: rgb(220, 38, 38);
 }
 
+/* Estilos para párrafos y texto */
 .parrafo {
   font-size: 1rem;
   font-weight: 300;
@@ -117,18 +257,21 @@
   margin-top: 1.2rem;
 }
 
+/* Estilos para texto en rojo */
 .red {
-  color: rgb(220 38 38);
+  color: rgb(220, 38, 38);
 }
 
+/* Estilos para títulos de salmos */
 .titulo-salmos {
   font-size: 1.05rem;
   text-align: center;
-  color: rgb(220 38 38);
+  color: rgb(220, 38, 38);
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
+/* Estilos adicionales */
 .cursiva {
   font-style: italic;
 }
@@ -137,12 +280,12 @@
   font-size: 1.25rem;
   font-weight: 700;
   margin-top: 2rem;
-  margin-bottom: 0rem;
+  margin-bottom: 0;
 }
 
 .subtitulo-canto {
   font-weight: 500;
-  margin-top: 0rem;
+  margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
@@ -158,4 +301,26 @@
 
 .imagen-misterio {
   width: 100%;
+}
+
+/* Estilos para el overlay de texto */
+.text-overlay {
+  padding: 1em;
+  position: absolute;
+  bottom: 200px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+.text-overlay h1 {
+  font-size: 2.2em;
+  margin-bottom: 0.2em;
+}
+
+.text-overlay h2 {
+  font-size: 1.3em;
+  font-weight: 300;
 }
