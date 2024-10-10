@@ -1,11 +1,6 @@
-/* devocionario.css */
-:root {
-  --vh: 1vh;
-}
-
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f4f8;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
   display: flex;
@@ -16,14 +11,13 @@ body {
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 80%;
   padding: 20px;
 }
 
 h1 {
-  color: #2c5282;
+  font-family: "Poppins", sans-serif;
+  color: #2f5b6a;
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 2rem;
@@ -31,30 +25,31 @@ h1 {
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
 }
 
 .button {
-  background-color: #ffffff;
-  color: #2c5282;
-  padding: 1rem;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 15px; /* Tamaño del botón */
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  /* color: white; */
+  background-color: transparent; /* Color del botón */
+  border: none;
+  /* border-radius: 100px; */
   text-align: center;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .button:hover {
-  background-color: #ebf4ff;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(1.5); /* Efecto de zoom */
 }
 
-@media (max-width: 768px) {
-  .buttons {
-    grid-template-columns: 1fr;
-  }
+.button:active {
+  transform: scale(1); /* El botón vuelve a su tamaño original al hacer click */
 }
