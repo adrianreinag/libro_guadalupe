@@ -1,6 +1,6 @@
 <section class="section">
   <div class="content">
-    <a class="index-button" href="/devocionario">
+    <button class="index-button" onclick="window.location.href='/devocionario'" oncontextmenu="return false;">
       <svg
       class="icon"
         xmlns="http://www.w3.org/2000/svg"
@@ -13,8 +13,8 @@
         ></path></svg
       >
       Devocionario
-    </a>
-    <a class="index-button" href="/ubicaciones">
+    </button>
+    <button class="index-button" onclick="window.location.href='/ubicaciones'" oncontextmenu="return false;">
       <svg
         class="icon"
         xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@
         ></path>
       </svg>
       Ubicaciones
-    </a>
+    </button>
   </div>
 </section>
 
@@ -41,6 +41,7 @@
   }
 
   .index-button {
+    outline: none;
     display: flex;
     align-items: center;
     justify-content: center;
