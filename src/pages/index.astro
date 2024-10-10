@@ -1,65 +1,24 @@
 ---
+import IndexSection1Component from "../components/IndexSection1Component.astro";
+import IndexSection2Component from "../components/IndexSection2Component.astro";
+import IndexBackgroundComponent from "../components/IndexBackgroundComponent.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CieloComponent from "../components/CieloComponent.astro";
-import SueloComponent from "../components/SueloComponent.astro";
-import TextOverlayComponent from "../components/TextOverlayComponent.astro";
 ---
-
 <BaseLayout title="Guadalupe XXIX">
   <div class="scroll-container">
-    <section class="section">
-      <CieloComponent />
-      <div class="content">
-        <TextOverlayComponent title="Guadalupe XXIX" subtitle="Mira a la Estrella, invoca a María" />
-      </div>
-    </section>
-    <section class="section">
-      <SueloComponent />
-      <div class="content">
-        <h2>Sección 2</h2>
-        <p>Contenido de la segunda sección.</p>
-      </div>
-    </section>
+    <IndexBackgroundComponent />
+    <IndexSection1Component />
+    <IndexSection2Component />
   </div>
 
   <script>
-    // Función para ajustar la altura visible en dispositivos móviles
     function setVH() {
       var vh = window.innerHeight * 0.01;
-      // crear variable de texto con el valor de vh seguido de 'px'
       var vhpx = `${vh}px`;
       document.documentElement.style.setProperty('--vh', vhpx);
     }
 
-    // Ejecutar al cargar y al cambiar el tamaño de la ventana
     setVH();
     window.addEventListener('resize', setVH);
   </script>
 </BaseLayout>
-
-<style>
-  .scroll-container {
-    height: calc(var(--vh) * 100); /* Ajuste dinámico de altura */
-    overflow-y: scroll; /* Permite el scroll vertical */
-    scroll-snap-type: y mandatory; /* Snap vertical obligatorio */
-  }
-
-  .section {
-    height: calc(var(--vh) * 100); /* Ajuste dinámico de altura */
-    position: relative; /* Permite posicionar los elementos dentro de esta sección */
-    scroll-snap-align: start; /* Alinea el inicio de cada sección */
-  }
-
-  /* Estilos para el contenido de las secciones */
-  .content {
-    position: relative;
-    z-index: 1; /* Asegura que el contenido se muestre por encima del fondo */
-    display: flex; /* Permite centrar el contenido */
-    flex-direction: column; /* Alinea el contenido en columna */
-    justify-content: center; /* Centra verticalmente */
-    align-items: center; /* Centra horizontalmente */
-    height: 100%; /* Ocupa toda la altura de la sección */
-    color: red; /* Color del texto */
-    text-align: center; /* Centra el texto */
-  }
-</style>
