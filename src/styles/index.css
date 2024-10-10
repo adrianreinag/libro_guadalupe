@@ -18,11 +18,23 @@
 }
 
 /* Estilos para el contenido de las secciones */
-.content {
+.section-1 {
   position: relative;
   z-index: 1; /* Asegura que el contenido se muestre por encima del fondo */
-  color: red; /* Color del texto */
+  color: white; /* Texto blanco para contrastar con el fondo */
   text-align: center; /* Centra el texto */
+}
+
+.section-1 h1 {
+  font-size: 2.2rem; /* Tamaño grande para el título */
+  margin-bottom: 0rem; /* Espacio entre el título y el subtítulo */
+  margin-top: 18rem
+}
+
+.section-1 h2 {
+  margin-top: 0rem; /* Espacio entre el título y el subtítulo */
+  font-size: 1.2rem; /* Tamaño mediano para el subtítulo */
+  font-weight: 500; /* Grosor de la fuente */
 }
 
 /* Estilos para el fondo */
@@ -51,7 +63,7 @@
   top: 0; /* Empieza en la parte superior */
   left: 0;
   width: 100%;
-  height: 40%; /* Solo ocupa el 30% de la altura de la primera sección */
+  height: 30%; /* Solo ocupa el 30% de la altura de la primera sección */
   overflow: hidden; /* Oculta las estrellas que se salgan del contenedor */
   pointer-events: none; /* Las estrellas no interferirán con la interacción */
   z-index: 0; /* Asegura que las estrellas estén detrás de las secciones */

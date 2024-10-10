@@ -99,13 +99,12 @@
 
     const rect = elemento.getBoundingClientRect();
     // Obtener la posición vertical y horizontal del centro de la estrella grande en porcentaje
-    const rightBigStarPosition =
-      ((window.innerWidth - (rect.left + rect.width / 2)) / window.innerWidth) *
-      100;
-    const topBigStarPosition =
-      ((rect.top + rect.height / 2) / window.innerHeight) * 120;
+    const rightBigStarPosition = ((window.innerWidth - (rect.left + rect.width / 2)) / window.innerWidth) * 100;
+    const topBigStarPosition = ((rect.top + rect.height / 2) / window.innerHeight) * 155;
 
-    const numStars = 500; // Número total de estrellas
+    console.log(rightBigStarPosition, topBigStarPosition);
+
+    const numStars = 300; // Número total de estrellas
 
     for (let i = 0; i < numStars; i++) {
       const star = document.createElement("div");
