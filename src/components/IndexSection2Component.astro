@@ -1,5 +1,79 @@
 <section class="section">
   <div class="content">
-    <h1>Segunda Sección</h1>
+    <a class="index-button" href="/devocionario">
+      <svg
+      class="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#5f6368"
+        ><path
+          d="M266.46-183.69v-544.8q0-25.41 17.42-42.82 17.41-17.42 42.77-17.42h306.7q25.36 0 42.77 17.42 17.42 17.41 17.42 42.82v544.8L480-268l-213.54 84.31Z"
+        ></path></svg
+      >
+      Devocionario
+    </a>
+    <a class="index-button" href="/ubicaciones">
+      <svg
+        class="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="white"
+        width="24px"
+        height="24px"
+      >
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path
+          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+        ></path>
+      </svg>
+      Ubicaciones
+    </a>
   </div>
 </section>
+
+<style>
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espacio entre los botones */
+  }
+
+  .index-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espacio entre icono y texto */
+    padding: 30px 35px; /* Tamaño del botón */
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: #2f5b6a; /* Color del botón */
+    border: none;
+    border-radius: 35px; /* Bordes redondeados */
+    text-align: center;
+    text-decoration: none;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s ease; /* Transición */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+
+  .index-button:hover {
+    background-color: #a4cad7; /* Color al pasar el ratón */
+    transform: scale(1.05); /* Efecto de zoom */
+  }
+
+  .index-button:active {
+    transform: scale(
+      1
+    ); /* El botón vuelve a su tamaño original al hacer click */
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    fill: white; /* Color del icono */
+  }
+</style>

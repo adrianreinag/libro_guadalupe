@@ -1,0 +1,41 @@
+---
+// DrawerButtonComponent.astro
+---
+
+<button id="open-drawer"> Abrir menu </button>
+
+<style>
+  #open-drawer {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 100;
+  }
+
+  #open-drawer:hover {
+    background-color: #2980b9;
+  }
+</style>
+
+<script>
+  const openDrawerButton = document.getElementById("open-drawer");
+
+  console.log("openDrawerButton", openDrawerButton);
+  
+  if (!openDrawerButton) {
+      throw new Error("Could not find the open drawer button");
+      
+    }
+    
+  openDrawerButton.addEventListener("click", () => {
+    if (typeof window.openDrawer === "function") {
+      window.openDrawer();
+    }
+  });
+</script>

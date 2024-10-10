@@ -20,7 +20,7 @@
 /* Estilos para el contenido de las secciones */
 .section-1 {
   position: relative;
-  z-index: 1; /* Asegura que el contenido se muestre por encima del fondo */
+  z-index: 50; /* Asegura que el contenido se muestre por encima del fondo */
   color: white; /* Texto blanco para contrastar con el fondo */
   text-align: center; /* Centra el texto */
 }
