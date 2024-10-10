@@ -1,5 +1,5 @@
 <section class="section">
-  <div class="content">
+  <div class="section-2">
     <button class="index-button" onclick="window.location.href='/devocionario'" oncontextmenu="return false;">
       <svg
       class="icon"
@@ -32,49 +32,3 @@
     </button>
   </div>
 </section>
-
-<style>
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: 40px; /* Espacio entre los botones */
-  }
-
-  .index-button {
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* Espacio entre icono y texto */
-    padding: 30px 35px; /* Tamaño del botón */
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    background-color: #2f5b6a; /* Color del botón */
-    border: none;
-    border-radius: 35px; /* Bordes redondeados */
-    text-align: center;
-    text-decoration: none;
-    transition:
-      background-color 0.3s ease,
-      transform 0.2s ease; /* Transición */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-  }
-
-  .index-button:hover {
-    background-color: #a4cad7; /* Color al pasar el ratón */
-    transform: scale(1.05); /* Efecto de zoom */
-  }
-
-  .index-button:active {
-    transform: scale(
-      1
-    ); /* El botón vuelve a su tamaño original al hacer click */
-  }
-
-  .icon {
-    width: 24px;
-    height: 24px;
-    fill: white; /* Color del icono */
-  }
-</style>
