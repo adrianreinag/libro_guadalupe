@@ -1,6 +1,4 @@
 ---
-import DrawerButtonComponent from "./DrawerButtonComponent.astro";
-
 // IndexBackgroundComponent.astro
 ---
 
@@ -21,7 +19,7 @@ import DrawerButtonComponent from "./DrawerButtonComponent.astro";
       </svg>
     </div>
   </div>
-  <div class="ground">
+  <div class="ground" id="ground-1">
     <svg
       class="ground-svg"
       width="540"
@@ -34,7 +32,7 @@ import DrawerButtonComponent from "./DrawerButtonComponent.astro";
         fill="#366A7C"></path>
     </svg>
   </div>
-  <div class="ground">
+  <div class="ground" id="ground-2">
     <svg
       class="ground-svg"
       width="540"
@@ -47,7 +45,7 @@ import DrawerButtonComponent from "./DrawerButtonComponent.astro";
         fill="#2F5B6A"></path>
     </svg>
   </div>
-  <div class="ground">
+  <div class="ground" id="people">
     <svg
       class="ground-svg"
       width="540"
@@ -60,7 +58,7 @@ import DrawerButtonComponent from "./DrawerButtonComponent.astro";
         fill="#0A100C"></path>
     </svg>
   </div>
-  <div class="ground">
+  <div class="ground" id="ground-3">
     <svg
       class="ground-svg"
       width="540"
@@ -73,7 +71,7 @@ import DrawerButtonComponent from "./DrawerButtonComponent.astro";
         fill="#172E35"></path>
     </svg>
   </div>
-  <div class="ground-continue"></div>
+  <div id="ground-continue"></div>
   <!-- Otras capas -->
   <div class="scroll-down">
     <svg
@@ -101,10 +99,14 @@ import DrawerButtonComponent from "./DrawerButtonComponent.astro";
 
     const rect = elemento.getBoundingClientRect();
     // Obtener la posición vertical y horizontal del centro de la estrella grande en porcentaje
-    const rightBigStarPosition = ((window.innerWidth - (rect.left + rect.width / 2)) / window.innerWidth) * 100;
-    const topBigStarPosition = ((rect.top + rect.height / 2) / window.innerHeight) * 155;
 
-    const numStars = 300; // Número total de estrellas
+    const rightBigStarPositionPx = rect.left + rect.width / 2;
+    const topBigStarPositionPx = rect.top + rect.height / 2;
+
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    const numStars = 1000; // Número total de estrellas
 
     for (let i = 0; i < numStars; i++) {
       const star = document.createElement("div");
@@ -114,28 +116,28 @@ import DrawerButtonComponent from "./DrawerButtonComponent.astro";
       star.style.height = `${size}px`;
 
       // Generar posición vertical favoreciendo la parte superior
-      const topPosition = 100 - Math.sqrt(Math.random()) * 100; // Menos estrellas en la parte inferior
-      const rightPosition = Math.random() * 100; // Posición horizontal aleatoria
+      const topPositionPx = windowHeight*0.65 - Math.sqrt(Math.random()) * windowHeight;
+      const rightPositionPx = Math.random() * windowWidth;
 
       const distance = Math.sqrt(
-        (topPosition - topBigStarPosition) ** 2 +
-          (rightPosition - rightBigStarPosition) ** 2
+        (topPositionPx - topBigStarPositionPx) ** 2 +
+          (rightPositionPx - rightBigStarPositionPx) ** 2
       );
 
       var k = 1;
-      if (distance < 5) {
+      if (distance < 20) {
         k = 0;
-      } else if (distance > 20) {
+      } else if (distance > 70) {
         k = 1;
       } else {
-        k = (distance - 5) / 15;
+        k = (distance - 20) / 50;
       }
 
-      star.style.top = `${topPosition}%`; // Posición vertical ajustada
-      star.style.right = `${rightPosition}%`; // Posición horizontal ajustada
+      star.style.top = `${topPositionPx}px`; // Posición vertical ajustada
+      star.style.left = `${rightPositionPx}px`; // Posición horizontal ajustada
 
       // Generar opacidad aleatoria entre 0 y 1
-      star.style.opacity = (Math.random() * k).toString(); // Asegúrate de que sea una cadena
+      star.style.opacity = (Math.random()*k).toString(); // Asegúrate de que sea una cadena
 
       starsContainer.appendChild(star);
     }
