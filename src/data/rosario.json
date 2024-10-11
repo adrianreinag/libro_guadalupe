@@ -5,27 +5,27 @@
       {
         "nombre": "La oración de Jesús en el huerto de los olivos",
         "lectura": "Mateo 26:36-46",
-        "imagen": "/src/assets/1misteriodolorosos.jpg"
+        "imagen": "/assets/1misteriodolorosos.jpg"
       },
       {
         "nombre": "La flagelación del Señor",
         "lectura": "Mateo 27:26",
-        "imagen": "/src/assets/2misteriodolorosos.jpg"
+        "imagen": "/assets/2misteriodolorosos.jpg"
       },
       {
         "nombre": "La coronación de espinas",
         "lectura": "Mateo 27:29-30",
-        "imagen": "/src/assets/3misteriodolorosos.jpg"
+        "imagen": "/assets/3misteriodolorosos.jpg"
       },
       {
         "nombre": "Jesús camino del calvario con la cruz a cuestas",
         "lectura": "Juan 19:17",
-        "imagen": "/src/assets/4misteriodolorosos.jpg"
+        "imagen": "/assets/4misteriodolorosos.jpg"
       },
       {
         "nombre": "La crucifixión y muerte de Jesús",
         "lectura": "Juan 19:18-30",
-        "imagen": "/src/assets/5misteriodolorosos.jpg"
+        "imagen": "/assets/5misteriodolorosos.jpg"
       }
     ]
   },
@@ -35,27 +35,27 @@
       {
         "nombre": "La encarnación del Hijo de Dios",
         "lectura": "Mateo 28:1-10",
-        "imagen": "/src/assets/1misteriogozosos.jpg"
+        "imagen": "/assets/1misteriogozosos.jpg"
       },
       {
         "nombre": "La visitación de María Santísima a su prima santa Isabel",
         "lectura": "Hechos 1:6-11",
-        "imagen": "/src/assets/2misteriogozosos.jpg"
+        "imagen": "/assets/2misteriogozosos.jpg"
       },
       {
         "nombre": "El nacimiento del Hijo de Dios",
         "lectura": "Hechos 2:1-13",
-        "imagen": "/src/assets/3misteriogozosos.jpg"
+        "imagen": "/assets/3misteriogozosos.jpg"
       },
       {
         "nombre": "La presentación del Niño Jesús en el templo",
         "lectura": "Lucas 1:46-55",
-        "imagen": "/src/assets/4misteriogozosos.jpg"
+        "imagen": "/assets/4misteriogozosos.jpg"
       },
       {
         "nombre": "El Niño Jesús perdido y hallado en el templo",
         "lectura": "Apocalipsis 12:1",
-        "imagen": "/src/assets/5misteriogozosos.jpg"
+        "imagen": "/assets/5misteriogozosos.jpg"
       }
     ]
   },
@@ -65,27 +65,27 @@
       {
         "nombre": "La resurrección del Señor",
         "lectura": "Mateo 28:1-10",
-        "imagen": "/src/assets/1misteriogloriosos.jpg"
+        "imagen": "/assets/1misteriogloriosos.jpg"
       },
       {
         "nombre": "La ascensión del Señor",
         "lectura": "Hechos 1:6-11",
-        "imagen": "/src/assets/2misteriogloriosos.jpg"
+        "imagen": "/assets/2misteriogloriosos.jpg"
       },
       {
         "nombre": "La venida del Espíritu Santo",
         "lectura": "Hechos 2:1-13",
-        "imagen": "/src/assets/3misteriogloriosos.jpg"
+        "imagen": "/assets/3misteriogloriosos.jpg"
       },
       {
         "nombre": "La asunción de María Santísima",
         "lectura": "Lucas 1:46-55",
-        "imagen": "/src/assets/4misteriogloriosos.jpg"
+        "imagen": "/assets/4misteriogloriosos.jpg"
       },
       {
         "nombre": "La coronación de María Santísima como Reina de toda la creación",
         "lectura": "Apocalipsis 12:1",
-        "imagen": "/src/assets/5misteriogloriosos.jpg"
+        "imagen": "/assets/5misteriogloriosos.jpg"
       }
     ]
   }

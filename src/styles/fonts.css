@@ -135,3 +135,17 @@ body {
   -ms-user-select:none;
   user-select:none;
 }
+
+
+/* Para ocultar el contenido en modo horizontal */
+@media screen and (orientation: landscape) {
+  body {
+      display: none; /* Oculta el contenido */
+  }
+}
+
+@media screen and (orientation: portrait) {
+  body {
+      display: block; /* Muestra el contenido */
+  }
+}
