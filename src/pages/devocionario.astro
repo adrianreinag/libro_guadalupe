@@ -1,20 +1,25 @@
 ---
+import HeaderComponent from "../components/HeaderComponent.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BodyLayout from "../layouts/BodyLayout.astro";
 import "../styles/devocionario.css";
 ---
 
 <BaseLayout title="Devocionario">
-  <div class="devocionario-section">
-    <div class="buttons">
-      <button class="button" id="btnLaudes">- Laudes -</button>
-      <button class="button" id="btnVisperas">- Vísperas -</button>
-      <button class="button" id="btnEucaristia">- Eucaristía -</button>
-      <button class="button" id="btnRosario">- Rosario -</button>
-      <button class="button" id="btnAngelus">- Angelus -</button>
-      <button class="button" id="btnExamen">- Examen de conciencia -</button>
-      <button class="button" id="btnCatequesis">- Catequesis -</button>
+  <HeaderComponent title="Devocionario" backUrl="/" />
+  <BodyLayout>
+    <div class="devocionario-section">
+      <div class="buttons">
+        <button class="button" id="btnLaudes">- Laudes -</button>
+        <button class="button" id="btnVisperas">- Vísperas -</button>
+        <button class="button" id="btnEucaristia">- Eucaristía -</button>
+        <button class="button" id="btnRosario">- Rosario -</button>
+        <button class="button" id="btnAngelus">- Angelus -</button>
+        <button class="button" id="btnExamen">- Examen de conciencia -</button>
+        <button class="button" id="btnCatequesis">- Catequesis -</button>
+      </div>
     </div>
-  </div>
+  </BodyLayout>
 </BaseLayout>
 
 <script>
