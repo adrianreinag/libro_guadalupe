@@ -1,0 +1,42 @@
+---
+import type { ubicacion } from "../classes/ubicacion";
+
+interface Props {
+  ubi: ubicacion;
+}
+
+const { ubi } = Astro.props;
+---
+
+<button
+  class="card"
+  onclick="window.location.href = '{ubi.url}'"
+  oncontextmenu="return false;"
+>
+  <img src={ubi.imagen} class="card-image" />
+  <div class="card-title">{ubi.nombre}</div>
+</button>
+
+<style>
+  .card {
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    border: none;
+    padding: 0%;
+    outline: none;
+  }
+  .card-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+  }
+  .card-title {
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+  }
+</style>

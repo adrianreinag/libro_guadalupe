@@ -1,13 +1,60 @@
-<html lang="es">
-  <head>
-    <title>Ubicaciones de Interés</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <h1>Ubicaciones de Interés</h1>
-    <ul>
-      <li><a href="https://maps.google.com/?q=Santuario de Guadalupe">Santuario de Guadalupe</a></li>
-      <li><a href="https://maps.google.com/?q=Albergue de Peregrinos">Albergue de Peregrinos</a></li>
-    </ul>
-  </body>
-</html>
+---
+import HeaderComponent from "../components/HeaderComponent.astro";
+import UbicacionComponent from "../components/ubicacionComponent.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BodyLayout from "../layouts/BodyLayout.astro";
+
+const ubicaciones = [
+  {
+    nombre: "Iglesia",
+    url: "Calle Principal 1",
+    imagen: "/assets/ubicaciones/iglesia-alia.jpg",
+  },
+  {
+    nombre: "Ayuntamiento",
+    url: "Plaza Mayor 2",
+    imagen: "/assets/ubicaciones/iglesia-alia.jpg",
+  },
+  {
+    nombre: "Parque",
+    url: "Avenida Verde 3",
+    imagen: "/assets/ubicaciones/iglesia-alia.jpg",
+  },
+  {
+    nombre: "Museo",
+    url: "Calle Historia 4",
+    imagen: "/assets/ubicaciones/iglesia-alia.jpg",
+  },
+];
+---
+
+<BaseLayout title="Ubicaciones">
+  <HeaderComponent title="Ubicaciones" backUrl="/" />
+  <BodyLayout>
+    <div class="ubicaciones-container">
+      <div class="ubicaciones-grid">
+        {ubicaciones.map((ubi, index) => <UbicacionComponent ubi={ubi} />)}
+      </div>
+    </div>
+  </BodyLayout>
+</BaseLayout>
+
+<style>
+  .ubicaciones-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .ubicaciones-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center; /* Centra el texto */
+  }
+  
+  .ubicaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+</style>
