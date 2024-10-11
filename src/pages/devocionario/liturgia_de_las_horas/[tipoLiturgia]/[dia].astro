@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import BodyLayout from '../../../../layouts/BodyLayout.astro';
-import mayoresData from '../../../../data/mayores.json';
-import { Laudes, Visperas } from '../../../../classes/mayores.ts';
-import HeaderComponent from '../../../../components/HeaderComponent.astro';
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import BodyLayout from "../../../../layouts/BodyLayout.astro";
+import mayoresData from "../../../../data/mayores.json";
+import { Laudes, Visperas } from "../../../../classes/mayores.ts";
+import HeaderComponent from "../../../../components/HeaderComponent.astro";
 
 // Definir la estructura del tipo para los parámetros
 interface Path {
@@ -15,18 +15,18 @@ interface Path {
 
 // Definir las rutas dinámicas que quieres generar
 export async function getStaticPaths(): Promise<Path[]> {
-  const tipos = ['laudes', 'visperas'];
-  const dias = ['viernes', 'sabado', 'domingo'];
-  
+  const tipos = ["laudes", "visperas"];
+  const dias = ["viernes", "sabado", "domingo"];
+
   const paths: Path[] = []; // Especificar el tipo de 'paths'
 
-  tipos.forEach(tipo => {
-    dias.forEach(dia => {
+  tipos.forEach((tipo) => {
+    dias.forEach((dia) => {
       paths.push({
         params: {
           tipoLiturgia: tipo,
           dia: dia,
-        }
+        },
       });
     });
   });
@@ -38,100 +38,157 @@ export async function getStaticPaths(): Promise<Path[]> {
 const { tipoLiturgia, dia } = Astro.params;
 
 // Validar el tipo y el día
-if (!tipoLiturgia || !dia || !['laudes', 'visperas'].includes(tipoLiturgia) || !['viernes', 'sabado', 'domingo'].includes(dia)) {
-  throw new Error('Tipo de liturgia o día no válido.');
+if (
+  !tipoLiturgia ||
+  !dia ||
+  !["laudes", "visperas"].includes(tipoLiturgia) ||
+  !["viernes", "sabado", "domingo"].includes(dia)
+) {
+  throw new Error("Tipo de liturgia o día no válido.");
 }
 
 // Obtener la liturgia según el tipo
 const getLiturgia = (tipo: string, diaSeleccionado: string) => {
-  if (tipo === 'laudes') {
+  if (tipo === "laudes") {
     return Laudes.fromJSON(mayoresData, diaSeleccionado);
-  } else if (tipo === 'visperas') {
+  } else if (tipo === "visperas") {
     return Visperas.fromJSON(mayoresData, diaSeleccionado);
   }
-  throw new Error('Tipo de liturgia no válido.');
+  throw new Error("Tipo de liturgia no válido.");
 };
 
 const liturgia = getLiturgia(tipoLiturgia, dia);
 ---
 
 <BaseLayout title="Liturgia de las horas">
-  <HeaderComponent title={tipoLiturgia === 'laudes' ? 'Laudes' : 'Vísperas'}/>
+  <HeaderComponent
+    title={tipoLiturgia === "laudes" ? "Laudes" : "Vísperas"}
+    backUrl="/devocionario"
+  />
   <BodyLayout>
-      <h1 class="titulo-dia">{liturgia.tituloDia}</h1>
-      <h2 class="titulo-seccion">Invocación inicial</h2>
-      <p class="comentario-centrado">{liturgia.invocacionInicial.comentario}</p>
-      <p class="parrafo"><span class="red">V. </span>{liturgia.invocacionInicial.verso}</p>
-      {tipoLiturgia === 'visperas' &&
-      <div>
-        <p class="parrafo"><span class="red">R. </span>{liturgia.invocacionInicial.respuesta}</p>
-        <p class="parrafo">{liturgia.invocacionInicial.gloria}</p>
-      </div>
+    <h1 class="titulo-dia">{liturgia.tituloDia}</h1>
+    <h2 class="titulo-seccion">Invocación inicial</h2>
+    <p class="comentario-centrado">{liturgia.invocacionInicial.comentario}</p>
+    <p class="parrafo">
+      <span class="red">V. </span>{liturgia.invocacionInicial.verso}
+    </p>
+    {
+      tipoLiturgia === "visperas" && (
+        <div>
+          <p class="parrafo">
+            <span class="red">R. </span>
+            {liturgia.invocacionInicial.respuesta}
+          </p>
+          <p class="parrafo">{liturgia.invocacionInicial.gloria}</p>
+        </div>
+      )
     }
     {
-      tipoLiturgia === 'laudes' &&
-      <div>
-        <p class="parrafo"><span class="red">R. </span>{liturgia.invocacionInicial.respuesta}</p>
-      </div>
+      tipoLiturgia === "laudes" && (
+        <div>
+          <p class="parrafo">
+            <span class="red">R. </span>
+            {liturgia.invocacionInicial.respuesta}
+          </p>
+        </div>
+      )
     }
-    {tipoLiturgia === 'laudes' &&
-      <div>    
-        <h2 class="titulo-seccion">Invitatorio</h2>
-        <h3 class="titulo-salmos">{liturgia.invitatorio.titulo}</h3>
-        <p class="parrafo antifona"><span class="red">Ant. </span>{liturgia.invitatorio.antifona}</p>
-        {liturgia.invitatorio.estrofas.map((estrofa: string, index: number) => (
-          <div class="indentado">
-            <p set:html={estrofa} class="parrafo"></p>
-            {index === liturgia.invitatorio.estrofas.length - 1 ? null : <p class="comentario-izquierda">{liturgia.invitatorio.comentario}</p>}
-          </div>
-        ))}
-        <p class="parrafo antifona"><span class="red">Ant. </span>{liturgia.invitatorio.antifona}</p>
-      </div>
+    {
+      tipoLiturgia === "laudes" && (
+        <div>
+          <h2 class="titulo-seccion">Invitatorio</h2>
+          <h3 class="titulo-salmos">{liturgia.invitatorio.titulo}</h3>
+          <p class="parrafo antifona">
+            <span class="red">Ant. </span>
+            {liturgia.invitatorio.antifona}
+          </p>
+          {liturgia.invitatorio.estrofas.map(
+            (estrofa: string, index: number) => (
+              <div class="indentado">
+                <p set:html={estrofa} class="parrafo" />
+                {index === liturgia.invitatorio.estrofas.length - 1 ? null : (
+                  <p class="comentario-izquierda">
+                    {liturgia.invitatorio.comentario}
+                  </p>
+                )}
+              </div>
+            )
+          )}
+          <p class="parrafo antifona">
+            <span class="red">Ant. </span>
+            {liturgia.invitatorio.antifona}
+          </p>
+        </div>
+      )
     }
     <h2 class="titulo-seccion">Himno</h2>
     <p class="parrafo">{liturgia.himno}</p>
     <h2 class="titulo-seccion">Salmodia</h2>
-    {Object.entries(liturgia.salmodia).map(([key, salmo]) => (
-      <div class="mb-6">
-        <h3 class="titulo-salmos">{salmo.cita}</h3>
-        <p class="parrafo antifona"><span class="red">Ant. </span>{salmo.antifona}</p>
-        {salmo.estrofas.map(estrofa => (
-          <p set:html={estrofa} class="parrafo indentado"></p>
-        ))}
-        <p class="parrafo antifona"><span class="red">Ant. </span>{salmo.antifona}</p>
-      </div>
-    ))}
+    {
+      Object.entries(liturgia.salmodia).map(([key, salmo]) => (
+        <div class="mb-6">
+          <h3 class="titulo-salmos">{salmo.cita}</h3>
+          <p class="parrafo antifona">
+            <span class="red">Ant. </span>
+            {salmo.antifona}
+          </p>
+          {salmo.estrofas.map((estrofa) => (
+            <p set:html={estrofa} class="parrafo indentado" />
+          ))}
+          <p class="parrafo antifona">
+            <span class="red">Ant. </span>
+            {salmo.antifona}
+          </p>
+        </div>
+      ))
+    }
     <h2 class="titulo-seccion">Lectura breve</h2>
     <p class="comentario-derecha">{liturgia.lecturaBreve.cita}</p>
-    <p set:html={liturgia.lecturaBreve.texto} class="parrafo"></p>
+    <p set:html={liturgia.lecturaBreve.texto} class="parrafo" />
     <h2 class="titulo-seccion">Responsorio</h2>
-    {liturgia.responsorio.v.map((versiculo, index) => (
-      <div>
-        <p class="parrafo"><span class="red">V. </span>{versiculo}</p>
-        {liturgia.responsorio.r[index] && (
-          <p class="parrafo"><span class="red">R. </span>{liturgia.responsorio.r[index]}</p>
-        )}
-      </div>
-    ))}
-    
+    {
+      liturgia.responsorio.v.map((versiculo, index) => (
+        <div>
+          <p class="parrafo">
+            <span class="red">V. </span>
+            {versiculo}
+          </p>
+          {liturgia.responsorio.r[index] && (
+            <p class="parrafo">
+              <span class="red">R. </span>
+              {liturgia.responsorio.r[index]}
+            </p>
+          )}
+        </div>
+      ))
+    }
+
     <h2 class="titulo-seccion">Cántico evangélico</h2>
     <p class="comentario-centrado">{liturgia.canticoEvangelico.comentario}</p>
-    <p class="parrafo antifona"><span class="red">Ant. </span>{liturgia.canticoEvangelico.antifona}</p>
-    {liturgia.canticoEvangelico.estrofas.map((estrofa, index) => (
-      <div class="indentado">
-        <p set:html={estrofa} class="parrafo"></p>
-      </div>
-    ))}
-    <p class="parrafo antifona"><span class="red">Ant. </span>{liturgia.canticoEvangelico.antifona}</p>
+    <p class="parrafo antifona">
+      <span class="red">Ant. </span>{liturgia.canticoEvangelico.antifona}
+    </p>
+    {
+      liturgia.canticoEvangelico.estrofas.map((estrofa, index) => (
+        <div class="indentado">
+          <p set:html={estrofa} class="parrafo" />
+        </div>
+      ))
+    }
+    <p class="parrafo antifona">
+      <span class="red">Ant. </span>{liturgia.canticoEvangelico.antifona}
+    </p>
     <h2 class="titulo-seccion">Preces</h2>
     <p class="parrafo">{liturgia.peticiones.introduccion}</p>
     <p class="parrafo cursiva indentado">{liturgia.peticiones.respuesta}</p>
-    {liturgia.peticiones.peticiones.map(peticion => (
-      <div class="peticion">
-        <p class="parrafo seguido">{peticion.intencion}</p>
-        <p class="parrafo seguido cursiva">{peticion.respuesta}</p>
-      </div>
-    ))}
+    {
+      liturgia.peticiones.peticiones.map((peticion) => (
+        <div class="peticion">
+          <p class="parrafo seguido">{peticion.intencion}</p>
+          <p class="parrafo seguido cursiva">{peticion.respuesta}</p>
+        </div>
+      ))
+    }
     <p class="comentario-centrado">{liturgia.peticiones.comentario}</p>
     <h2 class="titulo-seccion">Oración dominical</h2>
     <p class="parrafo">{liturgia.oracionDominical.introduccion}</p>
@@ -150,6 +207,5 @@ const liturgia = getLiturgia(tipoLiturgia, dia);
     <p class="comentario-centrado">{liturgia.conclusion.comentario3}</p>
     <p class="parrafo"><span class="red">V. </span>{liturgia.conclusion.v4}</p>
     <p class="parrafo"><span class="red">R. </span>{liturgia.conclusion.r4}</p>
-    
-</BodyLayout>
+  </BodyLayout>
 </BaseLayout>

@@ -35,7 +35,7 @@ const ordinales = ['Primer misterio', 'Segundo misterio', 'Tercer misterio', 'Cu
 ---
 
 <BaseLayout title="Rosario">
-  <HeaderComponent title="Rosario"/>
+  <HeaderComponent title="Rosario" backUrl="/devocionario" />
   <BodyLayout>
     
   <h1 class="titulo-dia">{rosarioDia.titulo}</h1>
@@ -51,11 +51,11 @@ const ordinales = ['Primer misterio', 'Segundo misterio', 'Tercer misterio', 'Cu
       <img src={rosarioDia.misterios[index].imagen} alt={rosarioDia.misterios[index].nombre} class="imagen-misterio"/>
       <p set:html={rosarioDia.misterios[index].lectura} class="parrafo cursiva"></p>
       <p class="comentario-centrado">En cada misterio se rezan: un Padre Nuestro, diez Avemarías y un Gloria.</p>
-      <ul>
-        <li class="parrafo lista">Padre Nuestro...</li>
-        <li class="parrafo lista">Dios te salve, María... (x10)</li>
-        <li class="parrafo lista">Gloria...</li>
-      </ul>
+
+        <p class="parrafo">Padre Nuestro...</p>
+        <p class="parrafo">Dios te salve, María... (x10)</p>
+        <p class="parrafo">Gloria...</p>
+
       <p class="comentario-centrado">Al finalizar cada misterio se puede añadir alguna jaculatoria, como por ejemplo:</p>
       <p class="parrafo seguido"><span class="red">V. </span> Ave María purísima,</p>
       <p class="parrafo seguido"><span class="red">R. </span> Sin pecado concebida.</p>
@@ -64,11 +64,9 @@ const ordinales = ['Primer misterio', 'Segundo misterio', 'Tercer misterio', 'Cu
     </>
   ))}
   <h2 class="titulo-seccion">Por las intenciones del Papa</h2>
-  <ul>
-    <li class="parrafo lista">Padre Nuestro...</li>
-    <li class="parrafo lista">Dios te salve, María...</li>
-    <li class="parrafo lista">Gloria...</li>
-  </ul>
+    <p class="parrafo">Padre Nuestro...</p>
+    <p class="parrafo">Dios te salve, María...</p>
+    <p class="parrafo">Gloria...</p>
   <h2 class="titulo-seccion">Letanías de la Virgen</h2>
   <p class="parrafo">Señor, ten piedad.</p>
   <p class="parrafo">Cristo, ten piedad.</p>

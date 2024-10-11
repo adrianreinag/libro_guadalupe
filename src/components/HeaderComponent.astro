@@ -2,16 +2,17 @@
 // Header.astro
 interface Props {
   title: string;
+  backUrl: string;
 }
 
-const { title } = Astro.props;
+const { title, backUrl } = Astro.props;
 ---
 
-<header class="header">
+<header class="header" data-backurl={backUrl}>
   <button
     class="back-button"
-    aria-label="Go back"
-    onclick="window.history.back()"
+    onclick={`window.location.href='${backUrl}'`}
+    oncontextmenu="return false;"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +29,11 @@ const { title } = Astro.props;
     </svg>
   </button>
   <h1 class="header-title">{title}</h1>
-  <button class="calendar-button" aria-label="Open calendar" id="menu-button">
+  <button
+    class="calendar-button"
+    id="menu-button"
+    oncontextmenu="return false;"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -53,20 +58,18 @@ const { title } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
     background-color: white;
     width: 100%;
     position: fixed;
     z-index: 1000;
-    height: 64px;
+    height: 84px;
   }
 
   .back-button,
   .calendar-button {
-    background: none;
+    outline: none;
     border: none;
-    cursor: pointer;
-    padding: 0.5rem;
+    background-color: transparent;
   }
 
   .header-title {
@@ -78,5 +81,6 @@ const { title } = Astro.props;
   svg {
     width: 24px;
     height: 24px;
+    margin: 0 10px;
   }
 </style>

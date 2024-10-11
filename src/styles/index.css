@@ -25,18 +25,6 @@
   text-align: center; /* Centra el texto */
 }
 
-.section-1 h1 {
-  font-size: 2.2rem; /* Tamaño grande para el título */
-  margin-bottom: 0rem; /* Espacio entre el título y el subtítulo */
-  margin-top: 18rem
-}
-
-.section-1 h2 {
-  margin-top: 0rem; /* Espacio entre el título y el subtítulo */
-  font-size: 1.2rem; /* Tamaño mediano para el subtítulo */
-  font-weight: 500; /* Grosor de la fuente */
-}
-
 .section-2 {
   display: flex;
   flex-direction: column;

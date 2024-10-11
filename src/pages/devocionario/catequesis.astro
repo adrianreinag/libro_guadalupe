@@ -1,0 +1,55 @@
+---
+// index.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BodyLayout from "../../layouts/BodyLayout.astro";
+import HeaderComponent from "../../components/HeaderComponent.astro";
+---
+
+<BaseLayout title="Catequesis">
+  <HeaderComponent title="Catequesis" backUrl="/devocionario" />
+  <BodyLayout>
+    <div>
+      <nav class="tabbar" style="margin-top: 0%;">
+        <button class="tab-item active selected" data-tab="primera-catequesis" oncontextmenu="return false;">Primera</button>
+        <button class="tab-item" data-tab="segunda-catequesis" oncontextmenu="return false;">Segunda</button>
+        <button class="tab-item" data-tab="tercera-catequesis" oncontextmenu="return false;">Tercera</button>
+      </nav>
+      <div class="tab-content">
+        <div id="primera-catequesis" class="tab-pane active">
+          <h2 class="titulo-seccion">Primera catequesis</h2>
+        </div>
+      </div>
+      <div id="segunda-catequesis" class="tab-pane">
+        <h2 class="titulo-seccion">Segunda catequesis</h2>
+      </div>
+      <div id="tercera-catequesis" class="tab-pane">
+        <h2 class="titulo-seccion">Tercera catequesis</h2>
+      </div>
+    </div>
+  </BodyLayout>
+</BaseLayout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab-item");
+    const tabPanes = document.querySelectorAll(".tab-pane");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const targetTab = tab.getAttribute("data-tab");
+        if (targetTab) {
+          tabs.forEach((t) => {
+            t.classList.remove("active", "selected");
+          });
+          tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+          tab.classList.add("active", "selected");
+          const targetPane = document.getElementById(targetTab);
+          if (targetPane) {
+            targetPane.classList.add("active");
+          }
+        }
+      });
+    });
+  });
+</script>

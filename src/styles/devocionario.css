@@ -1,26 +1,9 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Fallback para navegadores que no soportan Custom Properties */
-  min-height: calc(var(--vh, 1vh) * 100);
-}
-
-.container {
-  width: 80%;
-  padding: 20px;
-}
-
-h1 {
-  font-family: "Poppins", sans-serif;
-  color: #2f5b6a;
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+.devocionario-section {
+  height: calc(var(--vh) * 100); /* Ajuste dinámico de altura */
+  position: relative; /* Permite posicionar los elementos dentro de esta sección */
+  display: flex; /* Permite centrar el contenido */
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
 }
 
 .buttons {
@@ -37,10 +20,10 @@ h1 {
   font-size: 18px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  /* color: white; */
-  background-color: transparent; /* Color del botón */
+  color: white;
+  background-color: red; /* Color del botón */
   border: none;
-  /* border-radius: 100px; */
+  border-radius: 100px;
   text-align: center;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
