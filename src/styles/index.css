@@ -23,6 +23,8 @@
   z-index: 1; /* Asegura que el contenido se muestre por encima del fondo */
   color: white; /* Texto blanco para contrastar con el fondo */
   text-align: center; /* Centra el texto */
+  /* No pulsable */
+  pointer-events: none;
 }
 
 .section-2 {
@@ -78,6 +80,7 @@
   left: 0;
   width: 100%;
   height: 200%; /* Doble la altura para cubrir ambas secciones */
+  pointer-events: none;
 }
 
 /* Estilo para el cielo */
