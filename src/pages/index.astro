@@ -30,19 +30,11 @@ import DrawerButtonComponent from "../components/DrawerButtonComponent.astro";
     const scrollContainer = document.getElementById("scroll-container");
     const ground1 = document.getElementById("ground-1");
     const ground2 = document.getElementById("ground-2");
-    const ground3 = document.getElementById("ground-3");
-    const people = document.getElementById("people");
-    const scrollDown = document.getElementById("scroll-down");
-    const groundContinue = document.getElementById("ground-continue");
 
     if (
       !scrollContainer ||
       !ground1 ||
-      !ground2 ||
-      !ground3 ||
-      !people ||
-      !scrollDown ||
-      !groundContinue
+      !ground2
     ) {
       throw new Error("Could not find one of the elements");
     }
@@ -57,19 +49,11 @@ import DrawerButtonComponent from "../components/DrawerButtonComponent.astro";
         normalizedScroll = 1;
       }
 
-      const newBottomValueGround1 = 50 + normalizedScroll * 2;
-      const newBottomValueGround2 = 50 + normalizedScroll * 4;
-      const newBottomValueGround3 = 50 + normalizedScroll * 6;
-      const newBottomValuePeople = 50 + normalizedScroll * 6;
-      const newBottomValueScrollDown = 50 + normalizedScroll * 6;
-      const newHeightValueGroundContinue = 51 + normalizedScroll * 6;
+      const newBottomValueGround1 = 50 + normalizedScroll * -4;
+      const newBottomValueGround2 = 50 + normalizedScroll * -2;
 
       ground1.style.bottom = `${newBottomValueGround1}%`;
       ground2.style.bottom = `${newBottomValueGround2}%`;
-      ground3.style.bottom = `${newBottomValueGround3}%`;
-      people.style.bottom = `${newBottomValuePeople}%`;
-      scrollDown.style.bottom = `${newBottomValueScrollDown}%`;
-      groundContinue.style.height = `${newHeightValueGroundContinue}%`;
     });
 
     const drawer = document.getElementById("drawer");
