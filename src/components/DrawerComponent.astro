@@ -16,35 +16,26 @@
 
 <style>
   #drawer-overlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0);
-    transition: background-color 0.3s ease-in-out;
-    pointer-events: none;
-    z-index: 40;
-  }
-
-  #drawer-overlay.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    pointer-events: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    z-index: 90;
   }
 
   #drawer {
-    position: fixed;
+    position: absolute;
     top: 0;
-    right: 0;
+    left: -300px;
     height: 100%;
-    width: 100%;
-    max-width: 300px;
+    width: 300px;
     background-color: white;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 50;
-  }
-
-  #drawer.open {
-    transform: translateX(0);
+    z-index: 100;
   }
 
   nav {
@@ -67,65 +58,3 @@
     color: #333;
   }
 </style>
-
-<script>
-  // Extender la interfaz Window
-  declare global {
-    interface Window {
-      openDrawer: () => void;
-    }
-  }
-
-  const drawer = document.getElementById("drawer");
-  const overlay = document.getElementById("drawer-overlay");
-  let startX: number;
-  let currentX: number;
-
-  function openDrawer() {
-    if (drawer && overlay) {
-      drawer.classList.add("open");
-      overlay.classList.add("active");
-    } else {
-      console.error("Drawer or overlay element not found");
-    }
-  }
-
-  function closeDrawer() {
-    if (drawer && overlay) {
-      drawer.classList.remove("open");
-      overlay.classList.remove("active");
-    } else {
-      console.error("Drawer or overlay element not found");
-    }
-  }
-
-  if (overlay) {
-    overlay.addEventListener("click", closeDrawer);
-  }
-
-  if (drawer) {
-    drawer.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
-
-    drawer.addEventListener("touchmove", (e) => {
-      currentX = e.touches[0].clientX;
-      const diff = startX - currentX;
-      if (diff < 0) {
-        drawer.style.transform = `translateX(${-diff}px)`;
-      }
-    });
-
-    drawer.addEventListener("touchend", () => {
-      const diff = startX - currentX;
-      if (diff < -50) {
-        closeDrawer();
-      } else {
-        drawer.style.transform = "";
-      }
-    });
-  }
-
-  // Asignar la función openDrawer al objeto window
-  window.openDrawer = openDrawer;
-</script>

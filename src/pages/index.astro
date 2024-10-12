@@ -3,17 +3,21 @@ import IndexSection1Component from "../components/IndexSection1Component.astro";
 import IndexSection2Component from "../components/IndexSection2Component.astro";
 import IndexBackgroundComponent from "../components/IndexBackgroundComponent.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DrawerComponent from "../components/DrawerComponent.astro";
+import DrawerButtonComponent from "../components/DrawerButtonComponent.astro";
 ---
 
 <BaseLayout title="Guadalupe XXIX">
-  <div class="scroll-container">
+  <div class="scroll-container" id="scroll-container">
+    <DrawerButtonComponent />
+    <DrawerComponent />
+
     <IndexBackgroundComponent />
     <IndexSection1Component />
     <IndexSection2Component />
   </div>
 
   <script>
-
     function setVH() {
       var vh = window.innerHeight * 0.01;
       var vhpx = `${vh}px`;
@@ -23,11 +27,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     setVH();
     window.addEventListener("resize", setVH);
 
-    const scrollContainer = document.querySelector(".scroll-container");
+    const scrollContainer = document.getElementById("scroll-container");
     const ground1 = document.getElementById("ground-1");
     const ground2 = document.getElementById("ground-2");
     const ground3 = document.getElementById("ground-3");
     const people = document.getElementById("people");
+    const scrollDown = document.getElementById("scroll-down");
     const groundContinue = document.getElementById("ground-continue");
 
     if (
@@ -36,6 +41,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       !ground2 ||
       !ground3 ||
       !people ||
+      !scrollDown ||
       !groundContinue
     ) {
       throw new Error("Could not find one of the elements");
@@ -55,13 +61,37 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       const newBottomValueGround2 = 50 + normalizedScroll * 4;
       const newBottomValueGround3 = 50 + normalizedScroll * 6;
       const newBottomValuePeople = 50 + normalizedScroll * 6;
+      const newBottomValueScrollDown = 50 + normalizedScroll * 6;
       const newHeightValueGroundContinue = 51 + normalizedScroll * 6;
 
       ground1.style.bottom = `${newBottomValueGround1}%`;
       ground2.style.bottom = `${newBottomValueGround2}%`;
       ground3.style.bottom = `${newBottomValueGround3}%`;
       people.style.bottom = `${newBottomValuePeople}%`;
+      scrollDown.style.bottom = `${newBottomValueScrollDown}%`;
       groundContinue.style.height = `${newHeightValueGroundContinue}%`;
+    });
+
+    const drawer = document.getElementById("drawer");
+    const drawerButton = document.getElementById("drawer-button");
+    const drawerOverlay = document.getElementById("drawer-overlay");
+
+    if (!drawer || !drawerButton || !drawerOverlay) {
+      throw new Error("Could not find drawer or drawer button element");
+    }
+
+    drawerButton.addEventListener("click", () => {
+      drawer.style.left = "0px";
+      drawerOverlay.style.pointerEvents = "auto";
+      drawerOverlay.style.opacity = "1";
+      scrollContainer.style.overflow = "hidden";
+    });
+
+    drawerOverlay.addEventListener("click", () => {
+      drawer.style.left = "-300px";
+      drawerOverlay.style.pointerEvents = "none";
+      drawerOverlay.style.opacity = "0";
+      scrollContainer.style.overflow = "auto";
     });
   </script>
 </BaseLayout>

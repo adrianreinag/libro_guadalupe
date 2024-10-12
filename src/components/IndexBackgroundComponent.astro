@@ -23,12 +23,12 @@
     <svg
       class="ground-svg"
       width="540"
-      height="219"
-      viewBox="0 0 540 219"
+      height=" 265.9"
+      viewBox="0 0 540 265.9"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M0 219H540V0.819092C457.491 0.819092 468.822 11.2836 296.905 48.1058C119.834 86.032 8.55211 111.329 0 92.7094V219Z"
+        d="M0,265.9h540V0.8c-82.5,0-71.2,10.5-243.1,47.3C119.8,86,8.6,111.3,0,92.7V265.9z"
         fill="#366A7C"></path>
     </svg>
   </div>
@@ -36,12 +36,12 @@
     <svg
       class="ground-svg"
       width="540"
-      height="225"
-      viewBox="0 0 540 225"
+      height="240"
+      viewBox="0 0 540 240"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M0 225H540V147.7C420.785 110.845 457.64 137.17 322.504 105.58C146.171 64.3591 8.55211 18.8983 0 0.278809V225Z"
+        d="M0,240h540V123.7c-127-22.3-79.9-6.2-215-37.8C148.7,44.7,8.6,18.9,0,0.3V266.9z"
         fill="#2F5B6A"></path>
     </svg>
   </div>
@@ -73,16 +73,17 @@
   </div>
   <div id="ground-continue"></div>
   <!-- Otras capas -->
-  <div class="scroll-down">
+  <div class="scroll-down" id="scroll-down">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="32px"
       viewBox="0 -960 960 960"
       width="32px"
       fill="#ffffff"
+      ><path
+        d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"
+      ></path></svg
     >
-      <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
-    </svg>
   </div>
 </div>
 
@@ -116,7 +117,8 @@
       star.style.height = `${size}px`;
 
       // Generar posición vertical favoreciendo la parte superior
-      const topPositionPx = windowHeight*0.65 - Math.sqrt(Math.random()) * windowHeight;
+      const topPositionPx =
+        windowHeight * 0.65 - Math.sqrt(Math.random()) * windowHeight;
       const rightPositionPx = Math.random() * windowWidth;
 
       const distance = Math.sqrt(
@@ -137,7 +139,7 @@
       star.style.left = `${rightPositionPx}px`; // Posición horizontal ajustada
 
       // Generar opacidad aleatoria entre 0 y 1
-      star.style.opacity = (Math.random()*k).toString(); // Asegúrate de que sea una cadena
+      star.style.opacity = (Math.random() * k).toString(); // Asegúrate de que sea una cadena
 
       starsContainer.appendChild(star);
     }

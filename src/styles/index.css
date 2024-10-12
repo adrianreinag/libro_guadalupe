@@ -166,6 +166,7 @@
   height: 51%;
   background-color: #172e35;
   z-index: 14;
+  pointer-events: auto;
 }
 
 .scroll-down {

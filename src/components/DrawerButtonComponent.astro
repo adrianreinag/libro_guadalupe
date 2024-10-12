@@ -2,38 +2,28 @@
 // DrawerButtonComponent.astro
 ---
 
-<button id="open-drawer"> Abrir menu </button>
+<button id="drawer-button" oncontextmenu="return false;"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="28px"
+    width="28px"
+    viewBox="0 -960 960 960"
+    fill="#172E35"
+    ><path
+      d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z"
+    ></path></svg
+  >
+</button>
 
 <style>
-  #open-drawer {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #3498db;
-    color: white;
+  #drawer-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 15px;
+    background-color: transparent;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    z-index: 100;
-  }
-
-  #open-drawer:hover {
-    background-color: #2980b9;
+    outline: none;
+    z-index: 9;
   }
 </style>
-
-<script>
-  const openDrawerButton = document.getElementById("open-drawer");
-  
-  if (!openDrawerButton) {
-      throw new Error("Could not find the open drawer button");
-      
-    }
-    
-  openDrawerButton.addEventListener("click", () => {
-    if (typeof window.openDrawer === "function") {
-      window.openDrawer();
-    }
-  });
-</script>
