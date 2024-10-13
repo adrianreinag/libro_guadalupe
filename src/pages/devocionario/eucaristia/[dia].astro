@@ -1,14 +1,14 @@
 ---
 // index.astro
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import HeaderComponent from '../../../components/HeaderComponent.astro';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import HeaderComponent from "../../../components/HeaderComponent.astro";
 
-import leccionarioData from '../../../data/leccionario.json';
-import cantosData from '../../../data/cantos.json';
-import { Leccionario } from '../../../classes/leccionario.ts';
-import { Cantos } from '../../../classes/cantos.ts';
-import BodyLayout from '../../../layouts/BodyLayout.astro';
-import CantoComponent from '../../../components/CantoComponent.astro';
+import leccionarioData from "../../../data/leccionario.json";
+import cantosData from "../../../data/cantos.json";
+import { Leccionario } from "../../../classes/leccionario.ts";
+import { Cantos } from "../../../classes/cantos.ts";
+import BodyLayout from "../../../layouts/BodyLayout.astro";
+import CantoComponent from "../../../components/CantoComponent.astro";
 
 interface Path {
   params: {
@@ -17,22 +17,23 @@ interface Path {
 }
 
 export async function getStaticPaths(): Promise<Path[]> {
-  const dias = ['viernes', 'sabado', 'domingo'];
-  return dias.map(dia => ({ params: { dia } }));
+  const dias = ["viernes", "sabado", "domingo"];
+  return dias.map((dia) => ({ params: { dia } }));
 }
 
 const { dia } = Astro.params;
 
-if (!['viernes', 'sabado', 'domingo'].includes(dia)) {
-  return Astro.redirect('/404'); // Redirigir a 404 si el día no es válido
+if (!["viernes", "sabado", "domingo"].includes(dia)) {
+  return Astro.redirect("/404"); // Redirigir a 404 si el día no es válido
 }
 
-const getLecturas = (diaSeleccionado: string) => Leccionario.fromJSON(leccionarioData, diaSeleccionado);
-const getCantos = (diaSeleccionado: string) => Cantos.fromJSON(cantosData, diaSeleccionado);
+const getLecturas = (diaSeleccionado: string) =>
+  Leccionario.fromJSON(leccionarioData, diaSeleccionado);
+const getCantos = (diaSeleccionado: string) =>
+  Cantos.fromJSON(cantosData, diaSeleccionado);
 
 const lecturas = getLecturas(dia);
 const cantos = getCantos(dia);
-
 ---
 
 <BaseLayout title="Eucaristía">
@@ -41,118 +42,210 @@ const cantos = getCantos(dia);
     <h1 class="titulo-dia">{lecturas.dia}</h1>
     <div>
       <nav class="tabbar">
-        <button class="tab-item active selected" data-tab="lecturas">Lecturas</button>
+        <button class="tab-item active selected" data-tab="lecturas"
+          >Lecturas</button
+        >
         <button class="tab-item" data-tab="cantos">Cantos</button>
         <button class="tab-item" data-tab="oraciones">Oraciones</button>
       </nav>
       <div class="tab-content">
-          <div id="lecturas" class="tab-pane active">
-            <h2 class="titulo-seccion">Primera lectura</h2>
-            <p class="comentario-derecha">{lecturas.primeraLectura.cita}</p>
-            <h3 class="titulo-salmos">{lecturas.primeraLectura.titulo}</h3>
-            <p set:html={lecturas.primeraLectura.texto} class="parrafo"></p>
-        
-            {lecturas.salmo && (
+        <div id="lecturas" class="tab-pane active">
+          <h2 class="titulo-seccion">Primera lectura</h2>
+          <p class="comentario-derecha">{lecturas.primeraLectura.cita}</p>
+          <h3 class="titulo-salmos">{lecturas.primeraLectura.titulo}</h3>
+          <p set:html={lecturas.primeraLectura.texto} class="parrafo" />
+
+          {
+            lecturas.salmo && (
               <>
                 <h2 class="titulo-seccion">Salmo responsorial</h2>
                 <p class="comentario-derecha">{lecturas.salmo.cita}</p>
-                <p class="parrafo"><span class="red">Ant. </span>{lecturas.salmo.antifona}</p>
+                <p class="parrafo">
+                  <span class="red">Ant. </span>
+                  {lecturas.salmo.antifona}
+                </p>
                 <div>
                   {lecturas.salmo.versos.map((verso: string, index: any) => (
                     <div class="verso-contenedor">
-                      <p set:html={verso} class="parrafo"></p>
+                      <p set:html={verso} class="parrafo" />
                     </div>
                   ))}
                 </div>
               </>
-            )}
-        
-            {lecturas.segundaLectura && (
+            )
+          }
+
+          {
+            lecturas.segundaLectura && (
               <>
                 <h2 class="titulo-seccion">Segunda lectura</h2>
                 <p class="comentario-derecha">{lecturas.segundaLectura.cita}</p>
                 <h3 class="titulo-salmos">{lecturas.segundaLectura.titulo}</h3>
-                <p set:html={lecturas.segundaLectura.texto} class="parrafo"></p>
+                <p set:html={lecturas.segundaLectura.texto} class="parrafo" />
               </>
-            )}
-        
-            <h2 class="titulo-seccion">Evangelio</h2>
-            <p class="comentario-derecha">{lecturas.evangelio.cita}</p>
-            <h3 class="titulo-salmos">{lecturas.evangelio.titulo}</h3>
-            <p set:html={lecturas.evangelio.texto} class="parrafo"></p>
-          </div>
+            )
+          }
+
+          <h2 class="titulo-seccion">Evangelio</h2>
+          <p class="comentario-derecha">{lecturas.evangelio.cita}</p>
+          <h3 class="titulo-salmos">{lecturas.evangelio.titulo}</h3>
+          <p set:html={lecturas.evangelio.texto} class="parrafo" />
+        </div>
       </div>
       <div id="cantos" class="tab-pane">
-        {cantos ? (
-          <>
-            {cantos.entrada && (
-              <CantoComponent titulo="Entrada" subtitulo={cantos.entrada.titulo} letra={cantos.entrada.letra} />
-            )}
-            {cantos.aleluya && (
-              <CantoComponent titulo="Aleluya" subtitulo={cantos.aleluya.titulo} letra={cantos.aleluya.letra} />
-            )}
-            {cantos.ofertorio && (
-              <CantoComponent titulo="Ofertorio" subtitulo={cantos.ofertorio.titulo} letra={cantos.ofertorio.letra} />
-            )}
-  
-            {cantos.comunion && cantos.comunion.length > 0 && ( // Solo renderizar si hay cantos de comunión
-              <>
-                <h2 class="titulo-canto">Comunión</h2>
-                {cantos.comunion.map((canto, index) => (
-                  <div>
-                    <h3 class="subtitulo-canto">{canto.titulo}</h3>
-                    <p set:html={canto.letra} class="parrafo"></p>
-                  </div>
-                ))}
-              </>
-            )}
-  
-             {cantos.virgen && (
-               <CantoComponent titulo="Canto a la Virgen" subtitulo={cantos.virgen.titulo} letra={cantos.virgen.letra} />
-             )}
-  
-  
-          </>
-        ) : (
-          <p>No se encontraron cantos para este día.</p>
-        )}
+        {
+          cantos ? (
+            <>
+              {cantos.entrada && (
+                <CantoComponent
+                  titulo="Entrada"
+                  subtitulo={cantos.entrada.titulo}
+                  letra={cantos.entrada.letra}
+                />
+              )}
+              {cantos.aleluya && (
+                <CantoComponent
+                  titulo="Aleluya"
+                  subtitulo={cantos.aleluya.titulo}
+                  letra={cantos.aleluya.letra}
+                />
+              )}
+              {cantos.ofertorio && (
+                <CantoComponent
+                  titulo="Ofertorio"
+                  subtitulo={cantos.ofertorio.titulo}
+                  letra={cantos.ofertorio.letra}
+                />
+              )}
+
+              {cantos.comunion &&
+                cantos.comunion.length > 0 && ( // Solo renderizar si hay cantos de comunión
+                  <>
+                    <h2 class="titulo-canto">Comunión</h2>
+                    {cantos.comunion.map((canto, index) => (
+                      <div>
+                        <h3 class="subtitulo-canto">{canto.titulo}</h3>
+                        <p set:html={canto.letra} class="parrafo" />
+                      </div>
+                    ))}
+                  </>
+                )}
+
+              {cantos.virgen && (
+                <CantoComponent
+                  titulo="Canto a la Virgen"
+                  subtitulo={cantos.virgen.titulo}
+                  letra={cantos.virgen.letra}
+                />
+              )}
+            </>
+          ) : (
+            <p>No se encontraron cantos para este día.</p>
+          )
+        }
       </div>
       <div id="oraciones" class="tab-pane">
-          <h1 class="titulo-seccion">Oración preparatoria</h1>
-          <p class="comentario-centrado">Puedes hacer esta oración antes de empezar la eucaristía.</p>
-          <p class="parrafo">Señor mío Jesucristo, yo pecador indigno, confiando en tu misericordia y bondad, vengo a tomar parte en este Banquete Santísimo del Altar.<br><br>Reconozco que tanto mi corazón como mi mente están manchados con muchos pecados; y, que mi cuerpo y mi lengua no han sido guardados cuidadosamente. Por lo cual, Dios adorable, yo miserable pecador, en medio de tantas angustias y peligros, recurro a Ti que eres fuente de misericordia, ya que me es imposible excusarme ante tu mirada de Juez irritado. Deseo vivamente obtener tu perdón, ya que eres mi Redentor y Salvador.<br><br>A Ti Señor presento mis debilidades y pecados para que me perdones. Reconozco que Te he ofendido frecuentemente. Por eso me humillo y me arrepiento y espero en tu misericordia infinita.<br><br>Olvida mis culpas y no me castigues como merecen mis pecados. Perdóname, Tú que eres la misma bondad.<br><br>Amén.</p>
-          <h1 class="titulo-seccion">Después de la comunión</h1>
-          <p class="comentario-centrado">Puedes hacer esta oración después de comulgar.</p>
-          <p class="parrafo">Alma de Cristo, santifícame.<br>Cuerpo de Cristo, sálvame.<br>Sangre de Cristo, embriágame.<br>Agua del costado de Cristo, lávame.<br>Pasión de Cristo, confórtame.<br>¡Oh, buen Jesús!, óyeme.<br>Dentro de tus llagas, escóndeme.<br>No permitas que me aparte de Ti.<br>Del maligno enemigo, defiéndeme<br>En la hora de mi muerte, llámame.<br>Y mándame ir a Ti.<br>Para que con tus santos te alabe.<br>Por los siglos de los siglos.<br><br>Amén.</p>
-          <h1 class="titulo-seccion">Comunión espiritual</h1>
-          <p class="comentario-centrado">Puedes hacer esta oración si no puedes comulgar.</p>
-          <p class="parrafo">Creo, Jesús mío, que estáis realmente presente en el Santísimo Sacramento del Altar. Os amo sobre todas las cosas y deseo recibiros en mi alma. Pero como ahora no puedo recibiros sacramentado, venid a lo menos espiritualmente a mi corazón. Y como si ya os hubiese recibido, os abrazo y me uno del todo a Ti.<br><br>Señor, no permitas que jamás me aparte de Ti.<br><br>Amén.</p>
+        <h1 class="titulo-seccion">Oración preparatoria</h1>
+        <p class="comentario-centrado">
+          Puedes hacer esta oración antes de empezar la eucaristía.
+        </p>
+        <p class="parrafo">
+          Señor mío Jesucristo, yo pecador indigno, confiando en tu misericordia
+          y bondad, vengo a tomar parte en este Banquete Santísimo del Altar.<br
+          /><br />Reconozco que tanto mi corazón como mi mente están manchados
+          con muchos pecados; y, que mi cuerpo y mi lengua no han sido guardados
+          cuidadosamente. Por lo cual, Dios adorable, yo miserable pecador, en
+          medio de tantas angustias y peligros, recurro a Ti que eres fuente de
+          misericordia, ya que me es imposible excusarme ante tu mirada de Juez
+          irritado. Deseo vivamente obtener tu perdón, ya que eres mi Redentor y
+          Salvador.<br /><br />A Ti Señor presento mis debilidades y pecados
+          para que me perdones. Reconozco que Te he ofendido frecuentemente. Por
+          eso me humillo y me arrepiento y espero en tu misericordia infinita.<br
+          /><br />Olvida mis culpas y no me castigues como merecen mis pecados.
+          Perdóname, Tú que eres la misma bondad.<br /><br />Amén.
+        </p>
+        <h1 class="titulo-seccion">Después de la comunión</h1>
+        <p class="comentario-centrado">
+          Puedes hacer esta oración después de comulgar.
+        </p>
+        <p class="parrafo">
+          Alma de Cristo, santifícame.<br />Cuerpo de Cristo, sálvame.<br
+          />Sangre de Cristo, embriágame.<br />Agua del costado de Cristo,
+          lávame.<br />Pasión de Cristo, confórtame.<br />¡Oh, buen Jesús!,
+          óyeme.<br />Dentro de tus llagas, escóndeme.<br />No permitas que me
+          aparte de Ti.<br />Del maligno enemigo, defiéndeme<br />En la hora de
+          mi muerte, llámame.<br />Y mándame ir a Ti.<br />Para que con tus
+          santos te alabe.<br />Por los siglos de los siglos.<br /><br />Amén.
+        </p>
+        <h1 class="titulo-seccion">Comunión espiritual</h1>
+        <p class="comentario-centrado">
+          Puedes hacer esta oración si no puedes comulgar.
+        </p>
+        <p class="parrafo">
+          Creo, Jesús mío, que estáis realmente presente en el Santísimo
+          Sacramento del Altar. Os amo sobre todas las cosas y deseo recibiros
+          en mi alma. Pero como ahora no puedo recibiros sacramentado, venid a
+          lo menos espiritualmente a mi corazón. Y como si ya os hubiese
+          recibido, os abrazo y me uno del todo a Ti.<br /><br />Señor, no
+          permitas que jamás me aparte de Ti.<br /><br />Amén.
+        </p>
       </div>
     </div>
   </BodyLayout>
 </BaseLayout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-      const tabs = document.querySelectorAll('.tab-item');
-      const tabPanes = document.querySelectorAll('.tab-pane');
+  document.addEventListener("DOMContentLoaded", () => {
+    let dia;
 
-      tabs.forEach(tab => {
-          tab.addEventListener('click', () => {
-              const targetTab = tab.getAttribute('data-tab');
-              if (targetTab) {
-                  tabs.forEach(t => {
-                      t.classList.remove('active', 'selected');
-                  });
-                  tabPanes.forEach(pane => pane.classList.remove('active'));
+    const today = new Date();
 
-                  tab.classList.add('active', 'selected');
-                  const targetPane = document.getElementById(targetTab);
-                  if (targetPane) {
-                      targetPane.classList.add('active');
-                  }
-              }
+    const date = today.getDate();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+
+    if (
+      year < 2024 ||
+      (year === 2024 && month < 9) ||
+      (year === 2024 && month === 9 && date < 19)
+    ) {
+      dia = "viernes";
+    } else if (year === 2024 && month === 9 && date === 19) {
+      dia = "sabado";
+    } else {
+      dia = "domingo";
+    }
+
+    console.log("hoy es", dia);
+
+    const url = window.location.href;
+    const parts = url.split("/");
+    
+    let currentDay = parts[parts.length - 1];
+
+    if (dia !== currentDay) {
+      window.location.href = `/devocionario/eucaristia/${dia}`;
+    }
+
+    const tabs = document.querySelectorAll(".tab-item");
+    const tabPanes = document.querySelectorAll(".tab-pane");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const targetTab = tab.getAttribute("data-tab");
+        if (targetTab) {
+          tabs.forEach((t) => {
+            t.classList.remove("active", "selected");
           });
+          tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+          tab.classList.add("active", "selected");
+          const targetPane = document.getElementById(targetTab);
+          if (targetPane) {
+            targetPane.classList.add("active");
+          }
+        }
       });
+    });
   });
 </script>

@@ -9,48 +9,29 @@ const { title, backUrl } = Astro.props;
 ---
 
 <header class="header" data-backurl={backUrl}>
-  <button
-    class="back-button"
-    onclick={`window.location.href='${backUrl}'`}
-    oncontextmenu="return false;"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+  <div class="recuadro">
+    <button
+      class="back-button"
+      onclick={`window.location.href='${backUrl}'`}
+      oncontextmenu="return false;"
     >
-      <path d="M15 18l-6-6 6-6"></path>
-    </svg>
-  </button>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M15 18l-6-6 6-6"></path>
+      </svg>
+    </button>
+  </div>
   <h1 class="header-title">{title}</h1>
-  <button
-    class="calendar-button"
-    id="menu-button"
-    oncontextmenu="return false;"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-      <line x1="16" y1="2" x2="16" y2="6"></line>
-      <line x1="8" y1="2" x2="8" y2="6"></line>
-      <line x1="3" y1="10" x2="21" y2="10"></line>
-    </svg>
-  </button>
+  <div class="recuadro"></div>
 </header>
 
 <style>
@@ -65,11 +46,18 @@ const { title, backUrl } = Astro.props;
     height: 84px;
   }
 
-  .back-button,
-  .calendar-button {
+  .back-button {
     outline: none;
     border: none;
     background-color: transparent;
+  }
+
+  .recuadro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    width: 24px;
   }
 
   .header-title {
@@ -80,7 +68,5 @@ const { title, backUrl } = Astro.props;
 
   svg {
     width: 24px;
-    height: 24px;
-    margin: 0 10px;
   }
 </style>
