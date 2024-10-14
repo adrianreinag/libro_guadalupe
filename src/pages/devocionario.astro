@@ -17,6 +17,7 @@ import "../styles/devocionario.css";
         <button class="button" id="btnAngelus">- Angelus -</button>
         <button class="button" id="btnExamen">- Examen de conciencia -</button>
         <button class="button" id="btnCatequesis">- Catequesis -</button>
+        <button class="button" id="btnConsagracion">- Consagración -</button>
       </div>
     </div>
   </BodyLayout>
@@ -31,6 +32,7 @@ import "../styles/devocionario.css";
     const btnAngelus = document.getElementById("btnAngelus");
     const btnExamen = document.getElementById("btnExamen");
     const btnCatequesis = document.getElementById("btnCatequesis");
+    const btnConsagracion = document.getElementById("btnConsagracion");
 
     if (
       !btnLaudes ||
@@ -39,7 +41,8 @@ import "../styles/devocionario.css";
       !btnRosario ||
       !btnAngelus ||
       !btnExamen ||
-      !btnCatequesis
+      !btnCatequesis ||
+      !btnConsagracion
     ) {
       throw new Error("Could not find one of the buttons");
     }
@@ -86,6 +89,10 @@ import "../styles/devocionario.css";
 
     btnCatequesis.addEventListener("click", () => {
       window.location.href = "/devocionario/catequesis";
+    });
+
+    btnConsagracion.addEventListener("click", () => {
+      window.location.href = "/devocionario/consagracion";
     });
 
     // Ajustar la altura dinámica
