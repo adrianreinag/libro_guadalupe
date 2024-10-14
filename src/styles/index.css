@@ -31,8 +31,9 @@
   z-index: 20;
   display: flex;
   flex-direction: column;
-  gap: 40px; /* Espacio entre los botones */
+  gap: 30px; /* Espacio entre los botones */
   pointer-events: none;
+  padding-bottom: 105%; 
 }
 
 .index-button {
@@ -41,14 +42,14 @@
   align-items: center;
   justify-content: center;
   gap: 10px; /* Espacio entre icono y texto */
-  padding: 30px 35px; /* Tamaño del botón */
-  font-size: 24px;
-  font-weight: bold;
+  padding: 20px 25px; /* Tamaño del botón */
+  font-size: 22px;
+  font-weight: 600;
   font-family: "Poppins", sans-serif;
   color: white;
   background-color: #2f5b6a; /* Color del botón */
   border: none;
-  border-radius: 35px; /* Bordes redondeados */
+  border-radius: 22px; /* Bordes redondeados */
   text-align: center;
   text-decoration: none;
   transition:
@@ -181,6 +182,7 @@
   z-index: 15; /* Asegura que la flecha esté por encima de todo */
 }
 
+
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
@@ -191,4 +193,12 @@
   60% {
     transform: translateY(-5px); /* Baja un poco */
   }
+}
+
+.ilustracion {
+  position: absolute;
+  width: 45%;
+  bottom: 0%;
+  left: 5%;
+  z-index: 20;
 }
