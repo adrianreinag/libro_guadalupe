@@ -15,7 +15,8 @@ class Mayores {
       peticiones: { intencion: string; respuesta: string }[];
       comentario: string;
     },
-    public oracionConclusiva: string
+    public oracionConclusiva: string,
+    public cantoVirgen: string
   ) {}
 
   static fromJSON(json: any, dia: string, tipo: string): Mayores {
@@ -27,7 +28,8 @@ class Mayores {
       datos.lecturaBreve,
       datos.responsorio,
       datos.peticiones,
-      datos.oracionConclusiva
+      datos.oracionConclusiva,
+      datos.cantoVirgen
     );
   }
 }
@@ -104,7 +106,8 @@ export class Laudes extends Mayores {
       mayores.lecturaBreve,
       mayores.responsorio,
       mayores.peticiones,
-      mayores.oracionConclusiva
+      mayores.oracionConclusiva,
+      mayores.cantoVirgen
     );
     this.invitatorio.antifona = invitatorioAntifona;
     this.canticoEvangelico.antifona = canticoEvangelicoAntifona;
@@ -196,7 +199,8 @@ export class Visperas extends Mayores {
       mayores.lecturaBreve,
       mayores.responsorio,
       mayores.peticiones,
-      mayores.oracionConclusiva
+      mayores.oracionConclusiva,
+      mayores.cantoVirgen
     );
     this.canticoEvangelico.antifona = canticoEvangelicoAntifona;
     this.oracionDominical.introduccion = introduccionOracionDominical;

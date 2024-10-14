@@ -1,77 +1,64 @@
 {
-    "viernes": {
-      "entrada": {
-        "titulo": "Dios está aquí",
-        "letra": "Dios está aquí tan cierto como el aire que respiro..."
-      },
-      "aleluya": {
-        "titulo": "Aleluya",
-        "letra": "Aleluya, aleluya..."
-      },
-      "ofertorio": {
-        "titulo": "Pan y vino",
-        "letra": "Recibe oh Dios eterno..."
-      },
-      "comunion": [
-        {
-          "titulo": "Cuerpo de Cristo",
-          "letra": "Cuerpo de Cristo, Cuerpo de Cristo..."
-        },
-        {
-          "titulo": "Canto de comunión 2",
-          "letra": "Letra del canto 2..."
-        }
-      ],
-      "virgen": {
-        "titulo": "Santa María",
-        "letra": "Santa María, madre de Dios..."
-      }
+  "viernes": {
+    "entrada": {
+      "titulo": "Himno de Guadalupe",
+      "letra": "Joven de la Iglesia, en marcha a caminar,<br>no sueltes su mano que Ella te llevará.<br>Coge el estandarte tu destino es su mirar,<br>y esta gran familia te acompañará.<br><br>Desde la ribera la cita empezará:<br>seminaristas, hermanos y sacerdotes irán.<br>Ella está esperando a sus pies desde el altar,<br>sed los peregrinos que a Guadalupe van.<br><br>NO PIERDAS SU ESTELA,<br>SIGUE TRAS SUS HUELLAS.<br>QUE TU DESTINO ESTÁ EN SU MANTO,<br>CONTÁGIATE DE TUS HERMANOS.<br>NO DESFALLEZCAS AL INTENTARLO,<br>RECUERDA SIEMPRE QUE TE HA LLAMADO. (BIS)<br><br>Avanza por la senda sin miedo al caminar,<br>María de su mano a Dios te llevará.<br>Sigue su camino y no te perderás,<br>como niño que a su Madre va a encontrar.<br><br>Él es el camino, la vida y la verdad,<br>nosotros peregrinos que su amor buscarán.<br>Coge el estandarte, tu destino es su mirar,<br>sed los peregrinos que a Guadalupe van.<br><br>NO PIERDAS SU ESTELA,<br>SIGUE TRAS SUS HUELLAS.<br>QUE TU DESTINO ESTÁ EN SU MANTO,<br>CONTÁGIATE DE TUS HERMANOS.<br>NO DESFALLEZCAS AL INTENTARLO,<br>RECUERDA SIEMPRE QUE TE HA LLAMADO.<br><br>NO PIERDAS SU ESTELA,<br>SIGUE TRAS HUELLAS.<br>QUE TU DESTINO ESTÁ EN SU MANTO,<br>CONTÁGIATE DE TUS HERMANOS.<br>NO DESFALLEZCAS AL INTENTARLO,<br>RECUERDA SIEMPRE QUE TE HA LLAMADO. (BIS)<br><br>¡¡¡QUE TE HA LLAMADO!!!"
     },
-    "sabado": {
-      "entrada": {
-        "titulo": "Dios está aquí",
-        "letra": "Dios está aquí tan cierto como el aire que respiro..."
-      },
-      "aleluya": {
-        "titulo": "Aleluya",
-        "letra": "Aleluya, aleluya..."
-      },
-      "ofertorio": {
-        "titulo": "Pan y vino",
-        "letra": "Recibe oh Dios eterno..."
-      },
-      "comunion": [],
-      "virgen": {
-        "titulo": "Santa María",
-        "letra": "Santa María, madre de Dios..."
-      }
+    "aleluya": {
+      "titulo": "San Francisco",
+      "letra": "ALELUYA, ALELUYA, ALELUYA, ALELUYA.<br><br>Alégrate llena de gracia,<br>el Señor es contigo.<br>Bendita tú entre las mujeres,<br>Santa Madre de Dios.<br><br>ALELUYA, ALELUYA, ALELUYA, ALELUYA."
     },
-    "domingo": {
-      "entrada": {
-        "titulo": "Dios está aquí",
-        "letra": "Dios está aquí tan cierto como el aire que respiro..."
-      },
-      "aleluya": {
-        "titulo": "Aleluya",
-        "letra": "Aleluya, aleluya..."
-      },
-      "ofertorio": {
-        "titulo": "Pan y vino",
-        "letra": "Recibe oh Dios eterno..."
-      },
-      "comunion": [
-        {
-          "titulo": "Canto de comunión 1",
-          "letra": "Letra del canto 1..."
-        },
-        {
-          "titulo": "Canto de comunión 2",
-          "letra": "Letra del canto 2..."
-        }
-      ],
-      "virgen": {
-        "titulo": "Santa María",
-        "letra": "Santa María, madre de Dios..."
+    "ofertorio": {
+      "titulo": "Enciéndeme",
+      "letra": "Hoy quiero Señor, poner todo en tu presencia,<br>darme hasta gastarme contigo y por ti.<br>Hoy quiero Señor, ponerlo todo ante tu puerta,<br>para en todo amarte y servir.<br><br>ENCIÉNDEME Y DEJAME ARDER DONDE HAGA FALTA.<br>ENCIÉNDEME Y DEJAME SER TU LUZ.<br>Y ASÍ PODER LLEVARTE HASTA TODAS LAS ALMAS.<br>SACIAR LA SED QUE TIENES TÚ DESDE LA CRUZ.<br><br>Hoy quisiera Madre, poner todo en tu presencia.<br>Darme hasta gastarme, decirle que sí.<br>Hoy te pido Madre, que dejes la puerta abierta,<br>para en todo amarle y servir."
+    },
+    "comunion": [
+      {
+        "titulo": "La Fila",
+        "letra": "La Fila más importante de mi vida, unos minutos me separan del momento, encontrarme con mi amante cara a cara con Dios carne no soy digna de que entres en mi casa pero una palabra tuya bastará, para sanarme.<br><br>Cada segundo se hace una eternidad, si es para tenerte no importa esperar y es este hormigueo que no se cesa hasta que te veo cada paso hacia adelante, es un paso hacia el cielo.<br><br>Y ligeramente elevado, y con un amén, contestado por fin veo un pan que se ha hecho humano.<br><br>Y CUANDO EL CUERPO DE CRISTO SE UNE A MÍ,<br>ME TRANSFORMO ME HAGO UNO CON QUIEN MÁS ME AMA<br>ES EL QUE SACIA EL HAMBRE DE TODO EXISTIR<br>EL SAGRARIO HACIA AL QUE SIEMPRE ESTOY ARRODILLADA.<br>SI LOS ÁNGELES HABLARAN, CONCIENCIARÍAN NUESTRA ALMA<br>ES EL REY DE LOS AMORES QUE NOS ALIMENTA Y HABLA<br>A QUIEN TODO EL QUE LO ALABA,<br>A QUIEN TODO EL QUE LO ALABA.<br><br>Aprieto mis costados, para que sientas mis abrazos que Dios no está en el Pan, que Dios es este Pan que yo misma lo he tocado, con mis labios. Busca un hueco en mi corazón limpia todo lo que hay en mi interior que esta boca que tu tocas solo sepa hablar el lenguaje, el lenguaje del amor.<br><br>ESTRIBILLO<br><br>Y ahora que estás conmigo Señor ahora hazme saber que estás vivo en mí que no eres un alimento mas que es tu Cuerpo inmolado por mí. Y ahora que estás conmigo Señor ahora hazme saber que estás vivo en mi ahora ya soy parte de tu cuerpo unido a mis hermanos en ti<br><br>ESTRIBILLO<br>"
       }
+    ],
+    "accionGracias": {
+      "titulo": "Todo",
+      "letra": "Padre, pon tu Espíritu sobre mí<br>Aquí estoy, aquí me tienes<br>Gracias por la vida<br>Que la viva siendo todo yo<br>Que la viva siendo todo yo<br><br>Todo libre, todo entregado<br>Todo Tú, todo dado<br>Todo alegre, todo amante<br>Todo amado, Todo arrodillado<br>Todo hijo, todo hermano<br>Todo padre, todo disfruto<br>Todo mariano, todos por todos<br><br>Que viva todo Con toda el alma"
+    },
+    "virgen": {
+      "titulo": "Ejercito de María",
+      "letra": "Dicen que la muerte es el final,<br>y tú has vencido a la muerte.<br>Quieren que reniegue de la verdad,<br>y mi verdad es tenerte.<br><br>Firme en la batalla del amor,<br>aunque me hieran de muerte.<br>Tú me das la gracia, tú me das el don.<br>Tu rosario, Madre, es el escudo de mi corazón.<br><br>Si mi vida te complace, te la entrego.<br>Lucho en primera línea de fuego.<br>Humillado, perseguido, prisionero,<br>nada nos apartará de la meta que es el cielo<br><br>Danos el escudo de la fe,<br>el casco de la salvación, la espada.<br>Tu pequeño ejército listo para luchar,<br>María, nuestra Reina y Capitana.<br><br>Por toda la tierra llevaré tu reino.<br>Tú me has salvado, no tengo miedo.<br>Rescatados, elegidos, ¡somos fuego!<br>Nada nos apartará de la meta que es el cielo.<br><br>Firme en la batalla del amor,<br>aunque me hieran de muerte.<br>¿Quién contra nosotros si aquí está el Señor?<br>¡Soy soldado del Inmaculado Corazón! (Corazón)<br><br>Revístenos de la esperanza, misericordia y caridad:<br>la armadura que nos das.<br>Nuestra misión, nuestra misión: llevar almas a tu lado.<br>Nuestra oración, nuestra oración es la intimidad con Dios.<br>Nuestra visión, nuestra visión sobrenatural es cuidar de las rosas de Mamá.<br><br>Firme en la batalla del amor<br>aunque me hieran de muerte.<br>¿Quién contra nosotros si aquí está el Señor?<br>¡Soy soldado del Inmaculado Corazón! (Corazón)<br><br>Por toda la tierra llevaré tu reino.<br>Tú me has salvado, no tengo miedo.<br>Rescatados, elegidos, ¡somos fuego!<br>Nada nos apartará de la meta que es el cielo.<br>Nada nos apartará de la meta que es el cielo."
+    }
+  },
+  "sabado": {
+    "entrada": {
+      "titulo": "Dijiste sí",
+      "letra": "Dijiste sí y la tierra estalló de alegría;<br>Dijiste sí y en tu vientre latía divina la salvación.<br><br>Hágase en mí, de corazón, la voluntad de mi Señor;<br>Que se cumplan en mí cada día los sueños de Dios.<br><br>MARÍA, LAS TINIEBLAS SE HARÁN MEDIODÍA;<br>A UNA SOLA PALABRA QUE DIGAS,<br>EN TUS LABIOS ALUMBRA YA EL SOL;<br>MARÍA, LA DONCELLA QUE DIOS PROMETÍA;<br>UN VOLCÁN DE TERNURA DIVINA,<br>PRIMAVERA DE DIOS REDENTOR."
+    },
+    "aleluya": {
+      "titulo": "de la Tierra",
+      "letra": "Aleluya cantará quien perdió la esperanza y la Tierra sonreirá: ¡ALELUYA! (BIS)"
+    },
+    "ofertorio": {
+      "titulo": "Como el Padre me amó",
+      "letra": "COMO EL PADRE ME AMÓ YO OS HE AMADO.<br>PERMANECED EN MI AMOR, PERMANECED EN MI AMOR. (BIS)<br><br>Si guardáis mis palabras y como hermanos os amáis,<br>compartiréis con alegría el don de la fraternidad.<br>Si os ponéis en camino sirviendo siempre a la verdad,<br>fruto daréis en abundancia; mi amor se manifestará.<br>No veréis amor tan grande como aquel que os mostré.<br>Yo doy la vida por vosotros, amad como yo os amé.<br>Si hacéis lo que os mando y os queréis de corazón,<br>compartiréis mi pleno gozo de amar como él me amo."
+    },
+    "comunion": [
+      {
+        "titulo": "Vida en abundancia",
+        "letra": "Los lirios del campo y las aves del cielo<br>No se preocupan porque están en mis manos<br>Tené confianza en mí<br>Acá estoy junto a vos.<br><br>Amá lo que sos y tus circunstancias<br>Estoy con vos, con tu cruz en mi espalda<br>Todo terminará bien<br>Yo hago nuevas todas las cosas.<br><br>YO VENGO A TRAERTE VIDA,<br>VIDA EN ABUNDANCIA, EN ABUNDANCIA<br>YO SOY EL CAMINO, LA VERDAD Y LA VIDA,<br>VIDA EN ABUNDANCIA, EN ABUNDANCIA<br><br>No hice al hombre para que esté solo<br>Caminen juntos como hermanos<br>Sopórtense mutuamente<br>Ámense unos a otros.<br><br>La felicidad de la vida eterna<br>Empieza conmigo en la tierra<br>Sentite vivo<br>La fiesta del reino comienza acá."
+      }
+    ],
+    "accionGracias": {
+      "titulo": "Muéveme",
+      "letra": "Muéveme mi Dios hacia Ti,<br>que no me muevan los hilos de este mundo,<br>no, muéveme, atráeme hacia Ti, desde lo profundo."
+    },
+    "virgen": {
+      "titulo": "Shekhiná",
+      "letra": "Tú la fuente de la acogida,<br>Tú, la impotencia consentida.<br>Toda la vida de Dios,<br>escondida en ti,<br>Tú el lugar de su presencia.<br><br>SHEKINAH, INMACULADA.<br>INMACULADA, INMACULADA, SHEKINAH."
+    }
+  },
+  "domingo": {
+    "entrada": {
+      "titulo": "Himno de Guadalupe",
+      "letra": "Joven de la Iglesia, en marcha a caminar,<br>no sueltes su mano que Ella te llevará.<br>Coge el estandarte tu destino es su mirar,<br>y esta gran familia te acompañará.<br><br>Desde la ribera la cita empezará:<br>seminaristas, hermanos y sacerdotes irán.<br>Ella está esperando a sus pies desde el altar,<br>sed los peregrinos que a Guadalupe van.<br><br>NO PIERDAS SU ESTELA,<br>SIGUE TRAS SUS HUELLAS.<br>QUE TU DESTINO ESTÁ EN SU MANTO,<br>CONTÁGIATE DE TUS HERMANOS.<br>NO DESFALLEZCAS AL INTENTARLO,<br>RECUERDA SIEMPRE QUE TE HA LLAMADO. (BIS)<br><br>Avanza por la senda sin miedo al caminar,<br>María de su mano a Dios te llevará.<br>Sigue su camino y no te perderás,<br>como niño que a su Madre va a encontrar.<br><br>Él es el camino, la vida y la verdad,<br>nosotros peregrinos que su amor buscarán.<br>Coge el estandarte, tu destino es su mirar,<br>sed los peregrinos que a Guadalupe van.<br><br>NO PIERDAS SU ESTELA,<br>SIGUE TRAS SUS HUELLAS.<br>QUE TU DESTINO ESTÁ EN SU MANTO,<br>CONTÁGIATE DE TUS HERMANOS.<br>NO DESFALLEZCAS AL INTENTARLO,<br>RECUERDA SIEMPRE QUE TE HA LLAMADO.<br><br>NO PIERDAS SU ESTELA,<br>SIGUE TRAS HUELLAS.<br>QUE TU DESTINO ESTÁ EN SU MANTO,<br>CONTÁGIATE DE TUS HERMANOS.<br>NO DESFALLEZCAS AL INTENTARLO,<br>RECUERDA SIEMPRE QUE TE HA LLAMADO. (BIS)<br><br>¡¡¡QUE TE HA LLAMADO!!!"
     }
   }
+}

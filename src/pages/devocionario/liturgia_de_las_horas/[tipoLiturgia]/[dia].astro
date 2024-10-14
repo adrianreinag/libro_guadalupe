@@ -122,7 +122,7 @@ const liturgia = getLiturgia(tipoLiturgia, dia);
       )
     }
     <h2 class="titulo-seccion">Himno</h2>
-    <p class="parrafo">{liturgia.himno}</p>
+    <p set:html={liturgia.himno} class="parrafo"></p>
     <h2 class="titulo-seccion">Salmodia</h2>
     {
       Object.entries(liturgia.salmodia).map(([key, salmo]) => (
@@ -207,11 +207,19 @@ const liturgia = getLiturgia(tipoLiturgia, dia);
     <p class="comentario-centrado">{liturgia.conclusion.comentario3}</p>
     <p class="parrafo"><span class="red">V. </span>{liturgia.conclusion.v4}</p>
     <p class="parrafo"><span class="red">R. </span>{liturgia.conclusion.r4}</p>
+    <!-- si cantoVirgen != "" -->
+    {
+      liturgia.cantoVirgen !== "" && (
+        <div>
+          <h2 class="titulo-seccion">Canto a la Virgen</h2>
+          <p set:html={liturgia.cantoVirgen} class="parrafo"></p>
+        </div>
+      )
+    }
   </BodyLayout>
 </BaseLayout>
 
-
-<script>
+<!-- <script>
     document.addEventListener("DOMContentLoaded", () => {
     let dia;
 
@@ -246,4 +254,4 @@ const liturgia = getLiturgia(tipoLiturgia, dia);
       window.location.href = `/devocionario/liturgia_de_las_horas/${tipoLiturgia}/${dia}`;
     }
   });
-</script>
+</script> -->

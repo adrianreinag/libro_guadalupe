@@ -11,6 +11,7 @@ export class Cantos {
     public aleluya: Canto | null,
     public ofertorio: Canto | null,
     public comunion: Canto[] | null,
+    public accionGracias: Canto | null,
     public virgen: Canto | null
   ) {}
 
@@ -24,8 +25,9 @@ export class Cantos {
     const aleluya = datos.aleluya || null;
     const ofertorio = datos.ofertorio || null;
     const comunion = Array.isArray(datos.comunion) ? datos.comunion : null;
+    const accionGracias = datos.accionGracias || null;
     const virgen = datos.virgen || null;
 
-    return new Cantos(entrada, aleluya, ofertorio, comunion, virgen);
+    return new Cantos(entrada, aleluya, ofertorio, comunion, accionGracias, virgen);
   }
 }

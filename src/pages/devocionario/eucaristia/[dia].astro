@@ -131,6 +131,14 @@ const cantos = getCantos(dia);
                   </>
                 )}
 
+              {cantos.accionGracias && (
+                <CantoComponent
+                  titulo="Acción de gracias"
+                  subtitulo={cantos.accionGracias.titulo}
+                  letra={cantos.accionGracias.letra}
+                />
+              )}
+
               {cantos.virgen && (
                 <CantoComponent
                   titulo="Canto a la Virgen"
@@ -220,7 +228,7 @@ const cantos = getCantos(dia);
 
     const url = window.location.href;
     const parts = url.split("/");
-    
+
     let currentDay = parts[parts.length - 1];
 
     if (dia !== currentDay) {
