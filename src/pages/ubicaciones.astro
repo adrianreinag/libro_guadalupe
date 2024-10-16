@@ -1,39 +1,81 @@
 ---
+import { url } from "inspector";
 import HeaderComponent from "../components/HeaderComponent.astro";
 import UbicacionComponent from "../components/UbicacionComponent.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BodyLayout from "../layouts/BodyLayout.astro";
 
-const ubicaciones = [
+const alia = [
   {
-    nombre: "Iglesia",
-    url: "Calle Principal 1",
+    nombre: "Parroquia",
+    url: "https://maps.app.goo.gl/tXsPgw2EM2Qbh9zu6",
     imagen: "/assets/ubicaciones/iglesia-alia.jpg",
   },
   {
-    nombre: "Ayuntamiento",
-    url: "Plaza Mayor 2",
+    nombre: "Pabellón",
+    url: "https://maps.app.goo.gl/ZbEPBqGKoWSmuXnA9",
+    imagen: "/assets/ubicaciones/pabellon-alia.png",
+  },
+  {
+    nombre: "Casa de la Cultura",
+    url: "https://maps.app.goo.gl/ZbEPBqGKoWSmuXnA9",
+    imagen: "/assets/ubicaciones/casa-cultura.png",
+  },
+  {
+    nombre: "Teleclub",
+    url: "",
     imagen: "/assets/ubicaciones/iglesia-alia.jpg",
   },
   {
-    nombre: "Parque",
-    url: "Avenida Verde 3",
-    imagen: "/assets/ubicaciones/iglesia-alia.jpg",
+    nombre: "Gimnasio",
+    url: "https://maps.app.goo.gl/9G7VFhssLfYqj4nj7",
+    imagen: "/assets/ubicaciones/gimnasio-alia.png",
+  }
+];
+
+
+const guadalupe = [
+  {
+    nombre: "Monasterio",
+    url: "https://maps.app.goo.gl/tMPLkBDvs4dudLMy9",
+    imagen: "/assets/ubicaciones/monasterio.jpg",
   },
   {
-    nombre: "Museo",
-    url: "Calle Historia 4",
-    imagen: "/assets/ubicaciones/iglesia-alia.jpg",
+    nombre: "Pabellón",
+    url: "https://maps.app.goo.gl/1agCqXMM2Hc34LCn7",
+    imagen: "/assets/ubicaciones/pabellon-guadalupe.png",
   },
+  {
+    nombre: "Auditorio",
+    url: "https://maps.app.goo.gl/HUSMaTRn8vXMJtpr9",
+    imagen: "/assets/ubicaciones/auditorio.png",
+  },
+  {
+    nombre: "AÑADIR: GIMNASO",
+    url: "https://maps.app.goo.gl/9G7VFhssLfYqj4nj7",
+    imagen: "/assets/ubicaciones/gimnasio-alia.png",
+  },
+  {
+    nombre: "Autobuses",
+    url: "https://maps.app.goo.gl/hKD1hM1zkH1ELXuY9",
+    imagen: "/assets/ubicaciones/autobuses.png",
+  }
 ];
 ---
 
 <BaseLayout title="Ubicaciones">
   <HeaderComponent title="Ubicaciones" backUrl="/" />
   <BodyLayout>
+    <h2 class="titulo-seccion">Alía</h2>
     <div class="ubicaciones-container">
       <div class="ubicaciones-grid">
-        {ubicaciones.map((ubi, index) => <UbicacionComponent ubi={ubi} />)}
+        {alia.map((ubi, index) => <UbicacionComponent ubi={ubi} />)}
+      </div>
+    </div>
+    <h2 class="titulo-seccion">Guadalupe</h2>
+    <div class="ubicaciones-container">
+      <div class="ubicaciones-grid">
+        {guadalupe.map((ubi, index) => <UbicacionComponent ubi={ubi} />)}
       </div>
     </div>
   </BodyLayout>
