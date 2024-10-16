@@ -9,12 +9,12 @@ import DrawerButtonComponent from "../components/DrawerButtonComponent.astro";
 
 <BaseLayout title="Guadalupe XXIX">
   <div class="scroll-container" id="scroll-container">
-    <DrawerButtonComponent />
     <DrawerComponent />
+    <DrawerButtonComponent />
 
-    <IndexBackgroundComponent />
     <IndexSection1Component />
     <IndexSection2Component />
+    <IndexBackgroundComponent />
   </div>
 
   <script>
@@ -58,24 +58,19 @@ import DrawerButtonComponent from "../components/DrawerButtonComponent.astro";
 
     const drawer = document.getElementById("drawer");
     const drawerButton = document.getElementById("drawer-button");
-    const drawerOverlay = document.getElementById("drawer-overlay");
+    const bigStar = document.getElementById("big-star");
 
-    if (!drawer || !drawerButton || !drawerOverlay) {
+    if (!drawer || !drawerButton || !bigStar) {
       throw new Error("Could not find drawer or drawer button element");
     }
 
     drawerButton.addEventListener("click", () => {
-      drawer.style.left = "0px";
-      drawerOverlay.style.pointerEvents = "auto";
-      drawerOverlay.style.opacity = "1";
-      scrollContainer.style.overflow = "hidden";
-    });
-
-    drawerOverlay.addEventListener("click", () => {
-      drawer.style.left = "-300px";
-      drawerOverlay.style.pointerEvents = "none";
-      drawerOverlay.style.opacity = "0";
-      scrollContainer.style.overflow = "auto";
+      // Eliminar la propiedad hidden del drawer
+      // drawer.removeAttribute("hidden");
+      // Agrandar la estrella
+      bigStar.style.zIndex = "100";
+      bigStar.style.transform = "scale(1000)";
+      drawer.style.opacity = "1";
     });
   </script>
 </BaseLayout>
