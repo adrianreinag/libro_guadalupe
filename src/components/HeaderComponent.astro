@@ -2,17 +2,16 @@
 // Header.astro
 interface Props {
   title: string;
-  backUrl: string;
 }
 
-const { title, backUrl } = Astro.props;
+const { title } = Astro.props;
 ---
 
-<header class="header" data-backurl={backUrl}>
+<header class="header">
   <div class="recuadro">
     <button
       class="back-button"
-      onclick={`window.location.href='${backUrl}'`}
+      onclick="window.history.back();"
       oncontextmenu="return false;"
     >
       <svg

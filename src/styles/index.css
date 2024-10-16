@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-#drawer-button {
+#obispo-button {
   position: fixed;
   top: 10px;
   left: 10px;
@@ -26,24 +26,8 @@
   z-index: 1;
 }
 
-.drawer-button-icon {
+.obispo-button-icon {
   filter: drop-shadow(0 0 10px #a4cad7);
-}
-
-#drawer {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  height: calc(var(--vh) * 100);
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  transition: opacity 0.5s ease;
-  width: 100%;
-  z-index: 20;
 }
 
 .section-1 {
@@ -51,6 +35,7 @@
   color: white;
   text-align: center;
   pointer-events: none;
+  z-index: 1;
 }
 
 .index-titulo {
