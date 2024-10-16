@@ -10,7 +10,7 @@ const { ubi } = Astro.props;
 
 <button
   class="card"
-  onclick="window.location.href = '{ubi.url}'"
+  onclick={`window.location.href = '${ubi.url}'`}
   oncontextmenu="return false;"
 >
   <img src={ubi.imagen} class="card-image" />
