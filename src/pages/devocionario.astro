@@ -5,21 +5,23 @@ import BodyLayout from "../layouts/BodyLayout.astro";
 import "../styles/devocionario.css";
 ---
 
-  <BaseLayout title="Devocionario">
-    <HeaderComponent title="Devocionario" />
-    <BodyLayout>
-      <div class="buttons">
-        <button class="button" id="btnAngelus">- Ángelus -</button>
-        <button class="button" id="btnCatequesis">- Catequesis -</button>
-        <button class="button" id="btnConsagracion">- Consagración a María-</button>
-        <button class="button" id="btnEucaristia">- Eucaristía -</button>
-        <button class="button" id="btnExamen">- Examen de conciencia -</button>
-        <button class="button" id="btnLaudes">- Laudes -</button>
-        <button class="button" id="btnRosario">- Rosario -</button>
-        <button class="button" id="btnVisperas">- Vísperas -</button>
-      </div>
-    </BodyLayout>
-  </BaseLayout>
+<BaseLayout title="Devocionario">
+  <HeaderComponent title="Devocionario" />
+  <BodyLayout>
+    <div class="buttons">
+      <button class="button" id="btnAngelus">- Ángelus -</button>
+      <button class="button" id="btnCatequesis">- Catequesis -</button>
+      <button class="button" id="btnConsagracion"
+        >- Consagración a María-</button
+      >
+      <button class="button" id="btnEucaristia">- Eucaristía -</button>
+      <button class="button" id="btnExamen">- Examen de conciencia -</button>
+      <button class="button" id="btnLaudes">- Laudes -</button>
+      <button class="button" id="btnRosario">- Rosario -</button>
+      <button class="button" id="btnVisperas">- Vísperas -</button>
+    </div>
+  </BodyLayout>
+</BaseLayout>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -109,3 +111,9 @@ import "../styles/devocionario.css";
     window.addEventListener("resize", setVH);
   });
 </script>
+
+<style>
+  .button {
+    color: black;
+  }
+</style>
