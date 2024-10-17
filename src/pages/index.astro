@@ -16,6 +16,15 @@ import ObispoButton from "../components/ObispoButtonComponent.astro";
   </div>
 
   <script>
+    window.addEventListener("load", () => {
+      const firstSection = document.querySelector(".section"); // Selecciona tu primera sección
+
+      if (!firstSection) {
+        throw new Error("No se encontró la primera sección");
+      }
+      firstSection.scrollIntoView({ behavior: "auto" }); // O 'auto' si no quieres animación
+    });
+
     function setVH() {
       var vh = window.innerHeight * 0.01;
       var vhpx = `${vh}px`;
@@ -29,11 +38,7 @@ import ObispoButton from "../components/ObispoButtonComponent.astro";
     const ground1 = document.getElementById("ground-1");
     const ground2 = document.getElementById("ground-2");
 
-    if (
-      !scrollContainer ||
-      !ground1 ||
-      !ground2
-    ) {
+    if (!scrollContainer || !ground1 || !ground2) {
       throw new Error("Could not find one of the elements");
     }
 
