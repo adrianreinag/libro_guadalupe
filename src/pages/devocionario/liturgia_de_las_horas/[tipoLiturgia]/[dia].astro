@@ -63,7 +63,7 @@ const liturgia = getLiturgia(tipoLiturgia, dia);
 <BaseLayout title="Liturgia de las horas">
   <HeaderComponent
     title={tipoLiturgia === "laudes" ? "Laudes" : "Vísperas"}
-  />
+    refresh={true} />
   <BodyLayout>
     <h1 class="titulo-dia">{liturgia.tituloDia}</h1>
     <h2 class="titulo-seccion">Invocación inicial</h2>
