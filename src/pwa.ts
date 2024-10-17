@@ -1,13 +1,17 @@
-import { registerSW } from 'virtual:pwa-register'
+// pwa.ts
 
-registerSW({
-  immediate: true,
-  onRegisteredSW(swScriptUrl:any) {
-    // eslint-disable-next-line no-console
-    console.log('SW registered: ', swScriptUrl)
+import { registerSW } from 'virtual:pwa-register';
+
+const updateSW = registerSW({
+  immediate: false,  // Cambiado a falso para evitar comportamiento inesperado
+  onRegisteredSW(swScriptUrl: string) {
+    console.log('Service Worker registrado: ', swScriptUrl);
   },
   onOfflineReady() {
-    // eslint-disable-next-line no-console
-    console.log('PWA application ready to work offline')
+    console.log('La PWA está lista para funcionar sin conexión');
   },
-})
+  onNeedRefresh() {
+    // Aquí puedes implementar una notificación para que el usuario sepa que hay una nueva versión disponible
+    console.log('Nueva versión disponible. Actualiza para obtener la última versión.');
+  },
+});
