@@ -51,6 +51,7 @@ export default defineConfig({
       navigateFallback: '/',
       navigateFallbackDenylist: [/^\/(devocionario|ubicaciones|carta_del_obispo)/],
       globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,jpg,jpeg}'],
+      maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB
       runtimeCaching: [
         {
           urlPattern: /^https?.*\.(?:png|jpg|jpeg|svg|gif|css|js)$/,
