@@ -36,11 +36,12 @@ const Post: Component<PostProps> = (props) => {
       </div>
 
       {/* Image */}
-      <a href={props.urlRedireccion || '#'}>
+      <a href={props.urlRedireccion || '#'} data-astro-prefetch="hover">
         <img
           src={props.imagenPost}
           alt="Post"
           class="w-full object-cover max-h-[600px] cursor-pointer"
+          data-astro-transition-persist={`post-${props.imagenPost}`}
         />
       </a>
 

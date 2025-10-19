@@ -5,6 +5,10 @@ import solidJs from '@astrojs/solid-js';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover'
+  },
   vite: {
     logLevel: 'info',
     server: {
