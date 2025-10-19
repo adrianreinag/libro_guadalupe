@@ -8,25 +8,25 @@ interface MyStoryProps {
 const MyStory: Component<MyStoryProps> = (props) => {
   return (
     <button
-      class="flex flex-col items-center gap-1 min-w-[110px] cursor-pointer"
+      class="flex flex-col items-center gap-1 min-w-[100px] cursor-pointer"
       onClick={props.onClick}
     >
       <div class="relative flex-shrink-0">
         {/* Anillo invisible para mantener el mismo tamaño que Story */}
-        <div class="p-1 rounded-full border-transparent">
-          <div class="bg-transparent p-1 rounded-full">
-            <div class="!w-24 !h-24 rounded-full overflow-hidden">
+        <div class="p-[3px] rounded-full border-transparent">
+          <div class="bg-transparent p-[3px] rounded-full">
+            <div class="!w-[72px] !h-[72px] rounded-full overflow-hidden">
               <img
                 src={props.imagen}
                 alt="Tu historia"
-                class="!w-24 !h-24 object-cover flex-shrink-0"
+                class="!w-[72px] !h-[72px] object-cover flex-shrink-0"
               />
             </div>
           </div>
         </div>
-        <div class="absolute bottom-1 right-1 w-8 h-8 bg-black rounded-full border-[3px] border-white flex items-center justify-center">
+        <div class="absolute bottom-0 right-0 w-7 h-7 bg-black rounded-full border-[2.5px] border-white flex items-center justify-center">
           <svg
-            class="w-4 h-4 text-white"
+            class="w-3.5 h-3.5 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -40,7 +40,7 @@ const MyStory: Component<MyStoryProps> = (props) => {
           </svg>
         </div>
       </div>
-      <span class="text-sm text-gray-800 text-center truncate w-full px-1">
+      <span class="text-xs text-gray-800 text-center truncate w-full px-1">
         Tu historia
       </span>
     </button>
