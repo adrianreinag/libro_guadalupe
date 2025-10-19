@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 import AstroPWA from '@vite-pwa/astro';
 import icon from 'astro-icon';
+import solidJs from '@astrojs/solid-js';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   vite: {
@@ -10,8 +12,11 @@ export default defineConfig({
         allow: ['../..']
       }
     },
+    plugins: [tailwindcss()],
   },
-  integrations: [AstroPWA({
+  integrations: [
+    solidJs(),
+    AstroPWA({
     mode: 'production',
     base: '/',
     scope: '/',
@@ -39,7 +44,8 @@ export default defineConfig({
       ],
     },
     workbox: {
-      navigateFallback: '/index.html',  // Asegúrate de que este archivo esté en caché
+      navigateFallback: '/',
+      navigateFallbackDenylist: [/^\/(devocionario|ubicaciones|carta_del_obispo)/],
       globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,jpg,jpeg}'],
       runtimeCaching: [
         {

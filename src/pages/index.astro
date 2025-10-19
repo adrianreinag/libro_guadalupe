@@ -1,62 +1,104 @@
 ---
-import IndexSection1Component from "../components/IndexSection1Component.astro";
-import IndexSection2Component from "../components/IndexSection2Component.astro";
-import IndexBackgroundComponent from "../components/IndexBackgroundComponent.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ObispoButton from "../components/ObispoButtonComponent.astro";
+import Stories from "../components/instagram/Stories";
+import Post from "../components/instagram/Post";
+import ButtonNavigationBar from "../components/instagram/ButtonNavigationBar";
+
+// Datos de ejemplo para las historias
+const storiesData = [
+  {
+    imagenPerfil: "/assets/instagram/stories/Don_Jesus_Avatar.jpg",
+    nombreUsuario: "donjesusobispo",
+    historia: [
+      { tipo: 'imagen' as const, url: '/assets/instagram/posts/oracion.jpg' },
+    ],
+    visto: false,
+    mejorAmigo: false,
+  },
+  {
+    imagenPerfil: "/assets/instagram/stories/Carlo_Acutis_Avatar.jpg",
+    nombreUsuario: "sancarloacutis",
+    historia: [
+      { tipo: 'imagen' as const, url: '/assets/instagram/posts/devocionario.jpg' },
+    ],
+    visto: false,
+    mejorAmigo: true,
+  },
+  {
+    imagenPerfil: "/assets/instagram/stories/La_Dele_Avatar.png",
+    nombreUsuario: "delejuventud",
+    historia: [
+      { tipo: 'imagen' as const, url: '/assets/instagram/posts/oracion.jpg' },
+      { tipo: 'imagen' as const, url: '/assets/instagram/posts/devocionario.jpg' },
+    ],
+    visto: false,
+    mejorAmigo: false,
+  }
+];
+
+// Datos de ejemplo para los posts
+const postsData = [
+  {
+    imagenPost: "/assets/instagram/posts/oracion.jpg",
+    imagenUsuario: "/assets/instagram/stories/La_Dele_Avatar.png",
+    nombreUsuario: "delejuventud",
+    descripcion: "Pulsa en la imagen para entrar en la sección de oración.",
+    likes: 3453,
+    urlRedireccion: "/devocionario",
+  },
+  {
+    imagenPost: "/assets/instagram/posts/devocionario.jpg",
+    imagenUsuario: "/assets/instagram/stories/La_Dele_Avatar.png",
+    nombreUsuario: "delejuventud",
+    descripcion: "Pulsa en la imagen para entrar en la sección de ubicaciones.",
+    likes: 5543,
+    urlRedireccion: "/ubicaciones",
+  },
+];
 ---
 
-<BaseLayout title="Guadalupe XXX">
-  <div class="scroll-container" id="scroll-container">
-    <ObispoButton />
+<BaseLayout title="Instagram">
+  <div class="bg-gray-50 min-h-screen">
+    <div class="max-w-2xl mx-auto bg-white min-h-screen">
+      <!-- Header -->
+      <header class="bg-white border-b border-gray-200 sticky top-0 z-10 p-4">
+        <div class="flex items-center justify-between">
+          <h1 class="text-2xl font-bold">Para ti</h1>
+          <div class="flex gap-4">
+            <button>
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </button>
+            <button>
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
 
-    <IndexSection1Component />
-    <IndexSection2Component />
-    <IndexBackgroundComponent />
+      <!-- Stories -->
+      <Stories client:load miImagen="/assets/instagram/stories/Me_Avatar.jpg" stories={storiesData} />
+
+      <!-- Posts -->
+      <div class="pb-16">
+        {postsData.map((post) => (
+          <Post
+            client:load
+            imagenPost={post.imagenPost}
+            imagenUsuario={post.imagenUsuario}
+            nombreUsuario={post.nombreUsuario}
+            descripcion={post.descripcion}
+            likes={post.likes}
+            urlRedireccion={post.urlRedireccion}
+          />
+        ))}
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <ButtonNavigationBar client:load />
   </div>
-
-  <script>
-    window.addEventListener("load", () => {
-      const firstSection = document.querySelector(".section"); // Selecciona tu primera sección
-
-      if (!firstSection) {
-        throw new Error("No se encontró la primera sección");
-      }
-      firstSection.scrollIntoView({ behavior: "auto" }); // O 'auto' si no quieres animación
-    });
-
-    function setVH() {
-      var vh = window.innerHeight * 0.01;
-      var vhpx = `${vh}px`;
-      document.documentElement.style.setProperty("--vh", vhpx);
-    }
-
-    setVH();
-    window.addEventListener("resize", setVH);
-
-    const scrollContainer = document.getElementById("scroll-container");
-    const ground1 = document.getElementById("ground-1");
-    const ground2 = document.getElementById("ground-2");
-
-    if (!scrollContainer || !ground1 || !ground2) {
-      throw new Error("Could not find one of the elements");
-    }
-
-    const scrollContainerHeight = scrollContainer.clientHeight;
-
-    scrollContainer.addEventListener("scroll", () => {
-      const scroll = scrollContainer.scrollTop;
-      var normalizedScroll = scroll / scrollContainerHeight;
-
-      if (normalizedScroll > 1) {
-        normalizedScroll = 1;
-      }
-
-      const newBottomValueGround1 = 50 + normalizedScroll * -4;
-      const newBottomValueGround2 = 50 + normalizedScroll * -2;
-
-      ground1.style.bottom = `${newBottomValueGround1}%`;
-      ground2.style.bottom = `${newBottomValueGround2}%`;
-    });
-  </script>
 </BaseLayout>
