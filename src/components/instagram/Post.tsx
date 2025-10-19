@@ -11,7 +11,7 @@ interface PostProps {
 
 const Post: Component<PostProps> = (props) => {
   return (
-    <div class="bg-white border-b border-gray-200">
+    <div class="bg-white">
       {/* Header */}
       <div class="flex items-center gap-3 p-3">
         <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-[2px]">
@@ -25,7 +25,7 @@ const Post: Component<PostProps> = (props) => {
             </div>
           </div>
         </div>
-        <span class="font-semibold text-base">{props.nombreUsuario}</span>
+        <span class="font-semibold text-sm">{props.nombreUsuario}</span>
         <button class="ml-auto">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
             <circle cx="12" cy="5" r="1.5" />

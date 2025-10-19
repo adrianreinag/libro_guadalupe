@@ -38,16 +38,16 @@ const Story: Component<StoryProps> = (props) => {
 
   return (
     <button
-      class="flex flex-col items-center gap-1 min-w-[100px] cursor-pointer"
+      class="flex flex-col items-center gap-1 min-w-[90px] cursor-pointer"
       onClick={props.onClick}
     >
       <div class={`p-[3px] rounded-full overflow-hidden ${gradientStyle()}`} style={gradientInlineStyle()}>
         <div class="bg-white p-[3px] rounded-full overflow-hidden">
-          <div class="!w-[72px] !h-[72px] rounded-full overflow-hidden">
+          <div class="!w-[82px] !h-[82px] rounded-full overflow-hidden">
             <img
               src={props.imagenPerfil}
               alt={props.nombreUsuario}
-              class="!w-[72px] !h-[72px] object-cover flex-shrink-0"
+              class="!w-[82px] !h-[82px] object-cover flex-shrink-0"
             />
           </div>
         </div>

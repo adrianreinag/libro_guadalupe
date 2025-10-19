@@ -8,18 +8,18 @@ interface MyStoryProps {
 const MyStory: Component<MyStoryProps> = (props) => {
   return (
     <button
-      class="flex flex-col items-center gap-1 min-w-[100px] cursor-pointer"
+      class="flex flex-col items-center gap-1 min-w-[95px] cursor-pointer"
       onClick={props.onClick}
     >
       <div class="relative flex-shrink-0">
         {/* Anillo invisible para mantener el mismo tamaño que Story */}
         <div class="p-[3px] rounded-full border-transparent">
           <div class="bg-transparent p-[3px] rounded-full">
-            <div class="!w-[72px] !h-[72px] rounded-full overflow-hidden">
+            <div class="!w-[82px] !h-[82px] rounded-full overflow-hidden">
               <img
                 src={props.imagen}
                 alt="Tu historia"
-                class="!w-[72px] !h-[72px] object-cover flex-shrink-0"
+                class="!w-[82px] !h-[82px] object-cover flex-shrink-0"
               />
             </div>
           </div>
