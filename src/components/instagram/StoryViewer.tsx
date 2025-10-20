@@ -15,8 +15,13 @@ interface StoryViewerProps {
 const StoryViewer: Component<StoryViewerProps> = (props) => {
   const [currentHistoriaIndex, setCurrentHistoriaIndex] = createSignal(0);
   const [progress, setProgress] = createSignal(0);
+  const [dragY, setDragY] = createSignal(0);
+  const [isDragging, setIsDragging] = createSignal(false);
+  const [isClosing, setIsClosing] = createSignal(false);
   let intervalId: number | undefined;
   let videoRef: HTMLVideoElement | undefined;
+  let startY = 0;
+  let containerRef: HTMLDivElement | undefined;
 
   const currentHistoria = () => props.historia[currentHistoriaIndex()];
   const isVideo = () => currentHistoria()?.tipo === 'video';
@@ -125,15 +130,70 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
     nextHistoria();
   };
 
+  // Manejar gestos de swipe down
+  const handleTouchStart = (e: TouchEvent) => {
+    startY = e.touches[0].clientY;
+    setIsDragging(true);
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    if (!isDragging()) return;
+
+    const currentY = e.touches[0].clientY;
+    const diff = currentY - startY;
+
+    // Solo permitir arrastrar hacia abajo
+    if (diff > 0) {
+      setDragY(diff);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging()) return;
+
+    setIsDragging(false);
+
+    // Si arrastró más de 150px, cerrar
+    if (dragY() > 150) {
+      handleClose();
+    } else {
+      // Volver a la posición original
+      setDragY(0);
+    }
+  };
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      props.onClose();
+      setIsClosing(false);
+      setDragY(0);
+    }, 250); // Duración de la animación de cierre
+  };
+
+  // Limpiar el estado al cerrar
+  createEffect(() => {
+    if (!props.isOpen) {
+      setDragY(0);
+      setIsDragging(false);
+      setIsClosing(false);
+    }
+  });
+
   return (
     <Show when={props.isOpen}>
-      <div class="fixed inset-0 z-50 bg-black flex items-center justify-center">
+      <div
+        class="fixed inset-0 z-50 bg-black flex items-center justify-center"
+        style={{
+          animation: isClosing() ? 'fadeOut 0.25s ease-out' : 'fadeIn 0.3s ease-out',
+        }}
+      >
         {/* Header con barras de progreso */}
         <div class="absolute top-0 left-0 right-0 z-10 p-4">
           {/* Barras de progreso múltiples */}
           <div class="w-full flex gap-1 mb-4">
             {props.historia.map((_, index) => (
-              <div class="flex-1 h-1 bg-gray-600 rounded-full overflow-hidden">
+              <div class="flex-1 h-[2px] bg-gray-600 bg-opacity-50 rounded-full overflow-hidden">
                 <div
                   class="h-full bg-white transition-all duration-100"
                   style={{
@@ -156,19 +216,25 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
               class="w-8 h-8 rounded-full object-cover border-2 border-white"
             />
             <span class="text-white font-semibold text-sm">{props.nombreUsuario}</span>
-            <button
-              onClick={props.onClose}
-              class="ml-auto text-white"
-            >
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
           </div>
         </div>
 
         {/* Contenido de la historia (imagen o video) */}
-        <div class="relative w-full h-full flex items-center justify-center max-w-lg">
+        <div
+          ref={containerRef}
+          class="relative w-full h-full flex items-center justify-center max-w-lg"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{
+            transform: isClosing()
+              ? 'translateY(100vh) scale(0.8)'
+              : `translateY(${dragY()}px) scale(${Math.max(0.85, 1 - dragY() / 1000)})`,
+            opacity: isClosing() ? '0' : `${Math.max(0.5, 1 - dragY() / 500)}`,
+            transition: isDragging() ? 'none' : 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-out',
+            animation: !isClosing() && dragY() === 0 ? 'zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)' : 'none',
+          }}
+        >
           {isVideo() ? (
             <video
               ref={videoRef}
