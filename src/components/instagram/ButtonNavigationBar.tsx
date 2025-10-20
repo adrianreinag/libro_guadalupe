@@ -4,6 +4,7 @@ import { getFraseAleatoria, type FraseBiblica } from '../../data/frasesBiblicas'
 
 interface ButtonNavigationBarProps {
   reelsUrl?: string;
+  postUrl?: string;
 }
 
 const ButtonNavigationBar: Component<ButtonNavigationBarProps> = (props) => {
@@ -13,6 +14,12 @@ const ButtonNavigationBar: Component<ButtonNavigationBarProps> = (props) => {
   const handleReelsClick = () => {
     if (props.reelsUrl) {
       window.location.href = props.reelsUrl;
+    }
+  };
+
+  const handlePostClick = () => {
+    if (props.postUrl) {
+      window.open(props.postUrl, '_blank');
     }
   };
 
@@ -44,7 +51,10 @@ const ButtonNavigationBar: Component<ButtonNavigationBarProps> = (props) => {
           </button>
 
           {/* Post */}
-          <button class="p-2 hover:opacity-70 transition-opacity">
+          <button
+            class="p-2 hover:opacity-70 transition-opacity"
+            onClick={handlePostClick}
+          >
             <img src="/assets/instagram/icons/post.svg" alt="Post" class="w-7 h-7" />
           </button>
 

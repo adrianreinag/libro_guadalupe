@@ -12,10 +12,15 @@ interface PostProps {
 const Post: Component<PostProps> = (props) => {
   const [isLiked, setIsLiked] = createSignal(false);
   const [likesCount, setLikesCount] = createSignal(props.likes);
+  const [isSaved, setIsSaved] = createSignal(false);
 
   const handleLike = () => {
     setIsLiked(!isLiked());
     setLikesCount(isLiked() ? likesCount() + 1 : likesCount() - 1);
+  };
+
+  const handleSave = () => {
+    setIsSaved(!isSaved());
   };
 
   return (
@@ -71,8 +76,12 @@ const Post: Component<PostProps> = (props) => {
         <button>
           <img src="/assets/instagram/icons/direct.svg" alt="Share" class="w-6 h-6" />
         </button>
-        <button class="ml-auto">
-          <img src="/assets/instagram/icons/save.svg" alt="Save" class="w-6 h-6" />
+        <button onClick={handleSave} class="ml-auto transition-transform active:scale-110">
+          <img
+            src={isSaved() ? "/assets/instagram/icons/save_active.svg" : "/assets/instagram/icons/save.svg"}
+            alt="Save"
+            class="w-6 h-6"
+          />
         </button>
       </div>
 
