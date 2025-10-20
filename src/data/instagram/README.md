@@ -5,9 +5,10 @@
 Este sistema permite gestionar historias de Instagram con las siguientes características:
 
 1. **Programación temporal**: Cada historia tiene una fecha/hora de inicio y fin
-2. **Persistencia**: Las historias vistas se guardan en localStorage del navegador
-3. **Múltiples historias por usuario**: Cada usuario puede tener varias historias, cada una gestionada independientemente
-4. **Filtrado automático**: Solo se muestran historias activas (dentro del rango de tiempo configurado)
+2. **Duración personalizada**: Controla cuántos segundos se muestra cada historia
+3. **Persistencia**: Las historias vistas se guardan en localStorage del navegador
+4. **Múltiples historias por usuario**: Cada usuario puede tener varias historias, cada una gestionada independientemente
+5. **Filtrado automático**: Solo se muestran historias activas (dentro del rango de tiempo configurado)
 
 ## Estructura de Archivos
 
@@ -34,6 +35,7 @@ Encuentra el usuario al que quieres agregar la historia y añade un nuevo objeto
       id: 'dele_nueva_historia_1', // ID único (debe ser diferente a todas las demás)
       tipo: 'imagen', // o 'video'
       url: '/assets/instagram/posts/mi_imagen.jpg',
+      duration: 5, // Duración en segundos (cuánto tiempo se mostrará)
       startDate: createDate('2025-10-20', '10:00'), // Inicio: 20 oct a las 10am
       endDate: createDate('2025-10-30', '23:59'),   // Fin: 30 oct a las 11:59pm
     },
@@ -51,13 +53,31 @@ createDate('2025-11-05', '08:00')  // 5 de noviembre de 2025 a las 8am
 createDate('2025-12-25', '00:00')  // 25 de diciembre de 2025 a medianoche
 ```
 
-### 3. Ejemplo Completo
+### 3. Duración de las Historias
+
+El campo `duration` controla cuántos segundos se mostrará cada historia:
+
+```typescript
+duration: 3  // Historia rápida (3 segundos)
+duration: 5  // Duración estándar (5 segundos) - valor por defecto
+duration: 10 // Historia larga (10 segundos)
+duration: 15 // Historia muy larga (15 segundos)
+```
+
+**Recomendaciones**:
+- **Imágenes con poco texto**: 3-5 segundos
+- **Imágenes con texto para leer**: 7-10 segundos
+- **Imágenes con mucho contenido**: 10-15 segundos
+- **Videos**: Usar la duración del video
+
+### 4. Ejemplo Completo
 
 ```typescript
 {
   id: 'donjesus_navidad_2025',
   tipo: 'imagen',
   url: '/assets/instagram/posts/navidad.jpg',
+  duration: 7, // 7 segundos para leer el mensaje
   startDate: createDate('2025-12-24', '00:00'), // Empieza el 24 de diciembre
   endDate: createDate('2025-12-26', '23:59'),   // Termina el 26 de diciembre
 }
@@ -148,6 +168,7 @@ JSON.parse(localStorage.getItem('instagram_viewed_stories'));
       id: 'dele_historia_1',
       tipo: 'imagen',
       url: '/assets/instagram/posts/oracion.jpg',
+      duration: 4, // 4 segundos - imagen simple
       startDate: createDate('2025-10-15', '08:00'),
       endDate: createDate('2025-10-25', '23:59'),
     },
@@ -155,6 +176,7 @@ JSON.parse(localStorage.getItem('instagram_viewed_stories'));
       id: 'dele_historia_2',
       tipo: 'imagen',
       url: '/assets/instagram/posts/devocionario.jpg',
+      duration: 8, // 8 segundos - tiene texto para leer
       startDate: createDate('2025-10-20', '12:00'),
       endDate: createDate('2025-10-30', '23:59'),
     },
@@ -162,6 +184,7 @@ JSON.parse(localStorage.getItem('instagram_viewed_stories'));
       id: 'dele_historia_3',
       tipo: 'imagen',
       url: '/assets/instagram/posts/ubicaciones.jpg',
+      duration: 10, // 10 segundos - mucha información
       startDate: createDate('2025-10-22', '10:00'),
       endDate: createDate('2025-11-01', '23:59'),
     },
@@ -169,4 +192,4 @@ JSON.parse(localStorage.getItem('instagram_viewed_stories'));
 }
 ```
 
-En este ejemplo, si el usuario entra el 22 de octubre, verá 3 historias de Dele Juventud.
+En este ejemplo, si el usuario entra el 22 de octubre, verá 3 historias de Dele Juventud con diferentes duraciones.

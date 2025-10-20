@@ -64,7 +64,13 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
   createEffect(() => {
     if (props.isOpen && !isVideo()) {
       setProgress(0);
-      // Auto-progress para imágenes (5 segundos)
+
+      // Obtener la duración de la historia actual (por defecto 5 segundos)
+      const historia = currentHistoria();
+      const duration = historia?.duration || 5;
+      const intervalTime = (duration * 1000) / 100; // Dividir en 100 pasos
+
+      // Auto-progress para imágenes con duración personalizada
       intervalId = window.setInterval(() => {
         setProgress((prev) => {
           if (prev >= 100) {
@@ -73,7 +79,7 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
           }
           return prev + 1;
         });
-      }, 50); // 5 segundos total (100 * 50ms)
+      }, intervalTime);
     } else {
       if (intervalId) {
         clearInterval(intervalId);
@@ -188,45 +194,17 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
           animation: isClosing() ? 'fadeOut 0.25s ease-out' : 'fadeIn 0.3s ease-out',
         }}
       >
-        {/* Header con barras de progreso */}
-        <div class="absolute top-0 left-0 right-0 z-10 p-4">
-          {/* Barras de progreso múltiples */}
-          <div class="w-full flex gap-1 mb-4">
-            {props.historia.map((_, index) => (
-              <div class="flex-1 h-[2px] bg-gray-600 bg-opacity-50 rounded-full overflow-hidden">
-                <div
-                  class="h-full bg-white transition-all duration-100"
-                  style={{
-                    width: index === currentHistoriaIndex()
-                      ? `${progress()}%`
-                      : index < currentHistoriaIndex()
-                        ? '100%'
-                        : '0%'
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Usuario info */}
-          <div class="flex items-center gap-3">
-            <img
-              src={props.imagenPerfil}
-              alt={props.nombreUsuario}
-              class="w-8 h-8 rounded-full object-cover border-2 border-white"
-            />
-            <span class="text-white font-semibold text-sm">{props.nombreUsuario}</span>
-          </div>
-        </div>
-
         {/* Contenido de la historia (imagen o video) */}
         <div
           ref={containerRef}
-          class="relative w-full h-full flex items-center justify-center max-w-lg"
+          class="relative overflow-hidden rounded-lg"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           style={{
+            width: '100vw',
+            'aspect-ratio': '9 / 16',
+            'max-height': '100vh',
             transform: isClosing()
               ? 'translateY(100vh) scale(0.8)'
               : `translateY(${dragY()}px) scale(${Math.max(0.85, 1 - dragY() / 1000)})`,
@@ -235,11 +213,43 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
             animation: !isClosing() && dragY() === 0 ? 'zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)' : 'none',
           }}
         >
+          {/* Barras de progreso - dentro de la imagen arriba */}
+          <div class="absolute top-0 left-0 right-0 z-10 p-3">
+            <div class="w-full flex gap-1 mb-3">
+              {props.historia.map((_, index) => (
+                <div class="flex-1 h-[2px] bg-gray-600 bg-opacity-50 rounded-full overflow-hidden">
+                  <div
+                    class="h-full bg-white transition-all duration-100"
+                    style={{
+                      width: index === currentHistoriaIndex()
+                        ? `${progress()}%`
+                        : index < currentHistoriaIndex()
+                          ? '100%'
+                          : '0%'
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Usuario info - justo debajo de las barras */}
+            <div class="flex items-center gap-2">
+              <img
+                src={props.imagenPerfil}
+                alt={props.nombreUsuario}
+                class="w-8 h-8 rounded-full object-cover border-2 border-white"
+              />
+              <span class="text-white font-semibold text-sm">{props.nombreUsuario}</span>
+            </div>
+          </div>
+
+          {/* Imagen o video de la historia */}
+          <div class="w-full h-full">
           {isVideo() ? (
             <video
               ref={videoRef}
               src={currentHistoria()?.url}
-              class="max-h-full max-w-full object-contain"
+              class="w-full h-full object-cover"
               autoplay
               muted
               playsinline
@@ -248,7 +258,7 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
             <img
               src={currentHistoria()?.url}
               alt="Story"
-              class="max-h-full max-w-full object-contain"
+              class="w-full h-full object-cover"
             />
           )}
 

@@ -4,6 +4,7 @@ export interface HistoriaItem {
   id: string; // ID único para rastrear si fue vista
   tipo: 'imagen' | 'video';
   url: string;
+  duration?: number; // Duración en segundos (opcional para retrocompatibilidad)
 }
 
 interface StoryProps {
