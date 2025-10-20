@@ -1,6 +1,7 @@
 import type { Component } from 'solid-js';
 
 export interface HistoriaItem {
+  id: string; // ID único para rastrear si fue vista
   tipo: 'imagen' | 'video';
   url: string;
 }

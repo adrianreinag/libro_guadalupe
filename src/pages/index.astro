@@ -3,38 +3,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Stories from "../components/instagram/Stories";
 import Post from "../components/instagram/Post";
 import ButtonNavigationBar from "../components/instagram/ButtonNavigationBar";
+import { getActiveStories } from "../data/instagram/storiesConfig";
 
-// Datos de ejemplo para las historias
-const storiesData = [
-  {
-    imagenPerfil: "/assets/instagram/stories/Don_Jesus_Avatar.jpg",
-    nombreUsuario: "donjesusobispo",
-    historia: [
-      { tipo: 'imagen' as const, url: '/assets/instagram/posts/oracion.jpg' },
-    ],
-    visto: false,
-    mejorAmigo: false,
-  },
-  {
-    imagenPerfil: "/assets/instagram/stories/Carlo_Acutis_Avatar.jpg",
-    nombreUsuario: "sancarloacutis",
-    historia: [
-      { tipo: 'imagen' as const, url: '/assets/instagram/posts/devocionario.jpg' },
-    ],
-    visto: false,
-    mejorAmigo: true,
-  },
-  {
-    imagenPerfil: "/assets/instagram/stories/La_Dele_Avatar.png",
-    nombreUsuario: "delejuventud",
-    historia: [
-      { tipo: 'imagen' as const, url: '/assets/instagram/posts/oracion.jpg' },
-      { tipo: 'imagen' as const, url: '/assets/instagram/posts/devocionario.jpg' },
-    ],
-    visto: false,
-    mejorAmigo: false,
-  }
-];
+// Obtener las historias activas según la fecha/hora actual
+const activeStoriesConfig = getActiveStories();
+
+// Convertir la configuración a formato compatible con el componente Stories
+const storiesData = activeStoriesConfig.map(user => ({
+  userId: user.userId,
+  imagenPerfil: user.imagenPerfil,
+  nombreUsuario: user.nombreUsuario,
+  mejorAmigo: user.mejorAmigo || false,
+  historia: user.historias.map(h => ({
+    id: h.id,
+    tipo: h.tipo,
+    url: h.url,
+  })),
+  visto: false, // Se calculará dinámicamente en el componente
+}));
 
 // Datos de ejemplo para los posts
 const postsData = [

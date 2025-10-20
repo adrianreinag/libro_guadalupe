@@ -1,5 +1,6 @@
 import { type Component, createSignal, createEffect, Show, onCleanup } from 'solid-js';
 import type { HistoriaItem } from './Story';
+import { markStoryAsViewed } from '../../utils/instagram/storiesStorage';
 
 interface StoryViewerProps {
   imagenPerfil: string;
@@ -19,6 +20,16 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
 
   const currentHistoria = () => props.historia[currentHistoriaIndex()];
   const isVideo = () => currentHistoria()?.tipo === 'video';
+
+  // Marcar la historia actual como vista cuando se carga
+  createEffect(() => {
+    if (props.isOpen) {
+      const historia = currentHistoria();
+      if (historia?.id) {
+        markStoryAsViewed(historia.id);
+      }
+    }
+  });
 
   const nextHistoria = () => {
     if (currentHistoriaIndex() < props.historia.length - 1) {
