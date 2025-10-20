@@ -60,7 +60,7 @@ export const storiesConfig: StoryUserConfig[] = [
       {
         id: 'carloacutis_catedral_1',
         tipo: 'imagen',
-        url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.jpeg',
+        url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.webp',
         duration: 6, // 6 segundos
         startDate: createDate('2025-10-15', '09:00'),
         endDate: createDate('2025-10-26', '23:59'),
