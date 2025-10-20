@@ -165,6 +165,29 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
     }
   });
 
+  // Interceptar el botón de retroceso del navegador/Android
+  createEffect(() => {
+    if (props.isOpen) {
+      // Agregar una entrada al historial cuando se abre el visor
+      window.history.pushState({ storyViewerOpen: true }, '');
+
+      const handlePopState = () => {
+        // Cerrar la historia sin retroceder más en el historial
+        handleClose();
+      };
+
+      window.addEventListener('popstate', handlePopState);
+
+      onCleanup(() => {
+        window.removeEventListener('popstate', handlePopState);
+        // Limpiar la entrada del historial cuando se cierra normalmente (no por back button)
+        if (window.history.state?.storyViewerOpen) {
+          window.history.back();
+        }
+      });
+    }
+  });
+
   onCleanup(() => {
     if (intervalId) {
       clearInterval(intervalId);
