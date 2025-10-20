@@ -47,9 +47,12 @@ const Post: Component<PostProps> = (props) => {
 
       {/* Action buttons */}
       <div class="flex items-center gap-4 p-3">
-        <button>
-          <img src="/assets/instagram/icons/notifications.svg" alt="Like" class="w-6 h-6" />
-        </button>
+        <div class="flex items-center gap-2">
+          <button>
+            <img src="/assets/instagram/icons/notifications.svg" alt="Like" class="w-6 h-6" />
+          </button>
+          <span class="font-semibold text-sm">{props.likes.toLocaleString()}</span>
+        </div>
         <button>
           <img src="/assets/instagram/icons/comment.svg" alt="Comment" class="w-6 h-6" />
         </button>
@@ -59,11 +62,6 @@ const Post: Component<PostProps> = (props) => {
         <button class="ml-auto">
           <img src="/assets/instagram/icons/save.svg" alt="Save" class="w-6 h-6" />
         </button>
-      </div>
-
-      {/* Likes */}
-      <div class="px-3 pb-2">
-        <span class="font-semibold text-sm">{props.likes.toLocaleString()} Me gusta</span>
       </div>
 
       {/* Description */}
