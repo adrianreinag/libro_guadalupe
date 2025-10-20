@@ -1,4 +1,4 @@
-import { type Component, createSignal, createEffect, Show, onCleanup } from 'solid-js';
+import { type Component, createSignal, createEffect, Show, onCleanup, For } from 'solid-js';
 import type { HistoriaItem } from './Story';
 import { markStoryAsViewed } from '../../utils/instagram/storiesStorage';
 
@@ -19,8 +19,9 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
   const [dragX, setDragX] = createSignal(0);
   const [isClosing, setIsClosing] = createSignal(false);
   const [isPaused, setIsPaused] = createSignal(false);
-  const [isTransitioning, setIsTransitioning] = createSignal(false);
-  const [transitionDirection, setTransitionDirection] = createSignal<'left' | 'right' | null>(null);
+  const [isChangingUser, setIsChangingUser] = createSignal(false);
+  const [userChangeDirection, setUserChangeDirection] = createSignal<'left' | 'right' | null>(null);
+  const [prevUserData, setPrevUserData] = createSignal<{imagenPerfil: string, nombreUsuario: string, historia: HistoriaItem[]} | null>(null);
 
   let intervalId: number | undefined;
   let videoRef: HTMLVideoElement | undefined;
@@ -34,6 +35,28 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
   const currentHistoria = () => props.historia[currentHistoriaIndex()];
   const isVideo = () => currentHistoria()?.tipo === 'video';
 
+  // Detectar cambio de usuario y guardar datos anteriores
+  createEffect(() => {
+    const prevData = prevUserData();
+    const currentUser = props.nombreUsuario;
+
+    if (prevData && prevData.nombreUsuario !== currentUser) {
+      // Hubo un cambio de usuario
+      setIsChangingUser(true);
+      setTimeout(() => {
+        setIsChangingUser(false);
+        setUserChangeDirection(null);
+      }, 600);
+    }
+
+    // Guardar datos actuales para la próxima comparación
+    setPrevUserData({
+      imagenPerfil: props.imagenPerfil,
+      nombreUsuario: props.nombreUsuario,
+      historia: props.historia
+    });
+  });
+
   // Marcar la historia actual como vista cuando se carga
   createEffect(() => {
     if (props.isOpen) {
@@ -45,69 +68,38 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
   });
 
   const nextHistoria = () => {
-    if (isTransitioning()) return;
-
     if (currentHistoriaIndex() < props.historia.length - 1) {
-      setIsTransitioning(true);
-      setTransitionDirection('left');
-      setTimeout(() => {
-        setCurrentHistoriaIndex(currentHistoriaIndex() + 1);
-        setProgress(0);
-        setTimeout(() => {
-          setIsTransitioning(false);
-          setTransitionDirection(null);
-        }, 400);
-      }, 200);
+      // Siguiente historia del MISMO usuario (transición simple)
+      setCurrentHistoriaIndex(currentHistoriaIndex() + 1);
+      setProgress(0);
     } else {
-      // Terminaron todas las historias de este usuario, ir al siguiente
+      // Terminaron todas las historias, cambiar de USUARIO
       if (props.onNext) {
-        setIsTransitioning(true);
-        setTransitionDirection('left');
-        setTimeout(() => {
-          props.onNext!();
-          setCurrentHistoriaIndex(0);
-          setTimeout(() => {
-            setIsTransitioning(false);
-            setTransitionDirection(null);
-          }, 400);
-        }, 200);
+        setUserChangeDirection('left');
+        props.onNext();
       } else {
         props.onClose();
       }
+      setCurrentHistoriaIndex(0);
     }
   };
 
   const previousHistoria = () => {
-    if (isTransitioning()) return;
-
     if (currentHistoriaIndex() > 0) {
-      setIsTransitioning(true);
-      setTransitionDirection('right');
-      setTimeout(() => {
-        setCurrentHistoriaIndex(currentHistoriaIndex() - 1);
-        setProgress(0);
-        setTimeout(() => {
-          setIsTransitioning(false);
-          setTransitionDirection(null);
-        }, 400);
-      }, 200);
+      // Historia anterior del MISMO usuario (transición simple)
+      setCurrentHistoriaIndex(currentHistoriaIndex() - 1);
+      setProgress(0);
     } else if (props.onPrevious) {
-      setIsTransitioning(true);
-      setTransitionDirection('right');
-      setTimeout(() => {
-        props.onPrevious!();
-        setCurrentHistoriaIndex(0);
-        setTimeout(() => {
-          setIsTransitioning(false);
-          setTransitionDirection(null);
-        }, 400);
-      }, 200);
+      // Primera historia, ir al USUARIO anterior
+      setUserChangeDirection('right');
+      props.onPrevious();
+      setCurrentHistoriaIndex(0);
     }
   };
 
   // Auto-progress para imágenes con duración personalizada
   createEffect(() => {
-    if (props.isOpen && !isVideo() && !isPaused() && !isTransitioning()) {
+    if (props.isOpen && !isVideo() && !isPaused() && !isChangingUser()) {
       setProgress(0);
 
       const historia = currentHistoria();
@@ -189,10 +181,20 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
     dragStartTime = Date.now();
     dragDirection = null;
 
+    // Prevenir comportamientos del navegador
+    e.preventDefault();
+
     // Iniciar timer de long press
     longPressTimer = window.setTimeout(() => {
       setIsPaused(true);
-    }, 200); // 200ms para considerar long press
+    }, 200);
+  };
+
+  // Bloquear menú contextual del navegador
+  const handleContextMenu = (e: Event) => {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
   };
 
   const handleTouchMove = (e: TouchEvent) => {
@@ -201,9 +203,14 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
     const diffY = currentY - startY;
     const diffX = currentX - startX;
 
-    // Determinar dirección del drag solo la primera vez
+    // Determinar dirección del drag
     if (!dragDirection && (Math.abs(diffX) > 5 || Math.abs(diffY) > 5)) {
       dragDirection = Math.abs(diffX) > Math.abs(diffY) ? 'horizontal' : 'vertical';
+    }
+
+    // Prevenir pull-to-refresh cuando se arrastra hacia abajo
+    if (diffY > 0) {
+      e.preventDefault();
     }
 
     // Cancelar long press si hay movimiento
@@ -217,9 +224,20 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
       setDragY(diffY);
     }
 
-    // Swipe horizontal (cambiar historia)
-    if (dragDirection === 'horizontal' && !isTransitioning()) {
-      setDragX(diffX);
+    // Swipe horizontal - solo para cambio de USUARIO
+    if (dragDirection === 'horizontal' && !isChangingUser()) {
+      // Verificar si estamos en los límites del usuario actual
+      const isFirstHistoria = currentHistoriaIndex() === 0;
+      const isLastHistoria = currentHistoriaIndex() === props.historia.length - 1;
+
+      // Solo permitir drag hacia la derecha si estamos en la primera historia Y hay usuario anterior
+      if (diffX > 0 && isFirstHistoria && props.onPrevious) {
+        setDragX(diffX);
+      }
+      // Solo permitir drag hacia la izquierda si estamos en la última historia Y hay usuario siguiente
+      else if (diffX < 0 && isLastHistoria && props.onNext) {
+        setDragX(diffX);
+      }
     }
   };
 
@@ -242,22 +260,24 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
       setDragY(0);
     }
 
-    // Swipe horizontal - cambiar historia
+    // Swipe horizontal - solo para cambio de usuario
     if (dragDirection === 'horizontal') {
-      const threshold = 80; // Umbral de swipe en pixels
+      const threshold = 100;
 
-      if (dragX() < -threshold) {
-        // Swipe izquierda - siguiente
+      if (dragX() < -threshold && currentHistoriaIndex() === props.historia.length - 1 && props.onNext) {
+        // Swipe izquierda en última historia - siguiente USUARIO
+        setUserChangeDirection('left');
         nextHistoria();
-      } else if (dragX() > threshold) {
-        // Swipe derecha - anterior
+      } else if (dragX() > threshold && currentHistoriaIndex() === 0 && props.onPrevious) {
+        // Swipe derecha en primera historia - anterior USUARIO
+        setUserChangeDirection('right');
         previousHistoria();
       }
 
       setDragX(0);
     }
 
-    // Click rápido (sin arrastre significativo) - tap zones
+    // Click rápido (tap zones) - para historias del MISMO usuario
     if (swipeDuration < 200 && Math.abs(dragX()) < 10 && Math.abs(dragY()) < 10) {
       const touch = (event as any).changedTouches?.[0];
       if (touch) {
@@ -266,9 +286,11 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
           const x = touch.clientX - rect.left;
           const width = rect.width;
 
-          if (x < width / 3) {
+          if (x < width / 3 && currentHistoriaIndex() > 0) {
+            // Tap izquierda - historia anterior del MISMO usuario
             previousHistoria();
-          } else if (x > (width * 2) / 3) {
+          } else if (x > (width * 2) / 3 && currentHistoriaIndex() < props.historia.length - 1) {
+            // Tap derecha - siguiente historia del MISMO usuario
             nextHistoria();
           }
         }
@@ -295,24 +317,31 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
       setDragX(0);
       setIsClosing(false);
       setIsPaused(false);
-      setIsTransitioning(false);
-      setTransitionDirection(null);
+      setIsChangingUser(false);
+      setUserChangeDirection(null);
     }
   });
 
-  // Calcular rotación del cubo 3D
+  // Calcular rotación del cubo 3D (solo para cambio de usuario)
   const getCubeRotation = () => {
-    if (isTransitioning()) {
-      return transitionDirection() === 'left' ? '-90deg' : '90deg';
+    if (isChangingUser() && userChangeDirection()) {
+      return userChangeDirection() === 'left' ? -90 : 90;
     }
 
+    // Durante el drag de cambio de usuario
     if (dragDirection === 'horizontal' && dragX() !== 0) {
-      const maxRotation = 90;
-      const rotation = (dragX() / window.innerWidth) * maxRotation;
-      return `${rotation}deg`;
+      const isFirstHistoria = currentHistoriaIndex() === 0;
+      const isLastHistoria = currentHistoriaIndex() === props.historia.length - 1;
+
+      if ((dragX() > 0 && isFirstHistoria && props.onPrevious) ||
+          (dragX() < 0 && isLastHistoria && props.onNext)) {
+        const maxRotation = 90;
+        const rotation = (dragX() / window.innerWidth) * maxRotation;
+        return rotation;
+      }
     }
 
-    return '0deg';
+    return 0;
   };
 
   const getCubeTransform = () => {
@@ -324,7 +353,7 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
       return 'translateY(100vh) scale(0.8)';
     }
 
-    return `translateY(${translateY}px) scale(${scale}) rotateY(${rotation})`;
+    return `translateY(${translateY}px) scale(${scale}) rotateY(${rotation}deg)`;
   };
 
   return (
@@ -338,7 +367,8 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
         {/* Contenedor con perspectiva para efecto 3D */}
         <div
           style={{
-            perspective: '1000px',
+            perspective: '1500px',
+            'perspective-origin': 'center center',
             width: '100vw',
             height: '100vh',
             display: 'flex',
@@ -346,48 +376,54 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
             'justify-content': 'center',
           }}
         >
-          {/* Contenido de la historia (imagen o video) */}
+          {/* Contenido de la historia */}
           <div
             ref={containerRef}
             class="relative overflow-hidden rounded-lg"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
+            onContextMenu={handleContextMenu}
             style={{
+              'user-select': 'none',
+              '-webkit-user-select': 'none',
+              '-webkit-touch-callout': 'none',
               width: '100vw',
               'aspect-ratio': '9 / 16',
               'max-height': '100vh',
               transform: getCubeTransform(),
               'transform-style': 'preserve-3d',
               opacity: isClosing() ? '0' : `${Math.max(0.5, 1 - dragY() / 500)}`,
-              transition: (dragDirection === null && !isClosing()) || isTransitioning()
-                ? 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-out'
+              transition: (dragDirection === null && !isClosing()) || isChangingUser()
+                ? 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease-out'
                 : 'none',
-              animation: !isClosing() && dragY() === 0 && dragX() === 0 && !isTransitioning()
+              animation: !isClosing() && dragY() === 0 && dragX() === 0 && !isChangingUser()
                 ? 'zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)'
                 : 'none',
             }}
           >
-            {/* Barras de progreso - dentro de la imagen arriba */}
+            {/* Barras de progreso */}
             <div class="absolute top-0 left-0 right-0 z-10 p-3">
               <div class="w-full flex gap-1 mb-3">
-                {props.historia.map((_, index) => (
-                  <div class="flex-1 h-[2px] bg-gray-600 bg-opacity-50 rounded-full overflow-hidden">
-                    <div
-                      class="h-full bg-white transition-all duration-100"
-                      style={{
-                        width: index === currentHistoriaIndex()
-                          ? `${progress()}%`
-                          : index < currentHistoriaIndex()
-                            ? '100%'
-                            : '0%'
-                      }}
-                    />
-                  </div>
-                ))}
+                <For each={props.historia}>
+                  {(_, index) => (
+                    <div class="flex-1 h-[2px] bg-gray-600 bg-opacity-50 rounded-full overflow-hidden">
+                      <div
+                        class="h-full bg-white transition-all duration-100"
+                        style={{
+                          width: index() === currentHistoriaIndex()
+                            ? `${progress()}%`
+                            : index() < currentHistoriaIndex()
+                              ? '100%'
+                              : '0%'
+                        }}
+                      />
+                    </div>
+                  )}
+                </For>
               </div>
 
-              {/* Usuario info - justo debajo de las barras */}
+              {/* Usuario info */}
               <div class="flex items-center gap-2">
                 <img
                   src={props.imagenPerfil}
@@ -407,25 +443,30 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
                 autoplay
                 muted
                 playsinline
+                onContextMenu={handleContextMenu}
+                style={{
+                  'user-select': 'none',
+                  '-webkit-user-select': 'none',
+                  '-webkit-touch-callout': 'none',
+                  'pointer-events': 'none',
+                }}
               />
             ) : (
               <img
                 src={currentHistoria()?.url}
                 alt="Story"
                 class="w-full h-full object-cover"
+                onContextMenu={handleContextMenu}
+                style={{
+                  'user-select': 'none',
+                  '-webkit-user-select': 'none',
+                  '-webkit-touch-callout': 'none',
+                  'pointer-events': 'none',
+                }}
+                draggable={false}
               />
             )}
 
-            {/* Indicador visual de pausa */}
-            <Show when={isPaused()}>
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div class="bg-black bg-opacity-50 rounded-full p-4">
-                  <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                  </svg>
-                </div>
-              </div>
-            </Show>
           </div>
         </div>
       </div>
