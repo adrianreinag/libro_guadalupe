@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="10.301826mm"
+   height="10.301826mm"
+   viewBox="0 0 10.301826 10.301826"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"><inkscape:page
+       x="0"
+       y="0"
+       width="10.301826"
+       height="10.301826"
+       id="page2"
+       margin="0"
+       bleed="0" /></sodipodi:namedview><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(17.17709,-227.02967)"><rect
+       style="fill:none;stroke:none;stroke-width:0.0529167"
+       id="rect1"
+       width="10.301826"
+       height="10.301826"
+       x="-17.17709"
+       y="227.02966"
+       inkscape:export-filename="notifications.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" /><path
+       d="m -13.2923,236.08893 c -1.46295,-0.49882 -2.51795,-1.71819 -2.800051,-3.23631 -0.331529,-1.78408 0.643631,-3.60717 2.370041,-4.43086 0.56765,-0.27083 0.71053,-0.30222 1.524,-0.33489 0.76159,-0.0306 0.98104,-0.008 1.44797,0.14894 2.24913,0.75602 3.38281,3.07748 2.61534,5.3555 l -0.19181,0.56935 0.23884,0.93239 c 0.33537,1.30921 0.27683,1.35998 -1.11323,0.9655 l -0.78604,-0.22306 -0.67493,0.22306 c -0.8846,0.29237 -1.82976,0.30329 -2.63013,0.0304 z m 2.45729,-0.74677 c 0.72577,-0.26797 0.80904,-0.27486 1.3972,-0.11565 0.30391,0.0823 0.56927,0.13287 0.58968,0.11246 0.0204,-0.0204 -0.0371,-0.32681 -0.12781,-0.68089 l -0.16492,-0.64377 0.23242,-0.49618 c 0.20514,-0.43791 0.23243,-0.59611 0.23243,-1.34723 0,-0.81369 -0.014,-0.87944 -0.31939,-1.49731 -0.358,-0.72435 -0.83283,-1.20242 -1.53596,-1.54643 -2.64818,-1.29564 -5.579325,1.21772 -4.70844,4.03732 0.33253,1.07661 1.20625,1.94568 2.28812,2.27597 0.44456,0.13572 1.63226,0.0806 2.11667,-0.0983 z"
+       style="fill:#000000"
+       id="path1-8" /></g></svg>
