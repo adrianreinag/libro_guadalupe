@@ -1,6 +1,16 @@
 import type { Component } from 'solid-js';
 
-const ButtonNavigationBar: Component = () => {
+interface ButtonNavigationBarProps {
+  reelsUrl?: string;
+}
+
+const ButtonNavigationBar: Component<ButtonNavigationBarProps> = (props) => {
+  const handleReelsClick = () => {
+    if (props.reelsUrl) {
+      window.location.href = props.reelsUrl;
+    }
+  };
+
   return (
     <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40">
       <div class="max-w-2xl mx-auto flex items-center justify-between py-2 px-8">
@@ -20,7 +30,10 @@ const ButtonNavigationBar: Component = () => {
         </button>
 
         {/* Reel */}
-        <button class="p-2 hover:opacity-70 transition-opacity">
+        <button
+          class="p-2 hover:opacity-70 transition-opacity"
+          onClick={handleReelsClick}
+        >
           <img src="/assets/instagram/icons/reel.svg" alt="Reel" class="w-7 h-7" />
         </button>
 

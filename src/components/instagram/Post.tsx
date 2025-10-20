@@ -1,4 +1,4 @@
-import type { Component } from 'solid-js';
+import { type Component, createSignal } from 'solid-js';
 
 interface PostProps {
   imagenPost: string;
@@ -10,6 +10,14 @@ interface PostProps {
 }
 
 const Post: Component<PostProps> = (props) => {
+  const [isLiked, setIsLiked] = createSignal(false);
+  const [likesCount, setLikesCount] = createSignal(props.likes);
+
+  const handleLike = () => {
+    setIsLiked(!isLiked());
+    setLikesCount(isLiked() ? likesCount() + 1 : likesCount() - 1);
+  };
+
   return (
     <div class="bg-white">
       {/* Header */}
@@ -48,10 +56,14 @@ const Post: Component<PostProps> = (props) => {
       {/* Action buttons */}
       <div class="flex items-center gap-4 p-3">
         <div class="flex items-center gap-2">
-          <button>
-            <img src="/assets/instagram/icons/notifications.svg" alt="Like" class="w-6 h-6" />
+          <button onClick={handleLike} class="transition-transform active:scale-110">
+            <img
+              src={isLiked() ? "/assets/instagram/icons/notifications_active.svg" : "/assets/instagram/icons/notifications.svg"}
+              alt="Like"
+              class="w-6 h-6"
+            />
           </button>
-          <span class="font-semibold text-sm">{props.likes.toLocaleString()}</span>
+          <span class="font-semibold text-sm">{likesCount().toLocaleString()}</span>
         </div>
         <button>
           <img src="/assets/instagram/icons/comment.svg" alt="Comment" class="w-6 h-6" />
