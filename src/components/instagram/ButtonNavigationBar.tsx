@@ -69,7 +69,7 @@ const ButtonNavigationBar: Component<ButtonNavigationBarProps> = (props) => {
           {/* Profile */}
           <button class="p-2 hover:opacity-70 transition-opacity">
             <img
-              src="/assets/instagram/stories/Me_Avatar.jpg"
+              src="/assets/instagram/profiles/Me_Avatar.jpg"
               alt="Profile"
               class="w-7 h-7 rounded-full object-cover"
             />

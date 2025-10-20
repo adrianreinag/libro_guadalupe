@@ -28,7 +28,7 @@ const storiesData = activeStoriesConfig.map(user => ({
 const postsData = [
   {
     imagenPost: "/assets/instagram/posts/oracion.jpg",
-    imagenUsuario: "/assets/instagram/stories/La_Dele_Avatar.png",
+    imagenUsuario: "/assets/instagram/profiles/La_Dele_Avatar.png",
     nombreUsuario: "delejuventud",
     descripcion: "Pulsa en la imagen para entrar en la sección de oración.",
     likes: 3453,
@@ -36,7 +36,7 @@ const postsData = [
   },
   {
     imagenPost: "/assets/instagram/posts/devocionario.jpg",
-    imagenUsuario: "/assets/instagram/stories/La_Dele_Avatar.png",
+    imagenUsuario: "/assets/instagram/profiles/La_Dele_Avatar.png",
     nombreUsuario: "delejuventud",
     descripcion: "Pulsa en la imagen para entrar en la sección de ubicaciones.",
     likes: 5543,
@@ -65,7 +65,7 @@ const postsData = [
       </header>
 
       <!-- Stories -->
-      <Stories client:load miImagen="/assets/instagram/stories/Me_Avatar.jpg" stories={storiesData} />
+      <Stories client:load miImagen="/assets/instagram/profiles/Me_Avatar.jpg" stories={storiesData} />
 
       <!-- Posts -->
       <div class="pb-16">

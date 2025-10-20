@@ -28,14 +28,14 @@ export const createDate = (dateStr: string, timeStr: string = '00:00'): Date => 
 export const storiesConfig: StoryUserConfig[] = [
   {
     userId: 'donjesusobispo',
-    imagenPerfil: '/assets/instagram/stories/Don_Jesus_Avatar.jpg',
+    imagenPerfil: '/assets/instagram/profiles/Don_Jesus_Avatar.jpg',
     nombreUsuario: 'donjesusobispo',
     mejorAmigo: false,
     historias: [
       {
-        id: 'donjesus_oracion_1',
+        id: 'donjesus_catedral_1',
         tipo: 'imagen',
-        url: '/assets/instagram/posts/oracion.jpg',
+        url: '/assets/instagram/stories/Don_Jesus_Story_Catedral.jpeg',
         duration: 5, // 5 segundos
         startDate: createDate('2025-10-15', '08:00'), // Inicia el 15 de octubre a las 8am
         endDate: createDate('2025-10-25', '23:59'),   // Termina el 25 de octubre
@@ -44,7 +44,7 @@ export const storiesConfig: StoryUserConfig[] = [
       // {
       //   id: 'donjesus_otra_historia',
       //   tipo: 'imagen',
-      //   url: '/assets/instagram/posts/otra.jpg',
+      //   url: '/assets/instagram/stories/otra.jpg',
       //   duration: 7, // 7 segundos
       //   startDate: createDate('2025-10-20', '12:00'),
       //   endDate: createDate('2025-10-30', '23:59'),
@@ -53,14 +53,14 @@ export const storiesConfig: StoryUserConfig[] = [
   },
   {
     userId: 'sancarloacutis',
-    imagenPerfil: '/assets/instagram/stories/Carlo_Acutis_Avatar.jpg',
+    imagenPerfil: '/assets/instagram/profiles/Carlo_Acutis_Avatar.jpg',
     nombreUsuario: 'sancarloacutis',
     mejorAmigo: true,
     historias: [
       {
-        id: 'carloacutis_devocionario_1',
+        id: 'carloacutis_catedral_1',
         tipo: 'imagen',
-        url: '/assets/instagram/posts/devocionario.jpg',
+        url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.jpeg',
         duration: 6, // 6 segundos
         startDate: createDate('2025-10-15', '09:00'),
         endDate: createDate('2025-10-26', '23:59'),
@@ -70,31 +70,23 @@ export const storiesConfig: StoryUserConfig[] = [
   },
   {
     userId: 'delejuventud',
-    imagenPerfil: '/assets/instagram/stories/La_Dele_Avatar.png',
+    imagenPerfil: '/assets/instagram/profiles/La_Dele_Avatar.png',
     nombreUsuario: 'delejuventud',
     mejorAmigo: false,
     historias: [
       {
-        id: 'dele_oracion_1',
+        id: 'dele_catedral_1',
         tipo: 'imagen',
-        url: '/assets/instagram/posts/oracion.jpg',
+        url: '/assets/instagram/stories/La_Dele_Story_Catedral.jpeg',
         duration: 4, // 4 segundos
         startDate: createDate('2025-10-15', '10:00'),
         endDate: createDate('2025-10-24', '23:59'),
       },
-      {
-        id: 'dele_devocionario_1',
-        tipo: 'imagen',
-        url: '/assets/instagram/posts/devocionario.jpg',
-        duration: 8, // 8 segundos
-        startDate: createDate('2025-10-16', '10:00'),
-        endDate: createDate('2025-10-27', '23:59'),
-      },
       // Puedes agregar muchas más historias para Dele Juventud
       // {
-      //   id: 'dele_historia_3',
+      //   id: 'dele_historia_2',
       //   tipo: 'imagen',
-      //   url: '/assets/instagram/posts/ubicaciones.jpg',
+      //   url: '/assets/instagram/stories/otra_historia.jpg',
       //   duration: 10, // 10 segundos
       //   startDate: createDate('2025-10-18', '15:00'),
       //   endDate: createDate('2025-10-28', '23:59'),
