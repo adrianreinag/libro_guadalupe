@@ -77,6 +77,22 @@ const Stories: Component<StoriesProps> = (props) => {
     return index !== null ? storiesWithViewStatus()[index] : null;
   };
 
+  const nextStoryData = () => {
+    const current = currentStoryIndex();
+    if (current !== null && current < storiesWithViewStatus().length - 1) {
+      return storiesWithViewStatus()[current + 1];
+    }
+    return null;
+  };
+
+  const previousStoryData = () => {
+    const current = currentStoryIndex();
+    if (current !== null && current > 0) {
+      return storiesWithViewStatus()[current - 1];
+    }
+    return null;
+  };
+
   return (
     <>
       <div class="flex gap-4 overflow-x-auto p-4 bg-white scrollbar-hide">
@@ -104,6 +120,8 @@ const Stories: Component<StoriesProps> = (props) => {
           onClose={closeViewer}
           onNext={nextStory}
           onPrevious={currentStoryIndex() !== null && currentStoryIndex()! > 0 ? previousStory : undefined}
+          nextUserData={nextStoryData()}
+          previousUserData={previousStoryData()}
         />
       )}
     </>

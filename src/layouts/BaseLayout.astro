@@ -33,7 +33,81 @@ const { title } = Astro.props;
 		<script src="/src/pwa.ts"></script>
 		<ViewTransitions />
 	</head>
-	<body>
-		<slot />
+	<body class="bg-gray-50">
+		<div class="mobile-view">
+			<slot />
+		</div>
+		<div class="desktop-message">
+			<img
+				src="/assets/otros/escritorio.png"
+				alt="Ilustración de la versión de escritorio"
+				class="desktop-illustration"
+				loading="lazy"
+			/>
+			<div class="desktop-content">
+				<h1>Versión pensada para móviles</h1>
+				<p>Esta aplicación está diseñada para una experiencia vertical en dispositivos móviles. Te recomendamos visitarla desde tu teléfono para disfrutarla al completo.</p>
+			</div>
+		</div>
 	</body>
 </html>
+
+<style>
+	body {
+		margin: 0;
+	}
+
+	.mobile-view {
+		min-height: 100vh;
+		display: block;
+	}
+
+	.desktop-message {
+		display: none;
+		min-height: 100vh;
+		padding: 3rem 1.5rem;
+		color: #1e293b; /* slate-800 */
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+	}
+
+	.desktop-illustration {
+		display: block;
+		max-width: 28rem;
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.desktop-content {
+		max-width: 34rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		margin: 0 auto;
+	}
+
+	.desktop-content h1 {
+		font-size: clamp(1.75rem, 2vw, 2.5rem);
+		font-weight: 600;
+		margin: 0;
+	}
+
+	.desktop-content p {
+		font-size: clamp(1rem, 1.5vw, 1.15rem);
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	@media (min-width: 1024px) {
+		.mobile-view {
+			display: none;
+		}
+
+		.desktop-message {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+</style>

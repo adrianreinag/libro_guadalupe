@@ -2,6 +2,12 @@ import { type Component, createSignal, createEffect, Show, onCleanup, For } from
 import type { HistoriaItem } from './Story';
 import { markStoryAsViewed } from '../../utils/instagram/storiesStorage';
 
+interface UserData {
+  imagenPerfil: string;
+  nombreUsuario: string;
+  historia: HistoriaItem[];
+}
+
 interface StoryViewerProps {
   imagenPerfil: string;
   nombreUsuario: string;
@@ -10,6 +16,8 @@ interface StoryViewerProps {
   onClose: () => void;
   onNext?: () => void;
   onPrevious?: () => void;
+  nextUserData?: UserData | null;
+  previousUserData?: UserData | null;
 }
 
 const StoryViewer: Component<StoryViewerProps> = (props) => {
@@ -69,11 +77,11 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
 
   const nextHistoria = () => {
     if (currentHistoriaIndex() < props.historia.length - 1) {
-      // Siguiente historia del MISMO usuario (transición simple)
+      // Siguiente historia del MISMO usuario (sin transición, cambio directo)
       setCurrentHistoriaIndex(currentHistoriaIndex() + 1);
       setProgress(0);
     } else {
-      // Terminaron todas las historias, cambiar de USUARIO
+      // Terminaron todas las historias, cambiar de USUARIO (con transición de cubo)
       if (props.onNext) {
         setUserChangeDirection('left');
         props.onNext();
@@ -86,11 +94,11 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
 
   const previousHistoria = () => {
     if (currentHistoriaIndex() > 0) {
-      // Historia anterior del MISMO usuario (transición simple)
+      // Historia anterior del MISMO usuario (sin transición, cambio directo)
       setCurrentHistoriaIndex(currentHistoriaIndex() - 1);
       setProgress(0);
     } else if (props.onPrevious) {
-      // Primera historia, ir al USUARIO anterior
+      // Primera historia, ir al USUARIO anterior (con transición de cubo)
       setUserChangeDirection('right');
       props.onPrevious();
       setCurrentHistoriaIndex(0);
@@ -356,8 +364,8 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
       const isFirstHistoria = currentHistoriaIndex() === 0;
       const isLastHistoria = currentHistoriaIndex() === props.historia.length - 1;
 
-      if ((dragX() > 0 && isFirstHistoria && props.onPrevious) ||
-          (dragX() < 0 && isLastHistoria && props.onNext)) {
+      if ((dragX() > 0 && isFirstHistoria && props.previousUserData) ||
+          (dragX() < 0 && isLastHistoria && props.nextUserData)) {
         const maxRotation = 90;
         const rotation = (dragX() / window.innerWidth) * maxRotation;
         return rotation;
@@ -367,17 +375,6 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
     return 0;
   };
 
-  const getCubeTransform = () => {
-    const rotation = getCubeRotation();
-    const translateY = dragDirection === 'vertical' ? dragY() : 0;
-    const scale = dragDirection === 'vertical' ? Math.max(0.85, 1 - dragY() / 1000) : 1;
-
-    if (isClosing()) {
-      return 'translateY(100vh) scale(0.8)';
-    }
-
-    return `translateY(${translateY}px) scale(${scale}) rotateY(${rotation}deg)`;
-  };
 
   return (
     <Show when={props.isOpen}>
@@ -399,32 +396,43 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
             'justify-content': 'center',
           }}
         >
-          {/* Contenido de la historia */}
+          {/* El cubo que rotará */}
           <div
-            ref={containerRef}
-            class="relative overflow-hidden rounded-lg"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            onContextMenu={handleContextMenu}
             style={{
-              'user-select': 'none',
-              '-webkit-user-select': 'none',
-              '-webkit-touch-callout': 'none',
               width: '100vw',
               'aspect-ratio': '9 / 16',
               'max-height': '100vh',
-              transform: getCubeTransform(),
+              position: 'relative',
               'transform-style': 'preserve-3d',
-              opacity: isClosing() ? '0' : `${Math.max(0.5, 1 - dragY() / 500)}`,
-              transition: (dragDirection === null && !isClosing()) || isChangingUser()
-                ? 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease-out'
-                : 'none',
-              animation: !isClosing() && dragY() === 0 && dragX() === 0 && !isChangingUser()
-                ? 'zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)'
+              transform: `rotateY(${getCubeRotation()}deg)`,
+              transition: isChangingUser()
+                ? 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
                 : 'none',
             }}
           >
+            {/* Cara frontal - Usuario actual */}
+            <div
+              ref={containerRef}
+              class="absolute inset-0 overflow-hidden rounded-lg"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onContextMenu={handleContextMenu}
+              style={{
+                'user-select': 'none',
+                '-webkit-user-select': 'none',
+                '-webkit-touch-callout': 'none',
+                'backface-visibility': 'hidden',
+                transform: 'rotateY(0deg) translateZ(calc(50vw * 9 / 16))',
+                opacity: isClosing() ? '0' : `${Math.max(0.5, 1 - dragY() / 500)}`,
+                transition: isClosing()
+                  ? 'opacity 0.3s ease-out'
+                  : 'none',
+                animation: !isClosing() && dragY() === 0 && dragX() === 0 && !isChangingUser()
+                  ? 'zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                  : 'none',
+              }}
+            >
             {/* Barras de progreso */}
             <div class="absolute top-0 left-0 right-0 z-10 p-3">
               <div class="w-full flex gap-1 mb-3">
@@ -489,6 +497,104 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
                 draggable={false}
               />
             )}
+
+          </div>
+
+          {/* Cara derecha - Siguiente usuario (se ve cuando rotamos -90deg hacia la izquierda) */}
+          <Show when={props.nextUserData && (isChangingUser() || dragX() < 0)}>
+            <div
+              class="absolute inset-0 overflow-hidden rounded-lg bg-black"
+              style={{
+                'backface-visibility': 'hidden',
+                transform: 'rotateY(90deg) translateZ(calc(50vw * 9 / 16))',
+              }}
+            >
+              {/* Barras de progreso del siguiente usuario */}
+              <div class="absolute top-0 left-0 right-0 z-10 p-3">
+                <div class="w-full flex gap-1 mb-3">
+                  <For each={props.nextUserData!.historia}>
+                    {() => (
+                      <div class="flex-1 h-[2px] bg-gray-600 bg-opacity-50 rounded-full overflow-hidden">
+                        <div class="h-full bg-white transition-all duration-100" style={{ width: '0%' }} />
+                      </div>
+                    )}
+                  </For>
+                </div>
+
+                {/* Usuario info */}
+                <div class="flex items-center gap-2">
+                  <img
+                    src={props.nextUserData!.imagenPerfil}
+                    alt={props.nextUserData!.nombreUsuario}
+                    class="w-8 h-8 rounded-full object-cover border-2 border-white"
+                  />
+                  <span class="text-white font-semibold text-sm">{props.nextUserData!.nombreUsuario}</span>
+                </div>
+              </div>
+
+              {/* Primera historia del siguiente usuario */}
+              <img
+                src={props.nextUserData!.historia[0]?.url}
+                alt="Next Story"
+                class="w-full h-full object-cover"
+                style={{
+                  'user-select': 'none',
+                  '-webkit-user-select': 'none',
+                  '-webkit-touch-callout': 'none',
+                  'pointer-events': 'none',
+                }}
+                draggable={false}
+              />
+            </div>
+          </Show>
+
+          {/* Cara izquierda - Usuario anterior (se ve cuando rotamos 90deg hacia la derecha) */}
+          <Show when={props.previousUserData && (isChangingUser() || dragX() > 0)}>
+            <div
+              class="absolute inset-0 overflow-hidden rounded-lg bg-black"
+              style={{
+                'backface-visibility': 'hidden',
+                transform: 'rotateY(-90deg) translateZ(calc(50vw * 9 / 16))',
+              }}
+            >
+              {/* Barras de progreso del usuario anterior */}
+              <div class="absolute top-0 left-0 right-0 z-10 p-3">
+                <div class="w-full flex gap-1 mb-3">
+                  <For each={props.previousUserData!.historia}>
+                    {() => (
+                      <div class="flex-1 h-[2px] bg-gray-600 bg-opacity-50 rounded-full overflow-hidden">
+                        <div class="h-full bg-white transition-all duration-100" style={{ width: '0%' }} />
+                      </div>
+                    )}
+                  </For>
+                </div>
+
+                {/* Usuario info */}
+                <div class="flex items-center gap-2">
+                  <img
+                    src={props.previousUserData!.imagenPerfil}
+                    alt={props.previousUserData!.nombreUsuario}
+                    class="w-8 h-8 rounded-full object-cover border-2 border-white"
+                  />
+                  <span class="text-white font-semibold text-sm">{props.previousUserData!.nombreUsuario}</span>
+                </div>
+              </div>
+
+              {/* Primera historia del usuario anterior */}
+              <img
+                src={props.previousUserData!.historia[0]?.url}
+                alt="Previous Story"
+                class="w-full h-full object-cover"
+                style={{
+                  'user-select': 'none',
+                  '-webkit-user-select': 'none',
+                  '-webkit-touch-callout': 'none',
+                  'pointer-events': 'none',
+                }}
+                draggable={false}
+              />
+            </div>
+          </Show>
 
           </div>
         </div>
