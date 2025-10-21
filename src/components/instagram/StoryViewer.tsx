@@ -1,4 +1,4 @@
-import { type Component, createSignal, createEffect, Show, onCleanup, For } from 'solid-js';
+import { type Component, createSignal, createEffect, Show, onCleanup, For, onMount } from 'solid-js';
 import type { HistoriaItem } from './Story';
 import { markStoryAsViewed } from '../../utils/instagram/storiesStorage';
 
@@ -30,6 +30,7 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
   const [isChangingUser, setIsChangingUser] = createSignal(false);
   const [userChangeDirection, setUserChangeDirection] = createSignal<'left' | 'right' | null>(null);
   const [prevUserData, setPrevUserData] = createSignal<{imagenPerfil: string, nombreUsuario: string, historia: HistoriaItem[]} | null>(null);
+  const [faceWidth, setFaceWidth] = createSignal(0);
 
   let intervalId: number | undefined;
   let videoRef: HTMLVideoElement | undefined;
@@ -42,6 +43,28 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
 
   const currentHistoria = () => props.historia[currentHistoriaIndex()];
   const isVideo = () => currentHistoria()?.tipo === 'video';
+  const translateZ = () => {
+    const width = faceWidth();
+    return width ? `${width / 2}px` : 'calc(min(100vw, 100vh * 9 / 16) / 2)';
+  };
+
+  const updateFaceWidth = () => {
+    if (containerRef) {
+      const width = containerRef.offsetWidth;
+      if (width !== faceWidth()) {
+        setFaceWidth(width);
+      }
+    }
+  };
+
+  onMount(() => {
+    updateFaceWidth();
+    window.addEventListener('resize', updateFaceWidth);
+  });
+
+  onCleanup(() => {
+    window.removeEventListener('resize', updateFaceWidth);
+  });
 
   // Detectar cambio de usuario y guardar datos anteriores
   createEffect(() => {
@@ -72,6 +95,14 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
       if (historia?.id) {
         markStoryAsViewed(historia.id);
       }
+    }
+  });
+
+  createEffect(() => {
+    if (props.isOpen) {
+      requestAnimationFrame(() => {
+        updateFaceWidth();
+      });
     }
   });
 
@@ -423,7 +454,7 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
                 '-webkit-user-select': 'none',
                 '-webkit-touch-callout': 'none',
                 'backface-visibility': 'hidden',
-                transform: 'rotateY(0deg) translateZ(calc(50vw * 9 / 16))',
+                transform: `rotateY(0deg) translateZ(${translateZ()})`,
                 opacity: isClosing() ? '0' : `${Math.max(0.5, 1 - dragY() / 500)}`,
                 transition: isClosing()
                   ? 'opacity 0.3s ease-out'
@@ -506,7 +537,7 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
               class="absolute inset-0 overflow-hidden rounded-lg bg-black"
               style={{
                 'backface-visibility': 'hidden',
-                transform: 'rotateY(90deg) translateZ(calc(50vw * 9 / 16))',
+                transform: `rotateY(90deg) translateZ(${translateZ()})`,
               }}
             >
               {/* Barras de progreso del siguiente usuario */}
@@ -554,7 +585,7 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
               class="absolute inset-0 overflow-hidden rounded-lg bg-black"
               style={{
                 'backface-visibility': 'hidden',
-                transform: 'rotateY(-90deg) translateZ(calc(50vw * 9 / 16))',
+                transform: `rotateY(-90deg) translateZ(${translateZ()})`,
               }}
             >
               {/* Barras de progreso del usuario anterior */}
