@@ -21,7 +21,9 @@ interface StoriesProps {
 const Stories: Component<StoriesProps> = (props) => {
   const [currentStoryIndex, setCurrentStoryIndex] = createSignal<number | null>(null);
   const [isViewerOpen, setIsViewerOpen] = createSignal(false);
-  const [storiesWithViewStatus, setStoriesWithViewStatus] = createSignal<StoryData[]>([]);
+
+  // Inicializar con props.stories para evitar el bug del primer click
+  const [storiesWithViewStatus, setStoriesWithViewStatus] = createSignal<StoryData[]>(props.stories);
 
   // Actualizar el estado de visto de cada historia al cargar o cuando cambien
   createEffect(() => {
@@ -111,7 +113,7 @@ const Stories: Component<StoriesProps> = (props) => {
         </For>
       </div>
 
-      {currentStory() && (
+      {isViewerOpen() && currentStory() && (
         <StoryViewer
           imagenPerfil={currentStory()!.imagenPerfil}
           nombreUsuario={currentStory()!.nombreUsuario}
@@ -120,8 +122,6 @@ const Stories: Component<StoriesProps> = (props) => {
           onClose={closeViewer}
           onNext={nextStory}
           onPrevious={currentStoryIndex() !== null && currentStoryIndex()! > 0 ? previousStory : undefined}
-          nextUserData={nextStoryData()}
-          previousUserData={previousStoryData()}
         />
       )}
     </>

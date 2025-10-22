@@ -34,21 +34,12 @@ export const storiesConfig: StoryUserConfig[] = [
     historias: [
       {
         id: 'donjesus_catedral_1',
-        tipo: 'imagen',
-        url: '/assets/instagram/stories/Don_Jesus_Story_Catedral.jpeg',
-        duration: 5, // 5 segundos
-        startDate: createDate('2025-10-15', '08:00'), // Inicia el 15 de octubre a las 8am
-        endDate: createDate('2025-10-25', '23:59'),   // Termina el 25 de octubre
-      },
-      // Puedes agregar más historias para Don Jesús aquí
-      // {
-      //   id: 'donjesus_otra_historia',
-      //   tipo: 'imagen',
-      //   url: '/assets/instagram/stories/otra.jpg',
-      //   duration: 7, // 7 segundos
-      //   startDate: createDate('2025-10-20', '12:00'),
-      //   endDate: createDate('2025-10-30', '23:59'),
-      // },
+        tipo: 'video',
+        url: '/assets/instagram/stories/Don_Jesus_Story_Catedral.mp4',
+        duration: 95,
+        startDate: createDate('2025-10-15', '08:00'),
+        endDate: createDate('2025-10-28', '23:59'),
+      }
     ],
   },
   {
@@ -61,7 +52,7 @@ export const storiesConfig: StoryUserConfig[] = [
         id: 'carloacutis_catedral_1',
         tipo: 'imagen',
         url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.webp',
-        duration: 6, // 6 segundos
+        duration: 15, // 6 segundos
         startDate: createDate('2025-10-15', '09:00'),
         endDate: createDate('2025-10-26', '23:59'),
       },
@@ -78,7 +69,7 @@ export const storiesConfig: StoryUserConfig[] = [
         id: 'dele_catedral_1',
         tipo: 'imagen',
         url: '/assets/instagram/stories/La_Dele_Story_Catedral.jpeg',
-        duration: 4, // 4 segundos
+        duration: 15, // 4 segundos
         startDate: createDate('2025-10-15', '10:00'),
         endDate: createDate('2025-10-24', '23:59'),
       },
