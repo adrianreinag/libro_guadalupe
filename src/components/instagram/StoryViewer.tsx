@@ -159,6 +159,25 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
     }
   });
 
+  // Bloquear pull-to-refresh cuando el StoryViewer está abierto
+  createEffect(() => {
+    if (props.isOpen) {
+      // Guardar el estilo original del body
+      const originalOverscrollBehavior = document.body.style.overscrollBehavior;
+      const originalTouchAction = document.body.style.touchAction;
+
+      // Bloquear pull-to-refresh
+      document.body.style.overscrollBehavior = 'none';
+      document.body.style.touchAction = 'pan-x pan-y';
+
+      onCleanup(() => {
+        // Restaurar el estilo original cuando se cierra
+        document.body.style.overscrollBehavior = originalOverscrollBehavior;
+        document.body.style.touchAction = originalTouchAction;
+      });
+    }
+  });
+
   onCleanup(() => {
     if (intervalId) {
       clearInterval(intervalId);
@@ -268,6 +287,8 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
         class="fixed inset-0 z-50 bg-black flex items-center justify-center"
         style={{
           animation: isClosing() ? 'fadeOut 0.25s ease-out' : 'fadeIn 0.3s ease-out',
+          'overscroll-behavior': 'none',
+          'touch-action': 'pan-x pan-y',
         }}
       >
         <div
