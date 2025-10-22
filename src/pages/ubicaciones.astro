@@ -1,9 +1,7 @@
 ---
-import { url } from "inspector";
 import HeaderComponent from "../components/HeaderComponent.astro";
-import UbicacionComponent from "../components/UbicacionComponent.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import BodyLayout from "../layouts/BodyLayout.astro";
+import UbicacionesTabs from "../components/UbicacionesTabs";
 
 const alia = [
   {
@@ -33,7 +31,6 @@ const alia = [
   }
 ];
 
-
 const guadalupe = [
   {
     nombre: "Monasterio",
@@ -61,24 +58,24 @@ const guadalupe = [
     imagen: "/assets/ubicaciones/autobuses.png",
   }
 ];
+
+const rutas = [
+  {
+    nombre: "Viernes",
+    url: "https://earth.google.com/earth/d/1FBAyX6D7y44Z4Y3zMr3gz81YsYXV-Sgt?usp=sharing",
+    imagen: "/assets/ubicaciones/viernes.jpg",
+  },
+  {
+    nombre: "Sábado",
+    url: "https://earth.google.com/earth/d/1TggiECkSJ38BrIONHUzV7DTMyqGpoOig?usp=sharing",
+    imagen: "/assets/ubicaciones/sabado.jpg",
+  }
+];
 ---
 
 <BaseLayout title="Ubicaciones">
   <HeaderComponent title="Ubicaciones" />
-  <BodyLayout>
-    <h2 class="titulo-seccion">Alía</h2>
-    <div class="ubicaciones-container">
-      <div class="ubicaciones-grid">
-        {alia.map((ubi, index) => <UbicacionComponent ubi={ubi} />)}
-      </div>
-    </div>
-    <h2 class="titulo-seccion">Guadalupe</h2>
-    <div class="ubicaciones-container">
-      <div class="ubicaciones-grid">
-        {guadalupe.map((ubi, index) => <UbicacionComponent ubi={ubi} />)}
-      </div>
-    </div>
-  </BodyLayout>
+  <UbicacionesTabs client:load alia={alia} guadalupe={guadalupe} rutas={rutas} />
 </BaseLayout>
 
 <style>
@@ -86,17 +83,18 @@ const guadalupe = [
     width: 100%;
     margin-top: 20px;
   }
-  
+
   .ubicaciones-title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    text-align: center; /* Centra el texto */
+    text-align: center;
   }
-  
+
   .ubicaciones-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background-color: white;
   }
 </style>
