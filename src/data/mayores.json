@@ -106,7 +106,7 @@
     },
     "visperas": {
       "tituloDia": "San Antonio María Claret, obispo, solemnidad",
-      "himno": "", // TODO: HIMNO DE VÍSPERAS
+      "himno": "",
       "salmodia": {
         "salmo1": {
           "cita": "Salmo 14: ¿Quién es justo ante el Señor?",
@@ -192,7 +192,7 @@
         "introduccion": "Fieles a la recomendación del Salvador, nos atrevemos a decir:"
       },
       "oracionConclusiva": "Oh Dios, que concediste a tu obispo san Antonio María Claret una caridad y un valor admirables para anunciar el Evangelio a los pueblos, concédenos, por su intercesión, que, buscando siempre tu voluntad en todas las cosas, trabajemos generosamente por ganar nuevos hermanos para Cristo. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos.<br>Amén.",
-      "cantoVirgen": "" // TODO: CANTO A LA VIRGEN
+      "cantoVirgen": ""
     }
   },
   "sabado": {
@@ -201,7 +201,7 @@
       "invitatorio": {
         "antifona": "Venid, adoremos a Cristo, hijo de María Virgen."
       },
-      "himno": "", // TODO: HIMNO DE LAUDES
+      "himno": "",
       "salmodia": {
         "salmo1": {
           "cita": "Salmo 118,145-152: XIX (Coph)",
@@ -284,11 +284,11 @@
         "introduccion": "Con la misma confianza que tienen los hijos con su padres, acudamos nosotros a nuestro Dios, diciéndole:"
       },
       "oracionConclusiva": "Te pedimos, Señor, que nosotros tus siervos, gocemos siempre de salud de alma y cuerpo, y por la intercesión de Santa María, la Virgen, líbranos de las tristezas de este mundo y concédenos las alegrías del cielo. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos.<br>Amén.",
-      "cantoVirgen": "" // TODO: CANTO A LA VIRGEN
+      "cantoVirgen": ""
     },
     "visperas": {
       "tituloDia": "XXX Domingo del Tiempo Ordinario Ciclo C, solemnidad",
-      "himno": "", // TODO: HIMNO DE VÍSPERAS
+      "himno": "",
       "salmodia": {
         "salmo1": {
           "cita": "Salmo 118,105-112: XIV (Nun): Himno a la ley divina",
@@ -373,10 +373,10 @@
         "introduccion": "Movidos por el Espíritu Santo, dirijamos al Padre la oración que nos enseñó el Señor:"
       },
       "oracionConclusiva": "Dios todopoderoso y eterno, aumenta nuestra fe, esperanza y caridad, y, para conseguir tus promesas, concédenos amar tus preceptos. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos.<br>Amén.",
-      "cantoVirgen": "" // TODO: CANTO A LA VIRGEN
+      "cantoVirgen": ""
     }
   },
-  "domingo": { // TODO: COMPLETAR DOMINGO
+  "domingo": {
     "laudes": {
       "tituloDia": "",
       "invitatorio": {
