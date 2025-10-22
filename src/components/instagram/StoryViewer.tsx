@@ -169,18 +169,41 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
   // Bloquear pull-to-refresh cuando el StoryViewer está abierto
   createEffect(() => {
     if (props.isOpen) {
-      // Guardar el estilo original del body
-      const originalOverscrollBehavior = document.body.style.overscrollBehavior;
-      const originalTouchAction = document.body.style.touchAction;
+      // Guardar el estilo original del body y html
+      const originalBodyOverscroll = document.body.style.overscrollBehavior;
+      const originalBodyTouchAction = document.body.style.touchAction;
+      const originalHtmlOverscroll = document.documentElement.style.overscrollBehavior;
+      const originalBodyPosition = document.body.style.position;
 
-      // Bloquear pull-to-refresh
+      // Bloquear pull-to-refresh de múltiples formas
       document.body.style.overscrollBehavior = 'none';
-      document.body.style.touchAction = 'pan-x pan-y';
+      document.body.style.touchAction = 'none';
+      document.documentElement.style.overscrollBehavior = 'none';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+
+      // Prevenir el touchmove que causa pull-to-refresh
+      const preventPullToRefresh = (e: TouchEvent) => {
+        // Siempre prevenir si estamos en el StoryViewer
+        const target = e.target as HTMLElement;
+        if (target.closest('.story-viewer-container')) {
+          // Solo permitir el touchmove que maneja el StoryViewer internamente
+          return;
+        }
+        e.preventDefault();
+      };
+
+      document.addEventListener('touchmove', preventPullToRefresh, { passive: false });
 
       onCleanup(() => {
-        // Restaurar el estilo original cuando se cierra
-        document.body.style.overscrollBehavior = originalOverscrollBehavior;
-        document.body.style.touchAction = originalTouchAction;
+        // Restaurar estilos originales
+        document.body.style.overscrollBehavior = originalBodyOverscroll;
+        document.body.style.touchAction = originalBodyTouchAction;
+        document.documentElement.style.overscrollBehavior = originalHtmlOverscroll;
+        document.body.style.position = originalBodyPosition;
+        document.body.style.width = '';
+
+        document.removeEventListener('touchmove', preventPullToRefresh);
       });
     }
   });
@@ -291,11 +314,11 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
   return (
     <Show when={props.isOpen}>
       <div
-        class="fixed inset-0 z-50 bg-black flex items-center justify-center"
+        class="fixed inset-0 z-50 bg-black flex items-center justify-center story-viewer-container"
         style={{
           animation: isClosing() ? 'fadeOut 0.25s ease-out' : 'fadeIn 0.3s ease-out',
           'overscroll-behavior': 'none',
-          'touch-action': 'pan-x pan-y',
+          'touch-action': 'none',
         }}
       >
         <div
