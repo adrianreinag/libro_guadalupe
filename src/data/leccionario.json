@@ -1,74 +1,78 @@
 {
-    "viernes": {
-      "dia": "San Lucas, evangelista, fiesta",
-      "primeraLectura": {
-        "cita": "2 Tim 4, 10-17b",
-        "titulo": "Lucas es el único que está conmigo",
-        "texto": "Lectura de la segunda carta del apóstol san Pablo a Timoteo.<br><br>Querido hermano: <br><br>Demas me ha abandonado, enamorado de este mundo presente, y se marchó a Tesalónica; Crescente, a Galacia; Tito, a Dalmacia; Lucas es el único que está conmigo. Toma a Marcos y tráelo contigo, pues me es útil para el ministerio. A Tíquico lo envié a Éfeso. <br><br>El manto que dejé en Tróade, en casa de Carpo, tráelo cuando vengas, y también los libros, sobre todo los pergaminos. <br><br>Alejandro, el herrero, se ha portado muy mal conmigo; el Señor le dará el pago conforme a sus obras. Guárdate de él también tú, porque se opuso vehementemente a nuestras palabras.<br><br>En mi primera defensa, nadie estuvo a mi lado, sino que todos me abandonaron. ¡No les sea tenido en cuenta! <br><br>Mas el Señor estuvo a mi lado y me dio fuerzas para que, a través de mí, se proclamara plenamente el mensaje y lo oyeran todas las naciones. <br><br>Palabra de Dios."
-      },
-      "salmo": {
-        "cita": "Sal 144, 10-11. 12-13ab. 17-18 (R.: cf. 12)",
-        "antifona": "Tus santos, Señor, proclaman la gloria de tu reinado.",
-        "versos": [
-          "Que todas tus criaturas te den gracias, Señor, <br>que te bendigan tus fieles.<br>Que proclamen la gloria de tu reinado, <br>que hablen de tus hazañas.",
-          "Explicando tus hazañas a los hombres, <br>la gloria y majestad de tu reinado.<br>Tu reinado es un reinado perpetuo, <br>tu gobierno va de edad en edad.",
-          "El Señor es justo en todos sus caminos, <br>es bondadoso en todas sus acciones.<br>Cerca está el Señor de los que lo invocan, <br>de los que lo invocan sinceramente."        ]
-      },
-      "segundaLectura": null,
-      "evangelio": {
-        "cita": "Lc 10, 1-9",
-        "titulo": "La mies es abundante y los obreros pocos",
-        "texto": "Lectura del santo Evangelio según san Lucas.<br><br>En aquel tiempo, designó el Señor otros setenta y dos, y los mandó delante de él, de dos en dos, a todos los pueblos y lugares adonde pensaba ir él. <br><br>Y les decía: <br><br>«La mies es abundante y los obreros pocos; rogad, pues, al dueño de la mies que envíe obreros a su mies. <br><br>¡Poneos en camino! Mirad que os envío como corderos en medio de lobos. No llevéis bolsa, ni alforja, ni sandalias; y no saludéis a nadie por el camino. <br><br>Cuando entréis en una casa, decid primero: “Paz a esta casa”. Y si allí hay gente de paz, descansará sobre ellos vuestra paz; si no, volverá a vosotros. <br><br>Quedaos en la misma casa, comiendo y bebiendo de lo que tengan: porque el obrero merece su salario. No andéis cambiando de casa en casa. <br><br>Si entráis en una ciudad y os reciben, comed lo que os pongan, curad a los enfermos que haya en ella, y decidles: “El reino de Dios ha llegado a vosotros”».<br><br>Palabra del Señor."
-      }
+  "viernes": {
+    "dia": "VIERNES DE LA XXIX SEMANA DEL TIEMPO ORDINARIO, feria",
+    "primeraLectura": {
+      "cita": "Rom 7, 18-24",
+      "titulo": "¿Quién me librará de este cuerpo de muerte?",
+      "texto": "Lectura de la carta del apóstol san Pablo a los Romanos.<br><br>Hermanos:<br><br>Sé que lo bueno no habita en mí, es decir, en mi carne; en efecto, querer está a mi alcance, pero hacer lo bueno, no. <br><br>Pues no hago lo bueno que deseo, sino que obro lo malo que no deseo. <br><br>Y si lo que no deseo es precisamente lo que hago, no soy yo el que lo realiza, sino el pecado que habita en mí. <br><br>Así, pues, descubro la siguiente ley: yo quiero hacer lo bueno, pero lo que está a mi alcance es hacer el mal. <br><br>En efecto, según el hombre interior, me complazco en la ley de Dios; pero percibo en mis miembros otra ley que lucha contra la ley de mi razón, y me hace prisionero de la ley del pecado que está en mis miembros. <br><br>¡Desgraciado de mí! ¿Quién me librará de este cuerpo de muerte? <br><br>¡Gracias a Dios, por Jesucristo nuestro Señor!<br><br>Palabra de Dios."
     },
-    "sabado": {
-      "dia": "Sábado de la XXVIII semana del Tiempo Ordinario, feria",
-      "primeraLectura": {
-        "cita": "Ef 1, 15-23",
-        "titulo": "El Padre dio a Cristo como Cabeza, sobre todo, a la Iglesia, que es su cuerpo",
-        "texto": "Lectura de la carta del apóstol san Pablo a los Efesios.<br><br>Hermanos:<br><br>Habiendo oído hablar de vuestra fe en Cristo y de vuestro amor a todos los santos, no ceso de dar gracias por vosotros, recordándoos en mis oraciones, a fin de que el Dios de nuestro Señor Jesucristo, el Padre de la gloria, os dé espíritu de sabiduría y revelación para conocerlo, e ilumine los ojos de vuestro corazón para que comprendáis cuál es la esperanza a la que os llama, cuál la riqueza de gloria que da en herencia a los santos, y cuál la extraordinaria grandeza de su poder en favor de nosotros, los creyentes, según la eficacia de su fuerza poderosa, que desplegó en Cristo, resucitándolo de entre los muertos y sentándolo a su derecha en el cielo, por encima de todo principado, poder, fuerza y dominación, y por encima de todo nombre conocido, no solo en este mundo, sino en el futuro.<br><br>Y «todo lo puso bajo sus pies», y lo dio a la Iglesia, como Cabeza, sobre todo. Ella es su cuerpo, plenitud del que llena todo en todos.<br><br>Palabra de Dios."
-      },
-      "salmo": {
-        "cita": "Sal 8, 2-3ab. 4-5. 6-7 (R.: cf. 7a)",
-        "antifona": "Diste a tu Hijo el mando sobre las obras de tus manos.",
-        "versos": [
-          "¡Señor, Dios nuestro, <br>qué admirable es tu nombre en toda la tierra!<br>Ensalzaste tu majestad sobre los cielos.<br>De la boca de los niños de pecho <br>has sacado una alabanza.",
-          "Cuando contemplo el cielo, obra de tus dedos, <br>la luna y las estrellas que has creado.<br>¿Qué es el hombre para que te acuerdes de él, <br>el ser humano, para mirar por él?",
-          "Lo hiciste poco inferior a los ángeles, <br>lo coronaste de gloria y dignidad;<br>le diste el mando sobre las obras de tus manos. <br>Todo lo sometiste bajo sus pies."
-        ]
-      },
-      "segundaLectura": null,
-      "evangelio": {
-        "cita": "Lc 12, 8-12",
-        "titulo": "El Espíritu Santo os enseñará en aquel momento lo que tenéis que decir",
-        "texto": "Lectura del santo Evangelio según san Lucas.<br>En aquel tiempo, dijo Jesús a sus discípulos:<br><br>«Todo aquel que se declare por mí ante los hombres, también el Hijo del hombre se declarará por él ante los ángeles de Dios, pero si uno me niega ante los hombres, será negado ante los ángeles de Dios.<br><br>Todo el que diga una palabra contra el Hijo del hombre podrá ser perdonado, pero al que blasfeme contra el Espíritu Santo no se le perdonará.<br><br>Cuando os conduzcan a las sinagogas, ante los magistrados y las autoridades, no os preocupéis de cómo o con qué razones os defenderéis o de lo que vais a decir, porque el Espíritu Santo os enseñará en aquel momento lo que tenéis que decir».<br><br>Palabra del Señor."
-      }
+    "salmo": {
+      "cita": "Sal 118, 66. 68. 76. 77. 93. 94 (R.: 68b)",
+      "antifona": "Instrúyeme, Señor, en tus decretos.",
+      "versos": [
+        "Enséñame la bondad, la prudencia y el conocimiento, <br>porque me fío de tus mandatos.",
+        "Tú eres bueno y haces el bien; <br>instrúyeme en tus decretos.",
+        "Que tu bondad me consuele, <br>según la promesa hecha a tu siervo.",
+        "Cuando me alcance tu compasión, viviré, <br>y tu ley será mi delicia.",
+        "Jamás olvidaré tus mandatos, <br>pues con ellos me diste vida.",
+        "Soy tuyo, sálvame, <br>que yo consulto tus mandatos."
+      ]
     },
-    "domingo": {
-      "dia": "XXIX Domingo del Tiempo Ordinario (año B)",
-      "primeraLectura": {
-        "cita": "Is 53, 10-11",
-        "titulo": "Al entregar su vida como expiación, verá su descendencia, prolongará sus años",
-        "texto": "Lectura del libro de Isaías.<br><br>El Señor quiso triturarlo con el sufrimiento, <br>y entregar su vida como expiación: <br>verá su descendencia, prolongará sus años, <br>lo que el Señor quiere prosperará por su mano.<br><br>Por los trabajos de su alma verá la luz, <br>el justo se saciará de conocimiento. <br><br>Mi siervo justificará a muchos, <br>porque cargó con los crímenes de ellos.<br><br>Palabra de Dios."
-      },
-      "salmo": {
-        "cita": "Sal 32, 4-5. 18-19. 20 y 22 (R.: 22)",
-        "antifona": "Que tu misericordia, Señor, venga sobre nosotros, como lo esperamos de ti.",
-        "versos": [
-          "La palabra del Señor es sincera, <br>y todas sus acciones son leales;<br>él ama la justicia y el derecho, <br>y su misericordia llena la tierra.",
-          "Los ojos del Señor están puestos en quien lo teme, <br>en los que esperan su misericordia,<br>para librar sus vidas de la muerte <br>y reanimarlos en tiempo de hambre.",
-          "Nosotros aguardamos al Señor: <br>él es nuestro auxilio y escudo. <br>Que tu misericordia, Señor, venga sobre nosotros, <br>como lo esperamos de ti."
-        ]
-      },
-      "segundaLectura": {
-        "cita": "Heb 4, 14-16",
-        "titulo": "Comparezcamos confiados ante el trono de la gracia",
-        "texto": "Lectura de la carta a los Hebreos.<br><br>Hermanos:<br><br>Ya que tenemos un sumo sacerdote grande que ha atravesado el cielo, Jesús, Hijo de Dios, mantengamos firme la confesión de fe. <br><br>No tenemos un sumo sacerdote incapaz de compadecerse de nuestras debilidades, sino que ha sido probado en todo, como nosotros, menos en el pecado. Por eso, comparezcamos confiados ante el trono de la gracia, para alcanzar misericordia y encontrar gracia para un auxilio oportuno.<br><br>Palabra de Dios."
-      },
-      "evangelio": {
-        "cita": "Mc 10, 35-45",
-        "titulo": "El Hijo del hombre ha venido a dar su vida en rescate por muchos",
-        "texto": "Lectura del santo Evangelio según san Marcos.<br><br>En aquel tiempo, se acercaron a Jesús los hijos de Zebedeo, Santiago y Juan, y le dijeron: <br><br>«Maestro, queremos que nos hagas lo que te vamos a pedir». <br><br>Les preguntó: <br><br>«¿Qué queréis que haga por vosotros?». <br><br>Contestaron: <br><br>«Concédenos sentarnos en tu gloria uno a tu derecha y otro a tu izquierda». <br><br>Jesús replicó: <br><br>«No sabéis lo que pedís, ¿podéis beber el cáliz que yo he de beber, o bautizaros con el bautismo con que yo me voy a bautizar?». <br><br>Contestaron: <br><br>«Podemos». <br><br>Jesús les dijo: <br><br>«El cáliz que yo voy a beber lo beberéis, y seréis bautizados con el bautismo con que yo me voy a bautizar, pero el sentarse a mi derecha o a mi izquierda no me toca a mí concederlo, sino que es para quienes está reservado». <br><br>Los otros diez, al oír aquello, se indignaron contra Santiago y Juan. <br><br>Jesús, llamándolos, les dijo: <br><br>«Sabéis que los que son reconocidos como jefes de los pueblos los tiranizan, y que los grandes los oprimen. No será así entre vosotros: el que quiera ser grande entre vosotros, que sea vuestro servidor; y el que quiera ser primero, sea esclavo de todos. Porque el Hijo del hombre no ha venido a ser servido, sino a servir y dar su vida en rescate por muchos».<br><br>Palabra del Señor."
-      }
+    "segundaLectura": null,
+    "evangelio": {
+      "cita": "Lc 12, 54-59",
+      "titulo": "Sabéis interpretar el aspecto de la tierra y del cielo, pues ¿cómo no sabéis interpretar el tiempo presente?",
+      "texto": "Lectura del santo Evangelio según san Lucas.<br><br>En aquel tiempo, decía Jesús a la gente: <br><br>«Cuando veis subir una nube por el poniente, decís enseguida: “Va a caer un aguacero”, y así sucede. Cuando sopla el sur decís: “Va a hacer bochorno”, y sucede. <br><br>Hipócritas: sabéis interpretar el aspecto de la tierra y del cielo, pues ¿cómo no sabéis interpretar el tiempo presente? ¿Cómo no sabéis juzgar vosotros mismos lo que es justo? <br><br>Por ello, mientras vas con tu adversario al magistrado, haz lo posible en el camino por llegar a un acuerdo con él, no sea que te lleve a la fuerza ante el juez y el juez te entregue al guardia y el guardia te meta en la cárcel. <br><br>Te digo que no saldrás de allí hasta que no pagues la última monedilla».<br><br>Palabra del Señor."
+    }
+  },
+  "sabado": {
+    "dia": "SÁBADO DE LA XXIX SEMANA DEL TIEMPO ORDINARIO, feria",
+    "primeraLectura": {
+      "cita": "Rom 8, 1-11",
+      "titulo": "El Espíritu del que resucitó a Cristo de entre los muertos habita en vosotros",
+      "texto": "Lectura de la carta del apóstol san Pablo a los Romanos.<br><br>Hermanos:<br><br>No hay condena alguna para los que están en Cristo Jesús, pues la ley del Espíritu de vida en Cristo Jesús te ha librado de la ley del pecado y de la muerte. Lo que era imposible a la ley, por cuanto que estaba debilitada a causa de la carne, lo ha hecho Dios: enviando a su Hijo en semejanza de carne de pecado y en orden al pecado, condenó el pecado en la carne, para que la justa exigencia de la ley se cumpliera en nosotros, los que actuamos no de acuerdo con la carne, sino de acuerdo con el Espíritu.<br><br>Pues los que viven según la carne desean las cosas de la carne; en cambio, los que viven según el Espíritu, desean las cosas del Espíritu. <br><br>El deseo de la carne es muerte; en cambio el deseo del Espíritu, vida y paz. Por ello, el deseo de la carne es hostil a Dios, pues no se somete a la ley de Dios; ni puede someterse. Los que están en la carne no pueden agradar a Dios. <br><br>Pero vosotros no estáis en la carne, sino en el Espíritu, si es que el Espíritu de Dios habita en vosotros; en cambio, si alguien no posee el Espíritu de Cristo no es de Cristo. <br><br>Pero si Cristo está en vosotros, el cuerpo está muerto por el pecado, pero el espíritu vive por la justicia. Y si el Espíritu del que resucitó a Jesús de entre los muertos habita en vosotros, el que resucitó de entre los muertos a Cristo Jesús también dará vida a vuestros cuerpos mortales, por el mismo Espíritu que habita en vosotros.<br><br>Palabra de Dios."
+    },
+    "salmo": {
+      "cita": "Sal 23, 1b-2. 3-4ab. 5-6 (R.: cf. 6)",
+      "antifona": "Esta es la generación que busca tu rostro, Señor.",
+      "versos": [
+        "Del Señor es la tierra y cuanto la llena, <br>el orbe y todos sus habitantes:<br>él la fundó sobre los mares, <br>él la afianzó sobre los ríos.",
+        "¿Quién puede subir al monte del Señor? <br>¿Quién puede estar en el recinto sacro?<br>El hombre de manos inocentes y puro corazón, <br>que no confía en los ídolos.",
+        "Ese recibirá la bendición del Señor, <br>le hará justicia el Dios de salvación.<br>Esta es la generación que busca al Señor, <br>que busca tu rostro, Dios de Jacob."
+      ]
+    },
+    "segundaLectura": null,
+    "evangelio": {
+      "cita": "Lc 13, 1-9",
+      "titulo": "Si no os convertís, todos pereceréis lo mismo",
+      "texto": "Lectura del santo Evangelio según san Lucas.<br><br>En aquel momento se presentaron algunos a contar a Jesús lo de los galileos, cuya sangre había mezclado Pilato con la de los sacrificios que ofrecían. <br><br>Jesús respondió: <br><br>«¿Pensáis que esos galileos eran más pecadores que los demás galileos porque han padecido todo esto? Os digo que no; y, si no os convertís, todos pereceréis lo mismo. O aquellos dieciocho sobre los que cayó la torre en Siloé y los mató, ¿pensáis que eran más culpables que los demás habitantes de Jerusalén? Os digo que no; y, si no os convertís, todos pereceréis de la misma manera».<br><br>Y les dijo esta parábola: <br><br>«Uno tenía una higuera plantada en su viña, y fue a buscar fruto en ella, y no lo encontró. <br><br>Dijo entonces al viñador: <br><br>“Ya ves, tres años llevo viniendo a buscar fruto en esta higuera, y no lo encuentro. Córtala. ¿Para qué va a perjudicar el terreno?”. <br><br>Pero el viñador respondió: <br><br>“Señor, déjala todavía este año y mientras tanto yo cavaré alrededor y le echaré estiércol, a ver si da fruto en adelante. Si no, la puedes cortar”».<br><br>Palabra del Señor."
+    }
+  },
+  "domingo": {
+    "dia": "XXX DOMINGO DEL TIEMPO ORDINARIO",
+    "primeraLectura": {
+      "cita": "Eclo 35, 12-14. 16-19a",
+      "titulo": "La oración del humilde atraviesa las nubes",
+      "texto": "Lectura del libro del Eclesiástico.<br><br>El Señor es juez,<br>y para él no cuenta el prestigio de las personas.<br><br>Para él no hay acepción de personas en perjuicio del pobre, <br>sino que escucha la oración del oprimido.<br><br>No desdeña la súplica del huérfano, <br>ni a la viuda cuando se desahoga en su lamento.<br><br>Quien sirve de buena gana, es bien aceptado, <br>y su plegaria sube hasta las nubes.<br><br>La oración del humilde atraviesa las nubes, <br>y no se detiene hasta que alcanza su destino.<br><br>No desiste hasta que el Altísimo lo atiende, <br>juzga a los justos y les hace justicia.<br><br>El Señor no tardará. <br><br>Palabra de Dios."
+    },
+    "salmo": {
+      "cita": "Sal 33, 2-3. 17-18. 19 y 23 (R.: 7ab)",
+      "antifona": "El afligido invocó al Señor, y él lo escuchó.",
+      "versos": [
+        "Bendigo al Señor en todo momento, <br>su alabanza está siempre en mi boca;<br>mi alma se gloría en el Señor: <br>que los humildes lo escuchen y se alegren.",
+        "El Señor se enfrenta con los malhechores, <br>para borrar de la tierra su memoria.<br>Cuando uno grita, el Señor lo escucha <br>y lo libra de sus angustias.",
+        "El Señor está cerca de los atribulados, <br>salva a los abatidos.<br>El Señor redime a sus siervos, <br>no será castigado quien se acoge a él."
+      ]
+    },
+    "segundaLectura": {
+      "cita": "2 Tim 4, 6-8. 16-18",
+      "titulo": "Me está reservada la corona de la justicia",
+      "texto": "Lectura de la segunda carta del apóstol san Pablo a Timoteo.<br><br>Querido hermano: <br><br>Yo estoy a punto de ser derramado en libación y el momento de mi partida es inminente. <br><br>He combatido el noble combate, he acabado la carrera, he conservado la fe. <br><br>Por lo demás, me está reservada la corona de la justicia, que el Señor, juez justo, me dará en aquel día; y no solo a mí, sino también a todos los que hayan aguardado con amor su manifestación.<br><br>En mi primera defensa, nadie estuvo a mi lado, sino que todos me abandonaron. ¡No les sea tenido en cuenta! <br><br>Mas el Señor estuvo a mi lado y me dio fuerzas para que, a través de mí, se proclamara plenamente el mensaje y lo oyeran todas las naciones. Y fui librado de la boca del león. <br><br>El Señor me librará de toda obra mala y me salvará llevándome a su reino celestial. <br><br>A él la gloria por los siglos de los siglos. Amén.<br><br>Palabra de Dios."
+    },
+    "evangelio": {
+      "cita": "Lc 18, 9-14",
+      "titulo": "El publicano bajó a su casa justificado, y el fariseo no",
+      "texto": "Lectura del santo Evangelio según san Lucas.<br><br>En aquel tiempo, Jesús dijo esta parábola a algunos que confiaban en sí mismos por considerarse justos y despreciaban a los demás: <br><br>«Dos hombres subieron al templo a orar. Uno era fariseo; el otro, publicano. El fariseo, erguido, oraba así en su interior: <br><br>“¡Oh Dios!, te doy gracias porque no soy como los demás hombres: ladrones, injustos, adúlteros; ni tampoco como ese publicano. Ayuno dos veces por semana y pago el diezmo de todo lo que tengo”. <br><br>El publicano, en cambio, quedándose atrás, no se atrevía ni a levantar los ojos al cielo, sino que se golpeaba el pecho diciendo: <br><br>“¡Oh Dios!, ten compasión de este pecador”. <br><br>Os digo que este bajó a su casa justificado, y aquel no. Porque todo el que se enaltece será humillado, y el que se humilla será enaltecido».<br><br>Palabra del Señor."
     }
   }
+}

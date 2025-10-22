@@ -201,10 +201,12 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
       longPressTimer = undefined;
     }
 
-    // Swipe vertical hacia abajo
+    // Swipe vertical hacia abajo - usando requestAnimationFrame para suavizar
     if (diffY > 0) {
-      const resistance = diffY > 200 ? 0.5 : 1;
-      setDragY(diffY * resistance);
+      requestAnimationFrame(() => {
+        const resistance = diffY > 200 ? 0.5 : 1;
+        setDragY(diffY * resistance);
+      });
     }
   };
 
@@ -277,10 +279,11 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
             'max-height': '100vh',
             transform: `translateY(${dragY()}px)`,
             opacity: isClosing() ? '0' : `${Math.max(0.5, 1 - dragY() / 500)}`,
+            'will-change': dragY() > 0 ? 'transform, opacity' : 'auto',
             transition: isClosing()
               ? 'opacity 0.3s ease-out, transform 0.3s ease-out'
               : dragY() === 0
-                ? 'transform 0.2s ease-out'
+                ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.2s ease-out'
                 : 'none',
           }}
           onTouchStart={handleTouchStart}

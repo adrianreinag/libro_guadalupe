@@ -1,15 +1,15 @@
 {
   "viernes": {
     "laudes": {
-      "tituloDia": "San Lucas, evangelista, fiesta",
+      "tituloDia": "San Antonio María Claret, obispo, solemnidad",
       "invitatorio": {
-        "antifona": "Venid, adoremos al Señor, que nos habla por medio del Evangelio."
+        "antifona": "Venid, adoremos a Cristo, Pastor supremo."
       },
-      "himno": "Vosotros que escuchasteis la llamada<br>de viva voz que Cristo os dirigía,<br>abrid nuestro vivir y nuestra alma<br>al mensaje de amor que él nos envía.<br><br>Vosotros que invitados al banquete<br>gustasteis el sabor del nuevo vino,<br>llenad el vaso, del amor que ofrece,<br>al sediento de Dios en su camino.<br><br>Vosotros que tuvisteis tan gran suerte<br>de verle dar a muertos nueva vida,<br>no dejéis que el pecado y que la muerte<br>nos priven de la vida recibida.<br><br>Vosotros que lo visteis ya glorioso,<br>hecho Señor de gloria sempiterna,<br>haced que nuestro amor conozca el gozo<br>de vivir junto a él la vida eterna. Amén.",
+      "himno": "Cristo, cabeza, rey de los pastores,<br>el pueblo entero, madrugando a fiesta,<br>canta a la gloria de tu sacerdote<br>himnos sagrados.<br><br>Con abundancia de sagrado crisma,<br>la unción profunda de tu Santo Espíritu<br>le armó guerrero y le nombró en la Iglesia<br>jefe del pueblo.<br><br>Él fue pastor y forma del rebaño,<br>luz para el ciego, báculo del pobre,<br>padre común, presencia providente,<br>todo de todos.<br><br>Tú que coronas sus merecimientos,<br>danos la gracia de imitar su vida,<br>y al fin, sumisos a su magisterio,<br>danos su gloria. Amén.",
       "salmodia": {
         "salmo1": {
           "cita": "Salmo 62,2-9: El alma sedienta de Dios",
-          "antifona": "Los santos evangelistas indagaron la sabiduría de sus predecesores y confirmaron su relato con oráculos de los profetas.",
+          "antifona": "Vosotros sois la luz del mundo. No se puede ocultar una ciudad puesta en lo alto de un monte.",
           "estrofas": [
             "Oh Dios, tú eres mi Dios, por ti madrugo,<br>mi alma está sedienta de ti;<br>mi carne tiene ansia de ti,<br>como tierra reseca, agostada, sin agua.",
             "¡Cómo te contemplaba en el santuario<br>viendo tu fuerza y tu gloria!<br>Tu gracia vale más que la vida,<br>te alabarán mis labios.",
@@ -20,7 +20,7 @@
         },
         "salmo2": {
           "cita": "Daniel 3,57-88.56: Toda la creación alabe al Señor",
-          "antifona": "Por la fe en la verdad, Dios nos llamó por medio del Evangelio, para que sea nuestra la gloria de nuestro Señor Jesucristo.",
+          "antifona": "Alumbre así vuestra luz a los hombres, para que vean vuestras buenas obras y den gloria a vuestro Padre.",
           "estrofas": [
             "Criaturas todas del Señor, bendecid al Señor,<br>ensalzadlo con himnos por los siglos.",
             "Ángeles del Señor, bendecid al Señor;<br>cielos, bendecid al Señor.",
@@ -46,7 +46,7 @@
         },
         "salmo3": {
           "cita": "Salmo 149: Alegría de los santos",
-          "antifona": "Muchos alabarán su inteligencia, que no perecerá jamás.",
+          "antifona": "La palabra de Dios es viva y eficaz, más tajante que espada de doble filo.",
           "estrofas": [
             "Cantad al Señor un cántico nuevo,<br>resuene su alabanza en la asamblea de los fieles;<br>que se alegre Israel por su Creador,<br>los hijos de Sión por su Rey.",
             "Alabad su nombre con danzas,<br>cantadle con tambores y cítaras;<br>porque el Señor ama a su pueblo<br>y adorna con la victoria a los humildes.",
@@ -58,141 +58,141 @@
         }
       },
       "lecturaBreve": {
-        "cita": "1Co 15,1-2a.3-4",
-        "texto": "Os recuerdo hermanos, el Evangelio que os proclamé y que vosotros aceptasteis, y en el que estáis fundados y que os está salvando. Porque lo primero que yo os transmití, tal como lo había recibido, fue esto: que Cristo murió por nuestros pecados, según las Escrituras; que fue sepultado y que resucitó al tercer día, según las Escrituras."
+        "cita": "Hb 13,7-9a",
+        "texto": "Acordaos de vuestros dirigentes, que os anunciaron la palabra de Dios; fijaos en el desenlace de su vida e imitad su fe. Jesucristo es el mismo ayer y hoy y siempre. No os dejéis arrastrar por doctrinas complicadas y extrañas."
       },
       "responsorio": {
         "v": [
-          "Contaron las alabanzas del señor y su poder.",
-          "Y las maravillas que realizó.",
+          "Sobre tus murallas, Jerusalén, he colocado centinelas.",
+          "Ni de día ni de noche dejarán de anunciar el nombre del Señor.",
           "Gloria al Padre, y al Hijo, y al Espíritu Santo."
         ],
         "r": [
-          "Contaron las alabanzas del señor y su poder.",
-          "Y su poder.",
-          "Contaron las alabanzas del señor y su poder."
+          "Sobre tus murallas, Jerusalén, he colocado centinelas.",
+          "He colocado centinelas.",
+          "Sobre tus murallas, Jerusalén, he colocado centinelas."
         ]
       },
       "canticoEvangelico": {
-        "antifona": "San Lucas, al darnos su evangelio, nos anunció el Sol que nace de lo alto, Cristo, nuestro Señor."
+        "antifona": "No seréis vosotros los que habléis, el Espíritu de vuestro Padre hablará por vosotros."
       },
       "peticiones": {
-        "introduccion": "Invoquemos a nuestro Salvador, que, al destruir la muerte, iluminó la vida por medio del Evangelio, y digámosle humildemente:",
-        "respuesta": "Confirma a tu Iglesia en la fe y en la caridad",
+        "introduccion": "Demos gracias a Cristo, el buen Pastor que entregó la vida por sus ovejas, y supliquémosle, diciendo:",
+        "respuesta": "Apacienta a tu pueblo, Señor",
         "peticiones": [
           {
-            "intencion": "Tú que, por medio de doctores santos y eximios, has hecho resplandecer de modo admirable a tu Iglesia,",
-            "respuesta": "haz que los cristianos se alegren siempre de ese resplandor."
+            "intencion": "Señor Jesucristo, que en los santos pastores nos has revelado tu misericordia y tu amor,",
+            "respuesta": "haz que por ellos continúe llegando a nosotros tu acción misericordiosa."
           },
           {
-            "intencion": "Tú que, cuando los santos pastores te suplicaban, como Moisés, perdonaste los pecados del pueblo,",
-            "respuesta": "santifica, por su intercesión, a tu Iglesia con una purificación continua."
+            "intencion": "Señor Jesucristo, que a través de los santos pastores sigues siendo el único pastor de tu pueblo,",
+            "respuesta": "no dejes de guiarnos siempre por medio de ellos."
           },
           {
-            "intencion": "Tú que, en medio de los fieles, consagraste a los santos pastores y, por tu Espíritu, los dirigiste,",
-            "respuesta": "llena del Espíritu Santo a todos los que rigen a tu pueblo."
+            "intencion": "Señor Jesucristo, que por medio de los santos pastores eres el médico de los cuerpos y de las almas,",
+            "respuesta": "haz que nunca falten a tu Iglesia los ministros que nos guíen por las sendas de una vida santa."
           },
           {
-            "intencion": "Tú que fuiste el lote y la heredad de los santos pastores,",
-            "respuesta": "no permitas que ninguno de los que fueron adquiridos por tu sangre esté alejado de ti."
+            "intencion": "Señor Jesucristo que has adoctrinado a la Iglesia con la prudencia y el amor de los santos,",
+            "respuesta": "haz que, guiados por nuestros pastores, progresemos en la santidad."
           }
         ]
       },
       "oracionDominical": {
-        "introduccion": "Dirijámonos al Padre con las mismas palabras que nos enseñó el Señor:"
+        "introduccion": "Ya que somos hijos de Dios, oremos a nuestro Padre como Cristo nos enseñó:"
       },
-      "oracionConclusiva": "Señor y Dios nuestro, que elegiste a San Lucas para que nos revelara, con su predicación y sus escritos, tu amor a los pobres, concede, a cuantos se glorían en Cristo, vivir con un mismo corazón y un mismo espíritu y atraer a todos los hombres a la salvación. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos. Amén.",
+      "oracionConclusiva": "Oh Dios, que concediste a tu obispo san Antonio María Claret una caridad y un valor admirables para anunciar el Evangelio a los pueblos, concédenos, por su intercesión, que, buscando siempre tu voluntad en todas las cosas, trabajemos generosamente por ganar nuevos hermanos para Cristo. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos. Amen.",
       "cantoVirgen": ""
     },
     "visperas": {
-      "tituloDia": "San Lucas, evangelista, fiesta",
-      "himno": "Benditos son los pies de los que llegan<br>para anunciar la paz que el mundo espera,<br>apóstoles de Dios que Cristo envía,<br>voceros de su voz, grito del Verbo.<br><br>De pie en la encrucijada del camino<br>del hombre peregrino y de los pueblos,<br>es el fuego de Dios el que los lleva<br>como cristos vivientes a su encuentro.<br><br>Abrid, pueblos, la puerta a su llamada,<br>la verdad y el amor son don que llevan;<br>no temáis, pecadores, acogedlos,<br>el perdón y la paz serán su gesto.<br><br>Gracias, Señor, que el pan de tu palabra<br>nos llega por tu amor, pan verdadero;<br>gracias, Señor, que el pan de vida nueva<br>nos llega por tu amor, partido y tierno. Amén.",
+      "tituloDia": "San Antonio María Claret, obispo, solemnidad",
+      "himno": "", // TODO: HIMNO DE VÍSPERAS
       "salmodia": {
         "salmo1": {
-          "cita": "Salmo 115: Acción de gracias en el templo",
-          "antifona": "Soy ministro del Evangelio por la gracia que Dios me dio.",
+          "cita": "Salmo 14: ¿Quién es justo ante el Señor?",
+          "antifona": "Soy ministro del Evangelio, por el don de la gracia de Dios.",
           "estrofas": [
-            "Tenía fe, aun cuando dije:<br>«¡Qué desgraciado soy!»<br>Yo decía en mi apuro:<br>«Los hombres son unos mentirosos.»",
-            "¿Cómo pagaré al Señor<br>todo el bien que me ha hecho?<br>Alzaré la copa de la salvación,<br>invocando su nombre.<br>Cumpliré al Señor mis votos<br>en presencia de todo el pueblo.",
-            "Mucho le cuesta al Señor<br>la muerte de sus fieles.<br>Señor, yo soy tu siervo,<br>siervo tuyo, hijo de tu esclava:<br>rompiste mis cadenas.",
-            "Te ofreceré un sacrificio de alabanza,<br>invocando tu nombre, Señor.<br>Cumpliré al Señor mis votos<br>en presencia de todo el pueblo,<br>en el atrio de la casa del Señor,<br>en medio de ti, Jerusalén.",
+            "Señor, ¿quién puede hospedarse en tu tienda<br>y habitar en tu monte santo?",
+            "El que procede honradamente<br>y practica la justicia,<br>el que tiene intenciones leales<br>y no calumnia con su lengua,",
+            "el que no hace mal a su prójimo<br>ni difama al vecino,<br>el que considera despreciable al impío<br>y honra a los que temen al Señor,",
+            "el que no retracta lo que juró<br>aun en daño propio,<br>el que no presta dinero a usura<br>ni acepta soborno contra el inocente.",
+            "El que así obra nunca fallará.",
             "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
           ]
         },
         "salmo2": {
-          "cita": "Salmo 125: Dios, alegría y esperanza nuestra",
-          "antifona": "Todo lo hago por el Evangelio, para participar yo también de sus bienes.",
+          "cita": "Salmo 111: Felicidad del justo",
+          "antifona": "Éste es el criado fiel y solícito a quien el amo ha puesto al frente de su servidumbre.",
           "estrofas": [
-            "Cuando el Señor cambió la suerte de Sión,<br>nos parecía soñar:<br>la boca se nos llenaba de risas,<br>la lengua de cantares.",
-            "Hasta los gentiles decían:<br>«El Señor ha estado grande con ellos».<br>El Señor ha estado grande con nosotros,<br>y estamos alegres.",
-            "Que el Señor cambie nuestra suerte,<br>como los torrentes del Negueb.<br>Los que sembraban con lágrimas<br>cosechan entre cantares.",
-            "Al ir, iba llorando,<br>llevando la semilla;<br>al volver, vuelve cantando,<br>trayendo sus gavillas.",
+            "Dichoso quien teme al Señor<br>y ama de corazón sus mandatos.<br>Su linaje será poderoso en la tierra,<br>la descendencia del justo será bendita.",
+            "En su casa habrá riquezas y abundancia,<br>su caridad es constante, sin falta.<br>En las tinieblas brilla como una luz<br>el que es justo, clemente y compasivo.",
+            "Dichoso el que se apiada y presta,<br>y administra rectamente sus asuntos.<br>El justo jamás vacilará,<br>su recuerdo será perpetuo.",
+            "No temerá las malas noticias,<br>su corazón está firme en el Señor.<br>Su corazón está seguro, sin temor,<br>hasta que vea derrotados a sus enemigos.",
+            "Reparte limosna a los pobres;<br>su caridad es constante, sin falta,<br>y alzará la frente con dignidad.",
+            "El malvado, al verlo, se irritará,<br>rechinará los dientes hasta consumirse.<br>La ambición del malvado fracasará.",
             "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
           ]
         },
         "salmo3": {
-          "cita": "Efesios 1, 3-10: El Dios Salvador",
-          "antifona": "A mí se me ha dado esta gracia: anunciar a los gentiles la riqueza insondable que es Cristo.",
+          "cita": "Apocalipsis 15, 3-4: Himno de adoración",
+          "antifona": "Mis ovejas escucharán mi voz, y habrá un solo rebaño, un solo Pastor.",
           "estrofas": [
-            "Bendito sea Dios,<br>Padre de nuestro Señor Jesucristo,<br>que nos ha bendecido en la persona de Cristo<br>con toda clase de bienes espirituales y celestiales.",
-            "Él nos eligió en la persona de Cristo,<br>antes de crear el mundo,<br>para que fuésemos santos<br>e irreprochables ante Él por el amor.",
-            "Él nos ha destinado en la persona de Cristo,<br>por pura iniciativa suya,<br>a ser sus hijos,<br>para que la gloria de su gracia,<br>que tan generosamente nos ha concedido<br>en su querido Hijo,<br>redunde en alabanza suya.",
-            "Por este Hijo, por su sangre,<br>hemos recibido la redención,<br>el perdón de los pecados.<br>El tesoro de su gracia, sabiduría y prudencia<br>ha sido un derroche para con nosotros,<br>dándonos a conocer el misterio de su voluntad.",
-            "Este es el plan<br>que había proyectado realizar por Cristo<br>cuando llegase el momento culminante:<br>recapitular en Cristo todas las cosas<br>del cielo y de la tierra.",
+            "Grandes y maravillosas son tus obras,<br>Señor, Dios omnipotente,<br>justos y verdaderos tus caminos,<br>¡oh Rey de los siglos!",
+            "¿Quién no temerá, Señor,<br>y glorificará tu nombre?<br>Porque tú solo eres santo,<br>porque vendrán todas las naciones<br>y se postrarán en tu acatamiento,<br>porque tus juicios se hicieron manifiestos.",
             "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
           ]
         }
       },
       "lecturaBreve": {
-        "cita": "Col 1,3-6a",
-        "texto": "En nuestras oraciones damos siempre gracias por vosotros a Dios, Padre de nuestro Señor Jesucristo, desde que nos enteramos de vuestra fe en Cristo Jesús y del amor que tenéis a todos los santos. Os anima a esto la esperanza de lo que Dios os tiene reservado en los cielos, que ya conocisteis cuando llegó hasta vosotros por primera vez el Evangelio, la palabra, el mensaje de la verdad. Éste se sigue propagando y va dando fruto en el mundo entero, como ha ocurrido entre vosotros."
+        "cita": "1P 5,1-4",
+        "texto": "A los presbíteros en esa comunidad, yo, presbítero como ellos, testigo de los sufrimientos de Cristo y partícipe de la gloria que va a manifestarse, os exhorto: Sed pastores del rebaño de Dios que tenéis a vuestro cargo, gobernándolo no a la fuerza, sino de buena gana, como Dios quiere; no por sórdida ganancia, sino con generosidad; no como déspotas sobre la heredad de Dios, sino convirtiéndoos en modelos del rebaño. Y cuando aparezca el supremo Pastor, recibiréis la corona de gloria que no se marchita."
       },
       "responsorio": {
         "v": [
-          "Contad a los pueblos la gloria del Señor.",
-          "Sus maravillas a todas las naciones.",
+          "Este es el que ama a sus hermanos, el que ora mucho por su pueblo.",
+          "El que entregó su vida por sus hermanos.",
           "Gloria al Padre, y al Hijo, y al Espíritu Santo."
         ],
         "r": [
-          "Contad a los pueblos la gloria del Señor.",
-          "La gloria del Señor.",
-          "Contad a los pueblos la gloria del Señor."
+          "Este es el que ama a sus hermanos, el que ora mucho por su pueblo.",
+          "El que ora mucho por su pueblo.",
+          "Este es el que ama a sus hermanos, el que ora mucho por su pueblo."
         ]
       },
       "canticoEvangelico": {
-        "antifona": "Dichoso evangelista San Lucas, que resplandece en toda la Iglesia por haber destacado en sus escritos la misericordia de Cristo."
+        "antifona": "Éste es el criado fiel y solícito a quien el Señor ha puesto al frente de su servidumbre para que les reparta la ración a sus horas."
       },
       "peticiones": {
-        "introduccion": "Invoquemos a Dios, Padre de los astros, que nos ha llamado a la fe verdadera por medio del Evangelio de su Hijo, y oremos por su pueblo santo, diciendo:",
-        "respuesta": "Acuérdate, Señor, de tu Iglesia",
+        "introduccion": "Glorifiquemos a Cristo, constituido pontífice a favor de los hombres, en lo que se refiere a Dios, y supliquémosle humildemente, diciendo:",
+        "respuesta": "Salva a tu pueblo, Señor",
         "peticiones": [
           {
-            "intencion": "Padre santo, que resucitaste de entre los muertos a tu Hijo, el gran pastor de las ovejas,",
-            "respuesta": "haz que nosotros seamos testigos de Cristo hasta los confines del mundo."
+            "intencion": "Tú que por medio de pastores santos y eximios, has hecho resplandecer de modo admirable a tu Iglesia,",
+            "respuesta": "haz que los cristianos se alegren siempre de ese resplandor"
           },
           {
-            "intencion": "Padre santo, que enviaste a tu Hijo al mundo para dar la Buena Noticia a los pobres,",
-            "respuesta": "haz que sepamos proclamar el Evangelio a todas las criaturas."
+            "intencion": "Tú que, cuando los santos pastores te suplicaban, como Moisés, perdonaste los pecados del pueblo,",
+            "respuesta": "santifica por su intercesión a tu Iglesia con una purificación continua"
           },
           {
-            "intencion": "Tú que enviaste a tu Hijo a sembrar la semilla de la palabra,",
-            "respuesta": "danos también a nosotros sembrar tu semilla con nuestro trabajo, para que, alegres, demos fruto con nuestra perseverancia."
+            "intencion": "Tú que en medio de los fieles consagraste a los santos pastores y por tu Espíritu los dirigiste,",
+            "respuesta": "llena del Espíritu Santo a todos los que rigen a tu pueblo"
           },
           {
-            "intencion": "Tú que enviaste a tu Hijo para que reconciliara el mundo contigo,",
-            "respuesta": "haz que también nosotros cooperemos a la reconciliación de los hombres."
+            "intencion": "Tú que fuiste el lote y la heredad de los santos pastores,",
+            "respuesta": "no permitas que ninguno de los que fueron adquiridos por tu sangre esté alejado de ti"
           },
           {
-            "intencion": "Tú que has sentado a tu Hijo a tu derecha, en el cielo,",
-            "respuesta": "admite a los difuntos en tu reino de felicidad."
+            "intencion": "Tú que, por medio de los pastores de la Iglesia, das la vida eterna a tus ovejas para que nadie las arrebate de tu mano,",
+            "respuesta": "salva a los difuntos por quienes entregaste tu vida."
           }
         ]
       },
       "oracionDominical": {
-        "introduccion": "Siguiendo las enseñanzas de Jesucristo, digamos al Padre celestial:"
+        "introduccion": "Fieles a la recomendación del Salvador, nos atrevemos a decir:"
       },
-      "oracionConclusiva": "Señor y Dios nuestro, que elegiste a San Lucas para que nos revelara, con su predicación y sus escritos, tu amor a los pobres, concede, a cuantos se glorían en Cristo, vivir con un mismo corazón y un mismo espíritu y atraer a todos los hombres a la salvación. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos. Amén.",
-      "cantoVirgen": ""
+      "oracionConclusiva": "Oh Dios, que concediste a tu obispo san Antonio María Claret una caridad y un valor admirables para anunciar el Evangelio a los pueblos, concédenos, por su intercesión, que, buscando siempre tu voluntad en todas las cosas, trabajemos generosamente por ganar nuevos hermanos para Cristo. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos.<br>Amén.",
+      "cantoVirgen": "" // TODO: CANTO A LA VIRGEN
     }
   },
   "sabado": {
@@ -201,60 +201,58 @@
       "invitatorio": {
         "antifona": "Venid, adoremos a Cristo, hijo de María Virgen."
       },
-      "himno": "Te espero Señor, acude en mi auxilio.<br>Hazte presente, llena mi vida de Ti.<br>Escucha mi voz, que grita tu nombre.<br>Sin Ti no soy nada te necesito para vivir.<br><br>LLÉNAME CON TU ESPÍRITU, DAME TU PAZ.<br>ANIMA A MI VIDA A SER ALGO MÁS, ENSÉÑAME A AMAR.<br>LLÉNAME CON TU ESPÍRITU, DAME TU LUZ.<br>QUIERO SER LIBRE, SER TU TESTIGO, AMIGO JESÚS.<br><br>Es vano mi afán, de nada me sirve decir que en Ti creo, <br>que Tú eres mi Dios si no tengo amor. <br>Escribe tu carta en mi corazón.<br>Construye mi casa, que no sea inútil mi esfuerzo, Señor.",
+      "himno": "", // TODO: HIMNO DE LAUDES
       "salmodia": {
         "salmo1": {
-          "cita": "Salmo 91: Alabanza del Dios creador",
-          "antifona": "Es bueno tocar para tu nombre, oh Altísimo, y proclamar por la mañana tu misericordia.",
+          "cita": "Salmo 118,145-152: XIX (Coph)",
+          "antifona": "Me adelanto a la aurora pidiendo auxilio.",
           "estrofas": [
-            "Es bueno dar gracias al Señor<br>y tocar para tu nombre, oh Altísimo,<br>proclamar por la mañana tu misericordia<br>y de noche tu fidelidad,<br>con arpas de diez cuerdas y laúdes,<br>sobre arpegios de cítaras.",
-            "Tus acciones, Señor, son mi alegría,<br>y mi júbilo, las obras de tus manos.<br>¡Qué magníficas son tus obras, Señor,<br>qué profundos tus designios!<br>El ignorante no los entiende<br>ni el necio se da cuenta.",
-            "Aunque germinen como hierba los malvados<br>y florezcan los malhechores,<br>serán destruidos para siempre.<br>Tú, en cambio, Señor,<br>eres excelso por los siglos.",
-            "Porque tus enemigos, Señor, perecerán,<br>los malhechores serán dispersados;<br>pero a mí me das la fuerza de un búfalo<br>y me unges con aceite nuevo.<br>Mis ojos despreciarán a mis enemigos,<br>mis oídos escucharán su derrota.",
-            "El justo crecerá como una palmera,<br>se alzará como un cedro del Líbano:<br>plantado en la casa del Señor,<br>crecerá en los atrios de nuestro Dios;",
-            "en la vejez seguirá dando fruto<br>y estará lozano y frondoso,<br>para proclamar que el Señor es justo,<br>que en mi Roca no existe la maldad.",
+            "Te invoco de todo corazón:<br>respóndeme, Señor, y guardaré tus leyes;<br>a ti grito: sálvame,<br>y cumpliré tus decretos;<br>me adelanto a la aurora pidiendo auxilio,<br>esperando tus palabras.",
+            "Mis ojos se adelantan a las vigilias,<br>meditando tu promesa;<br>escucha mi voz por tu misericordia,<br>con tus mandamientos dame vida;<br>ya se acercan mis inicuos perseguidores,<br>están lejos de tu voluntad.",
+            "Tú, Señor, estás cerca,<br>y todos tus mandatos son estables;<br>hace tiempo comprendí que tus preceptos<br>los fundaste para siempre.",
             "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
           ]
         },
         "salmo2": {
-          "cita": "Ezequiel 36, 24-28: Dios renovará a su pueblo",
-          "antifona": "Os daré un corazón nuevo, y os infundiré un espíritu nuevo.",
+          "cita": "Exodo 15,1-4.8-13.17-18: Himno a Dios, después de la victoria del mar Rojo",
+          "antifona": "Mi fuerza y mi poder es el Señor, él fue mi salvación.",
           "estrofas": [
-            "Os recogeré de entre las naciones,<br>os reuniré de todos los países,<br>y os llevaré a vuestra tierra.",
-            "Derramaré sobre vosotros un agua pura<br>que os purificará:<br>de todas vuestras inmundicias e idolatrías<br>os he de purificar;<br>y os daré un corazón nuevo,<br>y os infundiré un espíritu nuevo;<br>arrancaré de vuestra carne el corazón de piedra,<br>y os daré un corazón de carne.",
-            "Os infundiré mi espíritu,<br>y haré que caminéis según mis preceptos,<br>y que guardéis y cumpláis mis mandatos.",
-            "Y habitaréis en la tierra que di a vuestros padres.<br>Vosotros seréis mi pueblo,<br>y yo seré vuestro Dios.",
+            "Cantaré al Señor, sublime es su victoria,<br>caballos y carros ha arrojado en el mar.<br>Mi fuerza y mi poder es el Señor,<br>Él fue mi salvación.",
+            "Él es mi Dios: yo lo alabaré;<br>el Dios de mis padres: yo lo ensalzaré.<br>El Señor es un guerrero,<br>su nombre es \"El Señor.\"",
+            "Los carros del Faraón los lanzó al mar,<br>ahogó en el mar Rojo a sus mejores capitanes.",
+            "Al soplo de tu nariz, se amontonaron las aguas,<br>las corrientes se alzaron como un dique,<br>las olas se cuajaron en el mar.",
+            "Decía el enemigo: \"Los perseguiré y alcanzaré,<br>repartiré el botín, se saciará mi codicia,<br>empuñaré la espada, los agarrará mi mano.\"",
+            "Pero sopló tu aliento, y los cubrió el mar,<br>se hundieron como plomo en las aguas formidables.",
+            "¿Quién como tú, Señor, entre los dioses?<br>¿Quién como tú, terrible entre los santos,<br>temible por tus proezas, autor de maravillas?",
+            "Extendiste tu diestra: se los tragó la tierra;<br>guiaste con misericordia a tu pueblo rescatado,<br>los llevaste con tu poder hasta tu santa morada.",
+            "Lo introduces y lo plantas en el monte de tu heredad,<br>lugar del que hiciste tu trono, Señor;<br>santuario, Señor, que fundaron tus manos.<br>El Señor reina por siempre jamás.",
             "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
           ]
         },
         "salmo3": {
-          "cita": "Salmo 8: Las maravillas de la creación",
-          "antifona": "De la boca de los niños de pecho, Señor, has sacado una alabanza.",
+          "cita": "Salmo 116: Invitación universal a la alabanza divina",
+          "antifona": "Alabad al Señor, todas las naciones.",
           "estrofas": [
-            "Señor, dueño nuestro,<br>¡qué admirable es tu nombre<br>en toda la tierra!",
-            "Ensalzaste tu majestad sobre los cielos.<br>De la boca de los niños de pecho<br>has sacado una alabanza contra tus enemigos,<br>para reprimir al adversario y al rebelde.",
-            "Cuando contemplo el cielo, obra de tus dedos,<br>la luna y las estrellas que has creado,<br>¿qué es el hombre, para que te acuerdes de él,<br>el ser humano, para darle poder?",
-            "Lo hiciste poco inferior a los ángeles,<br>lo coronaste de gloria y dignidad,<br>le diste el mando sobre las obras de tus manos,<br>todo lo sometiste bajo sus pies:",
-            "rebaños de ovejas y toros,<br>y hasta las bestias del campo,<br>las aves del cielo, los peces del mar,<br>que trazan sendas por el mar.",
-            "Señor, dueño nuestro,<br>¡qué admirable es tu nombre,<br>en toda la tierra!",
+            "Alabad al Señor, todas las naciones,<br>aclamadlo, todos los pueblos.",
+            "Firme es su misericordia con nosotros,<br>su fidelidad dura por siempre.",
             "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
           ]
         }
       },
       "lecturaBreve": {
-        "cita": "Ap 12,1",
-        "texto": "Apareció una figura portentosa en el cielo: Una mujer vestida de sol, la luna por pedestal, coronada con doce estrellas."
+        "cita": "Ga 4,4-5",
+        "texto": "Cuando se cumplió el tiempo, envió Dios a su Hijo, nacido de una mujer, nacido bajo la ley, para rescatar a los que estaban bajo la ley, para que recibiéramos el ser hijos por adopción."
       },
       "responsorio": {
         "v": [
-          "Alégrate, María, llena de gracia, el Señor está contigo.",
-          "Bendita tú entre las mujeres, y bendito el fruto de tu vientre.",
+          "Después del parto, oh Virgen, has permanecido inviolada.",
+          "Madre de Dios, intercede por nosotros.",
           "Gloria al Padre, y al Hijo, y al Espíritu Santo."
         ],
         "r": [
-          "Alégrate, María, llena de gracia, el Señor está contigo.",
-          "El Señor está contigo.",
-          "Alégrate, María, llena de gracia, el Señor está contigo."
+          "Después del parto, oh Virgen, has permanecido inviolada.",
+          "Oh Virgen, has permanecido inviolada.",
+          "Después del parto, oh Virgen, has permanecido inviolada."
         ]
       },
       "canticoEvangelico": {
@@ -283,43 +281,41 @@
         ]
       },
       "oracionDominical": {
-        "introduccion": "Contentos por sabernos hijos de Dios, digamos a nuestro Padre:"
+        "introduccion": "Con la misma confianza que tienen los hijos con su padres, acudamos nosotros a nuestro Dios, diciéndole:"
       },
-      "oracionConclusiva": "Te pedimos, Señor, que nosotros tus siervos, gocemos siempre de salud de alma y cuerpo, y por la intercesión de Santa María, la Virgen, líbranos de las tristezas de este mundo y concédenos las alegrías del cielo. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos. Amén",
-      "cantoVirgen": "Tantas cosas en la vida nos ofrecen plenitud,<br>y nos son más que mentiras que desgastan la inquietud.<br>Tú has llenado mi existencia al quererme de verdad.<br>Yo quisiera, madre buena, amarte más.<br><br>En silencio escuchabas la palabra de Jesús.<br>Y la hacías pan de vida meditando en tu interior.<br>La semilla que ha caído ya germina y está en flor,<br>con el corazón en fiesta, cantaré.<br><br>AVE MARÍA, AVE MARÍA, AVE MARÍA, AVE MARÍA."
+      "oracionConclusiva": "Te pedimos, Señor, que nosotros tus siervos, gocemos siempre de salud de alma y cuerpo, y por la intercesión de Santa María, la Virgen, líbranos de las tristezas de este mundo y concédenos las alegrías del cielo. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos.<br>Amén.",
+      "cantoVirgen": "" // TODO: CANTO A LA VIRGEN
     },
     "visperas": {
-      "tituloDia": "XXIX Domingo del Tiempo Ordinario Ciclo B, solemnidad",
-      "himno": "Como una ofrenda de la tarde,<br>elevamos nuestra oración;<br>con el alzar de nuestras manos,<br>levantamos el corazón.<br><br>Al declinar la luz del día,<br>que recibimos como don,<br>con las alas de la plegaria,<br>levantamos el corazón.<br><br>Haz que la senda de la vida<br>la recorramos con amor<br>y, a cada paso del camino,<br>levantemos el corazón.<br><br>Cuando sembramos de esperanza,<br>cuando regamos con dolor,<br>con las gavillas en las manos,<br>levantemos el corazón.<br><br>Gloria a Dios Padre, que nos hizo,<br>gloria a Dios Hijo Salvador,<br>gloria al Espíritu divino:<br>tres Personas y un solo Dios. Amén.",
+      "tituloDia": "XXX Domingo del Tiempo Ordinario Ciclo C, solemnidad",
+      "himno": "", // TODO: HIMNO DE VÍSPERAS
       "salmodia": {
         "salmo1": {
-          "cita": "Salmo 140,1-9: Oración ante el peligro",
-          "antifona": "Suba mi oración, Señor, como incienso en tu presencia.",
+          "cita": "Salmo 118,105-112: XIV (Nun): Himno a la ley divina",
+          "antifona": "Lámpara es tu palabra para mis pasos, Señor. Aleluya",
           "estrofas": [
-            "Señor, te estoy llamando, ven de prisa,<br>escucha mi voz cuando te llamo.<br>Suba mi oración como incienso en tu presencia,<br>el alzar de mis manos como ofrenda de la tarde.",
-            "Coloca, Señor, una guardia en mi boca,<br>un centinela a la puerta de mis labios;<br>no dejes inclinarse mi corazón a la maldad,<br>a cometer crímenes y delitos;<br>ni que con los hombres malvados<br>participe en banquetes.",
-            "Que el justo me golpee, que el bueno me reprenda,<br>pero que el ungüento del impío no perfume mi cabeza;<br>yo seguiré rezando en sus desgracias.",
-            "Sus jefes cayeron despeñados,<br>aunque escucharon mis palabras amables;<br>como una piedra de molino, rota por tierra,<br>están esparcidos nuestros huesos a la boca de la tumba.",
-            "Señor, mis ojos están vueltos a ti,<br>en ti me refugio, no me dejes indefenso;<br>guárdame del lazo que me han tendido,<br>de la trampa de los malhechores.",
+            "Lámpara es tu palabra para mis pasos,<br>luz en mi sendero;<br>lo juro y lo cumpliré:<br>guardaré tus justos mandamientos;<br>¡estoy tan afligido!<br>Señor, dame vida según tu promesa.",
+            "Acepta, Señor, los votos que pronuncio,<br>enséñame tus mandatos;<br>mi vida está siempre en peligro,<br>pero no olvido tu voluntad;<br>los malvados me tendieron un lazo,<br>pero no me desvié de tus decretos.",
+            "Tus preceptos son mi herencia perpetua,<br>la alegría de mi corazón;<br>inclino mi corazón a cumplir tus leyes,<br>siempre y cabalmente.",
             "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
           ]
         },
         "salmo2": {
-          "cita": "Salmo 141: Tú eres mi refugio",
-          "antifona": "Tú eres mi refugio y mi lote, Señor, en el país de la vida.",
+          "cita": "Salmo 15: El Señor es el lote de mi heredad",
+          "antifona": "Me saciarás de gozo en tu presencia, Señor. Aleluya.",
           "estrofas": [
-            "A voz en grito clamo al Señor,<br>a voz en grito suplico al Señor;<br>desahogo ante él mis afanes,<br>expongo ante él mi angustia,<br>mientras me va faltando el aliento.",
-            "Pero tú conoces mis senderos,<br>y que en el camino por donde avanzo<br>me han escondido una trampa.",
-            "Mira a la derecha, fíjate:<br>nadie me hace caso;<br>no tengo adónde huir,<br>nadie mira por mi vida.",
-            "A ti grito, Señor;<br>te digo: «Tú eres mi refugio<br>y mi lote en el país de la vida».",
-            "Atiende a mis clamores,<br>que estoy agotado;<br>líbrame de mis perseguidores,<br>que son más fuertes que yo.",
-            "Sácame de la prisión,<br>y daré gracias a tu nombre:<br>me rodearán los justos<br>cuando me devuelvas tu favor.",
+            "Protégeme, Dios mío, que me refugio en ti;<br>yo digo al Señor: «Tú eres mi bien».<br>Los dioses y señores de la tierra<br>no me satisfacen.",
+            "Multiplican las estatuas<br>de dioses extraños;<br>no derramaré sus libaciones con mis manos,<br>ni tomaré sus nombres en mis labios.",
+            "El Señor es el lote de mi heredad y mi copa;<br>mi suerte está en tu mano:<br>me ha tocado un lote hermoso,<br>me encanta mi heredad.",
+            "Bendeciré al Señor, que me aconseja,<br>hasta de noche me instruye internamente.<br>Tengo siempre presente al Señor,<br>con él a mi derecha no vacilaré.",
+            "Por eso se me alegra el corazón,<br>se gozan mis entrañas,<br>y mi carne descansa serena.<br>Porque no me entregarás a la muerte,<br>ni dejarás a tu fiel conocer la corrupción.",
+            "Me enseñarás el sendero de la vida,<br>me saciarás de gozo en tu presencia,<br>de alegría perpetua a tu derecha.",
             "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
           ]
         },
         "salmo3": {
           "cita": "Filipenses 2,6-11: Cristo, Siervo de Dios, en su misterio pascual",
-          "antifona": "El Señor Jesús se rebajó, y por eso Dios lo levantó por los siglos de los siglos.",
+          "antifona": "Al nombre de Jesús toda rodilla se doble en el cielo y en la tierra. Aleluya.",
           "estrofas": [
             "Cristo, a pesar de su condición divina,<br>no hizo alarde de su categoría de Dios;<br>al contrario, se despojó de su rango<br>y tomó la condición de esclavo,<br>pasando por uno de tantos.",
             "Y así, actuando como un hombre cualquiera,<br>se rebajó hasta someterse incluso a la muerte,<br>y una muerte de cruz.",
@@ -329,249 +325,143 @@
         }
       },
       "lecturaBreve": {
-        "cita": "Rm 11,33 -36",
-        "texto": "¡Qué abismo de generosidad, de sabiduría y conocimiento, el de Dios! ¡Qué insondables sus decisiones y qué irrastreables sus caminos! ¿Quién conoció la mente del Señor? ¿Quién fue su consejero? ¿Quién le ha dado primero para que Él le devuelva? Él es el origen, guía y meta del universo. A Él la gloria por los siglos. Amén."
+        "cita": "Col 1,2b-6a",
+        "texto": "Os deseamos la gracia y la paz de Dios, nuestro Padre. En nuestras oraciones damos siempre gracias por vosotros a Dios, Padre de nuestro Señor Jesucristo, desde que nos enteramos de vuestra fe en Cristo Jesús y del amor que tenéis a todos los santos. Os anima a esto la esperanza de lo que Dios os tiene reservado en los cielos, que ya conocisteis cuando llegó hasta vosotros por primera vez el Evangelio, la palabra, el mensaje de la verdad. Éste se sigue propagando y va dando fruto en el mundo entero, como ha ocurrido entre vosotros."
       },
       "responsorio": {
         "v": [
-          "Cuántas son tus obras, Señor.",
-          "Y todas las hiciste con sabiduría.",
+          "De la salida del sol hasta su ocaso, alabado sea el nombre del Señor.",
+          "Su gloria sobre los cielos.",
           "Gloria al Padre, y al Hijo, y al Espíritu Santo."
         ],
         "r": [
-          "Cuántas son tus obras, Señor.",
-          "Tus obras, Señor.",
-          "Cuántas son tus obras, Señor."
+          "De la salida del sol hasta su ocaso, alabado sea el nombre del Señor.",
+          "Alabado sea el nombre del Señor.",
+          "De la salida del sol hasta su ocaso, alabado sea el nombre del Señor."
         ]
       },
       "canticoEvangelico": {
-        "antifona": "«El cáliz que yo voy a beber lo beberéis, y os bautizaréis con el bautismo con que yo me voy a bautizar», dice el Señor."
+        "antifona": "El Señor escucha las súplicas del oprimido; los gritos del pobre atraviesan las nubes hasta alcanzar a Dios."
       },
       "peticiones": {
-        "introduccion": "Glorifiquemos a Dios, Padre, Hijo, y Espíritu Santo, y supliquémosle, diciendo:",
-        "respuesta": "Escucha a tu pueblo, Señor",
+        "introduccion": "Demos gracias al Señor, que ayuda y protege al pueblo que se ha escogido como heredad, y, recordando su amor para con nosotros, supliquémosle, diciendo:",
+        "respuesta": "Escúchanos, Señor, que confiamos en ti",
         "peticiones": [
           {
-            "intencion": "Padre todopoderoso, haz que florezca en la tierra la justicia",
-            "respuesta": "y que tu pueblo se alegre en la paz."
+            "intencion": "Padre lleno de amor, te pedimos por el Papa León. y por nuestro obispo Jesús:",
+            "respuesta": "protégelos con tu fuerza y santifícalos con tu gracia"
           },
           {
-            "intencion": "Que todos los pueblos entren a formar parte en tu reino,",
-            "respuesta": "y obtengan así la salvación."
+            "intencion": "Que los enfermos vean en sus dolores una participación de la pasión de tu Hijo,",
+            "respuesta": "para que así tengan también parte en su consuelo"
           },
           {
-            "intencion": "Que los esposos cumplan tu voluntad, vivan en concordia",
-            "respuesta": "y sean siempre fieles a su mutuo amor."
+            "intencion": "Mira con piedad a los que no tienen techo donde cobijarse",
+            "respuesta": "y haz que encuentren pronto el hogar que desean"
           },
           {
-            "intencion": "Recompensa, Señor, a nuestros bienhechores",
-            "respuesta": "y concédeles la vida eterna."
+            "intencion": "Dígnate dar y conservar los frutos de la tierra,",
+            "respuesta": "para que a nadie falte el pan de cada día"
           },
           {
-            "intencion": "Acoge con amor a los que han muerto víctimas del odio, de la violencia o de la guerra",
-            "respuesta": "y dales el descanso eterno."
+            "intencion": "Ten, Señor, piedad de los difuntos",
+            "respuesta": "y ábreles la puerta de tu mansión eterna"
           }
         ]
       },
       "oracionDominical": {
         "introduccion": "Movidos por el Espíritu Santo, dirijamos al Padre la oración que nos enseñó el Señor:"
       },
-      "oracionConclusiva": "Dios todopoderoso y eterno, te pedimos entregarnos a ti con fidelidad y servirte con sincero corazón. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos. Amén.",
-      "cantoVirgen": ""
+      "oracionConclusiva": "Dios todopoderoso y eterno, aumenta nuestra fe, esperanza y caridad, y, para conseguir tus promesas, concédenos amar tus preceptos. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos.<br>Amén.",
+      "cantoVirgen": "" // TODO: CANTO A LA VIRGEN
     }
   },
-  "domingo": {
+  "domingo": { // TODO: COMPLETAR DOMINGO
     "laudes": {
-      "tituloDia": "XXIX Domingo del Tiempo Ordinario Ciclo B, solemnidad",
+      "tituloDia": "",
       "invitatorio": {
-        "antifona": "Venid, aclamemos al Señor, demos vítores a la Roca que nos salva. Aleluya."
+        "antifona": ""
       },
-      "himno": "Es domingo; una luz nueva<br>resucita la mañana<br>con su mirada inocente,<br>llena de gozo y de gracia.<br><br>Es domingo; la alegría<br>del mensaje de la Pascua<br>es la noticia que llega<br>siempre y que nunca se gasta.<br><br>Es domingo; la pureza<br>no solo la tierra baña<br>que ha penetrado en la vida<br>por las ventanas del alma.<br><br>Es domingo; la presencia<br>de Cristo llena la casa:<br>la Iglesia, misterio y fiesta,<br>por él y en él convocada.<br><br>Es domingo; «este es el día<br>que hizo el Señor», es la Pascua,<br>día de la creación<br>nueva y siempre renovada.<br><br>Es domingo; de su hoguera<br>brilla toda la semana<br>y vence oscuras tinieblas<br>en jornadas de esperanza.<br><br>Es domingo; un canto nuevo<br>toda la tierra le canta<br>al Padre, al Hijo, al Espíritu,<br>único Dios que nos salva. Amén.",
+      "himno": "",
       "salmodia": {
         "salmo1": {
-          "cita": "Salmo 62,2-9: El alma sedienta de Dios",
-          "antifona": "Por ti madrugo, Dios mío, para contemplar tu fuerza y tu gloria. Aleluya.",
-          "estrofas": [
-            "Oh Dios, tú eres mi Dios, por ti madrugo,<br>mi alma está sedienta de ti;<br>mi carne tiene ansia de ti,<br>como tierra reseca, agostada, sin agua.",
-            "¡Cómo te contemplaba en el santuario<br>viendo tu fuerza y tu gloria!<br>Tu gracia vale más que la vida,<br>te alabarán mis labios.",
-            "Toda mi vida te bendeciré<br>y alzaré las manos invocándote.<br>Me saciaré como de enjundia y de manteca,<br>y mis labios te alabarán jubilosos.",
-            "En el lecho me acuerdo de ti<br>y velando medito en ti,<br>porque fuiste mi auxilio,<br>y a la sombra de tus alas canto con júbilo;<br>mi alma está unida a ti,<br>y tu diestra me sostiene.",
-            "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
-          ]
+          "cita": "",
+          "antifona": "",
+          "estrofas": []
         },
         "salmo2": {
-          "cita": "Daniel 3,57-88.56: Toda la creación alabe al Señor",
-          "antifona": "En medio de las llamas, los tres jóvenes, unánimes, cantaban: «Bendito sea el Señor.» Aleluya.",
-          "estrofas": [
-            "Criaturas todas del Señor, bendecid al Señor,<br>ensalzadlo con himnos por los siglos.",
-            "Ángeles del Señor, bendecid al Señor;<br>cielos, bendecid al Señor.",
-            "Aguas del espacio, bendecid al Señor;<br>ejércitos del Señor, bendecid al Señor.",
-            "Sol y luna, bendecid al Señor;<br>astros del cielo, bendecid al Señor.",
-            "Lluvia y rocío, bendecid al Señor;<br>vientos todos, bendecid al Señor.",
-            "Fuego y calor, bendecid al Señor;<br>fríos y heladas, bendecid al Señor.",
-            "Rocíos y nevadas, bendecid al Señor;<br>témpanos y hielos, bendecid al Señor.",
-            "Escarchas y nieves, bendecid al Señor;<br>noche y día, bendecid al Señor.",
-            "Luz y tinieblas, bendecid al Señor;<br>rayos y nubes, bendecid al Señor.",
-            "Bendiga la tierra al Señor,<br>ensálcelo con himnos por los siglos.",
-            "Montes y cumbres, bendecid al Señor;<br>cuanto germina en la tierra, bendiga al Señor.",
-            "Manantiales, bendecid al Señor;<br>mares y ríos, bendecid al Señor.",
-            "Cetáceos y peces, bendecid al Señor;<br>aves del cielo, bendecid al Señor.",
-            "Fieras y ganados, bendecid al Señor,<br>ensalzadlo con himnos por los siglos.",
-            "Hijos de los hombres, bendecid al Señor<br>bendiga Israel al Señor.",
-            "Sacerdotes del Señor, bendecid al Señor;<br>siervos del Señor, bendecid al Señor.",
-            "Almas y espíritus justos, bendecid al Señor;<br>santos y humildes de corazón, bendecid al Señor.",
-            "Ananías, Azarías y Misael, bendecid al Señor,<br>ensalzadlo con himnos por los siglos.",
-            "Bendigamos al Padre y al Hijo con el Espíritu Santo,<br>ensalcémoslo con himnos por los siglos.",
-            "Bendito el Señor en la bóveda del cielo,<br>alabado y glorioso y ensalzado por los siglos."
-          ]
+          "cita": "",
+          "antifona": "",
+          "estrofas": []
         },
         "salmo3": {
-          "cita": "Salmo 149: Alegría de los santos",
-          "antifona": "Que los hijos de Sión se alegren por su Rey. Aleluya",
-          "estrofas": [
-            "Cantad al Señor un cántico nuevo,<br>resuene su alabanza en la asamblea de los fieles;<br>que se alegre Israel por su Creador,<br>los hijos de Sión por su Rey.",
-            "Alabad su nombre con danzas,<br>cantadle con tambores y cítaras;<br>porque el Señor ama a su pueblo<br>y adorna con la victoria a los humildes.",
-            "Que los fieles festejen su gloria<br>y canten jubilosos en filas:<br>con vítores a Dios en la boca<br>y espadas de dos filos en las manos:",
-            "para tomar venganza de los pueblos<br>y aplicar el castigo a las naciones,<br>sujetando a los reyes con argollas,<br>a los nobles con esposas de hierro.",
-            "Ejecutar la sentencia dictada<br>es un honor para todos sus fieles.",
-            "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
-          ]
+          "cita": "",
+          "antifona": "",
+          "estrofas": []
         }
       },
       "lecturaBreve": {
-        "cita": "Ap 7,10.12",
-        "texto": "¡La victoria es de nuestro Dios, que está sentado en el trono, y del Cordero! La alabanza y la gloria y la sabiduría y la acción de gracias y el honor y el poder y la fuerza son de nuestro Dios, por los siglos de los siglos. Amén."
+        "cita": "",
+        "texto": ""
       },
       "responsorio": {
-        "v": [
-          "Cristo, Hijo de Dios vivo, ten piedad de nosotros.",
-          "Tú que estás sentado a la derecha del Padre.",
-          "Gloria al Padre, y al Hijo, y al Espíritu Santo."
-        ],
-        "r": [
-          "Cristo, Hijo de Dios vivo, ten piedad de nosotros.",
-          "Ten piedad de nosotros.",
-          "Cristo, Hijo de Dios vivo, ten piedad de nosotros."
-        ]
+        "v": [],
+        "r": []
       },
       "canticoEvangelico": {
-        "antifona": "El que quiera ser grande entre vosotros sea vuestro servidor; y el que quiera ser el primero sea esclavo de todos."
+        "antifona": ""
       },
       "peticiones": {
-        "introduccion": "Glorifiquemos al Señor Jesús, luz que alumbra a todo hombre y Sol de justicia que no conoce el ocaso, y digámosle:",
-        "respuesta": "¡Oh Señor, vida y salvación nuestra!",
-        "peticiones": [
-          {
-            "intencion": "Creador del universo, al darte gracias por el nuevo día que ahora empieza,",
-            "respuesta": "te pedimos que el recuerdo de tu santa resurrección sea nuestro gozo durante este domingo."
-          },
-          {
-            "intencion": "Que tu Espíritu Santo nos enseñe a cumplir tu voluntad,",
-            "respuesta": "y que tu sabiduría dirija hoy nuestras acciones."
-          },
-          {
-            "intencion": "Que al celebrar la eucaristía de este domingo, tu palabra nos llene de gozo,",
-            "respuesta": "y que la participación en tu banquete haga crecer nuestra esperanza."
-          },
-          {
-            "intencion": "Que sepamos contemplar las maravillas que tu generosidad nos concede,",
-            "respuesta": "y vivamos durante todo el día en acción de gracias."
-          }
-        ]
+        "introduccion": "",
+        "respuesta": "",
+        "peticiones": []
       },
       "oracionDominical": {
-        "introduccion": "Digamos ahora, todos juntos, la oración que nos enseñó el mismo Señor:"
+        "introduccion": ""
       },
-      "oracionConclusiva": "Dios todopoderoso y eterno, te pedimos entregarnos a ti con fidelidad y servirte con sincero corazón. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos. Amén.",
+      "oracionConclusiva": "",
       "cantoVirgen": ""
     },
     "visperas": {
-      "tituloDia": "XXIX Domingo del Tiempo Ordinario Ciclo B, solemnidad",
-      "himno": "Quédate con nosotros,<br>la noche está cayendo.<br><br>¿Cómo te encontraremos<br>al declinar el día,<br>si tu camino no es nuestro camino?<br>Detente con nosotros;<br>la mesa está servida,<br>caliente el pan y envejecido el vino.<br><br>¿Cómo sabremos que eres<br>un hombre entre los hombres,<br>si no compartes nuestra mesa humilde?<br>Repártenos tu cuerpo,<br>y el gozo irá alejando<br>la oscuridad que pesa sobre el hombre.<br><br>Vimos romper el día<br>sobre tu hermoso rostro,<br>y al sol abrirse paso por tu frente.<br>Que el viento de la noche<br>no apague el fuego vivo<br>que nos dejó tu paso en la mañana.<br><br>Arroja en nuestras manos,<br>tendidas en tu busca,<br>las ascuas encendidas del Espíritu;<br>y limpia, en lo más hondo<br>del corazón del hombre,<br>tu imagen empañada por la culpa.",
+      "tituloDia": "",
+      "himno": "",
       "salmodia": {
         "salmo1": {
-          "cita": "Salmo 109,1-5.7: El Mesías, Rey y Sacerdote",
-          "antifona": "Desde Sión extenderá el Señor el poder de su cetro, y reinará eternamente. Aleluya.",
-          "estrofas": [
-            "Oráculo del Señor a mi Señor:<br>«Siéntate a mi derecha,<br>y haré de tus enemigos<br>estrado de tus pies».<br>Desde Sión extenderá el Señor<br>el poder de tu cetro:<br>somete en la batalla a tus enemigos.",
-            "«Eres príncipe desde el día de tu nacimiento,<br>entre esplendores sagrados;<br>yo mismo te engendré, como rocío,<br>antes de la aurora».",
-            "El Señor lo ha jurado y no se arrepiente:<br>«Tú eres sacerdote eterno,<br>según el rito de Melquisedec».",
-            "El Señor a tu derecha, el día de su ira,<br>quebrantará a los reyes.<br>En su camino beberá del torrente,<br>por eso, levantará la cabeza.",
-            "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
-          ]
+          "cita": "",
+          "antifona": "",
+          "estrofas": []
         },
         "salmo2": {
-          "cita": "Salmo 113 A: Israel librado de Egipto: las maravillas del Éxodo",
-          "antifona": "En presencia del Señor se estremece la tierra. Aleluya.",
-          "estrofas": [
-            "Cuando Israel salió de Egipto,<br>los hijos de Jacob de un pueblo balbuciente,<br>Judá fue su santuario,<br>Israel fue su dominio.",
-            "El mar, al verlos, huyó,<br>el Jordán se echó atrás;<br>los montes saltaron como carneros;<br>las colinas, como corderos.",
-            "¿Qué te pasa, mar, que huyes,<br>y a ti, Jordán, que te echas atrás?<br>¿Y a vosotros, montes, que saltáis como carneros;<br>colinas, que saltáis como corderos?",
-            "En presencia del Señor se estremece la tierra,<br>en presencia del Dios de Jacob;<br>que transforma las peñas en estanques,<br>el pedernal en manantiales de agua.",
-            "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
-          ]
+          "cita": "",
+          "antifona": "",
+          "estrofas": []
         },
         "salmo3": {
-          "cita": "Apocalipsis 19,1-7: Las bodas del Cordero",
-          "antifona": "Reina el Señor, nuestro Dios, dueño de todo. Aleluya.",
-          "estrofas": [
-            "Aleluya.<br>La salvación y la gloria y el poder son de nuestro Dios,<br>porque sus juicios son verdaderos y justos.<br>Aleluya.",
-            "Aleluya.<br>Alabad al Señor, sus siervos todos,<br>los que le teméis, pequeños y grandes.<br>Aleluya.",
-            "Aleluya.<br>Porque reina el Señor, nuestro Dios, dueño de todo,<br>alegrémonos y gocemos y démosle gracias.<br>Aleluya.",
-            "Aleluya.<br>Llegó la boda del Cordero,<br>su esposa se ha embellecido.<br>Aleluya.",
-            "Gloria al Padre, y al Hijo, y al Espíritu Santo.<br>Como era en el principio, ahora y siempre,<br>por los siglos de los siglos. Amén."
-          ]
+          "cita": "",
+          "antifona": "",
+          "estrofas": []
         }
       },
       "lecturaBreve": {
-        "cita": "2Co 1,3-4",
-        "texto": "¡Bendito sea Dios, Padre de nuestro Señor Jesucristo, Padre de misericordia y Dios de todo consuelo! Él nos alienta en nuestras luchas hasta el punto de poder nosotros alentar a los demás en cualquier lucha, repartiendo con ellos el ánimo que nosotros recibimos de Dios."
+        "cita": "",
+        "texto": ""
       },
       "responsorio": {
-        "v": [
-          "Bendito eres, Señor, en la bóveda del cielo.",
-          "Digno de gloria y alabanza por los siglos.",
-          "Gloria al Padre, y al Hijo, y al Espíritu Santo."
-        ],
-        "r": [
-          "Bendito eres, Señor, en la bóveda del cielo.",
-          "En la bóveda del cielo.",
-          "Bendito eres, Señor, en la bóveda del cielo."
-        ]
+        "v": [],
+        "r": []
       },
       "canticoEvangelico": {
-        "antifona": "El Hijo del hombre no ha venido para que le sirvan, sino para servir y dar su vida en rescate por todos."
+        "antifona": ""
       },
       "peticiones": {
-        "introduccion": "Adoremos a Cristo, Señor nuestro y cabeza de la Iglesia, y digámosle confiadamente:",
-        "respuesta": "Venga a nosotros tu reino, Señor",
-        "peticiones": [
-          {
-            "intencion": "Señor, haz de tu Iglesia instrumento de concordia y de unidad entre los hombres",
-            "respuesta": "y signo de salvación para todos los pueblos"
-          },
-          {
-            "intencion": "Protege, con tu brazo poderoso, al papa y a todos los obispos",
-            "respuesta": "y concédeles trabajar en unidad, amor y paz"
-          },
-          {
-            "intencion": "A los cristianos concédenos vivir íntimamente unidos a ti, nuestra cabeza,",
-            "respuesta": "y que demos testimonio en nuestras vidas de la llegada de tu reino"
-          },
-          {
-            "intencion": "Concede, Señor, al mundo el don de la paz",
-            "respuesta": "y haz que en todos los pueblos reine la justicia y el bienestar"
-          },
-          {
-            "intencion": "Otorga a los que han muerto una resurrección gloriosa",
-            "respuesta": "y haz que gocemos un día, con ellos, de la felicidad eterna"
-          }
-        ]
+        "introduccion": "",
+        "respuesta": "",
+        "peticiones": []
       },
       "oracionDominical": {
-        "introduccion": "Terminemos nuestra oración con las palabras del Señor:"
+        "introduccion": ""
       },
-      "oracionConclusiva": "Dios todopoderoso y eterno, te pedimos entregarnos a ti con fidelidad y servirte con sincero corazón. Por nuestro Señor Jesucristo, tu Hijo, que vive y reina contigo en la unidad del Espíritu Santo y es Dios por los siglos de los siglos. Amén.",
+      "oracionConclusiva": "",
       "cantoVirgen": ""
     }
   }

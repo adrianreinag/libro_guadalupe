@@ -27,16 +27,12 @@ const Post: Component<PostProps> = (props) => {
     <div class="bg-white">
       {/* Header */}
       <div class="flex items-center gap-3 p-3">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-[2px]">
-          <div class="bg-white p-[2px] rounded-full w-full h-full">
-            <div class="w-full h-full rounded-full overflow-hidden">
-              <img
-                src={props.imagenUsuario}
-                alt={props.nombreUsuario}
-                class="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+        <div class="w-10 h-10 rounded-full overflow-hidden">
+          <img
+            src={props.imagenUsuario}
+            alt={props.nombreUsuario}
+            class="w-full h-full object-cover"
+          />
         </div>
         <span class="font-semibold text-sm">{props.nombreUsuario}</span>
         <button class="ml-auto">
