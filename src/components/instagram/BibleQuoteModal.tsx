@@ -1,4 +1,4 @@
-import { type Component, Show } from 'solid-js';
+import { type Component, Show, createEffect, onCleanup } from 'solid-js';
 import type { FraseBiblica } from '../../data/frasesBiblicas';
 
 interface BibleQuoteModalProps {
@@ -8,6 +8,26 @@ interface BibleQuoteModalProps {
 }
 
 const BibleQuoteModal: Component<BibleQuoteModalProps> = (props) => {
+  // Interceptar botón atrás
+  createEffect(() => {
+    if (props.isOpen) {
+      window.history.pushState({ bibleQuoteModalOpen: true }, '');
+
+      const handlePopState = () => {
+        props.onClose();
+      };
+
+      window.addEventListener('popstate', handlePopState);
+
+      onCleanup(() => {
+        window.removeEventListener('popstate', handlePopState);
+        if (window.history.state?.bibleQuoteModalOpen) {
+          window.history.back();
+        }
+      });
+    }
+  });
+
   return (
     <Show when={props.isOpen && props.frase}>
       <div
