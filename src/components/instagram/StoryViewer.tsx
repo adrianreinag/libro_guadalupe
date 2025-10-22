@@ -250,12 +250,10 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
       longPressTimer = undefined;
     }
 
-    // Swipe vertical hacia abajo - usando requestAnimationFrame para suavizar
+    // Swipe vertical hacia abajo
     if (diffY > 0) {
-      requestAnimationFrame(() => {
-        const resistance = diffY > 200 ? 0.5 : 1;
-        setDragY(diffY * resistance);
-      });
+      const resistance = diffY > 200 ? 0.5 : 1;
+      setDragY(diffY * resistance);
     }
   };
 
