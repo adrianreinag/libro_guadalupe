@@ -1,119 +1,57 @@
 ---
 import HeaderComponent from "../components/HeaderComponent.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import BodyLayout from "../layouts/BodyLayout.astro";
-import "../styles/devocionario.css";
+import DevocionarioGrid from "../components/DevocionarioGrid";
+
+const devocionarios = [
+  {
+    nombre: "Ángelus",
+    url: "/devocionario/angelus",
+    imagen: "/assets/devocionario/angelus.jpeg",
+  },
+  {
+    nombre: "Catequesis",
+    url: "/devocionario/catequesis",
+    imagen: "/assets/devocionario/catequesis.jpg",
+  },
+  {
+    nombre: "Consagración a María",
+    url: "/devocionario/consagracion",
+    imagen: "/assets/devocionario/consagracion.jpg",
+  },
+  {
+    nombre: "Eucaristía",
+    url: "/devocionario/eucaristia",
+    imagen: "/assets/devocionario/eucaristia.jpg",
+    needsDateCalculation: true,
+  },
+  {
+    nombre: "Examen de conciencia",
+    url: "/devocionario/examen_de_conciencia",
+    imagen: "/assets/devocionario/examen.jpg",
+  },
+  {
+    nombre: "Laudes",
+    url: "/devocionario/liturgia_de_las_horas/laudes",
+    imagen: "/assets/devocionario/laudes.jpg",
+    needsDateCalculation: true,
+  },
+  {
+    nombre: "Rosario",
+    url: "/devocionario/rosario",
+    imagen: "/assets/devocionario/rosario.jpg",
+    needsDateCalculation: true,
+  },
+  {
+    nombre: "Vísperas",
+    url: "/devocionario/liturgia_de_las_horas/visperas",
+    imagen: "/assets/devocionario/visperas.jpg",
+    needsDateCalculation: true,
+  },
+];
 ---
 
 <BaseLayout title="Devocionario">
   <HeaderComponent title="Devocionario" />
-  <BodyLayout>
-    <div class="buttons">
-      <button class="button" id="btnAngelus">- Ángelus -</button>
-      <button class="button" id="btnCatequesis">- Catequesis -</button>
-      <button class="button" id="btnConsagracion"
-        >- Consagración a María-</button
-      >
-      <button class="button" id="btnEucaristia">- Eucaristía -</button>
-      <button class="button" id="btnExamen">- Examen de conciencia -</button>
-      <button class="button" id="btnLaudes">- Laudes -</button>
-      <button class="button" id="btnRosario">- Rosario -</button>
-      <button class="button" id="btnVisperas">- Vísperas -</button>
-    </div>
-  </BodyLayout>
+  <DevocionarioGrid client:load devocionarios={devocionarios} />
 </BaseLayout>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const btnLaudes = document.getElementById("btnLaudes");
-    const btnVisperas = document.getElementById("btnVisperas");
-    const btnEucaristia = document.getElementById("btnEucaristia");
-    const btnRosario = document.getElementById("btnRosario");
-    const btnAngelus = document.getElementById("btnAngelus");
-    const btnExamen = document.getElementById("btnExamen");
-    const btnCatequesis = document.getElementById("btnCatequesis");
-    const btnConsagracion = document.getElementById("btnConsagracion");
-
-    if (
-      !btnLaudes ||
-      !btnVisperas ||
-      !btnEucaristia ||
-      !btnRosario ||
-      !btnAngelus ||
-      !btnExamen ||
-      !btnCatequesis ||
-      !btnConsagracion
-    ) {
-      throw new Error("Could not find one of the buttons");
-    }
-
-    let dia;
-
-    const today = new Date();
-
-    const date = today.getDate();
-    const month = today.getMonth();
-    const year = today.getFullYear();
-
-    if (
-      year < 2024 ||
-      (year === 2024 && month < 9) ||
-      (year === 2024 && month === 9 && date < 19)
-    ) {
-      dia = "viernes";
-    } else if (year === 2024 && month === 9 && date === 19) {
-      dia = "sabado";
-    } else {
-      dia = "domingo";
-    }
-
-    btnLaudes.addEventListener("click", () => {
-      window.location.href =
-        "/devocionario/liturgia_de_las_horas/laudes/" + dia;
-    });
-
-    btnVisperas.addEventListener("click", () => {
-      window.location.href =
-        "/devocionario/liturgia_de_las_horas/visperas/" + dia;
-    });
-
-    btnEucaristia.addEventListener("click", () => {
-      window.location.href = "/devocionario/eucaristia/" + dia;
-    });
-
-    btnRosario.addEventListener("click", () => {
-      window.location.href = "/devocionario/rosario/" + dia;
-    });
-
-    btnAngelus.addEventListener("click", () => {
-      window.location.href = "/devocionario/angelus";
-    });
-
-    btnExamen.addEventListener("click", () => {
-      window.location.href = "/devocionario/examen_de_conciencia";
-    });
-
-    btnCatequesis.addEventListener("click", () => {
-      window.location.href = "/devocionario/catequesis";
-    });
-
-    btnConsagracion.addEventListener("click", () => {
-      window.location.href = "/devocionario/consagracion";
-    });
-
-    // Ajustar la altura dinámica
-    function setVH() {
-      var vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    }
-
-    setVH();
-    window.addEventListener("resize", setVH);
-  });
-</script>
-
-<style>
-  .button {
-    color: black;
-  }
-</style>
