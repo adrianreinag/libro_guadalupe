@@ -47,7 +47,12 @@ const UbicacionesTabs: Component<UbicacionesTabsProps> = (props) => {
       ref={containerRef}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      style={{ 'padding-top': '80px', 'padding-bottom': '60px', 'background-color': 'white' }}
+      style={{
+        'padding-top': '80px',
+        'padding-bottom': '60px',
+        'background-color': 'white',
+        'min-height': '100vh',
+      }}
     >
       {/* TabBar */}
       <div style={{
