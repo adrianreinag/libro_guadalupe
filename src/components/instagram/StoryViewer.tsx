@@ -273,8 +273,8 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
           class="relative w-full h-full overflow-hidden"
           style={{
             width: '100vw',
-            height: isVideo() ? '100vh' : 'calc(100vw * 16 / 9)',
-            'max-height': isVideo() ? '100vh' : '100vh',
+            height: 'calc(100vw * 16 / 9)',
+            'max-height': '100vh',
             transform: `translateY(${dragY()}px)`,
             opacity: isClosing() ? '0' : `${Math.max(0.5, 1 - dragY() / 500)}`,
             transition: isClosing()
