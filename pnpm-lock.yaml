@@ -32,6 +32,9 @@ importers:
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.47)
+      canvas-confetti:
+        specifier: ^1.9.3
+        version: 1.9.3
       postcss:
         specifier: ^8.4.47
         version: 8.4.47
@@ -1930,6 +1933,9 @@ packages:
 
   caniuse-lite@1.0.30001667:
     resolution: {integrity: sha512-7LTwJjcRkzKFmtqGsibMeuXmvFDfZq/nzIjnmgCGzKKRVzjD72selLDK1oPF/Oxzmt4fNcPvTDvGqSDG4tCALw==}
+
+  canvas-confetti@1.9.3:
+    resolution: {integrity: sha512-rFfTURMvmVEX1gyXFgn5QMn81bYk70qa0HLzcIOSVEyl57n6o9ItHeBtUSWdvKAPY0xlvBHno4/v3QPrT83q9g==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -6375,6 +6381,8 @@ snapshots:
   camelcase@8.0.0: {}
 
   caniuse-lite@1.0.30001667: {}
+
+  canvas-confetti@1.9.3: {}
 
   ccount@2.0.1: {}
 
