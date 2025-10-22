@@ -32,9 +32,11 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
 
   const nextHistoria = () => {
     if (currentHistoriaIndex() < props.historia.length - 1) {
+      setProgress(0);
       setCurrentHistoriaIndex(currentHistoriaIndex() + 1);
     } else {
       if (props.onNext) {
+        setProgress(0);
         props.onNext();
       } else {
         props.onClose();
@@ -44,8 +46,10 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
 
   const previousHistoria = () => {
     if (currentHistoriaIndex() > 0) {
+      setProgress(0);
       setCurrentHistoriaIndex(currentHistoriaIndex() - 1);
     } else if (props.onPrevious) {
+      setProgress(0);
       props.onPrevious();
     }
   };
@@ -101,6 +105,9 @@ const StoryViewer: Component<StoryViewerProps> = (props) => {
   // Manejar videos
   createEffect(() => {
     if (props.isOpen && isVideo() && videoRef && !isPaused()) {
+      // Reiniciar el video desde el principio
+      videoRef.currentTime = 0;
+      setProgress(0);
       videoRef.play();
 
       const updateProgress = () => {
