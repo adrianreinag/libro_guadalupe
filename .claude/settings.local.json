@@ -4,7 +4,13 @@
       "Bash(done)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(find:*)",
+      "Bash(magick -version:*)",
+      "Bash(convert:*)",
+      "Bash(npm install:*)",
+      "Bash(node compress-instagram-images.js:*)",
+      "Bash(node compress-images-simple.js:*)"
     ],
     "deny": [],
     "ask": []
