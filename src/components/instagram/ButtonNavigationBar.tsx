@@ -4,6 +4,7 @@ import { getFraseAleatoria, type FraseBiblica } from '../../data/frasesBiblicas'
 
 interface ButtonNavigationBarProps {
   reelsUrl?: string;
+  postUrl?: string;
 }
 
 const ButtonNavigationBar: Component<ButtonNavigationBarProps> = (props) => {
@@ -16,39 +17,10 @@ const ButtonNavigationBar: Component<ButtonNavigationBarProps> = (props) => {
     }
   };
 
-  const handleShareClick = async () => {
-    const url = window.location.href;
-    const title = 'Libro Guadalupe';
-    const text = '¡Mira el libro de Guadalupe!';
-
-    // Verificar si el navegador soporta Web Share API
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: title,
-          text: text,
-          url: url,
-        });
-      } catch (error) {
-        // Si el usuario cancela, no hacer nada
-        if ((error as Error).name !== 'AbortError') {
-          console.error('Error al compartir:', error);
-          fallbackShare(url);
-        }
-      }
-    } else {
-      fallbackShare(url);
+  const handlePostClick = () => {
+    if (props.postUrl) {
+      window.open(props.postUrl, '_blank');
     }
-  };
-
-  const fallbackShare = (url: string) => {
-    // Copiar al portapapeles como fallback
-    navigator.clipboard.writeText(url).then(() => {
-      alert('¡Enlace copiado al portapapeles!');
-    }).catch(() => {
-      // Si falla copiar al portapapeles, mostrar el enlace
-      prompt('Copia este enlace:', url);
-    });
   };
 
   const handleExploreClick = () => {
@@ -78,13 +50,12 @@ const ButtonNavigationBar: Component<ButtonNavigationBarProps> = (props) => {
             <img src="/assets/instagram/icons/explore.svg" alt="Explore" class="w-7 h-7" />
           </button>
 
-          {/* Direct - Compartir */}
+          {/* Post */}
           <button
-            class="p-2 hover:opacity-70 transition-opacity active:scale-95 transition-transform"
-            onClick={handleShareClick}
-            title="Compartir página"
+            class="p-2 hover:opacity-70 transition-opacity"
+            onClick={handlePostClick}
           >
-            <img src="/assets/instagram/icons/direct.svg" alt="Compartir" class="w-7 h-7" />
+            <img src="/assets/instagram/icons/post.svg" alt="Post" class="w-7 h-7" />
           </button>
 
           {/* Reel */}

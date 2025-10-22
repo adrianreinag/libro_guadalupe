@@ -57,8 +57,8 @@ const postsData = [
           </div>
           <div class="flex gap-4">
             <HeaderNotifications client:load />
-            <button>
-              <img src="/assets/instagram/icons/direct.svg" alt="Direct" class="w-7 h-7" />
+            <button id="shareButton" class="hover:opacity-70 transition-opacity active:scale-95 transition-transform">
+              <img src="/assets/instagram/icons/direct.svg" alt="Compartir" class="w-7 h-7" />
             </button>
           </div>
         </div>
@@ -87,6 +87,49 @@ const postsData = [
     <ButtonNavigationBar
       client:load
       reelsUrl="https://youtu.be/M_EZxQUGDn4?si=Eh1jRvYU5Zg9_CXY"
+      postUrl="https://www.instagram.com/delejuventud/"
     />
   </div>
 </BaseLayout>
+
+<script>
+  // Funcionalidad de compartir para el botón Direct del header
+  const shareButton = document.getElementById('shareButton');
+
+  if (shareButton) {
+    shareButton.addEventListener('click', async () => {
+      const url = window.location.href;
+      const title = 'Libro Guadalupe';
+      const text = '¡Mira este contenido en Libro Guadalupe!';
+
+      // Verificar si el navegador soporta Web Share API
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: title,
+            text: text,
+            url: url,
+          });
+        } catch (error) {
+          // Si el usuario cancela, no hacer nada
+          if ((error as Error).name !== 'AbortError') {
+            console.error('Error al compartir:', error);
+            fallbackShare(url);
+          }
+        }
+      } else {
+        fallbackShare(url);
+      }
+    });
+  }
+
+  function fallbackShare(url: string) {
+    // Copiar al portapapeles como fallback
+    navigator.clipboard.writeText(url).then(() => {
+      alert('¡Enlace copiado al portapapeles!');
+    }).catch(() => {
+      // Si falla copiar al portapapeles, mostrar el enlace
+      prompt('Copia este enlace:', url);
+    });
+  }
+</script>

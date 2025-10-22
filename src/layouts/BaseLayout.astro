@@ -32,6 +32,24 @@ const { title } = Astro.props;
 		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 		<script src="/src/pwa.ts"></script>
 		<ViewTransitions />
+		<script is:inline>
+			// Bloquear menú contextual en todas las imágenes
+			document.addEventListener('DOMContentLoaded', function() {
+				document.addEventListener('contextmenu', function(e) {
+					if (e.target.tagName === 'IMG') {
+						e.preventDefault();
+						return false;
+					}
+				}, false);
+
+				// Prevenir long press en imágenes en dispositivos táctiles
+				document.addEventListener('touchstart', function(e) {
+					if (e.target.tagName === 'IMG') {
+						e.target.style.webkitTouchCallout = 'none';
+					}
+				}, { passive: true });
+			});
+		</script>
 	</head>
 	<body style="background-color: white;">
 		<div class="mobile-view">
