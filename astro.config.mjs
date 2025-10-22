@@ -50,7 +50,8 @@ export default defineConfig({
     workbox: {
       navigateFallback: '/',
       navigateFallbackDenylist: [/^\/(devocionario|ubicaciones|carta_del_obispo)/],
-      globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,jpg,jpeg}'],
+      globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}'],
+      globIgnores: ['**/assets/devocionario/**', '**/assets/ubicaciones/**'],
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB
       runtimeCaching: [
         {
