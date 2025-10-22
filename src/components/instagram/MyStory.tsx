@@ -1,4 +1,5 @@
 import type { Component } from 'solid-js';
+import confetti from 'canvas-confetti';
 
 interface MyStoryProps {
   imagen: string;
@@ -6,10 +7,42 @@ interface MyStoryProps {
 }
 
 const MyStory: Component<MyStoryProps> = (props) => {
+  const handleClick = (e: MouseEvent) => {
+    // Obtener la posición del click para el confeti
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const x = (rect.left + rect.width / 2) / window.innerWidth;
+    const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+    // Efecto de confeti sutil
+    confetti({
+      particleCount: 50,
+      spread: 60,
+      origin: { x, y },
+      colors: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8'],
+      ticks: 150,
+      gravity: 0.8,
+      scalar: 0.8,
+      drift: 0,
+    });
+
+    // Confeti adicional más pequeño y disperso
+    setTimeout(() => {
+      confetti({
+        particleCount: 30,
+        spread: 80,
+        origin: { x, y },
+        colors: ['#FFD93D', '#6BCF7F', '#A8DADC'],
+        ticks: 120,
+        gravity: 0.6,
+        scalar: 0.6,
+      });
+    }, 100);
+  };
+
   return (
     <button
       class="flex flex-col items-center gap-1 min-w-[95px] cursor-pointer"
-      onClick={props.onClick}
+      onClick={handleClick}
     >
       <div class="relative flex-shrink-0">
         {/* Anillo invisible para mantener el mismo tamaño que Story */}

@@ -98,7 +98,7 @@ const Stories: Component<StoriesProps> = (props) => {
   return (
     <>
       <div class="flex gap-4 overflow-x-auto p-4 bg-white scrollbar-hide">
-        <MyStory imagen={props.miImagen} onClick={() => openStory(0)} />
+        <MyStory imagen={props.miImagen} />
         <For each={storiesWithViewStatus()}>
           {(story, index) => (
             <Story
