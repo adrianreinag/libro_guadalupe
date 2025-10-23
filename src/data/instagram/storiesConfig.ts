@@ -32,14 +32,14 @@ export const storiesConfig: StoryUserConfig[] = [
     nombreUsuario: 'donjesusobispo',
     mejorAmigo: false,
     historias: [
-      {
-        id: 'donjesus_catedral_1',
-        tipo: 'video',
-        url: '/assets/instagram/stories/Don_Jesus_Story_Catedral.mp4',
-        duration: 95,
-        startDate: createDate('2025-10-15', '08:00'),
-        endDate: createDate('2025-10-28', '23:59'),
-      }
+      // {
+      //   id: 'donjesus_catedral_1',
+      //   tipo: 'video',
+      //   url: '/assets/instagram/stories/Don_Jesus_Story_Catedral.mp4',
+      //   duration: 95,
+      //   startDate: createDate('2025-10-15', '08:00'),
+      //   endDate: createDate('2025-10-28', '23:59'),
+      // }
     ],
   },
   {

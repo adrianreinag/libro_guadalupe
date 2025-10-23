@@ -57,10 +57,14 @@ const postsData = [
               <img src="/assets/instagram/icons/arrow_down.svg" alt="Arrow down" class="w-5 h-5" />
             </button>
           </div>
-          <div class="flex gap-4">
+          <div class="flex gap-4 items-center">
             <HeaderNotifications client:load />
-            <button id="shareButton" class="hover:opacity-70 transition-opacity active:scale-95 transition-transform">
-              <img src="/assets/instagram/icons/direct.svg" alt="Compartir" class="w-7 h-7" />
+            <button
+              id="shareButton"
+              class="hover:opacity-70 transition-opacity active:scale-95 transition-transform p-2 -m-2 relative z-10"
+              type="button"
+            >
+              <img src="/assets/instagram/icons/direct.svg" alt="Compartir" class="w-7 h-7 pointer-events-none" />
             </button>
           </div>
         </div>
