@@ -53,7 +53,9 @@ const postsData = [
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-1">
             <h1 class="text-2xl font-semibold">Para ti</h1>
-            <img src="/assets/instagram/icons/arrow_down.svg" alt="Arrow down" class="w-5 h-5" />
+            <button id="arrowButton" class="cursor-pointer">
+              <img src="/assets/instagram/icons/arrow_down.svg" alt="Arrow down" class="w-5 h-5" />
+            </button>
           </div>
           <div class="flex gap-4">
             <HeaderNotifications client:load />
@@ -78,6 +80,7 @@ const postsData = [
             descripcion={post.descripcion}
             likes={post.likes}
             urlRedireccion={post.urlRedireccion}
+            instagramUrl="https://www.instagram.com/delejuventud/"
           />
         ))}
       </div>
@@ -92,7 +95,34 @@ const postsData = [
   </div>
 </BaseLayout>
 
+<style>
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-3px) rotate(-5deg); }
+    20%, 40%, 60%, 80% { transform: translateX(3px) rotate(5deg); }
+  }
+
+  .shake-animation {
+    animation: shake 0.5s ease-in-out;
+  }
+</style>
+
 <script>
+  // Funcionalidad de vibración para el icono de flecha
+  const arrowButton = document.getElementById('arrowButton');
+
+  if (arrowButton) {
+    arrowButton.addEventListener('click', () => {
+      // Agregar la clase de animación
+      arrowButton.classList.add('shake-animation');
+
+      // Remover la clase después de que termine la animación
+      setTimeout(() => {
+        arrowButton.classList.remove('shake-animation');
+      }, 500); // 500ms coincide con la duración de la animación
+    });
+  }
+
   // Funcionalidad de compartir para el botón Direct del header
   const shareButton = document.getElementById('shareButton');
 

@@ -19,12 +19,14 @@ const DevocionarioGrid: Component<DevocionarioGridProps> = (props) => {
     const year = today.getFullYear();
 
     if (
-      year < 2024 ||
-      (year === 2024 && month < 9) ||
-      (year === 2024 && month === 9 && date < 19)
+      year < 2025 ||
+      (year === 2025 && month < 9) ||
+      (year === 2025 && month === 9 && date < 24)
     ) {
       return "viernes";
-    } else if (year === 2024 && month === 9 && date === 19) {
+    } else if (year === 2025 && month === 9 && date === 24) {
+      return "viernes";
+    } else if (year === 2025 && month === 9 && date === 25) {
       return "sabado";
     } else {
       return "domingo";
