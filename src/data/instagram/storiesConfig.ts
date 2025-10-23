@@ -32,14 +32,14 @@ export const storiesConfig: StoryUserConfig[] = [
     nombreUsuario: 'donjesusobispo',
     mejorAmigo: false,
     historias: [
-      // {
-      //   id: 'donjesus_catedral_1',
-      //   tipo: 'video',
-      //   url: '/assets/instagram/stories/Don_Jesus_Story_Catedral.mp4',
-      //   duration: 95,
-      //   startDate: createDate('2025-10-15', '08:00'),
-      //   endDate: createDate('2025-10-28', '23:59'),
-      // }
+      {
+        id: 'donjesus_catedral_1',
+        tipo: 'video',
+        url: '/assets/instagram/stories/Don_Jesus_Story_Catedral.mp4',
+        duration: 95,
+        startDate: createDate('2025-10-23', '17:00'),
+        endDate: createDate('2025-10-28', '23:59'),
+      }
     ],
   },
   {
@@ -52,11 +52,10 @@ export const storiesConfig: StoryUserConfig[] = [
         id: 'carloacutis_catedral_1',
         tipo: 'imagen',
         url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.webp',
-        duration: 15, // 6 segundos
-        startDate: createDate('2025-10-15', '09:00'),
-        endDate: createDate('2025-10-26', '23:59'),
+        duration: 15,
+        startDate: createDate('2025-10-24', '05:00'),
+        endDate: createDate('2025-10-25', '05:00'),
       },
-      // Más historias para Carlo Acutis
     ],
   },
   {
@@ -69,19 +68,10 @@ export const storiesConfig: StoryUserConfig[] = [
         id: 'dele_catedral_1',
         tipo: 'imagen',
         url: '/assets/instagram/stories/La_Dele_Story_Catedral.jpeg',
-        duration: 15, // 4 segundos
+        duration: 15,
         startDate: createDate('2025-10-15', '10:00'),
         endDate: createDate('2025-10-24', '23:59'),
       },
-      // Puedes agregar muchas más historias para Dele Juventud
-      // {
-      //   id: 'dele_historia_2',
-      //   tipo: 'imagen',
-      //   url: '/assets/instagram/stories/otra_historia.jpg',
-      //   duration: 10, // 10 segundos
-      //   startDate: createDate('2025-10-18', '15:00'),
-      //   endDate: createDate('2025-10-28', '23:59'),
-      // },
     ],
   },
 ];
