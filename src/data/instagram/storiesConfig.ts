@@ -56,6 +56,30 @@ export const storiesConfig: StoryUserConfig[] = [
         startDate: createDate('2025-10-24', '05:00'),
         endDate: createDate('2025-10-25', '05:00'),
       },
+      {
+        id: 'carloacutis_catedral_1',
+        tipo: 'imagen',
+        url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.webp', // TODO: Actualizar imagen por una del camino
+        duration: 15,
+        startDate: createDate('2025-10-24', '18:00'),
+        endDate: createDate('2025-10-25', '18:00'),
+      },
+      {
+        id: 'carloacutis_catedral_1',
+        tipo: 'imagen',
+        url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.webp', // TODO: Actualizar imagen por una de la adoración
+        duration: 15,
+        startDate: createDate('2025-10-24', '21:00'),
+        endDate: createDate('2025-10-25', '21:00'),
+      },
+      {
+        id: 'carloacutis_catedral_1',
+        tipo: 'imagen',
+        url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.webp', // TODO: Actualizar imagen por una de la Virgen
+        duration: 15,
+        startDate: createDate('2025-10-25', '20:00'),
+        endDate: createDate('2025-10-26', '20:00'),
+      },
     ],
   },
   {
@@ -67,16 +91,23 @@ export const storiesConfig: StoryUserConfig[] = [
       {
         id: 'dele_catedral_1',
         tipo: 'imagen',
-        url: '/assets/instagram/stories/La_Dele_Story_Catedral.jpeg',
+        url: '/assets/instagram/stories/La_Dele_Story_Catedral.jpeg', // TODO: Actualizar imagen por concurso de fotografias
         duration: 15,
-        startDate: createDate('2025-10-15', '10:00'),
-        endDate: createDate('2025-10-24', '23:59'),
+        startDate: createDate('2025-10-24', '12:00'),
+        endDate: createDate('2025-10-25', '23:59'),
+      },
+      {
+        id: 'dele_catedral_1',
+        tipo: 'imagen',
+        url: '/assets/instagram/stories/La_Dele_Story_Catedral.jpeg', // TODO: Actualizar imagen por got talent
+        duration: 15,
+        startDate: createDate('2025-10-24', '12:00'),
+        endDate: createDate('2025-10-25', '23:59'),
       },
     ],
   },
 ];
 
-// Función para obtener historias activas (dentro del rango de tiempo)
 export const getActiveStories = (now: Date = new Date()): StoryUserConfig[] => {
   return storiesConfig
     .map(user => ({
