@@ -35,17 +35,9 @@ export const storiesConfig: StoryUserConfig[] = [
       {
         id: 'donjesus_catedral_1',
         tipo: 'video',
-        url: '/assets/instagram/stories/Don_Jesus_Story_Catedral.mp4',
+        url: '/assets/instagram/stories/Don_Jesus_Story.mp4',
         duration: 95,
         startDate: createDate('2025-10-23', '17:00'),
-        endDate: createDate('2025-10-28', '23:59'),
-      },
-      {
-        id: 'donjesus_catedral_1',
-        tipo: 'video',
-        url: '/assets/instagram/stories/Don_Jesus_Story_Catedral.mp4',
-        duration: 95,
-        startDate: createDate('2025-10-23', '16:00'),
         endDate: createDate('2025-10-28', '23:59'),
       }
     ],
@@ -61,29 +53,29 @@ export const storiesConfig: StoryUserConfig[] = [
         tipo: 'imagen',
         url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.webp',
         duration: 15,
-        startDate: createDate('2025-10-24', '05:00'),
+        startDate: createDate('2025-10-24', '01:23'),
         endDate: createDate('2025-10-25', '05:00'),
       },
       {
-        id: 'carloacutis_catedral_1',
+        id: 'carloacutis_camino_1',
         tipo: 'imagen',
-        url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.webp', // TODO: Actualizar imagen por una del camino
+        url: '/assets/instagram/stories/Carlo_Acutis_Story_Camino.jpeg',
         duration: 15,
-        startDate: createDate('2025-10-24', '18:00'),
+        startDate: createDate('2025-10-24', '01:25'),
         endDate: createDate('2025-10-25', '18:00'),
       },
       {
-        id: 'carloacutis_catedral_1',
+        id: 'carloacutis_adoracion_1',
         tipo: 'imagen',
-        url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.webp', // TODO: Actualizar imagen por una de la adoración
+        url: '/assets/instagram/stories/Carlo_Acutis_Story_Eucaristia.jpeg',
         duration: 15,
         startDate: createDate('2025-10-24', '21:00'),
         endDate: createDate('2025-10-25', '21:00'),
       },
       {
-        id: 'carloacutis_catedral_1',
+        id: 'carloacutis_virgen_1',
         tipo: 'imagen',
-        url: '/assets/instagram/stories/Carlo_Acutis_Story_Catedral.webp', // TODO: Actualizar imagen por una de la Virgen
+        url: '/assets/instagram/stories/Carlo_Acutis_Story_Maria.jpeg',
         duration: 15,
         startDate: createDate('2025-10-25', '20:00'),
         endDate: createDate('2025-10-26', '20:00'),
@@ -97,17 +89,17 @@ export const storiesConfig: StoryUserConfig[] = [
     mejorAmigo: false,
     historias: [
       {
-        id: 'dele_catedral_1',
+        id: 'dele_fotografia_1',
         tipo: 'imagen',
-        url: '/assets/instagram/stories/La_Dele_Story_Catedral.jpeg', // TODO: Actualizar imagen por concurso de fotografias
+        url: '/assets/instagram/stories/La_Dele_Story_Fotos.jpeg',
         duration: 15,
         startDate: createDate('2025-10-24', '12:00'),
         endDate: createDate('2025-10-25', '23:59'),
       },
       {
-        id: 'dele_catedral_1',
+        id: 'dele_talent_1',
         tipo: 'imagen',
-        url: '/assets/instagram/stories/La_Dele_Story_Catedral.jpeg', // TODO: Actualizar imagen por got talent
+        url: '/assets/instagram/stories/La_Dele_Story_GodTalent.jpeg',
         duration: 15,
         startDate: createDate('2025-10-24', '12:00'),
         endDate: createDate('2025-10-25', '23:59'),
@@ -117,7 +109,48 @@ export const storiesConfig: StoryUserConfig[] = [
 ];
 
 export const getActiveStories = (now: Date = new Date()): StoryUserConfig[] => {
-  return storiesConfig
+  console.log('\n=== DIAGNÓSTICO DE HISTORIAS PROGRAMADAS ===');
+  console.log('Fecha/Hora actual:', now.toLocaleString('es-ES', { timeZone: 'UTC' }));
+  console.log('Fecha/Hora actual (ISO):', now.toISOString());
+  console.log('\n--- TODAS LAS HISTORIAS CONFIGURADAS ---');
+
+  let totalHistorias = 0;
+  let historiasActivas = 0;
+  let historiasInactivas = 0;
+
+  storiesConfig.forEach(user => {
+    console.log(`\n👤 Usuario: ${user.nombreUsuario} (${user.userId})`);
+    console.log(`   Total de historias configuradas: ${user.historias.length}`);
+
+    user.historias.forEach((historia, index) => {
+      totalHistorias++;
+      const isActive = now >= historia.startDate && now <= historia.endDate;
+      const startCheck = now >= historia.startDate;
+      const endCheck = now <= historia.endDate;
+
+      console.log(`\n   📖 Historia #${index + 1}: ${historia.id}`);
+      console.log(`      Tipo: ${historia.tipo}`);
+      console.log(`      URL: ${historia.url}`);
+      console.log(`      Inicio: ${historia.startDate.toLocaleString('es-ES', { timeZone: 'UTC' })} (${historia.startDate.toISOString()})`);
+      console.log(`      Fin: ${historia.endDate.toLocaleString('es-ES', { timeZone: 'UTC' })} (${historia.endDate.toISOString()})`);
+      console.log(`      ✓ Verificación de inicio (now >= startDate): ${startCheck} ${startCheck ? '✅' : '❌'}`);
+      console.log(`      ✓ Verificación de fin (now <= endDate): ${endCheck} ${endCheck ? '✅' : '❌'}`);
+      console.log(`      ⭐ ACTIVA: ${isActive ? 'SÍ ✅ (SE MOSTRARÁ)' : 'NO ❌ (NO SE MOSTRARÁ)'}`);
+
+      if (isActive) {
+        historiasActivas++;
+      } else {
+        historiasInactivas++;
+      }
+    });
+  });
+
+  console.log('\n--- RESUMEN GENERAL ---');
+  console.log(`📊 Total de historias configuradas: ${totalHistorias}`);
+  console.log(`✅ Historias activas (se mostrarán): ${historiasActivas}`);
+  console.log(`❌ Historias inactivas (NO se mostrarán): ${historiasInactivas}`);
+
+  const result = storiesConfig
     .map(user => ({
       ...user,
       historias: user.historias.filter(historia => {
@@ -126,4 +159,12 @@ export const getActiveStories = (now: Date = new Date()): StoryUserConfig[] => {
       }),
     }))
     .filter(user => user.historias.length > 0); // Solo usuarios con historias activas
+
+  console.log(`\n👥 Usuarios con historias activas: ${result.length}`);
+  result.forEach(user => {
+    console.log(`   - ${user.nombreUsuario}: ${user.historias.length} historia(s) activa(s)`);
+  });
+  console.log('=== FIN DEL DIAGNÓSTICO ===\n');
+
+  return result;
 };
