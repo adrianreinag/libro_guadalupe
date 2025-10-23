@@ -39,6 +39,14 @@ export const storiesConfig: StoryUserConfig[] = [
         duration: 95,
         startDate: createDate('2025-10-23', '17:00'),
         endDate: createDate('2025-10-28', '23:59'),
+      },
+      {
+        id: 'donjesus_catedral_1',
+        tipo: 'video',
+        url: '/assets/instagram/stories/Don_Jesus_Story_Catedral.mp4',
+        duration: 95,
+        startDate: createDate('2025-10-23', '16:00'),
+        endDate: createDate('2025-10-28', '23:59'),
       }
     ],
   },
