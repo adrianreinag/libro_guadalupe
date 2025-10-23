@@ -5,6 +5,8 @@ export interface HistoriaItem {
   tipo: 'imagen' | 'video';
   url: string;
   duration?: number; // Duración en segundos (opcional para retrocompatibilidad)
+  startDate?: string; // Fecha de inicio en formato ISO (opcional)
+  endDate?: string; // Fecha de fin en formato ISO (opcional)
 }
 
 interface StoryProps {

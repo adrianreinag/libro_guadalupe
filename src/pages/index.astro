@@ -4,13 +4,11 @@ import Stories from "../components/instagram/Stories";
 import Post from "../components/instagram/Post";
 import ButtonNavigationBar from "../components/instagram/ButtonNavigationBar";
 import HeaderNotifications from "../components/instagram/HeaderNotifications";
-import { getActiveStories } from "../data/instagram/storiesConfig";
+import { storiesConfig } from "../data/instagram/storiesConfig";
 
-// Obtener las historias activas según la fecha/hora actual
-const activeStoriesConfig = getActiveStories();
-
-// Convertir la configuración a formato compatible con el componente Stories
-const storiesData = activeStoriesConfig.map(user => ({
+// Pasar TODA la configuración al cliente (sin filtrar)
+// El filtrado se hará en el componente Stories en el lado del cliente
+const storiesData = storiesConfig.map(user => ({
   userId: user.userId,
   imagenPerfil: user.imagenPerfil,
   nombreUsuario: user.nombreUsuario,
@@ -19,7 +17,10 @@ const storiesData = activeStoriesConfig.map(user => ({
     id: h.id,
     tipo: h.tipo,
     url: h.url,
-    duration: h.duration, // Duración personalizada
+    duration: h.duration,
+    // Serializar las fechas como strings ISO para pasarlas al cliente
+    startDate: h.startDate.toISOString(),
+    endDate: h.endDate.toISOString(),
   })),
   visto: false, // Se calculará dinámicamente en el componente
 }));

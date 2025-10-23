@@ -22,12 +22,87 @@ const Stories: Component<StoriesProps> = (props) => {
   const [currentStoryIndex, setCurrentStoryIndex] = createSignal<number | null>(null);
   const [isViewerOpen, setIsViewerOpen] = createSignal(false);
 
-  // Inicializar con props.stories para evitar el bug del primer click
-  const [storiesWithViewStatus, setStoriesWithViewStatus] = createSignal<StoryData[]>(props.stories);
+  // Función para filtrar historias activas basándose en la fecha/hora actual
+  const filterActiveStories = (stories: StoryData[]): StoryData[] => {
+    const now = new Date();
+
+    console.log('\n=== DIAGNÓSTICO DE HISTORIAS PROGRAMADAS (Cliente) ===');
+    console.log('Fecha/Hora actual:', now.toLocaleString('es-ES'));
+    console.log('Fecha/Hora actual (ISO):', now.toISOString());
+    console.log('\n--- TODAS LAS HISTORIAS CONFIGURADAS ---');
+
+    let totalHistorias = 0;
+    let historiasActivas = 0;
+    let historiasInactivas = 0;
+
+    const filteredStories = stories
+      .map(user => {
+        console.log(`\n👤 Usuario: ${user.nombreUsuario} (${user.userId})`);
+        console.log(`   Total de historias configuradas: ${user.historia.length}`);
+
+        const activeHistorias = user.historia.filter((historia, index) => {
+          totalHistorias++;
+
+          // Si no hay fechas, la historia está siempre activa (retrocompatibilidad)
+          if (!historia.startDate || !historia.endDate) {
+            historiasActivas++;
+            return true;
+          }
+
+          const startDate = new Date(historia.startDate);
+          const endDate = new Date(historia.endDate);
+          const isActive = now >= startDate && now <= endDate;
+          const startCheck = now >= startDate;
+          const endCheck = now <= endDate;
+
+          console.log(`\n   📖 Historia #${index + 1}: ${historia.id}`);
+          console.log(`      Tipo: ${historia.tipo}`);
+          console.log(`      URL: ${historia.url}`);
+          console.log(`      Inicio: ${startDate.toLocaleString('es-ES')} (${historia.startDate})`);
+          console.log(`      Fin: ${endDate.toLocaleString('es-ES')} (${historia.endDate})`);
+          console.log(`      ✓ Verificación de inicio (now >= startDate): ${startCheck} ${startCheck ? '✅' : '❌'}`);
+          console.log(`      ✓ Verificación de fin (now <= endDate): ${endCheck} ${endCheck ? '✅' : '❌'}`);
+          console.log(`      ⭐ ACTIVA: ${isActive ? 'SÍ ✅ (SE MOSTRARÁ)' : 'NO ❌ (NO SE MOSTRARÁ)'}`);
+
+          if (isActive) {
+            historiasActivas++;
+          } else {
+            historiasInactivas++;
+          }
+
+          return isActive;
+        });
+
+        return {
+          ...user,
+          historia: activeHistorias,
+        };
+      })
+      .filter(user => user.historia.length > 0); // Solo usuarios con historias activas
+
+    console.log('\n--- RESUMEN GENERAL ---');
+    console.log(`📊 Total de historias configuradas: ${totalHistorias}`);
+    console.log(`✅ Historias activas (se mostrarán): ${historiasActivas}`);
+    console.log(`❌ Historias inactivas (NO se mostrarán): ${historiasInactivas}`);
+    console.log(`\n👥 Usuarios con historias activas: ${filteredStories.length}`);
+    filteredStories.forEach(user => {
+      console.log(`   - ${user.nombreUsuario}: ${user.historia.length} historia(s) activa(s)`);
+    });
+    console.log('=== FIN DEL DIAGNÓSTICO ===\n');
+
+    return filteredStories;
+  };
+
+  // Inicializar con historias filtradas
+  const [storiesWithViewStatus, setStoriesWithViewStatus] = createSignal<StoryData[]>([]);
 
   // Actualizar el estado de visto de cada historia al cargar o cuando cambien
   createEffect(() => {
-    const updatedStories = props.stories.map(story => {
+    // Primero filtrar las historias activas
+    const activeStories = filterActiveStories(props.stories);
+
+    // Luego actualizar el estado de visto
+    const updatedStories = activeStories.map(story => {
       const storyIds = story.historia.map(h => h.id).filter(Boolean);
       const allViewed = areAllUserStoriesViewed(storyIds);
       return {
@@ -47,7 +122,9 @@ const Stories: Component<StoriesProps> = (props) => {
     setIsViewerOpen(false);
     setCurrentStoryIndex(null);
     // Refrescar el estado de visto cuando se cierra el visor
-    const updatedStories = storiesWithViewStatus().map(story => {
+    // También re-filtrar las historias activas por si cambió el tiempo
+    const activeStories = filterActiveStories(props.stories);
+    const updatedStories = activeStories.map(story => {
       const storyIds = story.historia.map(h => h.id).filter(Boolean);
       const allViewed = areAllUserStoriesViewed(storyIds);
       return {
